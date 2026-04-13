@@ -1,0 +1,1892 @@
+[
+  {
+    "id": "MAT",
+    "name": "Matematika & Logika",
+    "shortName": "Maths",
+    "icon": "Hash",
+    "color": "#6366F1",
+    "bgColor": "#EEF2FF",
+    "subAreas": [
+      {
+        "id": "MAT_BASE",
+        "name": "Materi Inti",
+        "levels": [
+          {
+            "label": "K3: skip counting: sequence of",
+            "presentation": {
+              "tool": "Alat Sentra standar untuk skip counting: sequence of",
+              "steps": [
+                "Siapkan alas kerja dan bawa material skip counting: sequence of ke meja/karpet.",
+                "Lakukan demonstrasi perkenalan konsep secara bertahap kepada anak.",
+                "Ajak anak untuk mencoba memanipulasi alat secara mandiri.",
+                "Kembalikan alat ke rak setelah selesai digunakan."
+              ],
+              "error": "Anak dapat memverifikasi hasil akhir dengan kunci jawaban atau kesesuaian fisik alat.",
+              "videoUrl": ""
+            }
+          },
+          {
+            "label": "K2: memorisation of + facts",
+            "presentation": {
+              "tool": "Alat Sentra standar untuk memorisation of + facts",
+              "steps": [
+                "Siapkan alas kerja dan bawa material memorisation of + facts ke meja/karpet.",
+                "Lakukan demonstrasi perkenalan konsep secara bertahap kepada anak.",
+                "Ajak anak untuk mencoba memanipulasi alat secara mandiri.",
+                "Kembalikan alat ke rak setelah selesai digunakan."
+              ],
+              "error": "Anak dapat memverifikasi hasil akhir dengan kunci jawaban atau kesesuaian fisik alat.",
+              "videoUrl": ""
+            }
+          },
+          {
+            "label": "K2: introduction to fractions",
+            "presentation": {
+              "tool": "Alat Sentra standar untuk introduction to fractions",
+              "steps": [
+                "Siapkan alas kerja dan bawa material introduction to fractions ke meja/karpet.",
+                "Lakukan demonstrasi perkenalan konsep secara bertahap kepada anak.",
+                "Ajak anak untuk mencoba memanipulasi alat secara mandiri.",
+                "Kembalikan alat ke rak setelah selesai digunakan."
+              ],
+              "error": "Anak dapat memverifikasi hasil akhir dengan kunci jawaban atau kesesuaian fisik alat.",
+              "videoUrl": ""
+            }
+          },
+          {
+            "label": "K1: history of money; coin values and",
+            "presentation": {
+              "tool": "Alat Sentra standar untuk history of money; coin values and",
+              "steps": [
+                "Siapkan alas kerja dan bawa material history of money; coin values and ke meja/karpet.",
+                "Lakukan demonstrasi perkenalan konsep secara bertahap kepada anak.",
+                "Ajak anak untuk mencoba memanipulasi alat secara mandiri.",
+                "Kembalikan alat ke rak setelah selesai digunakan."
+              ],
+              "error": "Anak dapat memverifikasi hasil akhir dengan kunci jawaban atau kesesuaian fisik alat.",
+              "videoUrl": ""
+            }
+          },
+          {
+            "label": "K2: word problems with simple facts",
+            "presentation": {
+              "tool": "Alat Sentra standar untuk word problems with simple facts",
+              "steps": [
+                "Siapkan alas kerja dan bawa material word problems with simple facts ke meja/karpet.",
+                "Lakukan demonstrasi perkenalan konsep secara bertahap kepada anak.",
+                "Ajak anak untuk mencoba memanipulasi alat secara mandiri.",
+                "Kembalikan alat ke rak setelah selesai digunakan."
+              ],
+              "error": "Anak dapat memverifikasi hasil akhir dengan kunci jawaban atau kesesuaian fisik alat.",
+              "videoUrl": ""
+            }
+          },
+          {
+            "label": "K2: simple surveys, graphs; tallying",
+            "presentation": {
+              "tool": "Alat Sentra standar untuk simple surveys, graphs; tallying",
+              "steps": [
+                "Siapkan alas kerja dan bawa material simple surveys, graphs; tallying ke meja/karpet.",
+                "Lakukan demonstrasi perkenalan konsep secara bertahap kepada anak.",
+                "Ajak anak untuk mencoba memanipulasi alat secara mandiri.",
+                "Kembalikan alat ke rak setelah selesai digunakan."
+              ],
+              "error": "Anak dapat memverifikasi hasil akhir dengan kunci jawaban atau kesesuaian fisik alat.",
+              "videoUrl": ""
+            }
+          },
+          {
+            "label": "K2: cardinal vs. ordinal numbers",
+            "presentation": {
+              "tool": "Alat Sentra standar untuk cardinal vs. ordinal numbers",
+              "steps": [
+                "Siapkan alas kerja dan bawa material cardinal vs. ordinal numbers ke meja/karpet.",
+                "Lakukan demonstrasi perkenalan konsep secara bertahap kepada anak.",
+                "Ajak anak untuk mencoba memanipulasi alat secara mandiri.",
+                "Kembalikan alat ke rak setelah selesai digunakan."
+              ],
+              "error": "Anak dapat memverifikasi hasil akhir dengan kunci jawaban atau kesesuaian fisik alat.",
+              "videoUrl": ""
+            }
+          },
+          {
+            "label": "K1: concept & process in – and x",
+            "presentation": {
+              "tool": "Alat Sentra standar untuk concept & process in – and x",
+              "steps": [
+                "Siapkan alas kerja dan bawa material concept & process in – and x ke meja/karpet.",
+                "Lakukan demonstrasi perkenalan konsep secara bertahap kepada anak.",
+                "Ajak anak untuk mencoba memanipulasi alat secara mandiri.",
+                "Kembalikan alat ke rak setelah selesai digunakan."
+              ],
+              "error": "Anak dapat memverifikasi hasil akhir dengan kunci jawaban atau kesesuaian fisik alat.",
+              "videoUrl": ""
+            }
+          },
+          {
+            "label": "K2: magic zeros; rounding; estimation",
+            "presentation": {
+              "tool": "Alat Sentra standar untuk magic zeros; rounding; estimation",
+              "steps": [
+                "Siapkan alas kerja dan bawa material magic zeros; rounding; estimation ke meja/karpet.",
+                "Lakukan demonstrasi perkenalan konsep secara bertahap kepada anak.",
+                "Ajak anak untuk mencoba memanipulasi alat secara mandiri.",
+                "Kembalikan alat ke rak setelah selesai digunakan."
+              ],
+              "error": "Anak dapat memverifikasi hasil akhir dengan kunci jawaban atau kesesuaian fisik alat.",
+              "videoUrl": ""
+            }
+          },
+          {
+            "label": "K1: skip counting: powers of numbers",
+            "presentation": {
+              "tool": "Alat Sentra standar untuk skip counting: powers of numbers",
+              "steps": [
+                "Siapkan alas kerja dan bawa material skip counting: powers of numbers ke meja/karpet.",
+                "Lakukan demonstrasi perkenalan konsep secara bertahap kepada anak.",
+                "Ajak anak untuk mencoba memanipulasi alat secara mandiri.",
+                "Kembalikan alat ke rak setelah selesai digunakan."
+              ],
+              "error": "Anak dapat memverifikasi hasil akhir dengan kunci jawaban atau kesesuaian fisik alat.",
+              "videoUrl": ""
+            }
+          },
+          {
+            "label": "K3: memorisation of – and x facts;",
+            "presentation": {
+              "tool": "Alat Sentra standar untuk memorisation of – and x facts;",
+              "steps": [
+                "Siapkan alas kerja dan bawa material memorisation of – and x facts; ke meja/karpet.",
+                "Lakukan demonstrasi perkenalan konsep secara bertahap kepada anak.",
+                "Ajak anak untuk mencoba memanipulasi alat secara mandiri.",
+                "Kembalikan alat ke rak setelah selesai digunakan."
+              ],
+              "error": "Anak dapat memverifikasi hasil akhir dengan kunci jawaban atau kesesuaian fisik alat.",
+              "videoUrl": ""
+            }
+          },
+          {
+            "label": "K2: >/< fractions; +/– of like fractions",
+            "presentation": {
+              "tool": "Alat Sentra standar untuk >/< fractions; +/– of like fractions",
+              "steps": [
+                "Siapkan alas kerja dan bawa material >/< fractions; +/– of like fractions ke meja/karpet.",
+                "Lakukan demonstrasi perkenalan konsep secara bertahap kepada anak.",
+                "Ajak anak untuk mencoba memanipulasi alat secara mandiri.",
+                "Kembalikan alat ke rak setelah selesai digunakan."
+              ],
+              "error": "Anak dapat memverifikasi hasil akhir dengan kunci jawaban atau kesesuaian fisik alat.",
+              "videoUrl": ""
+            }
+          },
+          {
+            "label": "K2: addition of coins; making change",
+            "presentation": {
+              "tool": "Alat Sentra standar untuk addition of coins; making change",
+              "steps": [
+                "Siapkan alas kerja dan bawa material addition of coins; making change ke meja/karpet.",
+                "Lakukan demonstrasi perkenalan konsep secara bertahap kepada anak.",
+                "Ajak anak untuk mencoba memanipulasi alat secara mandiri.",
+                "Kembalikan alat ke rak setelah selesai digunakan."
+              ],
+              "error": "Anak dapat memverifikasi hasil akhir dengan kunci jawaban atau kesesuaian fisik alat.",
+              "videoUrl": ""
+            }
+          },
+          {
+            "label": "K2: word problems: large numbers",
+            "presentation": {
+              "tool": "Alat Sentra standar untuk word problems: large numbers",
+              "steps": [
+                "Siapkan alas kerja dan bawa material word problems: large numbers ke meja/karpet.",
+                "Lakukan demonstrasi perkenalan konsep secara bertahap kepada anak.",
+                "Ajak anak untuk mencoba memanipulasi alat secara mandiri.",
+                "Kembalikan alat ke rak setelah selesai digunakan."
+              ],
+              "error": "Anak dapat memverifikasi hasil akhir dengan kunci jawaban atau kesesuaian fisik alat.",
+              "videoUrl": ""
+            }
+          },
+          {
+            "label": "K1: venn diagrams",
+            "presentation": {
+              "tool": "Alat Sentra standar untuk venn diagrams",
+              "steps": [
+                "Siapkan alas kerja dan bawa material venn diagrams ke meja/karpet.",
+                "Lakukan demonstrasi perkenalan konsep secara bertahap kepada anak.",
+                "Ajak anak untuk mencoba memanipulasi alat secara mandiri.",
+                "Kembalikan alat ke rak setelah selesai digunakan."
+              ],
+              "error": "Anak dapat memverifikasi hasil akhir dengan kunci jawaban atau kesesuaian fisik alat.",
+              "videoUrl": ""
+            }
+          },
+          {
+            "label": "K3: interpreting data from various",
+            "presentation": {
+              "tool": "Alat Sentra standar untuk interpreting data from various",
+              "steps": [
+                "Siapkan alas kerja dan bawa material interpreting data from various ke meja/karpet.",
+                "Lakukan demonstrasi perkenalan konsep secara bertahap kepada anak.",
+                "Ajak anak untuk mencoba memanipulasi alat secara mandiri.",
+                "Kembalikan alat ke rak setelah selesai digunakan."
+              ],
+              "error": "Anak dapat memverifikasi hasil akhir dengan kunci jawaban atau kesesuaian fisik alat.",
+              "videoUrl": ""
+            }
+          },
+          {
+            "label": "K2: concept & process in x and ÷",
+            "presentation": {
+              "tool": "Alat Sentra standar untuk concept & process in x and ÷",
+              "steps": [
+                "Siapkan alas kerja dan bawa material concept & process in x and ÷ ke meja/karpet.",
+                "Lakukan demonstrasi perkenalan konsep secara bertahap kepada anak.",
+                "Ajak anak untuk mencoba memanipulasi alat secara mandiri.",
+                "Kembalikan alat ke rak setelah selesai digunakan."
+              ],
+              "error": "Anak dapat memverifikasi hasil akhir dengan kunci jawaban atau kesesuaian fisik alat.",
+              "videoUrl": ""
+            }
+          },
+          {
+            "label": "K3: memorisation of x and ÷ facts",
+            "presentation": {
+              "tool": "Alat Sentra standar untuk memorisation of x and ÷ facts",
+              "steps": [
+                "Siapkan alas kerja dan bawa material memorisation of x and ÷ facts ke meja/karpet.",
+                "Lakukan demonstrasi perkenalan konsep secara bertahap kepada anak.",
+                "Ajak anak untuk mencoba memanipulasi alat secara mandiri.",
+                "Kembalikan alat ke rak setelah selesai digunakan."
+              ],
+              "error": "Anak dapat memverifikasi hasil akhir dengan kunci jawaban atau kesesuaian fisik alat.",
+              "videoUrl": ""
+            }
+          },
+          {
+            "label": "K2: multiples and factors",
+            "presentation": {
+              "tool": "Alat Sentra standar untuk multiples and factors",
+              "steps": [
+                "Siapkan alas kerja dan bawa material multiples and factors ke meja/karpet.",
+                "Lakukan demonstrasi perkenalan konsep secara bertahap kepada anak.",
+                "Ajak anak untuk mencoba memanipulasi alat secara mandiri.",
+                "Kembalikan alat ke rak setelah selesai digunakan."
+              ],
+              "error": "Anak dapat memverifikasi hasil akhir dengan kunci jawaban atau kesesuaian fisik alat.",
+              "videoUrl": ""
+            }
+          },
+          {
+            "label": "K2: parentheses, order of operations.",
+            "presentation": {
+              "tool": "Alat Sentra standar untuk parentheses, order of operations.",
+              "steps": [
+                "Siapkan alas kerja dan bawa material parentheses, order of operations. ke meja/karpet.",
+                "Lakukan demonstrasi perkenalan konsep secara bertahap kepada anak.",
+                "Ajak anak untuk mencoba memanipulasi alat secara mandiri.",
+                "Kembalikan alat ke rak setelah selesai digunakan."
+              ],
+              "error": "Anak dapat memverifikasi hasil akhir dengan kunci jawaban atau kesesuaian fisik alat.",
+              "videoUrl": ""
+            }
+          },
+          {
+            "label": "K1: equivalence of unlike fractions;",
+            "presentation": {
+              "tool": "Alat Sentra standar untuk equivalence of unlike fractions;",
+              "steps": [
+                "Siapkan alas kerja dan bawa material equivalence of unlike fractions; ke meja/karpet.",
+                "Lakukan demonstrasi perkenalan konsep secara bertahap kepada anak.",
+                "Ajak anak untuk mencoba memanipulasi alat secara mandiri.",
+                "Kembalikan alat ke rak setelah selesai digunakan."
+              ],
+              "error": "Anak dapat memverifikasi hasil akhir dengan kunci jawaban atau kesesuaian fisik alat.",
+              "videoUrl": ""
+            }
+          },
+          {
+            "label": "K3: introduction to decimals; +/– of",
+            "presentation": {
+              "tool": "Alat Sentra standar untuk introduction to decimals; +/– of",
+              "steps": [
+                "Siapkan alas kerja dan bawa material introduction to decimals; +/– of ke meja/karpet.",
+                "Lakukan demonstrasi perkenalan konsep secara bertahap kepada anak.",
+                "Ajak anak untuk mencoba memanipulasi alat secara mandiri.",
+                "Kembalikan alat ke rak setelah selesai digunakan."
+              ],
+              "error": "Anak dapat memverifikasi hasil akhir dengan kunci jawaban atau kesesuaian fisik alat.",
+              "videoUrl": ""
+            }
+          },
+          {
+            "label": "K2: making change: coins and notes",
+            "presentation": {
+              "tool": "Alat Sentra standar untuk making change: coins and notes",
+              "steps": [
+                "Siapkan alas kerja dan bawa material making change: coins and notes ke meja/karpet.",
+                "Lakukan demonstrasi perkenalan konsep secara bertahap kepada anak.",
+                "Ajak anak untuk mencoba memanipulasi alat secara mandiri.",
+                "Kembalikan alat ke rak setelah selesai digunakan."
+              ],
+              "error": "Anak dapat memverifikasi hasil akhir dengan kunci jawaban atau kesesuaian fisik alat.",
+              "videoUrl": ""
+            }
+          },
+          {
+            "label": "K1: mixed word problems",
+            "presentation": {
+              "tool": "Alat Sentra standar untuk mixed word problems",
+              "steps": [
+                "Siapkan alas kerja dan bawa material mixed word problems ke meja/karpet.",
+                "Lakukan demonstrasi perkenalan konsep secara bertahap kepada anak.",
+                "Ajak anak untuk mencoba memanipulasi alat secara mandiri.",
+                "Kembalikan alat ke rak setelah selesai digunakan."
+              ],
+              "error": "Anak dapat memverifikasi hasil akhir dengan kunci jawaban atau kesesuaian fisik alat.",
+              "videoUrl": ""
+            }
+          },
+          {
+            "label": "K1: collecting data; random vs. non-",
+            "presentation": {
+              "tool": "Alat Sentra standar untuk collecting data; random vs. non-",
+              "steps": [
+                "Siapkan alas kerja dan bawa material collecting data; random vs. non- ke meja/karpet.",
+                "Lakukan demonstrasi perkenalan konsep secara bertahap kepada anak.",
+                "Ajak anak untuk mencoba memanipulasi alat secara mandiri.",
+                "Kembalikan alat ke rak setelah selesai digunakan."
+              ],
+              "error": "Anak dapat memverifikasi hasil akhir dengan kunci jawaban atau kesesuaian fisik alat.",
+              "videoUrl": ""
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "GEO",
+    "name": "Geometri & Pengukuran",
+    "shortName": "Geometry",
+    "icon": "Wand2",
+    "color": "#EC4899",
+    "bgColor": "#FDF2F8",
+    "subAreas": [
+      {
+        "id": "GEO_BASE",
+        "name": "Materi Inti",
+        "levels": [
+          {
+            "label": "K1: basic concepts: point, line, surface",
+            "presentation": {
+              "tool": "Alat Sentra standar untuk basic concepts: point, line, surface",
+              "steps": [
+                "Siapkan alas kerja dan bawa material basic concepts: point, line, surface ke meja/karpet.",
+                "Lakukan demonstrasi perkenalan konsep secara bertahap kepada anak.",
+                "Ajak anak untuk mencoba memanipulasi alat secara mandiri.",
+                "Kembalikan alat ke rak setelah selesai digunakan."
+              ],
+              "error": "Anak dapat memverifikasi hasil akhir dengan kunci jawaban atau kesesuaian fisik alat.",
+              "videoUrl": ""
+            }
+          },
+          {
+            "label": "K3: naming/sorting geometric solids",
+            "presentation": {
+              "tool": "Alat Sentra standar untuk naming/sorting geometric solids",
+              "steps": [
+                "Siapkan alas kerja dan bawa material naming/sorting geometric solids ke meja/karpet.",
+                "Lakukan demonstrasi perkenalan konsep secara bertahap kepada anak.",
+                "Ajak anak untuk mencoba memanipulasi alat secara mandiri.",
+                "Kembalikan alat ke rak setelah selesai digunakan."
+              ],
+              "error": "Anak dapat memverifikasi hasil akhir dengan kunci jawaban atau kesesuaian fisik alat.",
+              "videoUrl": ""
+            }
+          },
+          {
+            "label": "K3: study of circles",
+            "presentation": {
+              "tool": "Alat Sentra standar untuk study of circles",
+              "steps": [
+                "Siapkan alas kerja dan bawa material study of circles ke meja/karpet.",
+                "Lakukan demonstrasi perkenalan konsep secara bertahap kepada anak.",
+                "Ajak anak untuk mencoba memanipulasi alat secara mandiri.",
+                "Kembalikan alat ke rak setelah selesai digunakan."
+              ],
+              "error": "Anak dapat memverifikasi hasil akhir dengan kunci jawaban atau kesesuaian fisik alat.",
+              "videoUrl": ""
+            }
+          },
+          {
+            "label": "K1: study of lines: types and parts of",
+            "presentation": {
+              "tool": "Alat Sentra standar untuk study of lines: types and parts of",
+              "steps": [
+                "Siapkan alas kerja dan bawa material study of lines: types and parts of ke meja/karpet.",
+                "Lakukan demonstrasi perkenalan konsep secara bertahap kepada anak.",
+                "Ajak anak untuk mencoba memanipulasi alat secara mandiri.",
+                "Kembalikan alat ke rak setelah selesai digunakan."
+              ],
+              "error": "Anak dapat memverifikasi hasil akhir dengan kunci jawaban atau kesesuaian fisik alat.",
+              "videoUrl": ""
+            }
+          },
+          {
+            "label": "K3: history of measurement",
+            "presentation": {
+              "tool": "Alat Sentra standar untuk history of measurement",
+              "steps": [
+                "Siapkan alas kerja dan bawa material history of measurement ke meja/karpet.",
+                "Lakukan demonstrasi perkenalan konsep secara bertahap kepada anak.",
+                "Ajak anak untuk mencoba memanipulasi alat secara mandiri.",
+                "Kembalikan alat ke rak setelah selesai digunakan."
+              ],
+              "error": "Anak dapat memverifikasi hasil akhir dengan kunci jawaban atau kesesuaian fisik alat.",
+              "videoUrl": ""
+            }
+          },
+          {
+            "label": "K3: direct comparison activities for",
+            "presentation": {
+              "tool": "Alat Sentra standar untuk direct comparison activities for",
+              "steps": [
+                "Siapkan alas kerja dan bawa material direct comparison activities for ke meja/karpet.",
+                "Lakukan demonstrasi perkenalan konsep secara bertahap kepada anak.",
+                "Ajak anak untuk mencoba memanipulasi alat secara mandiri.",
+                "Kembalikan alat ke rak setelah selesai digunakan."
+              ],
+              "error": "Anak dapat memverifikasi hasil akhir dengan kunci jawaban atau kesesuaian fisik alat.",
+              "videoUrl": ""
+            }
+          },
+          {
+            "label": "K3: study of angles: types and parts of",
+            "presentation": {
+              "tool": "Alat Sentra standar untuk study of angles: types and parts of",
+              "steps": [
+                "Siapkan alas kerja dan bawa material study of angles: types and parts of ke meja/karpet.",
+                "Lakukan demonstrasi perkenalan konsep secara bertahap kepada anak.",
+                "Ajak anak untuk mencoba memanipulasi alat secara mandiri.",
+                "Kembalikan alat ke rak setelah selesai digunakan."
+              ],
+              "error": "Anak dapat memverifikasi hasil akhir dengan kunci jawaban atau kesesuaian fisik alat.",
+              "videoUrl": ""
+            }
+          },
+          {
+            "label": "K1: measurement of angles using",
+            "presentation": {
+              "tool": "Alat Sentra standar untuk measurement of angles using",
+              "steps": [
+                "Siapkan alas kerja dan bawa material measurement of angles using ke meja/karpet.",
+                "Lakukan demonstrasi perkenalan konsep secara bertahap kepada anak.",
+                "Ajak anak untuk mencoba memanipulasi alat secara mandiri.",
+                "Kembalikan alat ke rak setelah selesai digunakan."
+              ],
+              "error": "Anak dapat memverifikasi hasil akhir dengan kunci jawaban atau kesesuaian fisik alat.",
+              "videoUrl": ""
+            }
+          },
+          {
+            "label": "K3: types and parts of plane figures,",
+            "presentation": {
+              "tool": "Alat Sentra standar untuk types and parts of plane figures,",
+              "steps": [
+                "Siapkan alas kerja dan bawa material types and parts of plane figures, ke meja/karpet.",
+                "Lakukan demonstrasi perkenalan konsep secara bertahap kepada anak.",
+                "Ajak anak untuk mencoba memanipulasi alat secara mandiri.",
+                "Kembalikan alat ke rak setelah selesai digunakan."
+              ],
+              "error": "Anak dapat memverifikasi hasil akhir dengan kunci jawaban atau kesesuaian fisik alat.",
+              "videoUrl": ""
+            }
+          },
+          {
+            "label": "K2: using constructive triangles to",
+            "presentation": {
+              "tool": "Alat Sentra standar untuk using constructive triangles to",
+              "steps": [
+                "Siapkan alas kerja dan bawa material using constructive triangles to ke meja/karpet.",
+                "Lakukan demonstrasi perkenalan konsep secara bertahap kepada anak.",
+                "Ajak anak untuk mencoba memanipulasi alat secara mandiri.",
+                "Kembalikan alat ke rak setelah selesai digunakan."
+              ],
+              "error": "Anak dapat memverifikasi hasil akhir dengan kunci jawaban atau kesesuaian fisik alat.",
+              "videoUrl": ""
+            }
+          },
+          {
+            "label": "K3: activities with non-standard units",
+            "presentation": {
+              "tool": "Alat Sentra standar untuk activities with non-standard units",
+              "steps": [
+                "Siapkan alas kerja dan bawa material activities with non-standard units ke meja/karpet.",
+                "Lakukan demonstrasi perkenalan konsep secara bertahap kepada anak.",
+                "Ajak anak untuk mencoba memanipulasi alat secara mandiri.",
+                "Kembalikan alat ke rak setelah selesai digunakan."
+              ],
+              "error": "Anak dapat memverifikasi hasil akhir dengan kunci jawaban atau kesesuaian fisik alat.",
+              "videoUrl": ""
+            }
+          },
+          {
+            "label": "K3: detailed study of triangles",
+            "presentation": {
+              "tool": "Alat Sentra standar untuk detailed study of triangles",
+              "steps": [
+                "Siapkan alas kerja dan bawa material detailed study of triangles ke meja/karpet.",
+                "Lakukan demonstrasi perkenalan konsep secara bertahap kepada anak.",
+                "Ajak anak untuk mencoba memanipulasi alat secara mandiri.",
+                "Kembalikan alat ke rak setelah selesai digunakan."
+              ],
+              "error": "Anak dapat memverifikasi hasil akhir dengan kunci jawaban atau kesesuaian fisik alat.",
+              "videoUrl": ""
+            }
+          },
+          {
+            "label": "K2: study of quadrilaterals",
+            "presentation": {
+              "tool": "Alat Sentra standar untuk study of quadrilaterals",
+              "steps": [
+                "Siapkan alas kerja dan bawa material study of quadrilaterals ke meja/karpet.",
+                "Lakukan demonstrasi perkenalan konsep secara bertahap kepada anak.",
+                "Ajak anak untuk mencoba memanipulasi alat secara mandiri.",
+                "Kembalikan alat ke rak setelah selesai digunakan."
+              ],
+              "error": "Anak dapat memverifikasi hasil akhir dengan kunci jawaban atau kesesuaian fisik alat.",
+              "videoUrl": ""
+            }
+          },
+          {
+            "label": "K1: study of polygons (pentagon",
+            "presentation": {
+              "tool": "Alat Sentra standar untuk study of polygons (pentagon",
+              "steps": [
+                "Siapkan alas kerja dan bawa material study of polygons (pentagon ke meja/karpet.",
+                "Lakukan demonstrasi perkenalan konsep secara bertahap kepada anak.",
+                "Ajak anak untuk mencoba memanipulasi alat secara mandiri.",
+                "Kembalikan alat ke rak setelah selesai digunakan."
+              ],
+              "error": "Anak dapat memverifikasi hasil akhir dengan kunci jawaban atau kesesuaian fisik alat.",
+              "videoUrl": ""
+            }
+          },
+          {
+            "label": "K2: tessellation; tangrams; symmetry",
+            "presentation": {
+              "tool": "Alat Sentra standar untuk tessellation; tangrams; symmetry",
+              "steps": [
+                "Siapkan alas kerja dan bawa material tessellation; tangrams; symmetry ke meja/karpet.",
+                "Lakukan demonstrasi perkenalan konsep secara bertahap kepada anak.",
+                "Ajak anak untuk mencoba memanipulasi alat secara mandiri.",
+                "Kembalikan alat ke rak setelah selesai digunakan."
+              ],
+              "error": "Anak dapat memverifikasi hasil akhir dengan kunci jawaban atau kesesuaian fisik alat.",
+              "videoUrl": ""
+            }
+          },
+          {
+            "label": "K2: study of similarity, congruence,",
+            "presentation": {
+              "tool": "Alat Sentra standar untuk study of similarity, congruence,",
+              "steps": [
+                "Siapkan alas kerja dan bawa material study of similarity, congruence, ke meja/karpet.",
+                "Lakukan demonstrasi perkenalan konsep secara bertahap kepada anak.",
+                "Ajak anak untuk mencoba memanipulasi alat secara mandiri.",
+                "Kembalikan alat ke rak setelah selesai digunakan."
+              ],
+              "error": "Anak dapat memverifikasi hasil akhir dengan kunci jawaban atau kesesuaian fisik alat.",
+              "videoUrl": ""
+            }
+          },
+          {
+            "label": "K3: activities with standard units of",
+            "presentation": {
+              "tool": "Alat Sentra standar untuk activities with standard units of",
+              "steps": [
+                "Siapkan alas kerja dan bawa material activities with standard units of ke meja/karpet.",
+                "Lakukan demonstrasi perkenalan konsep secara bertahap kepada anak.",
+                "Ajak anak untuk mencoba memanipulasi alat secara mandiri.",
+                "Kembalikan alat ke rak setelah selesai digunakan."
+              ],
+              "error": "Anak dapat memverifikasi hasil akhir dengan kunci jawaban atau kesesuaian fisik alat.",
+              "videoUrl": ""
+            }
+          },
+          {
+            "label": "K1: phonics: short and long vowels,",
+            "presentation": {
+              "tool": "Alat Sentra standar untuk phonics: short and long vowels,",
+              "steps": [
+                "Siapkan alas kerja dan bawa material phonics: short and long vowels, ke meja/karpet.",
+                "Lakukan demonstrasi perkenalan konsep secara bertahap kepada anak.",
+                "Ajak anak untuk mencoba memanipulasi alat secara mandiri.",
+                "Kembalikan alat ke rak setelah selesai digunakan."
+              ],
+              "error": "Anak dapat memverifikasi hasil akhir dengan kunci jawaban atau kesesuaian fisik alat.",
+              "videoUrl": ""
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "LANG",
+    "name": "Bahasa & Literasi",
+    "shortName": "Language",
+    "icon": "BookOpen",
+    "color": "#F59E0B",
+    "bgColor": "#FFFBEB",
+    "subAreas": [
+      {
+        "id": "LANG_BASE",
+        "name": "Materi Inti",
+        "levels": [
+          {
+            "label": "K1: daily silent reading; guided",
+            "presentation": {
+              "tool": "Alat Sentra standar untuk daily silent reading; guided",
+              "steps": [
+                "Siapkan alas kerja dan bawa material daily silent reading; guided ke meja/karpet.",
+                "Lakukan demonstrasi perkenalan konsep secara bertahap kepada anak.",
+                "Ajak anak untuk mencoba memanipulasi alat secara mandiri.",
+                "Kembalikan alat ke rak setelah selesai digunakan."
+              ],
+              "error": "Anak dapat memverifikasi hasil akhir dengan kunci jawaban atau kesesuaian fisik alat.",
+              "videoUrl": ""
+            }
+          },
+          {
+            "label": "K1: word study: classifying words;",
+            "presentation": {
+              "tool": "Alat Sentra standar untuk word study: classifying words;",
+              "steps": [
+                "Siapkan alas kerja dan bawa material word study: classifying words; ke meja/karpet.",
+                "Lakukan demonstrasi perkenalan konsep secara bertahap kepada anak.",
+                "Ajak anak untuk mencoba memanipulasi alat secara mandiri.",
+                "Kembalikan alat ke rak setelah selesai digunakan."
+              ],
+              "error": "Anak dapat memverifikasi hasil akhir dengan kunci jawaban atau kesesuaian fisik alat.",
+              "videoUrl": ""
+            }
+          },
+          {
+            "label": "K2: mechanics: full stops, capitals",
+            "presentation": {
+              "tool": "Alat Sentra standar untuk mechanics: full stops, capitals",
+              "steps": [
+                "Siapkan alas kerja dan bawa material mechanics: full stops, capitals ke meja/karpet.",
+                "Lakukan demonstrasi perkenalan konsep secara bertahap kepada anak.",
+                "Ajak anak untuk mencoba memanipulasi alat secara mandiri.",
+                "Kembalikan alat ke rak setelah selesai digunakan."
+              ],
+              "error": "Anak dapat memverifikasi hasil akhir dengan kunci jawaban atau kesesuaian fisik alat.",
+              "videoUrl": ""
+            }
+          },
+          {
+            "label": "K2: writing: steps in the process",
+            "presentation": {
+              "tool": "Alat Sentra standar untuk writing: steps in the process",
+              "steps": [
+                "Siapkan alas kerja dan bawa material writing: steps in the process ke meja/karpet.",
+                "Lakukan demonstrasi perkenalan konsep secara bertahap kepada anak.",
+                "Ajak anak untuk mencoba memanipulasi alat secara mandiri.",
+                "Kembalikan alat ke rak setelah selesai digunakan."
+              ],
+              "error": "Anak dapat memverifikasi hasil akhir dengan kunci jawaban atau kesesuaian fisik alat.",
+              "videoUrl": ""
+            }
+          },
+          {
+            "label": "K2: memorising poetry and dramatic",
+            "presentation": {
+              "tool": "Alat Sentra standar untuk memorising poetry and dramatic",
+              "steps": [
+                "Siapkan alas kerja dan bawa material memorising poetry and dramatic ke meja/karpet.",
+                "Lakukan demonstrasi perkenalan konsep secara bertahap kepada anak.",
+                "Ajak anak untuk mencoba memanipulasi alat secara mandiri.",
+                "Kembalikan alat ke rak setelah selesai digunakan."
+              ],
+              "error": "Anak dapat memverifikasi hasil akhir dengan kunci jawaban atau kesesuaian fisik alat.",
+              "videoUrl": ""
+            }
+          },
+          {
+            "label": "K3: cursive: tripod grip; lower case",
+            "presentation": {
+              "tool": "Alat Sentra standar untuk cursive: tripod grip; lower case",
+              "steps": [
+                "Siapkan alas kerja dan bawa material cursive: tripod grip; lower case ke meja/karpet.",
+                "Lakukan demonstrasi perkenalan konsep secara bertahap kepada anak.",
+                "Ajak anak untuk mencoba memanipulasi alat secara mandiri.",
+                "Kembalikan alat ke rak setelah selesai digunakan."
+              ],
+              "error": "Anak dapat memverifikasi hasil akhir dengan kunci jawaban atau kesesuaian fisik alat.",
+              "videoUrl": ""
+            }
+          },
+          {
+            "label": "K3: phonics: blends, vowel digraphs;",
+            "presentation": {
+              "tool": "Alat Sentra standar untuk phonics: blends, vowel digraphs;",
+              "steps": [
+                "Siapkan alas kerja dan bawa material phonics: blends, vowel digraphs; ke meja/karpet.",
+                "Lakukan demonstrasi perkenalan konsep secara bertahap kepada anak.",
+                "Ajak anak untuk mencoba memanipulasi alat secara mandiri.",
+                "Kembalikan alat ke rak setelah selesai digunakan."
+              ],
+              "error": "Anak dapat memverifikasi hasil akhir dengan kunci jawaban atau kesesuaian fisik alat.",
+              "videoUrl": ""
+            }
+          },
+          {
+            "label": "K2: daily silent reading; shared",
+            "presentation": {
+              "tool": "Alat Sentra standar untuk daily silent reading; shared",
+              "steps": [
+                "Siapkan alas kerja dan bawa material daily silent reading; shared ke meja/karpet.",
+                "Lakukan demonstrasi perkenalan konsep secara bertahap kepada anak.",
+                "Ajak anak untuk mencoba memanipulasi alat secara mandiri.",
+                "Kembalikan alat ke rak setelah selesai digunakan."
+              ],
+              "error": "Anak dapat memverifikasi hasil akhir dengan kunci jawaban atau kesesuaian fisik alat.",
+              "videoUrl": ""
+            }
+          },
+          {
+            "label": "K3: word study: syllabication,",
+            "presentation": {
+              "tool": "Alat Sentra standar untuk word study: syllabication,",
+              "steps": [
+                "Siapkan alas kerja dan bawa material word study: syllabication, ke meja/karpet.",
+                "Lakukan demonstrasi perkenalan konsep secara bertahap kepada anak.",
+                "Ajak anak untuk mencoba memanipulasi alat secara mandiri.",
+                "Kembalikan alat ke rak setelah selesai digunakan."
+              ],
+              "error": "Anak dapat memverifikasi hasil akhir dengan kunci jawaban atau kesesuaian fisik alat.",
+              "videoUrl": ""
+            }
+          },
+          {
+            "label": "K2: mechanics: fulls stops, quotation",
+            "presentation": {
+              "tool": "Alat Sentra standar untuk mechanics: fulls stops, quotation",
+              "steps": [
+                "Siapkan alas kerja dan bawa material mechanics: fulls stops, quotation ke meja/karpet.",
+                "Lakukan demonstrasi perkenalan konsep secara bertahap kepada anak.",
+                "Ajak anak untuk mencoba memanipulasi alat secara mandiri.",
+                "Kembalikan alat ke rak setelah selesai digunakan."
+              ],
+              "error": "Anak dapat memverifikasi hasil akhir dengan kunci jawaban atau kesesuaian fisik alat.",
+              "videoUrl": ""
+            }
+          },
+          {
+            "label": "K2: writing; narrative; poetry;",
+            "presentation": {
+              "tool": "Alat Sentra standar untuk writing; narrative; poetry;",
+              "steps": [
+                "Siapkan alas kerja dan bawa material writing; narrative; poetry; ke meja/karpet.",
+                "Lakukan demonstrasi perkenalan konsep secara bertahap kepada anak.",
+                "Ajak anak untuk mencoba memanipulasi alat secara mandiri.",
+                "Kembalikan alat ke rak setelah selesai digunakan."
+              ],
+              "error": "Anak dapat memverifikasi hasil akhir dengan kunci jawaban atau kesesuaian fisik alat.",
+              "videoUrl": ""
+            }
+          },
+          {
+            "label": "K2: memorising poetry and dramatic",
+            "presentation": {
+              "tool": "Alat Sentra standar untuk memorising poetry and dramatic",
+              "steps": [
+                "Siapkan alas kerja dan bawa material memorising poetry and dramatic ke meja/karpet.",
+                "Lakukan demonstrasi perkenalan konsep secara bertahap kepada anak.",
+                "Ajak anak untuk mencoba memanipulasi alat secara mandiri.",
+                "Kembalikan alat ke rak setelah selesai digunakan."
+              ],
+              "error": "Anak dapat memverifikasi hasil akhir dengan kunci jawaban atau kesesuaian fisik alat.",
+              "videoUrl": ""
+            }
+          },
+          {
+            "label": "K3: cursive: capitals; numbers; fluency",
+            "presentation": {
+              "tool": "Alat Sentra standar untuk cursive: capitals; numbers; fluency",
+              "steps": [
+                "Siapkan alas kerja dan bawa material cursive: capitals; numbers; fluency ke meja/karpet.",
+                "Lakukan demonstrasi perkenalan konsep secara bertahap kepada anak.",
+                "Ajak anak untuk mencoba memanipulasi alat secara mandiri.",
+                "Kembalikan alat ke rak setelah selesai digunakan."
+              ],
+              "error": "Anak dapat memverifikasi hasil akhir dengan kunci jawaban atau kesesuaian fisik alat.",
+              "videoUrl": ""
+            }
+          },
+          {
+            "label": "K2: phonics: sight words; plural",
+            "presentation": {
+              "tool": "Alat Sentra standar untuk phonics: sight words; plural",
+              "steps": [
+                "Siapkan alas kerja dan bawa material phonics: sight words; plural ke meja/karpet.",
+                "Lakukan demonstrasi perkenalan konsep secara bertahap kepada anak.",
+                "Ajak anak untuk mencoba memanipulasi alat secara mandiri.",
+                "Kembalikan alat ke rak setelah selesai digunakan."
+              ],
+              "error": "Anak dapat memverifikasi hasil akhir dengan kunci jawaban atau kesesuaian fisik alat.",
+              "videoUrl": ""
+            }
+          },
+          {
+            "label": "K1: daily silent reading: chapter",
+            "presentation": {
+              "tool": "Alat Sentra standar untuk daily silent reading: chapter",
+              "steps": [
+                "Siapkan alas kerja dan bawa material daily silent reading: chapter ke meja/karpet.",
+                "Lakukan demonstrasi perkenalan konsep secara bertahap kepada anak.",
+                "Ajak anak untuk mencoba memanipulasi alat secara mandiri.",
+                "Kembalikan alat ke rak setelah selesai digunakan."
+              ],
+              "error": "Anak dapat memverifikasi hasil akhir dengan kunci jawaban atau kesesuaian fisik alat.",
+              "videoUrl": ""
+            }
+          },
+          {
+            "label": "K1: word study: synonyms,",
+            "presentation": {
+              "tool": "Alat Sentra standar untuk word study: synonyms,",
+              "steps": [
+                "Siapkan alas kerja dan bawa material word study: synonyms, ke meja/karpet.",
+                "Lakukan demonstrasi perkenalan konsep secara bertahap kepada anak.",
+                "Ajak anak untuk mencoba memanipulasi alat secara mandiri.",
+                "Kembalikan alat ke rak setelah selesai digunakan."
+              ],
+              "error": "Anak dapat memverifikasi hasil akhir dengan kunci jawaban atau kesesuaian fisik alat.",
+              "videoUrl": ""
+            }
+          },
+          {
+            "label": "K2: mechanics: apostrophes for",
+            "presentation": {
+              "tool": "Alat Sentra standar untuk mechanics: apostrophes for",
+              "steps": [
+                "Siapkan alas kerja dan bawa material mechanics: apostrophes for ke meja/karpet.",
+                "Lakukan demonstrasi perkenalan konsep secara bertahap kepada anak.",
+                "Ajak anak untuk mencoba memanipulasi alat secara mandiri.",
+                "Kembalikan alat ke rak setelah selesai digunakan."
+              ],
+              "error": "Anak dapat memverifikasi hasil akhir dengan kunci jawaban atau kesesuaian fisik alat.",
+              "videoUrl": ""
+            }
+          },
+          {
+            "label": "K1: writing: fiction (setting, character,",
+            "presentation": {
+              "tool": "Alat Sentra standar untuk writing: fiction (setting, character,",
+              "steps": [
+                "Siapkan alas kerja dan bawa material writing: fiction (setting, character, ke meja/karpet.",
+                "Lakukan demonstrasi perkenalan konsep secara bertahap kepada anak.",
+                "Ajak anak untuk mencoba memanipulasi alat secara mandiri.",
+                "Kembalikan alat ke rak setelah selesai digunakan."
+              ],
+              "error": "Anak dapat memverifikasi hasil akhir dengan kunci jawaban atau kesesuaian fisik alat.",
+              "videoUrl": ""
+            }
+          },
+          {
+            "label": "K2: poetry and dramatic recitals",
+            "presentation": {
+              "tool": "Alat Sentra standar untuk poetry and dramatic recitals",
+              "steps": [
+                "Siapkan alas kerja dan bawa material poetry and dramatic recitals ke meja/karpet.",
+                "Lakukan demonstrasi perkenalan konsep secara bertahap kepada anak.",
+                "Ajak anak untuk mencoba memanipulasi alat secara mandiri.",
+                "Kembalikan alat ke rak setelah selesai digunakan."
+              ],
+              "error": "Anak dapat memverifikasi hasil akhir dengan kunci jawaban atau kesesuaian fisik alat.",
+              "videoUrl": ""
+            }
+          },
+          {
+            "label": "K1: print handwriting & calligraphy",
+            "presentation": {
+              "tool": "Alat Sentra standar untuk print handwriting & calligraphy",
+              "steps": [
+                "Siapkan alas kerja dan bawa material print handwriting & calligraphy ke meja/karpet.",
+                "Lakukan demonstrasi perkenalan konsep secara bertahap kepada anak.",
+                "Ajak anak untuk mencoba memanipulasi alat secara mandiri.",
+                "Kembalikan alat ke rak setelah selesai digunakan."
+              ],
+              "error": "Anak dapat memverifikasi hasil akhir dengan kunci jawaban atau kesesuaian fisik alat.",
+              "videoUrl": ""
+            }
+          },
+          {
+            "label": "K2: the function of the “noun family”:",
+            "presentation": {
+              "tool": "Alat Sentra standar untuk the function of the “noun family”:",
+              "steps": [
+                "Siapkan alas kerja dan bawa material the function of the “noun family”: ke meja/karpet.",
+                "Lakukan demonstrasi perkenalan konsep secara bertahap kepada anak.",
+                "Ajak anak untuk mencoba memanipulasi alat secara mandiri.",
+                "Kembalikan alat ke rak setelah selesai digunakan."
+              ],
+              "error": "Anak dapat memverifikasi hasil akhir dengan kunci jawaban atau kesesuaian fisik alat.",
+              "videoUrl": ""
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "GRAM",
+    "name": "Tata Bahasa (Grammar)",
+    "shortName": "Grammar",
+    "icon": "Edit3",
+    "color": "#10B981",
+    "bgColor": "#ECFDF5",
+    "subAreas": [
+      {
+        "id": "GRAM_BASE",
+        "name": "Materi Inti",
+        "levels": [
+          {
+            "label": "K2: the function of the verb",
+            "presentation": {
+              "tool": "Alat Sentra standar untuk the function of the verb",
+              "steps": [
+                "Siapkan alas kerja dan bawa material the function of the verb ke meja/karpet.",
+                "Lakukan demonstrasi perkenalan konsep secara bertahap kepada anak.",
+                "Ajak anak untuk mencoba memanipulasi alat secara mandiri.",
+                "Kembalikan alat ke rak setelah selesai digunakan."
+              ],
+              "error": "Anak dapat memverifikasi hasil akhir dengan kunci jawaban atau kesesuaian fisik alat.",
+              "videoUrl": ""
+            }
+          },
+          {
+            "label": "K2: introduction to sentence",
+            "presentation": {
+              "tool": "Alat Sentra standar untuk introduction to sentence",
+              "steps": [
+                "Siapkan alas kerja dan bawa material introduction to sentence ke meja/karpet.",
+                "Lakukan demonstrasi perkenalan konsep secara bertahap kepada anak.",
+                "Ajak anak untuk mencoba memanipulasi alat secara mandiri.",
+                "Kembalikan alat ke rak setelah selesai digunakan."
+              ],
+              "error": "Anak dapat memverifikasi hasil akhir dengan kunci jawaban atau kesesuaian fisik alat.",
+              "videoUrl": ""
+            }
+          },
+          {
+            "label": "K2: function of prepositions",
+            "presentation": {
+              "tool": "Alat Sentra standar untuk function of prepositions",
+              "steps": [
+                "Siapkan alas kerja dan bawa material function of prepositions ke meja/karpet.",
+                "Lakukan demonstrasi perkenalan konsep secara bertahap kepada anak.",
+                "Ajak anak untuk mencoba memanipulasi alat secara mandiri.",
+                "Kembalikan alat ke rak setelah selesai digunakan."
+              ],
+              "error": "Anak dapat memverifikasi hasil akhir dengan kunci jawaban atau kesesuaian fisik alat.",
+              "videoUrl": ""
+            }
+          },
+          {
+            "label": "K2: function of adverbs",
+            "presentation": {
+              "tool": "Alat Sentra standar untuk function of adverbs",
+              "steps": [
+                "Siapkan alas kerja dan bawa material function of adverbs ke meja/karpet.",
+                "Lakukan demonstrasi perkenalan konsep secara bertahap kepada anak.",
+                "Ajak anak untuk mencoba memanipulasi alat secara mandiri.",
+                "Kembalikan alat ke rak setelah selesai digunakan."
+              ],
+              "error": "Anak dapat memverifikasi hasil akhir dengan kunci jawaban atau kesesuaian fisik alat.",
+              "videoUrl": ""
+            }
+          },
+          {
+            "label": "K2: function of conjunctions",
+            "presentation": {
+              "tool": "Alat Sentra standar untuk function of conjunctions",
+              "steps": [
+                "Siapkan alas kerja dan bawa material function of conjunctions ke meja/karpet.",
+                "Lakukan demonstrasi perkenalan konsep secara bertahap kepada anak.",
+                "Ajak anak untuk mencoba memanipulasi alat secara mandiri.",
+                "Kembalikan alat ke rak setelah selesai digunakan."
+              ],
+              "error": "Anak dapat memverifikasi hasil akhir dengan kunci jawaban atau kesesuaian fisik alat.",
+              "videoUrl": ""
+            }
+          },
+          {
+            "label": "K3: function of pronouns",
+            "presentation": {
+              "tool": "Alat Sentra standar untuk function of pronouns",
+              "steps": [
+                "Siapkan alas kerja dan bawa material function of pronouns ke meja/karpet.",
+                "Lakukan demonstrasi perkenalan konsep secara bertahap kepada anak.",
+                "Ajak anak untuk mencoba memanipulasi alat secara mandiri.",
+                "Kembalikan alat ke rak setelah selesai digunakan."
+              ],
+              "error": "Anak dapat memverifikasi hasil akhir dengan kunci jawaban atau kesesuaian fisik alat.",
+              "videoUrl": ""
+            }
+          },
+          {
+            "label": "K3: function of interjections",
+            "presentation": {
+              "tool": "Alat Sentra standar untuk function of interjections",
+              "steps": [
+                "Siapkan alas kerja dan bawa material function of interjections ke meja/karpet.",
+                "Lakukan demonstrasi perkenalan konsep secara bertahap kepada anak.",
+                "Ajak anak untuk mencoba memanipulasi alat secara mandiri.",
+                "Kembalikan alat ke rak setelah selesai digunakan."
+              ],
+              "error": "Anak dapat memverifikasi hasil akhir dengan kunci jawaban atau kesesuaian fisik alat.",
+              "videoUrl": ""
+            }
+          },
+          {
+            "label": "K1: writing phrases or sentences from",
+            "presentation": {
+              "tool": "Alat Sentra standar untuk writing phrases or sentences from",
+              "steps": [
+                "Siapkan alas kerja dan bawa material writing phrases or sentences from ke meja/karpet.",
+                "Lakukan demonstrasi perkenalan konsep secara bertahap kepada anak.",
+                "Ajak anak untuk mencoba memanipulasi alat secara mandiri.",
+                "Kembalikan alat ke rak setelah selesai digunakan."
+              ],
+              "error": "Anak dapat memverifikasi hasil akhir dengan kunci jawaban atau kesesuaian fisik alat.",
+              "videoUrl": ""
+            }
+          },
+          {
+            "label": "K1: the four types of sentences and",
+            "presentation": {
+              "tool": "Alat Sentra standar untuk the four types of sentences and",
+              "steps": [
+                "Siapkan alas kerja dan bawa material the four types of sentences and ke meja/karpet.",
+                "Lakukan demonstrasi perkenalan konsep secara bertahap kepada anak.",
+                "Ajak anak untuk mencoba memanipulasi alat secara mandiri.",
+                "Kembalikan alat ke rak setelah selesai digunakan."
+              ],
+              "error": "Anak dapat memverifikasi hasil akhir dengan kunci jawaban atau kesesuaian fisik alat.",
+              "videoUrl": ""
+            }
+          },
+          {
+            "label": "K2: parts of speech review activities",
+            "presentation": {
+              "tool": "Alat Sentra standar untuk parts of speech review activities",
+              "steps": [
+                "Siapkan alas kerja dan bawa material parts of speech review activities ke meja/karpet.",
+                "Lakukan demonstrasi perkenalan konsep secara bertahap kepada anak.",
+                "Ajak anak untuk mencoba memanipulasi alat secara mandiri.",
+                "Kembalikan alat ke rak setelah selesai digunakan."
+              ],
+              "error": "Anak dapat memverifikasi hasil akhir dengan kunci jawaban atau kesesuaian fisik alat.",
+              "videoUrl": ""
+            }
+          },
+          {
+            "label": "K1: study of style: analysing and",
+            "presentation": {
+              "tool": "Alat Sentra standar untuk study of style: analysing and",
+              "steps": [
+                "Siapkan alas kerja dan bawa material study of style: analysing and ke meja/karpet.",
+                "Lakukan demonstrasi perkenalan konsep secara bertahap kepada anak.",
+                "Ajak anak untuk mencoba memanipulasi alat secara mandiri.",
+                "Kembalikan alat ke rak setelah selesai digunakan."
+              ],
+              "error": "Anak dapat memverifikasi hasil akhir dengan kunci jawaban atau kesesuaian fisik alat.",
+              "videoUrl": ""
+            }
+          },
+          {
+            "label": "K3: sentence analysis: simple",
+            "presentation": {
+              "tool": "Alat Sentra standar untuk sentence analysis: simple",
+              "steps": [
+                "Siapkan alas kerja dan bawa material sentence analysis: simple ke meja/karpet.",
+                "Lakukan demonstrasi perkenalan konsep secara bertahap kepada anak.",
+                "Ajak anak untuk mencoba memanipulasi alat secara mandiri.",
+                "Kembalikan alat ke rak setelah selesai digunakan."
+              ],
+              "error": "Anak dapat memverifikasi hasil akhir dengan kunci jawaban atau kesesuaian fisik alat.",
+              "videoUrl": ""
+            }
+          },
+          {
+            "label": "K3: external parts of five classes of",
+            "presentation": {
+              "tool": "Alat Sentra standar untuk external parts of five classes of",
+              "steps": [
+                "Siapkan alas kerja dan bawa material external parts of five classes of ke meja/karpet.",
+                "Lakukan demonstrasi perkenalan konsep secara bertahap kepada anak.",
+                "Ajak anak untuk mencoba memanipulasi alat secara mandiri.",
+                "Kembalikan alat ke rak setelah selesai digunakan."
+              ],
+              "error": "Anak dapat memverifikasi hasil akhir dengan kunci jawaban atau kesesuaian fisik alat.",
+              "videoUrl": ""
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "BIO",
+    "name": "Biologi & Alam",
+    "shortName": "Biology",
+    "icon": "Leaf",
+    "color": "#84CC16",
+    "bgColor": "#F7FEE7",
+    "subAreas": [
+      {
+        "id": "BIO_BASE",
+        "name": "Materi Inti",
+        "levels": [
+          {
+            "label": "K3: external parts of “plants”:",
+            "presentation": {
+              "tool": "Alat Sentra standar untuk external parts of “plants”:",
+              "steps": [
+                "Siapkan alas kerja dan bawa material external parts of “plants”: ke meja/karpet.",
+                "Lakukan demonstrasi perkenalan konsep secara bertahap kepada anak.",
+                "Ajak anak untuk mencoba memanipulasi alat secara mandiri.",
+                "Kembalikan alat ke rak setelah selesai digunakan."
+              ],
+              "error": "Anak dapat memverifikasi hasil akhir dengan kunci jawaban atau kesesuaian fisik alat.",
+              "videoUrl": ""
+            }
+          },
+          {
+            "label": "K1: first knowledge of 5 kingdoms",
+            "presentation": {
+              "tool": "Alat Sentra standar untuk first knowledge of 5 kingdoms",
+              "steps": [
+                "Siapkan alas kerja dan bawa material first knowledge of 5 kingdoms ke meja/karpet.",
+                "Lakukan demonstrasi perkenalan konsep secara bertahap kepada anak.",
+                "Ajak anak untuk mencoba memanipulasi alat secara mandiri.",
+                "Kembalikan alat ke rak setelah selesai digunakan."
+              ],
+              "error": "Anak dapat memverifikasi hasil akhir dengan kunci jawaban atau kesesuaian fisik alat.",
+              "videoUrl": ""
+            }
+          },
+          {
+            "label": "K3: first classification: living vs. non-",
+            "presentation": {
+              "tool": "Alat Sentra standar untuk first classification: living vs. non-",
+              "steps": [
+                "Siapkan alas kerja dan bawa material first classification: living vs. non- ke meja/karpet.",
+                "Lakukan demonstrasi perkenalan konsep secara bertahap kepada anak.",
+                "Ajak anak untuk mencoba memanipulasi alat secara mandiri.",
+                "Kembalikan alat ke rak setelah selesai digunakan."
+              ],
+              "error": "Anak dapat memverifikasi hasil akhir dengan kunci jawaban atau kesesuaian fisik alat.",
+              "videoUrl": ""
+            }
+          },
+          {
+            "label": "K2: internal body functions of five",
+            "presentation": {
+              "tool": "Alat Sentra standar untuk internal body functions of five",
+              "steps": [
+                "Siapkan alas kerja dan bawa material internal body functions of five ke meja/karpet.",
+                "Lakukan demonstrasi perkenalan konsep secara bertahap kepada anak.",
+                "Ajak anak untuk mencoba memanipulasi alat secara mandiri.",
+                "Kembalikan alat ke rak setelah selesai digunakan."
+              ],
+              "error": "Anak dapat memverifikasi hasil akhir dengan kunci jawaban atau kesesuaian fisik alat.",
+              "videoUrl": ""
+            }
+          },
+          {
+            "label": "K1: internal body functions of",
+            "presentation": {
+              "tool": "Alat Sentra standar untuk internal body functions of",
+              "steps": [
+                "Siapkan alas kerja dan bawa material internal body functions of ke meja/karpet.",
+                "Lakukan demonstrasi perkenalan konsep secara bertahap kepada anak.",
+                "Ajak anak untuk mencoba memanipulasi alat secara mandiri.",
+                "Kembalikan alat ke rak setelah selesai digunakan."
+              ],
+              "error": "Anak dapat memverifikasi hasil akhir dengan kunci jawaban atau kesesuaian fisik alat.",
+              "videoUrl": ""
+            }
+          },
+          {
+            "label": "K2: guided research into animals and",
+            "presentation": {
+              "tool": "Alat Sentra standar untuk guided research into animals and",
+              "steps": [
+                "Siapkan alas kerja dan bawa material guided research into animals and ke meja/karpet.",
+                "Lakukan demonstrasi perkenalan konsep secara bertahap kepada anak.",
+                "Ajak anak untuk mencoba memanipulasi alat secara mandiri.",
+                "Kembalikan alat ke rak setelah selesai digunakan."
+              ],
+              "error": "Anak dapat memverifikasi hasil akhir dengan kunci jawaban atau kesesuaian fisik alat.",
+              "videoUrl": ""
+            }
+          },
+          {
+            "label": "K1: parts of a flower/leaf/root",
+            "presentation": {
+              "tool": "Alat Sentra standar untuk parts of a flower/leaf/root",
+              "steps": [
+                "Siapkan alas kerja dan bawa material parts of a flower/leaf/root ke meja/karpet.",
+                "Lakukan demonstrasi perkenalan konsep secara bertahap kepada anak.",
+                "Ajak anak untuk mencoba memanipulasi alat secara mandiri.",
+                "Kembalikan alat ke rak setelah selesai digunakan."
+              ],
+              "error": "Anak dapat memverifikasi hasil akhir dengan kunci jawaban atau kesesuaian fisik alat.",
+              "videoUrl": ""
+            }
+          },
+          {
+            "label": "K1: first classification: vertebrates vs.",
+            "presentation": {
+              "tool": "Alat Sentra standar untuk first classification: vertebrates vs.",
+              "steps": [
+                "Siapkan alas kerja dan bawa material first classification: vertebrates vs. ke meja/karpet.",
+                "Lakukan demonstrasi perkenalan konsep secara bertahap kepada anak.",
+                "Ajak anak untuk mencoba memanipulasi alat secara mandiri.",
+                "Kembalikan alat ke rak setelah selesai digunakan."
+              ],
+              "error": "Anak dapat memverifikasi hasil akhir dengan kunci jawaban atau kesesuaian fisik alat.",
+              "videoUrl": ""
+            }
+          },
+          {
+            "label": "K3: advanced botany nomenclature;",
+            "presentation": {
+              "tool": "Alat Sentra standar untuk advanced botany nomenclature;",
+              "steps": [
+                "Siapkan alas kerja dan bawa material advanced botany nomenclature; ke meja/karpet.",
+                "Lakukan demonstrasi perkenalan konsep secara bertahap kepada anak.",
+                "Ajak anak untuk mencoba memanipulasi alat secara mandiri.",
+                "Kembalikan alat ke rak setelah selesai digunakan."
+              ],
+              "error": "Anak dapat memverifikasi hasil akhir dengan kunci jawaban atau kesesuaian fisik alat.",
+              "videoUrl": ""
+            }
+          },
+          {
+            "label": "K2: taxonomy: detailed classification",
+            "presentation": {
+              "tool": "Alat Sentra standar untuk taxonomy: detailed classification",
+              "steps": [
+                "Siapkan alas kerja dan bawa material taxonomy: detailed classification ke meja/karpet.",
+                "Lakukan demonstrasi perkenalan konsep secara bertahap kepada anak.",
+                "Ajak anak untuk mencoba memanipulasi alat secara mandiri.",
+                "Kembalikan alat ke rak setelah selesai digunakan."
+              ],
+              "error": "Anak dapat memverifikasi hasil akhir dengan kunci jawaban atau kesesuaian fisik alat.",
+              "videoUrl": ""
+            }
+          },
+          {
+            "label": "K3: research and guided report",
+            "presentation": {
+              "tool": "Alat Sentra standar untuk research and guided report",
+              "steps": [
+                "Siapkan alas kerja dan bawa material research and guided report ke meja/karpet.",
+                "Lakukan demonstrasi perkenalan konsep secara bertahap kepada anak.",
+                "Ajak anak untuk mencoba memanipulasi alat secara mandiri.",
+                "Kembalikan alat ke rak setelah selesai digunakan."
+              ],
+              "error": "Anak dapat memverifikasi hasil akhir dengan kunci jawaban atau kesesuaian fisik alat.",
+              "videoUrl": ""
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "HIST",
+    "name": "Sejarah & Peradaban",
+    "shortName": "History",
+    "icon": "Moon",
+    "color": "#8B5CF6",
+    "bgColor": "#F5F3FF",
+    "subAreas": [
+      {
+        "id": "HIST_BASE",
+        "name": "Materi Inti",
+        "levels": [
+          {
+            "label": "K1: 2",
+            "presentation": {
+              "tool": "Alat Sentra standar untuk 2",
+              "steps": [
+                "Siapkan alas kerja dan bawa material 2 ke meja/karpet.",
+                "Lakukan demonstrasi perkenalan konsep secara bertahap kepada anak.",
+                "Ajak anak untuk mencoba memanipulasi alat secara mandiri.",
+                "Kembalikan alat ke rak setelah selesai digunakan."
+              ],
+              "error": "Anak dapat memverifikasi hasil akhir dengan kunci jawaban atau kesesuaian fisik alat.",
+              "videoUrl": ""
+            }
+          },
+          {
+            "label": "K3: 4",
+            "presentation": {
+              "tool": "Alat Sentra standar untuk 4",
+              "steps": [
+                "Siapkan alas kerja dan bawa material 4 ke meja/karpet.",
+                "Lakukan demonstrasi perkenalan konsep secara bertahap kepada anak.",
+                "Ajak anak untuk mencoba memanipulasi alat secara mandiri.",
+                "Kembalikan alat ke rak setelah selesai digunakan."
+              ],
+              "error": "Anak dapat memverifikasi hasil akhir dengan kunci jawaban atau kesesuaian fisik alat.",
+              "videoUrl": ""
+            }
+          },
+          {
+            "label": "K2: concepts of time: noticing natural",
+            "presentation": {
+              "tool": "Alat Sentra standar untuk concepts of time: noticing natural",
+              "steps": [
+                "Siapkan alas kerja dan bawa material concepts of time: noticing natural ke meja/karpet.",
+                "Lakukan demonstrasi perkenalan konsep secara bertahap kepada anak.",
+                "Ajak anak untuk mencoba memanipulasi alat secara mandiri.",
+                "Kembalikan alat ke rak setelah selesai digunakan."
+              ],
+              "error": "Anak dapat memverifikasi hasil akhir dengan kunci jawaban atau kesesuaian fisik alat.",
+              "videoUrl": ""
+            }
+          },
+          {
+            "label": "K2: graphing child’s family ages",
+            "presentation": {
+              "tool": "Alat Sentra standar untuk graphing child’s family ages",
+              "steps": [
+                "Siapkan alas kerja dan bawa material graphing child’s family ages ke meja/karpet.",
+                "Lakukan demonstrasi perkenalan konsep secara bertahap kepada anak.",
+                "Ajak anak untuk mencoba memanipulasi alat secara mandiri.",
+                "Kembalikan alat ke rak setelah selesai digunakan."
+              ],
+              "error": "Anak dapat memverifikasi hasil akhir dengan kunci jawaban atau kesesuaian fisik alat.",
+              "videoUrl": ""
+            }
+          },
+          {
+            "label": "K3: passage of years: making a",
+            "presentation": {
+              "tool": "Alat Sentra standar untuk passage of years: making a",
+              "steps": [
+                "Siapkan alas kerja dan bawa material passage of years: making a ke meja/karpet.",
+                "Lakukan demonstrasi perkenalan konsep secara bertahap kepada anak.",
+                "Ajak anak untuk mencoba memanipulasi alat secara mandiri.",
+                "Kembalikan alat ke rak setelah selesai digunakan."
+              ],
+              "error": "Anak dapat memverifikasi hasil akhir dengan kunci jawaban atau kesesuaian fisik alat.",
+              "videoUrl": ""
+            }
+          },
+          {
+            "label": "K3: history/derivation of names of",
+            "presentation": {
+              "tool": "Alat Sentra standar untuk history/derivation of names of",
+              "steps": [
+                "Siapkan alas kerja dan bawa material history/derivation of names of ke meja/karpet.",
+                "Lakukan demonstrasi perkenalan konsep secara bertahap kepada anak.",
+                "Ajak anak untuk mencoba memanipulasi alat secara mandiri.",
+                "Kembalikan alat ke rak setelah selesai digunakan."
+              ],
+              "error": "Anak dapat memverifikasi hasil akhir dengan kunci jawaban atau kesesuaian fisik alat.",
+              "videoUrl": ""
+            }
+          },
+          {
+            "label": "K1: Simple tenses: concepts of past,",
+            "presentation": {
+              "tool": "Alat Sentra standar untuk Simple tenses: concepts of past,",
+              "steps": [
+                "Siapkan alas kerja dan bawa material Simple tenses: concepts of past, ke meja/karpet.",
+                "Lakukan demonstrasi perkenalan konsep secara bertahap kepada anak.",
+                "Ajak anak untuk mencoba memanipulasi alat secara mandiri.",
+                "Kembalikan alat ke rak setelah selesai digunakan."
+              ],
+              "error": "Anak dapat memverifikasi hasil akhir dengan kunci jawaban atau kesesuaian fisik alat.",
+              "videoUrl": ""
+            }
+          },
+          {
+            "label": "K2: creations stories of other cultures",
+            "presentation": {
+              "tool": "Alat Sentra standar untuk creations stories of other cultures",
+              "steps": [
+                "Siapkan alas kerja dan bawa material creations stories of other cultures ke meja/karpet.",
+                "Lakukan demonstrasi perkenalan konsep secara bertahap kepada anak.",
+                "Ajak anak untuk mencoba memanipulasi alat secara mandiri.",
+                "Kembalikan alat ke rak setelah selesai digunakan."
+              ],
+              "error": "Anak dapat memverifikasi hasil akhir dengan kunci jawaban atau kesesuaian fisik alat.",
+              "videoUrl": ""
+            }
+          },
+          {
+            "label": "K1: telling time on analog clocks; time",
+            "presentation": {
+              "tool": "Alat Sentra standar untuk telling time on analog clocks; time",
+              "steps": [
+                "Siapkan alas kerja dan bawa material telling time on analog clocks; time ke meja/karpet.",
+                "Lakukan demonstrasi perkenalan konsep secara bertahap kepada anak.",
+                "Ajak anak untuk mencoba memanipulasi alat secara mandiri.",
+                "Kembalikan alat ke rak setelah selesai digunakan."
+              ],
+              "error": "Anak dapat memverifikasi hasil akhir dengan kunci jawaban atau kesesuaian fisik alat.",
+              "videoUrl": ""
+            }
+          },
+          {
+            "label": "K1: study of fundamental human",
+            "presentation": {
+              "tool": "Alat Sentra standar untuk study of fundamental human",
+              "steps": [
+                "Siapkan alas kerja dan bawa material study of fundamental human ke meja/karpet.",
+                "Lakukan demonstrasi perkenalan konsep secara bertahap kepada anak.",
+                "Ajak anak untuk mencoba memanipulasi alat secara mandiri.",
+                "Kembalikan alat ke rak setelah selesai digunakan."
+              ],
+              "error": "Anak dapat memverifikasi hasil akhir dengan kunci jawaban atau kesesuaian fisik alat.",
+              "videoUrl": ""
+            }
+          },
+          {
+            "label": "K2: parts of a year (semester, trimester",
+            "presentation": {
+              "tool": "Alat Sentra standar untuk parts of a year (semester, trimester",
+              "steps": [
+                "Siapkan alas kerja dan bawa material parts of a year (semester, trimester ke meja/karpet.",
+                "Lakukan demonstrasi perkenalan konsep secara bertahap kepada anak.",
+                "Ajak anak untuk mencoba memanipulasi alat secara mandiri.",
+                "Kembalikan alat ke rak setelah selesai digunakan."
+              ],
+              "error": "Anak dapat memverifikasi hasil akhir dengan kunci jawaban atau kesesuaian fisik alat.",
+              "videoUrl": ""
+            }
+          },
+          {
+            "label": "K1: Roman numerals",
+            "presentation": {
+              "tool": "Alat Sentra standar untuk Roman numerals",
+              "steps": [
+                "Siapkan alas kerja dan bawa material Roman numerals ke meja/karpet.",
+                "Lakukan demonstrasi perkenalan konsep secara bertahap kepada anak.",
+                "Ajak anak untuk mencoba memanipulasi alat secara mandiri.",
+                "Kembalikan alat ke rak setelah selesai digunakan."
+              ],
+              "error": "Anak dapat memverifikasi hasil akhir dengan kunci jawaban atau kesesuaian fisik alat.",
+              "videoUrl": ""
+            }
+          },
+          {
+            "label": "K3: Gregorian calendar; measuring",
+            "presentation": {
+              "tool": "Alat Sentra standar untuk Gregorian calendar; measuring",
+              "steps": [
+                "Siapkan alas kerja dan bawa material Gregorian calendar; measuring ke meja/karpet.",
+                "Lakukan demonstrasi perkenalan konsep secara bertahap kepada anak.",
+                "Ajak anak untuk mencoba memanipulasi alat secara mandiri.",
+                "Kembalikan alat ke rak setelah selesai digunakan."
+              ],
+              "error": "Anak dapat memverifikasi hasil akhir dengan kunci jawaban atau kesesuaian fisik alat.",
+              "videoUrl": ""
+            }
+          },
+          {
+            "label": "K2: creations stories of other cultures",
+            "presentation": {
+              "tool": "Alat Sentra standar untuk creations stories of other cultures",
+              "steps": [
+                "Siapkan alas kerja dan bawa material creations stories of other cultures ke meja/karpet.",
+                "Lakukan demonstrasi perkenalan konsep secara bertahap kepada anak.",
+                "Ajak anak untuk mencoba memanipulasi alat secara mandiri.",
+                "Kembalikan alat ke rak setelah selesai digunakan."
+              ],
+              "error": "Anak dapat memverifikasi hasil akhir dengan kunci jawaban atau kesesuaian fisik alat.",
+              "videoUrl": ""
+            }
+          },
+          {
+            "label": "K1: Long Black Line (overview of",
+            "presentation": {
+              "tool": "Alat Sentra standar untuk Long Black Line (overview of",
+              "steps": [
+                "Siapkan alas kerja dan bawa material Long Black Line (overview of ke meja/karpet.",
+                "Lakukan demonstrasi perkenalan konsep secara bertahap kepada anak.",
+                "Ajak anak untuk mencoba memanipulasi alat secara mandiri.",
+                "Kembalikan alat ke rak setelah selesai digunakan."
+              ],
+              "error": "Anak dapat memverifikasi hasil akhir dengan kunci jawaban atau kesesuaian fisik alat.",
+              "videoUrl": ""
+            }
+          },
+          {
+            "label": "K3: “Clock of Eons” (detailed look at",
+            "presentation": {
+              "tool": "Alat Sentra standar untuk “Clock of Eons” (detailed look at",
+              "steps": [
+                "Siapkan alas kerja dan bawa material “Clock of Eons” (detailed look at ke meja/karpet.",
+                "Lakukan demonstrasi perkenalan konsep secara bertahap kepada anak.",
+                "Ajak anak untuk mencoba memanipulasi alat secara mandiri.",
+                "Kembalikan alat ke rak setelah selesai digunakan."
+              ],
+              "error": "Anak dapat memverifikasi hasil akhir dengan kunci jawaban atau kesesuaian fisik alat.",
+              "videoUrl": ""
+            }
+          },
+          {
+            "label": "K2: am/pm notation; time zones",
+            "presentation": {
+              "tool": "Alat Sentra standar untuk am/pm notation; time zones",
+              "steps": [
+                "Siapkan alas kerja dan bawa material am/pm notation; time zones ke meja/karpet.",
+                "Lakukan demonstrasi perkenalan konsep secara bertahap kepada anak.",
+                "Ajak anak untuk mencoba memanipulasi alat secara mandiri.",
+                "Kembalikan alat ke rak setelah selesai digunakan."
+              ],
+              "error": "Anak dapat memverifikasi hasil akhir dengan kunci jawaban atau kesesuaian fisik alat.",
+              "videoUrl": ""
+            }
+          },
+          {
+            "label": "K1: Time Line of Life: detailed",
+            "presentation": {
+              "tool": "Alat Sentra standar untuk Time Line of Life: detailed",
+              "steps": [
+                "Siapkan alas kerja dan bawa material Time Line of Life: detailed ke meja/karpet.",
+                "Lakukan demonstrasi perkenalan konsep secara bertahap kepada anak.",
+                "Ajak anak untuk mencoba memanipulasi alat secara mandiri.",
+                "Kembalikan alat ke rak setelah selesai digunakan."
+              ],
+              "error": "Anak dapat memverifikasi hasil akhir dengan kunci jawaban atau kesesuaian fisik alat.",
+              "videoUrl": ""
+            }
+          },
+          {
+            "label": "K2: vertical studies of fundamental",
+            "presentation": {
+              "tool": "Alat Sentra standar untuk vertical studies of fundamental",
+              "steps": [
+                "Siapkan alas kerja dan bawa material vertical studies of fundamental ke meja/karpet.",
+                "Lakukan demonstrasi perkenalan konsep secara bertahap kepada anak.",
+                "Ajak anak untuk mencoba memanipulasi alat secara mandiri.",
+                "Kembalikan alat ke rak setelah selesai digunakan."
+              ],
+              "error": "Anak dapat memverifikasi hasil akhir dengan kunci jawaban atau kesesuaian fisik alat.",
+              "videoUrl": ""
+            }
+          },
+          {
+            "label": "K3: first research into ancient",
+            "presentation": {
+              "tool": "Alat Sentra standar untuk first research into ancient",
+              "steps": [
+                "Siapkan alas kerja dan bawa material first research into ancient ke meja/karpet.",
+                "Lakukan demonstrasi perkenalan konsep secara bertahap kepada anak.",
+                "Ajak anak untuk mencoba memanipulasi alat secara mandiri.",
+                "Kembalikan alat ke rak setelah selesai digunakan."
+              ],
+              "error": "Anak dapat memverifikasi hasil akhir dengan kunci jawaban atau kesesuaian fisik alat.",
+              "videoUrl": ""
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "GEOG",
+    "name": "Geografi & Sains Fisik",
+    "shortName": "Geography",
+    "icon": "Globe2",
+    "color": "#3B82F6",
+    "bgColor": "#EFF6FF",
+    "subAreas": [
+      {
+        "id": "GEOG_BASE",
+        "name": "Materi Inti",
+        "levels": [
+          {
+            "label": "K2: history of maps; projection issue;",
+            "presentation": {
+              "tool": "Alat Sentra standar untuk history of maps; projection issue;",
+              "steps": [
+                "Siapkan alas kerja dan bawa material history of maps; projection issue; ke meja/karpet.",
+                "Lakukan demonstrasi perkenalan konsep secara bertahap kepada anak.",
+                "Ajak anak untuk mencoba memanipulasi alat secara mandiri.",
+                "Kembalikan alat ke rak setelah selesai digunakan."
+              ],
+              "error": "Anak dapat memverifikasi hasil akhir dengan kunci jawaban atau kesesuaian fisik alat.",
+              "videoUrl": ""
+            }
+          },
+          {
+            "label": "K1: puzzle maps: 7 continents and",
+            "presentation": {
+              "tool": "Alat Sentra standar untuk puzzle maps: 7 continents and",
+              "steps": [
+                "Siapkan alas kerja dan bawa material puzzle maps: 7 continents and ke meja/karpet.",
+                "Lakukan demonstrasi perkenalan konsep secara bertahap kepada anak.",
+                "Ajak anak untuk mencoba memanipulasi alat secara mandiri.",
+                "Kembalikan alat ke rak setelah selesai digunakan."
+              ],
+              "error": "Anak dapat memverifikasi hasil akhir dengan kunci jawaban atau kesesuaian fisik alat.",
+              "videoUrl": ""
+            }
+          },
+          {
+            "label": "K2: land & water forms; locating",
+            "presentation": {
+              "tool": "Alat Sentra standar untuk land & water forms; locating",
+              "steps": [
+                "Siapkan alas kerja dan bawa material land & water forms; locating ke meja/karpet.",
+                "Lakukan demonstrasi perkenalan konsep secara bertahap kepada anak.",
+                "Ajak anak untuk mencoba memanipulasi alat secara mandiri.",
+                "Kembalikan alat ke rak setelah selesai digunakan."
+              ],
+              "error": "Anak dapat memverifikasi hasil akhir dengan kunci jawaban atau kesesuaian fisik alat.",
+              "videoUrl": ""
+            }
+          },
+          {
+            "label": "K3: pin maps: political boundaries of",
+            "presentation": {
+              "tool": "Alat Sentra standar untuk pin maps: political boundaries of",
+              "steps": [
+                "Siapkan alas kerja dan bawa material pin maps: political boundaries of ke meja/karpet.",
+                "Lakukan demonstrasi perkenalan konsep secara bertahap kepada anak.",
+                "Ajak anak untuk mencoba memanipulasi alat secara mandiri.",
+                "Kembalikan alat ke rak setelah selesai digunakan."
+              ],
+              "error": "Anak dapat memverifikasi hasil akhir dengan kunci jawaban atau kesesuaian fisik alat.",
+              "videoUrl": ""
+            }
+          },
+          {
+            "label": "K1: parts of a flag; study of flags",
+            "presentation": {
+              "tool": "Alat Sentra standar untuk parts of a flag; study of flags",
+              "steps": [
+                "Siapkan alas kerja dan bawa material parts of a flag; study of flags ke meja/karpet.",
+                "Lakukan demonstrasi perkenalan konsep secara bertahap kepada anak.",
+                "Ajak anak untuk mencoba memanipulasi alat secara mandiri.",
+                "Kembalikan alat ke rak setelah selesai digunakan."
+              ],
+              "error": "Anak dapat memverifikasi hasil akhir dengan kunci jawaban atau kesesuaian fisik alat.",
+              "videoUrl": ""
+            }
+          },
+          {
+            "label": "K3: beginning research on countries",
+            "presentation": {
+              "tool": "Alat Sentra standar untuk beginning research on countries",
+              "steps": [
+                "Siapkan alas kerja dan bawa material beginning research on countries ke meja/karpet.",
+                "Lakukan demonstrasi perkenalan konsep secara bertahap kepada anak.",
+                "Ajak anak untuk mencoba memanipulasi alat secara mandiri.",
+                "Kembalikan alat ke rak setelah selesai digunakan."
+              ],
+              "error": "Anak dapat memverifikasi hasil akhir dengan kunci jawaban atau kesesuaian fisik alat.",
+              "videoUrl": ""
+            }
+          },
+          {
+            "label": "K2: Earth and the solar system",
+            "presentation": {
+              "tool": "Alat Sentra standar untuk Earth and the solar system",
+              "steps": [
+                "Siapkan alas kerja dan bawa material Earth and the solar system ke meja/karpet.",
+                "Lakukan demonstrasi perkenalan konsep secara bertahap kepada anak.",
+                "Ajak anak untuk mencoba memanipulasi alat secara mandiri.",
+                "Kembalikan alat ke rak setelah selesai digunakan."
+              ],
+              "error": "Anak dapat memverifikasi hasil akhir dengan kunci jawaban atau kesesuaian fisik alat.",
+              "videoUrl": ""
+            }
+          },
+          {
+            "label": "K1: economic geography: linkages for",
+            "presentation": {
+              "tool": "Alat Sentra standar untuk economic geography: linkages for",
+              "steps": [
+                "Siapkan alas kerja dan bawa material economic geography: linkages for ke meja/karpet.",
+                "Lakukan demonstrasi perkenalan konsep secara bertahap kepada anak.",
+                "Ajak anak untuk mencoba memanipulasi alat secara mandiri.",
+                "Kembalikan alat ke rak setelah selesai digunakan."
+              ],
+              "error": "Anak dapat memverifikasi hasil akhir dengan kunci jawaban atau kesesuaian fisik alat.",
+              "videoUrl": ""
+            }
+          },
+          {
+            "label": "K1: advanced land & water forms",
+            "presentation": {
+              "tool": "Alat Sentra standar untuk advanced land & water forms",
+              "steps": [
+                "Siapkan alas kerja dan bawa material advanced land & water forms ke meja/karpet.",
+                "Lakukan demonstrasi perkenalan konsep secara bertahap kepada anak.",
+                "Ajak anak untuk mencoba memanipulasi alat secara mandiri.",
+                "Kembalikan alat ke rak setelah selesai digunakan."
+              ],
+              "error": "Anak dapat memverifikasi hasil akhir dengan kunci jawaban atau kesesuaian fisik alat.",
+              "videoUrl": ""
+            }
+          },
+          {
+            "label": "K2: research on countries of choice",
+            "presentation": {
+              "tool": "Alat Sentra standar untuk research on countries of choice",
+              "steps": [
+                "Siapkan alas kerja dan bawa material research on countries of choice ke meja/karpet.",
+                "Lakukan demonstrasi perkenalan konsep secara bertahap kepada anak.",
+                "Ajak anak untuk mencoba memanipulasi alat secara mandiri.",
+                "Kembalikan alat ke rak setelah selesai digunakan."
+              ],
+              "error": "Anak dapat memverifikasi hasil akhir dengan kunci jawaban atau kesesuaian fisik alat.",
+              "videoUrl": ""
+            }
+          },
+          {
+            "label": "K2: Work of Water: water cycle,",
+            "presentation": {
+              "tool": "Alat Sentra standar untuk Work of Water: water cycle,",
+              "steps": [
+                "Siapkan alas kerja dan bawa material Work of Water: water cycle, ke meja/karpet.",
+                "Lakukan demonstrasi perkenalan konsep secara bertahap kepada anak.",
+                "Ajak anak untuk mencoba memanipulasi alat secara mandiri.",
+                "Kembalikan alat ke rak setelah selesai digunakan."
+              ],
+              "error": "Anak dapat memverifikasi hasil akhir dengan kunci jawaban atau kesesuaian fisik alat.",
+              "videoUrl": ""
+            }
+          },
+          {
+            "label": "K2: parts of a river",
+            "presentation": {
+              "tool": "Alat Sentra standar untuk parts of a river",
+              "steps": [
+                "Siapkan alas kerja dan bawa material parts of a river ke meja/karpet.",
+                "Lakukan demonstrasi perkenalan konsep secara bertahap kepada anak.",
+                "Ajak anak untuk mencoba memanipulasi alat secara mandiri.",
+                "Kembalikan alat ke rak setelah selesai digunakan."
+              ],
+              "error": "Anak dapat memverifikasi hasil akhir dengan kunci jawaban atau kesesuaian fisik alat.",
+              "videoUrl": ""
+            }
+          },
+          {
+            "label": "K2: physics of sound",
+            "presentation": {
+              "tool": "Alat Sentra standar untuk physics of sound",
+              "steps": [
+                "Siapkan alas kerja dan bawa material physics of sound ke meja/karpet.",
+                "Lakukan demonstrasi perkenalan konsep secara bertahap kepada anak.",
+                "Ajak anak untuk mencoba memanipulasi alat secara mandiri.",
+                "Kembalikan alat ke rak setelah selesai digunakan."
+              ],
+              "error": "Anak dapat memverifikasi hasil akhir dengan kunci jawaban atau kesesuaian fisik alat.",
+              "videoUrl": ""
+            }
+          },
+          {
+            "label": "K3: Sun & Earth: reason for seasons",
+            "presentation": {
+              "tool": "Alat Sentra standar untuk Sun & Earth: reason for seasons",
+              "steps": [
+                "Siapkan alas kerja dan bawa material Sun & Earth: reason for seasons ke meja/karpet.",
+                "Lakukan demonstrasi perkenalan konsep secara bertahap kepada anak.",
+                "Ajak anak untuk mencoba memanipulasi alat secara mandiri.",
+                "Kembalikan alat ke rak setelah selesai digunakan."
+              ],
+              "error": "Anak dapat memverifikasi hasil akhir dengan kunci jawaban atau kesesuaian fisik alat.",
+              "videoUrl": ""
+            }
+          },
+          {
+            "label": "K1: Nature of the Elements: nature",
+            "presentation": {
+              "tool": "Alat Sentra standar untuk Nature of the Elements: nature",
+              "steps": [
+                "Siapkan alas kerja dan bawa material Nature of the Elements: nature ke meja/karpet.",
+                "Lakukan demonstrasi perkenalan konsep secara bertahap kepada anak.",
+                "Ajak anak untuk mencoba memanipulasi alat secara mandiri.",
+                "Kembalikan alat ke rak setelah selesai digunakan."
+              ],
+              "error": "Anak dapat memverifikasi hasil akhir dengan kunci jawaban atau kesesuaian fisik alat.",
+              "videoUrl": ""
+            }
+          },
+          {
+            "label": "K3: physics of light",
+            "presentation": {
+              "tool": "Alat Sentra standar untuk physics of light",
+              "steps": [
+                "Siapkan alas kerja dan bawa material physics of light ke meja/karpet.",
+                "Lakukan demonstrasi perkenalan konsep secara bertahap kepada anak.",
+                "Ajak anak untuk mencoba memanipulasi alat secara mandiri.",
+                "Kembalikan alat ke rak setelah selesai digunakan."
+              ],
+              "error": "Anak dapat memverifikasi hasil akhir dengan kunci jawaban atau kesesuaian fisik alat.",
+              "videoUrl": ""
+            }
+          },
+          {
+            "label": "K3: Composition of the Earth: layers",
+            "presentation": {
+              "tool": "Alat Sentra standar untuk Composition of the Earth: layers",
+              "steps": [
+                "Siapkan alas kerja dan bawa material Composition of the Earth: layers ke meja/karpet.",
+                "Lakukan demonstrasi perkenalan konsep secara bertahap kepada anak.",
+                "Ajak anak untuk mencoba memanipulasi alat secara mandiri.",
+                "Kembalikan alat ke rak setelah selesai digunakan."
+              ],
+              "error": "Anak dapat memverifikasi hasil akhir dengan kunci jawaban atau kesesuaian fisik alat.",
+              "videoUrl": ""
+            }
+          },
+          {
+            "label": "K2: physics of magnetism",
+            "presentation": {
+              "tool": "Alat Sentra standar untuk physics of magnetism",
+              "steps": [
+                "Siapkan alas kerja dan bawa material physics of magnetism ke meja/karpet.",
+                "Lakukan demonstrasi perkenalan konsep secara bertahap kepada anak.",
+                "Ajak anak untuk mencoba memanipulasi alat secara mandiri.",
+                "Kembalikan alat ke rak setelah selesai digunakan."
+              ],
+              "error": "Anak dapat memverifikasi hasil akhir dengan kunci jawaban atau kesesuaian fisik alat.",
+              "videoUrl": ""
+            }
+          },
+          {
+            "label": "K2: grace and courtesy lessons",
+            "presentation": {
+              "tool": "Alat Sentra standar untuk grace and courtesy lessons",
+              "steps": [
+                "Siapkan alas kerja dan bawa material grace and courtesy lessons ke meja/karpet.",
+                "Lakukan demonstrasi perkenalan konsep secara bertahap kepada anak.",
+                "Ajak anak untuk mencoba memanipulasi alat secara mandiri.",
+                "Kembalikan alat ke rak setelah selesai digunakan."
+              ],
+              "error": "Anak dapat memverifikasi hasil akhir dengan kunci jawaban atau kesesuaian fisik alat.",
+              "videoUrl": ""
+            }
+          }
+        ]
+      }
+    ]
+  }
+]

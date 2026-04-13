@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mockup 3.0: Sapu Pandang Montessori</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@600;700;800;900&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #4F46E5;
+            --primary-bg: #EEF2FF;
+            --danger: #EF4444;
+            --danger-bg: #FEF2F2;
+            --warning: #F59E0B;
+            --warning-bg: #FFFBEB;
+            --success: #10B981;
+            --success-bg: #ECFDF5;
+            --text-main: #0F172A;
+            --text-muted: #64748B;
+            --bg-body: #F4F7FB;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Inter', sans-serif; }
+        body { background-color: var(--bg-body); padding: 20px; display: flex; justify-content: center; align-items: center; min-height: 100vh; }
+        
+        .ipad-frame { width: 100%; max-width: 900px; background: white; border-radius: 32px; box-shadow: 0 25px 50px rgba(0,0,0,0.1); overflow: hidden; border: 8px solid #E2E8F0; display: flex; flex-direction: column; height: 90vh; position: relative; }
+        .header { padding: 30px 40px 20px; background: rgba(255, 255, 255, 0.9); border-bottom: 1px solid #E2E8F0; z-index: 10;}
+        .header h1 { font-family: 'Outfit', sans-serif; font-size: 1.8rem; color: var(--text-main); margin-bottom: 20px; }
+        .tabs { display: flex; background: #F1F5F9; padding: 6px; border-radius: 20px; gap: 6px; }
+        .tab-btn { flex: 1; padding: 12px 20px; border: none; border-radius: 16px; background: transparent; font-weight: 700; color: var(--text-muted); cursor: pointer; transition: all 0.2s; }
+        .tab-btn.active { background: white; color: var(--primary); box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
+
+        .content-area { padding: 30px 40px; overflow-y: auto; flex: 1; background: #FAFCFF; padding-bottom: 120px; }
+        .section-title { font-size: 0.9rem; font-weight: 800; color: var(--text-muted); text-transform: uppercase; margin-bottom: 16px; letter-spacing: 0.5px; }
+
+        /* GRID FOR VISUAL SWEEP (SAPU PANDANG) */
+        .sweep-desc { background: #EEF2FF; border: 1px solid #C7D2FE; color: #4338CA; padding: 16px 20px; border-radius: 16px; font-weight: 600; font-size: 0.95rem; margin-bottom: 24px; display: flex; gap: 12px; }
+        .grid-kids { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 16px; }
+        
+        .kid-card { background: white; border: 2px solid #E2E8F0; border-radius: 20px; padding: 16px; display: flex; align-items: center; gap: 16px; cursor: pointer; transition: all 0.2s; box-shadow: 0 4px 12px rgba(0,0,0,0.02); }
+        .kid-card.selected { border-color: var(--primary); background: var(--primary-bg); transform: scale(1.02); box-shadow: 0 8px 20px rgba(79, 70, 229, 0.15); }
+        .avatar { width: 44px; height: 44px; background: #F1F5F9; font-weight: 800; color: var(--text-muted); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; }
+        .kid-card.selected .avatar { background: var(--primary); color: white; }
+        .kid-info h4 { font-size: 1.05rem; color: var(--text-main); margin-bottom: 4px; }
+        .kid-info p { font-size: 0.8rem; color: var(--text-muted); font-weight: 600; }
+        
+        /* THE FLOATING ACTION BAR FOR GROUP LOGGING */
+        .floating-action-bar { position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%) translateY(150px); background: white; padding: 12px 20px 12px 24px; border-radius: 100px; box-shadow: 0 20px 40px rgba(0,0,0,0.2); display: flex; align-items: center; gap: 24px; border: 1px solid #E2E8F0; transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1); z-index: 50; }
+        .floating-action-bar.visible { transform: translateX(-50%) translateY(0); }
+        .fab-text { font-weight: 800; color: var(--text-main); font-size: 1.05rem; display: flex; align-items: center; gap: 8px;}
+        .badge-count { background: var(--primary); color: white; width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.9rem; }
+        .btn-fab-catat { background: linear-gradient(135deg, var(--primary) 0%, #4338CA 100%); color: white; border: none; padding: 14px 28px; border-radius: 100px; font-weight: 800; font-size: 1rem; cursor: pointer; box-shadow: 0 8px 16px rgba(79, 70, 229, 0.3); }
+
+        /* BOTTOM SHEET */
+        .glass-overlay { position: absolute; inset: 0; background: rgba(15, 23, 42, 0.5); backdrop-filter: blur(8px); display: none; align-items: flex-end; justify-content: center; z-index: 100; opacity: 0; transition: opacity 0.3s; }
+        .glass-overlay.active { display: flex; opacity: 1; }
+        .bottom-sheet { background: white; width: 100%; border-radius: 36px 36px 0 0; padding: 30px 40px 40px; transform: translateY(100%); transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1); max-height: 85vh; overflow-y: auto; }
+        .glass-overlay.active .bottom-sheet { transform: translateY(0); }
+        .sheet-handle { width: 50px; height: 6px; background: #E2E8F0; border-radius: 10px; margin: 0 auto 24px; }
+        
+        .sheet-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; padding-bottom: 16px; border-bottom: 1px solid #F1F5F9; }
+        .sheet-header h2 { font-family: 'Outfit'; font-size: 1.4rem; color: var(--text-main); margin-bottom: 6px;}
+        .btn-close { background: #F1F5F9; border: none; width: 40px; height: 40px; border-radius: 50%; font-size: 1.2rem; font-weight: 800; color: var(--text-muted); cursor: pointer; }
+
+        /* SHEET CONTENT */
+        .section-box { background: #F8FAFC; border: 1px solid #E2E8F0; padding: 24px; border-radius: 20px; margin-bottom: 24px; }
+        .box-title { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; }
+        .box-title span { font-size: 0.8rem; font-weight: 800; color: var(--primary); text-transform: uppercase; letter-spacing: 0.5px; }
+
+        .chip-group { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 12px; }
+        .chip-normal { background: white; border: 1px solid #E2E8F0; padding: 12px 16px; border-radius: 12px; font-size: 0.9rem; font-weight: 700; color: var(--text-muted); cursor: pointer; }
+        .chip-normal.active { border-color: var(--primary); background: var(--primary-bg); color: var(--primary); box-shadow: 0 4px 10px rgba(79,70,229,0.1); }
+
+        .emoji-bar { display: flex; gap: 12px; }
+        .emoji-btn { flex: 1; padding: 16px 0; background: white; border: 2px solid transparent; border-radius: 16px; font-size: 2rem; cursor: pointer; text-align: center; box-shadow: 0 2px 8px rgba(0,0,0,0.02); transition: all 0.2s;}
+        .emoji-btn.active { background: #EEF2FF; border-color: var(--primary); transform: scale(1.05); }
+
+        .btn-simpan { width: 100%; padding: 20px; border: none; border-radius: 20px; background: var(--text-main); color: white; font-size: 1.1rem; font-weight: 800; cursor: pointer; box-shadow: 0 10px 20px rgba(0,0,0,0.15); }
+    </style>
+</head>
+<body>
+
+    <div class="ipad-frame">
+        <div class="header">
+            <h1>Sesi Sentra</h1>
+            <div class="tabs">
+                <button class="tab-btn">🎯 Target Presentasi</button>
+                <button class="tab-btn active">👀 Mode Sapu Pandang (Baru!)</button>
+                <button class="tab-btn">⏳ Riwayat Linimasa</button>
+            </div>
+        </div>
+
+        <div class="content-area">
+            <div class="sweep-desc">
+                <div>💡</div>
+                <div>Taktik Kelas: Setelah kelas kondusif, berdirilah di pojok ruangan. Sentuh wajah anak-anak yang asyik memakai alat yang sama atau bekerja di meja yang sama, lalu klik Catat.</div>
+            </div>
+
+            <div class="section-title">Semua Anak di Kelas Hari Ini</div>
+            
+            <div class="grid-kids">
+                <div class="kid-card" onclick="toggleKid(this, 'Afifa N.')">
+                    <div class="avatar">Af</div> <div class="kid-info"><h4>Afifa Nahda S.</h4><p>Belum diamati</p></div>
+                </div>
+                <div class="kid-card" onclick="toggleKid(this, 'Akhdan P.')">
+                    <div class="avatar">Ak</div> <div class="kid-info"><h4>Akhdan Putra S.</h4><p>Belum diamati</p></div>
+                </div>
+                <div class="kid-card" onclick="toggleKid(this, 'Aisyah H.')">
+                    <div class="avatar">Ai</div> <div class="kid-info"><h4>Aisyah Humaira</h4><p>Belum diamati</p></div>
+                </div>
+                <div class="kid-card" onclick="toggleKid(this, 'Bagas P.')">
+                    <div class="avatar">Ba</div> <div class="kid-info"><h4>Bagas Pratama</h4><p>Belum diamati</p></div>
+                </div>
+                <div class="kid-card" onclick="toggleKid(this, 'Cita M.')">
+                    <div class="avatar">Ci</div> <div class="kid-info"><h4>Cita Maharani</h4><p>Belum diamati</p></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- FLOATING BAR MUNCUL SAAT ADA ANAK DIKLIK -->
+        <div class="floating-action-bar" id="fabView">
+            <div class="fab-text">
+                <div class="badge-count" id="badgeCount">0</div> Anak Terpilih
+            </div>
+            <button class="btn-fab-catat" onclick="openSheet()">Catat Mereka Bersamaan ✨</button>
+        </div>
+
+        <!-- THE MAGIC BOTTOM SHEET -->
+        <div class="glass-overlay" id="bottomSheet" onclick="closeSheet(event)">
+            <div class="bottom-sheet" onclick="event.stopPropagation()">
+                <div class="sheet-handle"></div>
+                
+                <div class="sheet-header">
+                    <div>
+                        <h2>Mencatat <span id="sheetCount">0</span> Anak Sekaligus</h2>
+                        <span style="color:var(--text-muted); font-size:0.85rem; font-weight:600;" id="sheetNames">Nama, Nama, Nama</span>
+                    </div>
+                    <button class="btn-close" onclick="closeSheet(event)">✕</button>
+                </div>
+
+                <div class="section-title" style="margin-left:8px; margin-bottom: 8px;">Mereka Sedang Bekerja Apa Bersama-sama?</div>
+                <div class="section-box">
+                    <div class="chip-group">
+                        <button class="chip-normal" onclick="selectChip(this)">Stamp Game</button>
+                        <button class="chip-normal" onclick="selectChip(this)">Segapan (Segi Tiga Macam)</button>
+                        <button class="chip-normal" onclick="selectChip(this)">Area Budaya: Mewarnai Peta</button>
+                        <button class="chip-normal">Pilih yang lain...</button>
+                    </div>
+                </div>
+
+                <div class="section-title" style="margin-left:8px; margin-bottom: 8px;">Fokus Kelompok Ini Secara Umum:</div>
+                <div class="section-box" style="background:transparent; border:none; padding: 0;">
+                    <div class="emoji-bar">
+                        <button class="emoji-btn" onclick="selectEmoji(this)">😤</button>
+                        <button class="emoji-btn" onclick="selectEmoji(this)">😐</button>
+                        <button class="emoji-btn active" onclick="selectEmoji(this)">😍</button>
+                    </div>
+                </div>
+
+                <div style="margin-top: 32px;">
+                    <button class="btn-simpan" onclick="simpanData(event)">Selesai & Simpan Data</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let selectedKids = [];
+
+        function toggleKid(element, name) {
+            if (element.classList.contains('selected')) {
+                element.classList.remove('selected');
+                selectedKids = selectedKids.filter(n => n !== name);
+            } else {
+                element.classList.add('selected');
+                selectedKids.push(name);
+            }
+            updateFab();
+        }
+
+        function updateFab() {
+            const count = selectedKids.length;
+            const fab = document.getElementById('fabView');
+            document.getElementById('badgeCount').innerText = count;
+            
+            if (count > 0) {
+                fab.classList.add('visible');
+            } else {
+                fab.classList.remove('visible');
+            }
+        }
+
+        function openSheet() {
+            document.getElementById('sheetCount').innerText = selectedKids.length;
+            document.getElementById('sheetNames').innerText = selectedKids.join(', ');
+            document.getElementById('bottomSheet').classList.add('active');
+        }
+
+        function closeSheet(e) {
+            e.stopPropagation();
+            document.getElementById('bottomSheet').classList.remove('active');
+        }
+
+        function selectChip(btn) {
+            document.querySelectorAll('.chip-normal').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+        }
+
+        function selectEmoji(btn) {
+            document.querySelectorAll('.emoji-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+        }
+
+        function simpanData(e) {
+            alert('Sukses! Catatan untuk ' + selectedKids.length + ' anak sudah tersimpan dalam 1 kali klik.');
+            
+            // Atur ulang layar
+            selectedKids = [];
+            document.querySelectorAll('.kid-card').forEach(c => c.classList.remove('selected'));
+            updateFab();
+            closeSheet(e);
+        }
+    </script>
+</body>
+</html>

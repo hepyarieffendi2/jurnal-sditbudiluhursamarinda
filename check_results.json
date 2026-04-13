@@ -1,0 +1,331 @@
+{
+  "totalLessons": 100,
+  "minSteps": 14,
+  "maxSteps": 34,
+  "outOfRange": [
+    {
+      "area": "matematika",
+      "subArea": "Sistem Desimal (Golden Beads) / The Decimal System (Golden Beads)",
+      "lesson": "K1: Pengenalan Jumlah / Introduction to Quantity (1, 10, 100, 1000)",
+      "steps": 29
+    },
+    {
+      "area": "matematika",
+      "subArea": "Sistem Desimal (Golden Beads) / The Decimal System (Golden Beads)",
+      "lesson": "K1: Pengenalan Simbol / Introduction to Symbols (The Cards)",
+      "steps": 27
+    },
+    {
+      "area": "matematika",
+      "subArea": "Sistem Desimal (Golden Beads) / The Decimal System (Golden Beads)",
+      "lesson": "K1: Asosiasi Jumlah & Simbol / Association of Quantity & Symbols",
+      "steps": 28
+    },
+    {
+      "area": "matematika",
+      "subArea": "Sistem Desimal (Golden Beads) / The Decimal System (Golden Beads)",
+      "lesson": "K1: Pembentukan Angka / Formation of Numbers (The Magic Slide)",
+      "steps": 27
+    },
+    {
+      "area": "matematika",
+      "subArea": "Sistem Desimal (Golden Beads) / The Decimal System (Golden Beads)",
+      "lesson": "K1-K2: Permainan Pertukaran / The Exchange Game",
+      "steps": 27
+    },
+    {
+      "area": "matematika",
+      "subArea": "Sistem Desimal (Golden Beads) / The Decimal System (Golden Beads)",
+      "lesson": "K1-K2: Penjumlahan Statis / Golden Beads - Static Addition",
+      "steps": 28
+    },
+    {
+      "area": "matematika",
+      "subArea": "Sistem Desimal (Golden Beads) / The Decimal System (Golden Beads)",
+      "lesson": "K1-K2: Penjumlahan Dinamis / Golden Beads - Dynamic Addition",
+      "steps": 28
+    },
+    {
+      "area": "matematika",
+      "subArea": "Sistem Desimal (Golden Beads) / The Decimal System (Golden Beads)",
+      "lesson": "K1-K2: Pengurangan Statis / Golden Beads - Static Subtraction",
+      "steps": 28
+    },
+    {
+      "area": "matematika",
+      "subArea": "Sistem Desimal (Golden Beads) / The Decimal System (Golden Beads)",
+      "lesson": "K1-K2: Pengurangan Dinamis / Golden Beads - Dynamic Subtraction",
+      "steps": 28
+    },
+    {
+      "area": "matematika",
+      "subArea": "Sistem Desimal (Golden Beads) / The Decimal System (Golden Beads)",
+      "lesson": "K3: Pembagian / Golden Beads - Division",
+      "steps": 27
+    },
+    {
+      "area": "matematika",
+      "subArea": "Stamp Game / The Stamp Game",
+      "lesson": "K2-K3: Penjumlahan Statis / Stamp Game - Static Addition",
+      "steps": 31
+    },
+    {
+      "area": "matematika",
+      "subArea": "Stamp Game / The Stamp Game",
+      "lesson": "K2-K3: Penjumlahan Dinamis / Stamp Game - Dynamic Addition",
+      "steps": 30
+    },
+    {
+      "area": "matematika",
+      "subArea": "Stamp Game / The Stamp Game",
+      "lesson": "K2-K3: Pengurangan Statis / Stamp Game - Static Subtraction",
+      "steps": 30
+    },
+    {
+      "area": "matematika",
+      "subArea": "Stamp Game / The Stamp Game",
+      "lesson": "K2-K3: Pengurangan Dinamis / Stamp Game - Dynamic Subtraction",
+      "steps": 30
+    },
+    {
+      "area": "matematika",
+      "subArea": "Stamp Game / The Stamp Game",
+      "lesson": "K2-K3: Perkalian 1 Digit / Stamp Game - One-digit Multiplication",
+      "steps": 30
+    },
+    {
+      "area": "matematika",
+      "subArea": "Stamp Game / The Stamp Game",
+      "lesson": "K2-K3: Perkalian Banyak Digit / Stamp Game - Multi-digit Multiplication",
+      "steps": 30
+    },
+    {
+      "area": "matematika",
+      "subArea": "Stamp Game / The Stamp Game",
+      "lesson": "K2-K3: Pembagian 1 Digit / Stamp Game - One-digit Division",
+      "steps": 30
+    },
+    {
+      "area": "matematika",
+      "subArea": "Stamp Game / The Stamp Game",
+      "lesson": "K2-K3: Pembagian Banyak Digit / Stamp Game - Multi-digit Division",
+      "steps": 30
+    },
+    {
+      "area": "matematika",
+      "subArea": "Bead Frames / Bead Frames",
+      "lesson": "K2: Penjumlahan Statis / Small Bead Frame - Static Addition",
+      "steps": 32
+    },
+    {
+      "area": "matematika",
+      "subArea": "Bead Frames / Bead Frames",
+      "lesson": "K2: Penjumlahan Dinamis / Small Bead Frame - Dynamic Addition",
+      "steps": 32
+    },
+    {
+      "area": "matematika",
+      "subArea": "Bead Frames / Bead Frames",
+      "lesson": "K2: Pengurangan Statis / Small Bead Frame - Static Subtraction",
+      "steps": 30
+    },
+    {
+      "area": "matematika",
+      "subArea": "Bead Frames / Bead Frames",
+      "lesson": "K2: Pengurangan Dinamis / Small Bead Frame - Dynamic Subtraction",
+      "steps": 31
+    },
+    {
+      "area": "matematika",
+      "subArea": "Bead Frames / Bead Frames",
+      "lesson": "K2-K3: Pengenalan Angka Besar / Large Bead Frame - Introduction",
+      "steps": 31
+    },
+    {
+      "area": "matematika",
+      "subArea": "Bead Frames / Bead Frames",
+      "lesson": "K2-K3: Operasi Hitung / Large Bead Frame - Operations",
+      "steps": 31
+    },
+    {
+      "area": "matematika",
+      "subArea": "Bead Frames / Bead Frames",
+      "lesson": "K3: Perkalian Banyak Digit / Bead Frames - Multi-digit Multiplication",
+      "steps": 34
+    },
+    {
+      "area": "matematika",
+      "subArea": "Hierarchical Material / The Hierarchical Material",
+      "lesson": "K2-K3: Pengenalan Kubus Jutaan / Introduction to Million Cube",
+      "steps": 32
+    },
+    {
+      "area": "matematika",
+      "subArea": "Memorization of Facts / Memorization of Facts",
+      "lesson": "K1-K2: Ular Penjumlahan / Addition Snake Game",
+      "steps": 32
+    },
+    {
+      "area": "matematika",
+      "subArea": "Memorization of Facts / Memorization of Facts",
+      "lesson": "K1-K2: Ular Pengurangan / Subtraction Snake Game",
+      "steps": 31
+    },
+    {
+      "area": "matematika",
+      "subArea": "Memorization of Facts / Memorization of Facts",
+      "lesson": "K1-K2: Papan Lajur Penjumlahan / Addition Strip Board",
+      "steps": 31
+    },
+    {
+      "area": "matematika",
+      "subArea": "Memorization of Facts / Memorization of Facts",
+      "lesson": "K1-K2: Papan Lajur Pengurangan / Subtraction Strip Board",
+      "steps": 31
+    },
+    {
+      "area": "matematika",
+      "subArea": "Memorization of Facts / Memorization of Facts",
+      "lesson": "K2-K3: Tata Letak Multiplication Bead Bars / Multiplication Bead Bar Layout",
+      "steps": 31
+    },
+    {
+      "area": "matematika",
+      "subArea": "Memorization of Facts / Memorization of Facts",
+      "lesson": "K2-K3: Papan Pembagian Satuan / Unit Division Board",
+      "steps": 31
+    },
+    {
+      "area": "matematika",
+      "subArea": "Bead Cabinet (Chains) / Bead Cabinet (Chains)",
+      "lesson": "K1-K2: Rantai Pendek (Skip Counting & Kuadrat) / Short Chains (Skip Counting & Squaring)",
+      "steps": 32
+    },
+    {
+      "area": "matematika",
+      "subArea": "Bead Cabinet (Chains) / Bead Cabinet (Chains)",
+      "lesson": "K1-K2: Rantai Panjang (Skip Counting & Kubik) / Long Chains (Skip Counting & Cubing)",
+      "steps": 33
+    },
+    {
+      "area": "matematika",
+      "subArea": "Dot Game / The Dot Game",
+      "lesson": "K2-K3: Dot Game — Penjumlahan & Pengurangan / The Dot Game — Addition & Subtraction",
+      "steps": 32
+    },
+    {
+      "area": "matematika",
+      "subArea": "Advanced Multiplication & Division",
+      "lesson": "K3: Perkalian Lanjut / Advanced Multiplication - The Checkerboard",
+      "steps": 31
+    },
+    {
+      "area": "matematika",
+      "subArea": "Advanced Multiplication & Division",
+      "lesson": "K3: Pembagian Lanjut / Advanced Division - Racks and Tubes",
+      "steps": 31
+    },
+    {
+      "area": "matematika",
+      "subArea": "Fractions (Common & Decimals)",
+      "lesson": "K2-K3: Pengenalan Pecahan / Introduction to Fraction Insets",
+      "steps": 31
+    },
+    {
+      "area": "matematika",
+      "subArea": "Fractions (Common & Decimals)",
+      "lesson": "K2-K3: Asosiasi Pecahan & Desimal / Fractions & Decimals Association",
+      "steps": 31
+    },
+    {
+      "area": "matematika",
+      "subArea": "Fractions (Common & Decimals)",
+      "lesson": "K2-K3: Pecahan Ekuivalen / Equivalent Fractions",
+      "steps": 32
+    },
+    {
+      "area": "matematika",
+      "subArea": "Fractions (Common & Decimals)",
+      "lesson": "K2-K3: Penjumlahan Pecahan (Penyebut Sama) / Fraction Addition (Like Denominators)",
+      "steps": 32
+    },
+    {
+      "area": "matematika",
+      "subArea": "Fractions (Common & Decimals)",
+      "lesson": "K2-K3: Pengurangan Pecahan (Penyebut Sama) / Fraction Subtraction (Like Denominators)",
+      "steps": 32
+    },
+    {
+      "area": "matematika",
+      "subArea": "Montessori Geometry",
+      "lesson": "K1-K3: Bangun Ruang / Geometric Solids",
+      "steps": 31
+    },
+    {
+      "area": "matematika",
+      "subArea": "Montessori Geometry",
+      "lesson": "K1-K3: Kabinet Geometri / Geometric Cabinet",
+      "steps": 31
+    },
+    {
+      "area": "matematika",
+      "subArea": "Montessori Geometry",
+      "lesson": "K2-K3: Segitiga Konstruktif / Constructive Triangles",
+      "steps": 31
+    },
+    {
+      "area": "matematika",
+      "subArea": "Montessori Geometry",
+      "lesson": "K3: Batang Geometri / Geometric Sticks",
+      "steps": 31
+    },
+    {
+      "area": "bahasa",
+      "subArea": "Bahasa Lisan / Spoken Language",
+      "lesson": "K1-K3: Cerita Besar 4: Sejarah Tulisan / The Story of Writing",
+      "steps": 27
+    },
+    {
+      "area": "bahasa",
+      "subArea": "Mekanika & Studi Kata (BI) / ID Word Study",
+      "lesson": "K1: Studi Bunyi Gabungan (Phonograms) / Digraph Study",
+      "steps": 27
+    },
+    {
+      "area": "bahasa",
+      "subArea": "Mekanika & Studi Kata (BI) / ID Word Study",
+      "lesson": "K1-K2: Menulis Tegak Bersambung (Sandpaper Cursive) / Cursive Writing",
+      "steps": 30
+    },
+    {
+      "area": "bahasa",
+      "subArea": "Mekanika & Studi Kata (BI) / ID Word Study",
+      "lesson": "K2-K3: Studi Imbuhan / Prefix & Suffix",
+      "steps": 28
+    },
+    {
+      "area": "bahasa",
+      "subArea": "Tata Bahasa Fungsional / Functional Grammar",
+      "lesson": "K1-K2: Kata Benda (The Noun - Black Pyramid) / The Noun",
+      "steps": 26
+    },
+    {
+      "area": "bahasa",
+      "subArea": "Ekspresi & Menulis (BI) / ID Writing",
+      "lesson": "K1: Persiapan Otot & Desain (Metal Insets) / The Metal Insets",
+      "steps": 28
+    },
+    {
+      "area": "bahasa",
+      "subArea": "Ekspresi & Menulis (BI) / ID Writing",
+      "lesson": "K1: Menulis Tanpa Pensil (Alphabet Bergerak) / The Movable Alphabet",
+      "steps": 28
+    },
+    {
+      "area": "bahasa",
+      "subArea": "Sastra & Pemahaman (BI) / ID Literature",
+      "lesson": "K2-K3: Apresiasi Sastra & Puisi (Literature Appreciation)",
+      "steps": 26
+    }
+  ]
+}
