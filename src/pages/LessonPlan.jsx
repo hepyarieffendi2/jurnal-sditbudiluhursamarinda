@@ -7,7 +7,8 @@ import {
   ArrowLeft, Save, CheckCircle2, 
   Target, Sparkles, X, Star, 
   Moon, Hash, BookOpen, Leaf, Globe2, Wand2,
-  Users, MapPin, PackageOpen, Loader2
+  Users, MapPin, PackageOpen, Loader2,
+  ChevronLeft, ChevronRight, Calendar as LucideCalendar
 } from 'lucide-react';
 
 const IconMap = { Moon, Hash, BookOpen, Leaf, Globe2, Wand2 };
@@ -16,12 +17,41 @@ const AreaIcon = ({ name, color, size = 18 }) => {
   return <IconComp size={size} color={color} />;
 };
 
+const WEEKLY_PLANNER_METADATA = {
+  title: "Perencanaan Mingguan",
+  cycle: "Target Sesi Sentra",
+  icon: LucideCalendar,
+  color: "#6366F1"
+};
+
+// --- PERIOD UTILS ---
+const getPeriodId = (date = new Date()) => {
+  const y = date.getFullYear();
+  const m = String(date.getMonth() + 1).padStart(2, '0');
+  // Simple week of month calculation
+  const firstDayOfMonth = new Date(date.getFullYear(), date.getMonth(), 1);
+  const dayOfMonth = date.getDate();
+  const weekNum = Math.ceil((dayOfMonth + firstDayOfMonth.getDay()) / 7);
+  return `${y}-${m}-W${weekNum}`;
+};
+
+const getPeriodLabel = (periodId) => {
+  if (!periodId) return "";
+  const [y, m, w] = periodId.split('-');
+  const months = ["Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember"];
+  return `${months[parseInt(m)-1]} ${y}, Minggu ke-${w.replace('W','')}`;
+};
+
 export default function LessonPlan() {
   const navigate = useNavigate();
   const [activeRoom, setActiveRoom] = useState('Kelas 1');
   const [curriculum, setCurriculum] = useState([]);
   const [activeAreaId, setActiveAreaId] = useState(null);
   
+  // Period State
+  const [activePeriod, setActivePeriod] = useState(getPeriodId());
+  const [viewDate, setViewDate] = useState(new Date());
+
   // Data States
   const [shelfItems, setShelfItems] = useState([]); 
   const [plannedItems, setPlannedItems] = useState({}); // { studentId: [materialLabels...] }
@@ -61,18 +91,27 @@ export default function LessonPlan() {
     fetchCurriculum();
   }, []);
 
-  // Load plans and students once
+  // Load plans and students
   useEffect(() => {
     const loadPlans = async () => {
+      setLoading(true);
       try {
-        const targetDoc = await getDoc(doc(db, 'target_observasi', 'mingguan'));
-        if (targetDoc.exists()) setPlannedItems(targetDoc.data().plans || {});
+        const targetDoc = await getDoc(doc(db, 'target_observasi', activePeriod));
+        if (targetDoc.exists()) {
+          setPlannedItems(targetDoc.data().plans || {});
+        } else {
+          setPlannedItems({});
+        }
       } catch (err) {
-        const p = localStorage.getItem('sentra_plans');
-        if (p) setPlannedItems(JSON.parse(p));
+        setPlannedItems({});
+      } finally {
+        setLoading(false);
       }
     };
+    loadPlans();
+  }, [activePeriod]);
 
+  useEffect(() => {
     const fetchStudents = async () => {
       try {
         const q = query(collection(db, 'students'), where('status', '==', 'active'));
@@ -82,8 +121,7 @@ export default function LessonPlan() {
         setStudents(studData);
       } catch (err) { console.error(err); }
     };
-
-    Promise.all([loadPlans(), fetchStudents()]).finally(() => setLoading(false));
+    fetchStudents();
   }, []);
 
   // Sync shelf for current room
@@ -123,18 +161,26 @@ export default function LessonPlan() {
   const handleSave = async () => {
     setSaving(true);
     try {
-      await setDoc(doc(db, 'target_observasi', 'mingguan'), { plans: plannedItems }, { merge: true });
-      localStorage.setItem('sentra_plans', JSON.stringify(plannedItems)); // cache
+      await setDoc(doc(db, 'target_observasi', activePeriod), { 
+        plans: plannedItems,
+        periodLabel: getPeriodLabel(activePeriod),
+        updatedAt: new Date().toISOString()
+      }, { merge: true });
       
       setShowSuccess(true);
-      setTimeout(() => {
-        setShowSuccess(false);
-      }, 1500);
+      setTimeout(() => setShowSuccess(false), 1500);
     } catch (err) {
         alert("Gagal menyimpan ke server, periksa koneksi.");
     } finally {
         setSaving(false);
     }
+  };
+
+  const navigatePeriod = (direction) => {
+    const nextDate = new Date(viewDate);
+    nextDate.setDate(viewDate.getDate() + (direction * 7));
+    setViewDate(nextDate);
+    setActivePeriod(getPeriodId(nextDate));
   };
 
   const groupMateriByClass = (levels = []) => {
@@ -185,7 +231,7 @@ export default function LessonPlan() {
                           return (
                               <button 
                                   key={s.id}
-                                  onClick={() => toggleStudentForMaterial(s.id)}
+                                  onClick={() => toggleTarget(s.id, activeMaterial)}
                                   style={{ 
                                       padding: '16px', borderRadius: '16px', border: '2px solid',
                                       borderColor: isAssigned ? 'var(--primary)' : 'var(--border-color)',
@@ -208,13 +254,41 @@ export default function LessonPlan() {
 
       {/* HEADER SECTION */}
       <div style={{ marginBottom: '24px' }}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '16px' }}>
-            <button onClick={() => navigate(-1)} style={{ background: '#F1F5F9', border: 'none', borderRadius: '12px', width: '40px', height: '40px', display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer' }}>
-                <ArrowLeft size={20} />
-            </button>
-            <h1 style={{ fontSize: '1.8rem', fontWeight: 900 }}>Target Presentasi Anak</h1>
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '16px' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+                <button onClick={() => navigate(-1)} style={{ background: '#F1F5F9', border: 'none', borderRadius: '12px', width: '40px', height: '40px', display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer' }}>
+                    <ArrowLeft size={20} />
+                </button>
+                <h1 style={{ fontSize: '1.8rem', fontWeight: 900 }}>Target Presentasi Anak</h1>
+            </div>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '8px', background: '#F5F3FF', padding: '8px 16px', borderRadius: '100px', border: '1px solid #DDD6FE' }}>
+               <LucideCalendar size={14} color="#6D28D9" />
+               <span style={{ fontSize: '0.75rem', fontWeight: 950, color: '#6D28D9', textTransform: 'uppercase' }}>Siklus Mingguan</span>
+            </div>
         </div>
         <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem' }}>Bebankan tanggung jawab belajar per anak/kelompok. Daftar materi di bawah ini disesuaikan dengan isi rak kelas masing-masing.</p>
+      </div>
+
+      {/* 📅 PERIOD NAVIGATOR */}
+      <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '24px', background: 'white', padding: '12px', borderRadius: '20px', border: '2.5px solid #F1F5F9' }}>
+          <button 
+             onClick={() => navigatePeriod(-1)}
+             style={{ background: '#F8FAFC', border: '1px solid #E2E8F0', borderRadius: '14px', width: '44px', height: '44px', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
+          >
+             <ChevronLeft size={20} color="#64748B" />
+          </button>
+          
+          <div style={{ flex: 1, textAlign: 'center' }}>
+             <div style={{ fontSize: '0.65rem', fontWeight: 900, color: 'var(--primary)', textTransform: 'uppercase', letterSpacing: '1px' }}>Periode Target</div>
+             <div style={{ fontSize: '1.1rem', fontWeight: 950, color: '#1E293B' }}>{getPeriodLabel(activePeriod)}</div>
+          </div>
+
+          <button 
+             onClick={() => navigatePeriod(1)}
+             style={{ background: '#F8FAFC', border: '1px solid #E2E8F0', borderRadius: '14px', width: '44px', height: '44px', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
+          >
+             <ChevronRight size={20} color="#64748B" />
+          </button>
       </div>
 
       {/* ROOM SWITCHER */}
@@ -236,7 +310,8 @@ export default function LessonPlan() {
 
       {/* 🗺️ AREA TABS (Horizontal Scroll Style) */}
       <div style={{ display: 'flex', gap: '12px', overflowX: 'auto', paddingBottom: '16px', marginBottom: '24px', scrollbarWidth: 'none' }}>
-        {AREA_SENTRA.map(area => {
+        {curriculum.map(area => {
+            const activeArea = curriculum.find(c => c.id === activeAreaId) || curriculum[0];
             // Hide areas that have NO shelf items in the currently selected room
             const hasShelfItems = area.subAreas.some(sub => sub.levels.some(l => shelfItems.includes(typeof l === 'object' ? l.label : l)));
             if (!hasShelfItems && shelfItems.length > 0) return null; 
@@ -244,17 +319,17 @@ export default function LessonPlan() {
             return (
                 <button 
                     key={area.id}
-                    onClick={() => setActiveArea(area)}
+                    onClick={() => setActiveAreaId(area.id)}
                     style={{ 
                         display: 'flex', alignItems: 'center', gap: '12px', padding: '12px 24px',
                         borderRadius: '16px', border: '2px solid', 
-                        borderColor: activeArea.id === area.id ? 'var(--primary)' : 'transparent',
-                        background: activeArea.id === area.id ? 'var(--primary-light)' : 'white',
-                        color: activeArea.id === area.id ? 'var(--primary)' : 'var(--text-main)',
+                        borderColor: activeAreaId === area.id ? 'var(--primary)' : 'transparent',
+                        background: activeAreaId === area.id ? 'var(--primary-light)' : 'white',
+                        color: activeAreaId === area.id ? 'var(--primary)' : 'var(--text-main)',
                         cursor: 'pointer', transition: 'all 0.2s', whiteSpace: 'nowrap', fontWeight: 800
                     }}
                 >
-                    <AreaIcon name={area.icon} color={activeArea.id === area.id ? 'var(--primary)' : area.color} size={20} />
+                    <AreaIcon name={area.icon} color={activeAreaId === area.id ? 'var(--primary)' : area.color} size={20} />
                     <span>{area.name}</span>
                 </button>
             );
@@ -270,16 +345,18 @@ export default function LessonPlan() {
               </div>
           )}
 
-          {activeArea.subAreas.map(sub => {
-              // Only display levels that are CURRENTLY ON THE SHELF in this room
-              const filteredLevels = sub.levels.filter(l => shelfItems.includes(typeof l === 'object' ? l.label : l));
-              if (filteredLevels.length === 0) return null;
+          {(() => {
+              const activeArea = curriculum.find(c => c.id === activeAreaId) || curriculum[0];
+              return activeArea?.subAreas.map(sub => {
+                  // Only display levels that are CURRENTLY ON THE SHELF in this room
+                  const filteredLevels = sub.levels.filter(l => shelfItems.includes(typeof l === 'object' ? l.label : l));
+                  if (filteredLevels.length === 0) return null;
 
-              return (
-                  <div key={sub.id} className="card" style={{ padding: '24px' }}>
-                      <h3 style={{ fontSize: '1.1rem', fontWeight: 900, marginBottom: '20px', color: activeArea.color, display: 'flex', alignItems: 'center', gap: '10px' }}>
-                         <Sparkles size={18} /> {sub.name}
-                      </h3>
+                  return (
+                      <div key={sub.id} className="card" style={{ padding: '24px' }}>
+                          <h3 style={{ fontSize: '1.1rem', fontWeight: 900, marginBottom: '20px', color: activeArea.color, display: 'flex', alignItems: 'center', gap: '10px' }}>
+                             <Sparkles size={18} /> {sub.name}
+                          </h3>
                       
                       <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
                           {groupMateriByClass(filteredLevels).map(([title, items]) => (
@@ -320,7 +397,7 @@ export default function LessonPlan() {
                       </div>
                   </div>
               );
-          })}
+          })})()}
       </div>
 
       {/* 🚀 FLOATING SUMMARY & SAVE */}

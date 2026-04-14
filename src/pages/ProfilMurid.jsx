@@ -14,7 +14,7 @@ export default function ProfilMurid() {
 
   const [observations, setObservations] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [activeTab, setActiveTab] = useState('timeline'); // 'timeline' atau 'grid'
+  const [activeTab, setActiveTab] = useState('matriks'); // 'timeline' atau 'matriks'
   
   // 🧠 INTELLIGENCE: State untuk Peta Kompetensi
   const [competencyMap, setCompetencyMap] = useState({});
@@ -153,18 +153,18 @@ export default function ProfilMurid() {
 
       <main>
         {/* Tab Switcher Intelligence */}
-        <div style={{ display: 'flex', gap: '12px', marginBottom: '32px', backgroundColor: 'white', padding: '8px', borderRadius: '16px', border: '1px solid var(--border-color)', width: 'max-content' }}>
+        <div style={{ display: 'flex', gap: '12px', marginBottom: '32px', backgroundColor: 'white', padding: '8px', borderRadius: '16px', border: '1px solid var(--border-color)', width: 'max-content', flexWrap: 'wrap' }}>
             <button 
-                onClick={() => setActiveTab('timeline')}
-                style={{ padding: '10px 24px', borderRadius: '10px', border: 'none', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '8px', fontWeight: 700, backgroundColor: activeTab === 'timeline' ? 'var(--primary-light)' : 'transparent', color: activeTab === 'timeline' ? 'var(--primary)' : 'var(--text-muted)' }}
+                onClick={() => setActiveTab('matriks')}
+                style={{ padding: '10px 24px', borderRadius: '10px', border: 'none', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '8px', fontWeight: 700, backgroundColor: activeTab === 'matriks' ? 'var(--primary)' : 'transparent', color: activeTab === 'matriks' ? 'white' : 'var(--text-muted)', transition: 'all 0.2s' }}
             >
-                <Calendar size={18} /> Timeline Jejak
+                <LayoutGrid size={18} /> Progress Matrix (Kanban)
             </button>
             <button 
-                onClick={() => setActiveTab('grid')}
-                style={{ padding: '10px 24px', borderRadius: '10px', border: 'none', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '8px', fontWeight: 700, backgroundColor: activeTab === 'grid' ? 'var(--primary-light)' : 'transparent', color: activeTab === 'grid' ? 'var(--primary)' : 'var(--text-muted)' }}
+                onClick={() => setActiveTab('timeline')}
+                style={{ padding: '10px 24px', borderRadius: '10px', border: 'none', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '8px', fontWeight: 700, backgroundColor: activeTab === 'timeline' ? 'var(--primary)' : 'transparent', color: activeTab === 'timeline' ? 'white' : 'var(--text-muted)', transition: 'all 0.2s' }}
             >
-                <LayoutGrid size={18} /> Peta Kompetensi (Heatmap)
+                <Calendar size={18} /> Timeline Harian (Klasik)
             </button>
         </div>
 
@@ -296,77 +296,101 @@ export default function ProfilMurid() {
             </aside>
           </div>
         ) : (
-          /* 🔥 PETA KOMPETENSI (HEATMAP GRID) */
-          <div className="card" style={{ animation: 'fadeIn 0.3s' }}>
-              <div style={{ marginBottom: '32px' }}>
-                <h3 style={{ fontSize: '1.3rem', marginBottom: '8px' }}>Peta Kompetensi Eksplorasi</h3>
-                <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem' }}>Visualisasi kedalaman penguasaan material anak di setiap area sentra.</p>
+          /* 🔥 PROGRESS MATRIX (KANBAN) */
+          <div className="card" style={{ animation: 'fadeIn 0.3s', padding: '32px' }}>
+              <div style={{ marginBottom: '32px', display: 'flex', justifyContent: 'space-between', flexWrap: 'wrap', gap: '16px' }}>
+                <div>
+                  <h3 style={{ fontSize: '1.4rem', marginBottom: '8px', fontWeight: 900, color: 'var(--text-main)' }}>Kanban Progress Materi</h3>
+                  <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem' }}>Lihat sekilas apa yang sedang dilatih, dikuasai, atau butuh bantuan saat ini tanpa harus membaca log per hari.</p>
+                </div>
               </div>
 
-              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '32px' }}>
-                  {AREA_SENTRA.map(area => (
-                      <div key={area.id}>
-                          <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '16px' }}>
-                              <span style={{ fontSize: '1.5rem' }}>{area.icon}</span>
-                              <h4 style={{ fontWeight: 800, fontSize: '1rem', color: 'var(--primary)' }}>{area.name.toUpperCase()}</h4>
-                          </div>
-                          <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
-                                {area.subAreas.map(sub => (
-                                    <div key={sub.id} style={{ marginBottom: '8px' }}>
-                                        <div style={{ fontSize: '0.8rem', fontWeight: 800, color: 'var(--text-muted)', marginBottom: '8px' }}>{sub.name}</div>
-                                        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px' }}>
-                                            {sub.levels.map((lvl, idx) => {
-                                                const label = typeof lvl === 'object' ? lvl.label : lvl;
-                                                const bgColor = getLevelColor(label);
-                                                const level = competencyMap[label];
-                                                const isStagnant = stagnantAreas.some(s => s.item === label);
-                                                
-                                                return (
-                                                    <div key={idx} 
-                                                        title={label}
-                                                        style={{ 
-                                                            padding: '6px 10px', borderRadius: '8px', 
-                                                            backgroundColor: bgColor,
-                                                            border: isStagnant ? '2px solid #EF4444' : '1px solid var(--border-color)',
-                                                            display: 'flex', alignItems: 'center', gap: '4px',
-                                                            transition: 'all 0.2s',
-                                                            cursor: 'default',
-                                                            boxShadow: isStagnant ? '0 0 10px rgba(239, 68, 68, 0.2)' : 'none'
-                                                        }}>
-                                                        <span style={{ fontSize: '0.65rem', fontWeight: 800, color: level ? 'white' : 'var(--text-main)', maxWidth: '120px', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
-                                                            {label.split(': ').slice(-1)[0]}
-                                                        </span>
-                                                        {level === 'M' && <CheckCircle2 size={10} color="white" />}
-                                                        {isStagnant && <AlertTriangle size={10} color="white" />}
-                                                    </div>
-                                                );
-                                            })}
-                                        </div>
-                                    </div>
-                                ))}
-                          </div>
-                      </div>
-                  ))}
-              </div>
+              {(() => {
+                // Proses Kanban Data
+                const kanban = { P: [], W: [], M: [], N: [] };
+                Object.keys(competencyMap).forEach(key => {
+                   const status = competencyMap[key];
+                   let areaIcon = '🧩';
+                   let areaColor = 'var(--text-main)';
+                   
+                   for (const area of AREA_SENTRA) {
+                      for (const sub of area.subAreas) {
+                         const lvls = sub.levels || [];
+                         for (const lvl of lvls) {
+                             const label = typeof lvl === 'object' ? lvl.label : lvl;
+                             if (label === key) {
+                                areaIcon = area.icon;
+                                areaColor = area.color || 'var(--primary)';
+                             }
+                         }
+                      }
+                   }
+                   if (kanban[status]) kanban[status].push({ name: key, icon: areaIcon, color: areaColor });
+                });
 
-              {/* Legend Heatmap */}
-              <div style={{ marginTop: '48px', paddingTop: '24px', borderTop: '1px solid var(--border-color)', display: 'flex', gap: '24px', justifyContent: 'center', flexWrap: 'wrap' }}>
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '0.8rem', fontWeight: 700, color: 'var(--text-muted)' }}>
-                        <div style={{ width: '16px', height: '16px', backgroundColor: '#F1F5F9', borderRadius: '4px' }}></div> Belum Ada
-                    </div>
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '0.8rem', fontWeight: 700, color: 'var(--text-muted)' }}>
-                        <div style={{ width: '16px', height: '16px', backgroundColor: '#A5B4FC', borderRadius: '4px' }}></div> (P) Presented
-                    </div>
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '0.8rem', fontWeight: 700, color: 'var(--text-muted)' }}>
-                        <div style={{ width: '16px', height: '16px', backgroundColor: '#818CF8', borderRadius: '4px' }}></div> (W) Working
-                    </div>
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '0.8rem', fontWeight: 700, color: 'var(--text-muted)' }}>
-                        <div style={{ width: '16px', height: '16px', backgroundColor: 'var(--primary)', borderRadius: '4px' }}></div> (M) Mastered
-                    </div>
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '0.8rem', fontWeight: 700, color: 'var(--text-muted)' }}>
-                        <div style={{ width: '16px', height: '16px', backgroundColor: '#EF4444', borderRadius: '4px' }}></div> (N) Needs Support
-                    </div>
-              </div>
+                return (
+                  <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '24px' }}>
+                     {/* Column 1: Diperkenalkan (P) */}
+                     <div style={{ backgroundColor: '#F8FAFC', borderRadius: '16px', padding: '20px', border: '1px solid #E2E8F0' }}>
+                        <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '20px', paddingBottom: '12px', borderBottom: '2px solid #CBD5E1' }}>
+                           <div style={{ width: '12px', height: '12px', borderRadius: '50%', backgroundColor: '#3B82F6' }}></div>
+                           <h4 style={{ margin: 0, fontSize: '1rem', fontWeight: 800, color: '#1E293B' }}>Diperkenalkan <span style={{ fontWeight: 400, color: '#64748B' }}>({kanban.P.length})</span></h4>
+                        </div>
+                        <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+                           {kanban.P.length === 0 && <span style={{ color: '#94A3B8', fontSize: '0.85rem', fontStyle: 'italic' }}>Belum ada materi baru.</span>}
+                           {kanban.P.map((item, i) => (
+                              <div key={i} style={{ backgroundColor: 'white', padding: '12px 16px', borderRadius: '12px', borderLeft: `4px solid #3B82F6`, boxShadow: '0 2px 4px rgba(0,0,0,0.02)' }}>
+                                 <div style={{ fontSize: '1.2rem', marginBottom: '8px' }}>{item.icon}</div>
+                                 <div style={{ fontSize: '0.85rem', fontWeight: 700, color: '#334155', lineHeight: 1.4 }}>{item.name}</div>
+                              </div>
+                           ))}
+                        </div>
+                     </div>
+
+                     {/* Column 2: Sedang Dikerjakan (W) */}
+                     <div style={{ backgroundColor: '#FFFBEB', borderRadius: '16px', padding: '20px', border: '1px solid #FEF3C7' }}>
+                        <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '20px', paddingBottom: '12px', borderBottom: '2px solid #FDE68A' }}>
+                           <div style={{ width: '12px', height: '12px', borderRadius: '50%', backgroundColor: '#F59E0B' }}></div>
+                           <h4 style={{ margin: 0, fontSize: '1rem', fontWeight: 800, color: '#92400E' }}>Sedang Latihan <span style={{ fontWeight: 400, color: '#B45309' }}>({kanban.W.length})</span></h4>
+                        </div>
+                        <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+                           {kanban.W.length === 0 && <span style={{ color: '#D97706', fontSize: '0.85rem', fontStyle: 'italic' }}>Tidak ada materi aktif.</span>}
+                           {kanban.W.map((item, i) => {
+                              const isStagnant = stagnantAreas.some(s => s.item === item.name);
+                              return (
+                                <div key={i} style={{ backgroundColor: 'white', padding: '12px 16px', borderRadius: '12px', borderLeft: `4px solid ${isStagnant ? '#EF4444' : '#F59E0B'}`, boxShadow: '0 4px 6px rgba(245, 158, 11, 0.05)', position: 'relative' }}>
+                                   {isStagnant && <div style={{ position: 'absolute', top: '-8px', right: '-8px', backgroundColor: '#EF4444', color: 'white', padding: '4px', borderRadius: '50%', boxShadow: '0 2px 4px rgba(239,68,68,0.3)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}><AlertTriangle size={14} /></div>}
+                                   <div style={{ fontSize: '1.2rem', marginBottom: '8px' }}>{item.icon}</div>
+                                   <div style={{ fontSize: '0.85rem', fontWeight: 700, color: '#334155', lineHeight: 1.4 }}>{item.name}</div>
+                                   {isStagnant && <div style={{ fontSize: '0.7rem', color: '#EF4444', fontWeight: 800, marginTop: '8px' }}>Stagnan {stagnantAreas.find(s=>s.item===item.name)?.days} Hari</div>}
+                                </div>
+                              )
+                           })}
+                        </div>
+                     </div>
+
+                     {/* Column 3: Dikuasai (M) */}
+                     <div style={{ backgroundColor: '#ECFDF5', borderRadius: '16px', padding: '20px', border: '1px solid #D1FAE5' }}>
+                        <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '20px', paddingBottom: '12px', borderBottom: '2px solid #A7F3D0' }}>
+                           <div style={{ width: '12px', height: '12px', borderRadius: '50%', backgroundColor: '#10B981' }}></div>
+                           <h4 style={{ margin: 0, fontSize: '1rem', fontWeight: 800, color: '#065F46' }}>Dikuasai <span style={{ fontWeight: 400, color: '#047857' }}>({kanban.M.length})</span></h4>
+                        </div>
+                        <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+                           {kanban.M.length === 0 && <span style={{ color: '#059669', fontSize: '0.85rem', fontStyle: 'italic' }}>Belum ada materi dikuasai.</span>}
+                           {kanban.M.map((item, i) => (
+                              <div key={i} style={{ backgroundColor: 'white', padding: '12px 16px', borderRadius: '12px', borderLeft: `4px solid #10B981`, boxShadow: '0 2px 4px rgba(16, 185, 129, 0.05)' }}>
+                                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px' }}>
+                                    <div style={{ fontSize: '1.2rem' }}>{item.icon}</div>
+                                    <CheckCircle2 size={16} color="#10B981" />
+                                 </div>
+                                 <div style={{ fontSize: '0.85rem', fontWeight: 700, color: '#334155', lineHeight: 1.4 }}>{item.name}</div>
+                              </div>
+                           ))}
+                        </div>
+                     </div>
+                  </div>
+                );
+              })}
           </div>
         )}
       </main>

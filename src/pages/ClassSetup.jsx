@@ -8,7 +8,7 @@ import { AREA_SENTRA } from '../data/areaSentra';
 import {
   ArrowLeft, Save, CheckCircle2, Star, X, Info, History,
   Moon, Hash, BookOpen, Leaf, Globe2, Wand2, MapPin, PackageOpen, Loader2, ClipboardList,
-  MessageSquare, Package, AlertCircle, TrendingUp
+  MessageSquare, Package, AlertCircle, TrendingUp, Target
 } from 'lucide-react';
 
 const IconMap = { Moon, Hash, BookOpen, Leaf, Globe2, Wand2 };
@@ -34,6 +34,10 @@ export default function ClassSetup() {
   const [expandedSubAreaId, setExpandedSubAreaId] = useState(null);
 
   const [masteredData, setMasteredData] = useState(new Set());
+  const [masteredCount, setMasteredCount] = useState({}); // { label: count }
+  const [popularData, setPopularData] = useState({}); // { label: count }
+  const [targetedNames, setTargetedNames] = useState({}); // { label: [names...] }
+  const [studentMap, setStudentMap] = useState({}); // { id: name }
   // 🔄 FETCH ALL MASTER DATA (CURRICULUM, READINESS, SHELF)
   useEffect(() => {
     const fetchAllData = async () => {
@@ -77,14 +81,50 @@ export default function ClassSetup() {
 
         try {
           const activitySnapshot = await getDocs(collection(db, 'jurnal_aktivitas'));
-          const mastered = new Set();
+          const masteredSet = new Set();
+          const pCounts = {};
+          const mCounts = {};
+          
           activitySnapshot.docs.forEach(docSnap => {
              const d = docSnap.data();
-             if (d.kematangan === 'Mahir') mastered.add(d.pencapaian);
+             const label = d.pencapaian;
+             if (d.kematangan === 'Mahir') {
+                masteredSet.add(label);
+                mCounts[label] = (mCounts[label] || 0) + 1;
+             }
+             pCounts[label] = (pCounts[label] || 0) + 1;
           });
-          setMasteredData(mastered);
+          setMasteredData(masteredSet);
+          setMasteredCount(mCounts);
+          setPopularData(pCounts);
         } catch (masterErr) {
-           console.warn("Firebase Activity Permission Denied. Data kematangan dilewati.", masterErr);
+           console.warn("Firebase Activity Insights pass.", masterErr);
+        }
+
+        try {
+          // Detect current week to see what's planned
+          const y = new Date().getFullYear();
+          const m = String(new Date().getMonth() + 1).padStart(2, '0');
+          const firstDay = new Date(new Date().getFullYear(), new Date().getMonth(), 1);
+          const weekNum = Math.ceil((new Date().getDate() + firstDay.getDay()) / 7);
+          const periodId = `${y}-${m}-W${weekNum}`;
+
+          const targetSnap = await getDoc(doc(db, 'target_observasi', periodId));
+          if (targetSnap.exists()) {
+             const plans = targetSnap.data().plans || {};
+             const labelToNames = {};
+             
+             Object.entries(plans).forEach(([studId, materials]) => {
+                const studName = studentMap[studId] || studId;
+                materials.forEach(mLabel => {
+                   if (!labelToNames[mLabel]) labelToNames[mLabel] = [];
+                   if (!labelToNames[mLabel].includes(studName)) labelToNames[mLabel].push(studName);
+                });
+             });
+             setTargetedNames(labelToNames);
+          }
+        } catch (targetErr) {
+           console.warn("Target Insights pass.", targetErr);
         }
 
       } catch (err) {
@@ -161,6 +201,19 @@ export default function ClassSetup() {
        setLoadingHistory(false);
     }
   };
+
+  useEffect(() => {
+    const fetchStudents = async () => {
+      try {
+        const q = query(collection(db, 'students'), where('status', '==', 'active'));
+        const snapshot = await getDocs(q);
+        const map = {};
+        snapshot.docs.forEach(d => map[d.id] = (d.data().name || d.id).split(' ')[0]);
+        setStudentMap(map);
+      } catch (err) { console.error(err); }
+    };
+    fetchStudents();
+  }, [activeRoom]);
 
   if (loading) {
     return <div style={{ height: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column', gap: '16px' }}>
@@ -365,9 +418,14 @@ export default function ClassSetup() {
 
         {activeArea && (
           <div style={{ textAlign: 'center', marginTop: '4px' }}>
-            <span className="show-mobile" style={{ fontSize: '0.75rem', fontWeight: 950, color: activeArea.color, textTransform: 'uppercase', letterSpacing: '1px' }}>
-              {activeArea.name.split(' / ')[0]}
-            </span>
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px', marginBottom: '4px' }}>
+                <span className="show-mobile" style={{ fontSize: '0.75rem', fontWeight: 950, color: activeArea.color, textTransform: 'uppercase', letterSpacing: '1px' }}>
+                  {activeArea.name.split(' / ')[0]}
+                </span>
+                <span style={{ fontSize: '0.65rem', fontWeight: 900, color: '#059669', background: '#ECFDF5', padding: '2px 8px', borderRadius: '100px', border: '1px solid #A7F3D0' }}>
+                   💡 SMART INSIGHT AKTIF
+                </span>
+            </div>
             <div style={{ backgroundColor: '#F1F5F9', padding: '2px', borderRadius: '100px', display: 'flex', gap: '2px', border: '1px solid #E2E8F0', width: 'fit-content', margin: '4px auto 0' }}>
               {['All', 'K1', 'K2', 'K3'].map(g => (
                 <button key={g} onClick={() => setMapFocusGrade(g)} style={{ padding: '4px 12px', borderRadius: '100px', border: 'none', backgroundColor: mapFocusGrade === g ? activeArea.color : 'transparent', color: mapFocusGrade === g ? 'white' : '#64748B', fontWeight: 900, cursor: 'pointer', transition: 'all 0.2s', fontSize: '0.6rem' }}>
@@ -486,6 +544,35 @@ export default function ClassSetup() {
                                         <span style={{ fontSize: '0.6rem', fontWeight: 950, color: '#7C3AED', background: '#F5F3FF', padding: '2px 8px', borderRadius: '6px' }}>LANJUTAN</span>
                                     ) : (
                                         <span style={{ fontSize: '0.6rem', fontWeight: 950, color: '#2563EB', background: '#EFF6FF', padding: '2px 8px', borderRadius: '6px' }}>PENGEMBANGAN</span>
+                                    )}
+
+                                    {/* 💡 SMART INSIGHT BADGES & DESCRIPTIONS */}
+                                    {targetedNames[label] && (
+                                        <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
+                                            <span style={{ fontSize: '0.6rem', fontWeight: 950, color: '#D97706', background: '#FFFBEB', border: '1px solid #FCD34D', padding: '1px 8px', borderRadius: '6px', width: 'fit-content', display: 'flex', alignItems: 'center', gap: '4px' }}>
+                                                <Target size={10} /> TARGET MINGGU INI
+                                            </span>
+                                            <div style={{ fontSize: '0.65rem', fontWeight: 700, color: '#B45309', marginLeft: '4px' }}>
+                                                Direncanakan untuk: {targetedNames[label].join(', ')}
+                                            </div>
+                                        </div>
+                                    )}
+                                    {popularData[label] >= 2 && (
+                                        <span style={{ fontSize: '0.6rem', fontWeight: 950, color: '#2563EB', background: '#EFF6FF', border: '1px solid #BFDBFE', padding: '1px 8px', borderRadius: '6px', display: 'flex', alignItems: 'center', gap: '4px', width: 'fit-content' }}>
+                                            <TrendingUp size={10} /> POPULER ({popularData[label]}x Digunakan)
+                                        </span>
+                                    )}
+                                    {masteredCount[label] > 0 && (
+                                        <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
+                                            <span style={{ fontSize: '0.6rem', fontWeight: 950, color: '#059669', background: '#ECFDF5', border: '1px solid #A7F3D0', padding: '1px 8px', borderRadius: '6px', display: 'flex', alignItems: 'center', gap: '4px', width: 'fit-content' }}>
+                                                <CheckCircle2 size={10} /> TELAH TUNTAS ({masteredCount[label]} Anak)
+                                            </span>
+                                            {masteredCount[label] >= 5 && (
+                                                <div style={{ fontSize: '0.65rem', fontWeight: 800, color: '#059669', marginLeft: '4px', fontStyle: 'italic' }}>
+                                                    Aman dipindahkan ke gudang.
+                                                </div>
+                                            )}
+                                        </div>
                                     )}
                                     {isMissingPre && (
                                         <div style={{ marginTop: '4px', fontSize: '0.65rem', fontWeight: 800, color: '#DC2626', background: '#FEF2F2', padding: '6px 12px', borderRadius: '10px', border: '1px solid #FCA5A5', lineHeight: 1.4 }}>

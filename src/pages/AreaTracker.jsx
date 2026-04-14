@@ -14,7 +14,7 @@ export default function AreaTracker() {
     const navigate = useNavigate();
     const [searchParams] = useSearchParams();
     const roomParam = searchParams.get('room');
-    const [activeTab, setActiveTab] = useState('radar'); // 'target', 'radar', 'overview'
+    const [activityType, setActivityType] = useState('auto'); // 'auto', 'presentation', 'practice'
     const [activeRoom, setActiveRoom] = useState(roomParam || 'Semua Ruang');
     const [expandedMateri, setExpandedMateri] = useState(null); // Track which materia's names are being peeked
 
@@ -28,6 +28,8 @@ export default function AreaTracker() {
     const [roomList, setRoomList] = useState([]); // Master Rombel
     const [searchQuery, setSearchQuery] = useState('');
     const [shelfSearch, setShelfSearch] = useState('');
+    const [selectedShelfArea, setSelectedShelfArea] = useState('Semua Area');
+    const [selectedShelfSubArea, setSelectedShelfSubArea] = useState('Semua Sub Area');
     const [showFullGrid, setShowFullGrid] = useState(false);
     const [lastSavedAction, setLastSavedAction] = useState(null); // { ids: [], type: 'instant' | 'manual' }
     const [selectedDate, setSelectedDate] = useState(new Date().toISOString().split('T')[0]);
@@ -307,10 +309,13 @@ export default function AreaTracker() {
             for (const sId of selectedKids) {
                 const student = students.find(s => s.id === sId);
                 if (!student) continue;
+                const isPractice = (activityType === 'practice' || (activityType === 'auto' && repetitions[`${sId}_${materiPilihan}`] > 0));
                 const docRef = await addDoc(collection(db, 'jurnal_aktivitas'), {
                     murid: student.name, muridId: String(sId), area: toolInfo.area, areaId: toolInfo.areaId,
-                    aktivitas: toolInfo.activity, pencapaian: materiPilihan, kematangan: 'P',
-                    konsentrasi: 'Working', konsentrasiEmoji: '⚙️',
+                    aktivitas: toolInfo.activity, pencapaian: materiPilihan, 
+                    kematangan: isPractice ? 'W' : 'P',
+                    konsentrasi: isPractice ? 'Working' : 'Exploration', 
+                    konsentrasiEmoji: isPractice ? '⚙️' : '✨',
                     sosial: 'Individual', restorasi: true,
                     durasi: 15,
                     guru: "Ustadzah",
@@ -337,6 +342,7 @@ export default function AreaTracker() {
             setTimeout(() => setShowSuccess(false), 2000);
             setSelectedKids([]);
             setFormMateri('');
+            setActivityType('auto');
         } catch (err) {
             console.error("Gagal simpan instan:", err);
             alert("Gagal menyimpan data.");
@@ -382,6 +388,7 @@ export default function AreaTracker() {
 
             setShowSheet(false);
             setSelectedKids([]);
+            setActivityType('auto');
             setShowSuccess(true);
             setTimeout(() => setShowSuccess(false), 2000);
         } catch (err) {
@@ -405,10 +412,14 @@ export default function AreaTracker() {
 
     const searchedStudents = currentRoomStudents.filter(s => s.name.toLowerCase().includes(searchQuery.toLowerCase()));
 
-    const radarStudents = [...searchedStudents].sort((a, b) => (a.selectedArea && !b.selectedArea) ? 1 : (!a.selectedArea && b.selectedArea) ? -1 : 0);
-
     const shelfCoverage = shelfItems
-        .filter(item => !shelfSearch || item.toLowerCase().includes(shelfSearch.toLowerCase()))
+        .filter(item => {
+            const tool = lookupTool(item);
+            const matchesSearch = !shelfSearch || item.toLowerCase().includes(shelfSearch.toLowerCase());
+            const matchesArea = selectedShelfArea === 'Semua Area' || tool.area === selectedShelfArea;
+            const matchesSubArea = selectedShelfSubArea === 'Semua Sub Area' || tool.activity === selectedShelfSubArea;
+            return matchesSearch && matchesArea && matchesSubArea;
+        })
         .map(item => {
             const mastered = [];
             const working = [];
@@ -441,6 +452,13 @@ export default function AreaTracker() {
             };
         })
         .sort((a, b) => (a.workingPercent + a.masteredPercent) - (b.workingPercent + b.masteredPercent));
+
+    const uniqueShelfAreas = ['Semua Area', ...new Set(shelfItems.map(item => lookupTool(item).area))].sort();
+    const uniqueShelfSubAreas = ['Semua Sub Area', ...new Set(
+        shelfItems
+            .filter(item => selectedShelfArea === 'Semua Area' || lookupTool(item).area === selectedShelfArea)
+            .map(item => lookupTool(item).activity)
+    )].sort();
 
     return (
         <div className="sentra-v3-container">
@@ -584,93 +602,89 @@ export default function AreaTracker() {
             )}
 
             <div className="app-header-area">
-                <div style={{ display: 'flex', justifyContent: 'flex-start', marginBottom: '16px' }}>
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '8px', background: '#EEF2FF', padding: '8px 16px', borderRadius: '12px', color: '#4F46E5', border: '1px solid #C7D2FE' }}>
-                        <Calendar size={14} />
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '12px' }}>
+                    <h1 style={{ margin: 0, fontSize: '1.5rem', fontWeight: 950, letterSpacing: '-0.5px' }}>Sesi Sentra</h1>
+                    
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '8px', background: '#F1F5F9', padding: '6px 10px', borderRadius: '10px', border: '1px solid #E2E8F0' }}>
+                        <Calendar size={12} color="#64748B" />
                         <input
                             type="date"
                             value={selectedDate}
                             onChange={e => setSelectedDate(e.target.value)}
-                            style={{ border: 'none', background: 'transparent', fontWeight: 900, fontSize: '0.85rem', color: '#4F46E5', outline: 'none', cursor: 'pointer' }}
+                            style={{ border: 'none', background: 'transparent', fontWeight: 800, fontSize: '0.75rem', color: '#1E293B', outline: 'none', cursor: 'pointer', width: '100px' }}
                         />
                     </div>
                 </div>
-                <h1>Sesi Sentra</h1>
 
-                {/* ROOM SWITCHER FILTER & RAK SETUP */}
-                <div style={{ display: 'flex', gap: '12px', marginBottom: '24px', flexWrap: 'wrap' }}>
-                    <div className="room-switcher" style={{ margin: 0, flex: 1, minWidth: '200px' }}>
-                        <MapPin size={16} />
-                        <select value={activeRoom} onChange={e => setActiveRoom(e.target.value)}>
-                            <option value="Semua Ruang">Semua Kelas ({students.length})</option>
-                            {roomList.length > 0 ? (
-                                roomList.map(r => (
-                                    <option key={r.id} value={r.name}>
-                                        {r.level ? `${r.level} - ` : ''}{r.name}
-                                    </option>
-                                ))
-                            ) : null}
+                {/* ROOM & SETUP COMPACT ROW */}
+                <div style={{ display: 'flex', gap: '8px', marginBottom: '16px' }}>
+                    <div className="room-switcher-compact" style={{ 
+                        flex: 1, display: 'flex', alignItems: 'center', gap: '8px', 
+                        background: 'white', padding: '8px 12px', borderRadius: '12px', 
+                        border: '1px solid #E2E8F0', height: '44px' 
+                    }}>
+                        <MapPin size={14} color="#64748B" />
+                        <select 
+                            value={activeRoom} 
+                            onChange={e => setActiveRoom(e.target.value)}
+                            style={{ flex: 1, border: 'none', background: 'transparent', fontWeight: 800, fontSize: '0.85rem', color: 'var(--primary)', outline: 'none' }}
+                        >
+                            <option value="Semua Ruang">Semua Kelas</option>
+                            {roomList.map(r => (
+                                <option key={r.id} value={r.name}>{r.level ? `${r.level} - ` : ''}{r.name}</option>
+                            ))}
                         </select>
                     </div>
-
-
 
                     <button
                         onClick={() => navigate(`/setelan-rak?room=${encodeURIComponent(activeRoom)}`)}
                         style={{
-                            backgroundColor: '#F8FAFC', color: '#4F46E5', border: '1px solid #E2E8F0',
-                            padding: '10px 16px', borderRadius: '14px', fontWeight: 800, fontSize: '0.85rem',
-                            cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '8px',
-                            boxShadow: '0 2px 4px rgba(0,0,0,0.02)'
+                            width: '44px', height: '44px', display: 'flex', alignItems: 'center', justifyContent: 'center',
+                            background: '#F8FAFC', color: '#64748B', border: '1px solid #E2E8F0', borderRadius: '12px', cursor: 'pointer'
                         }}
+                        title="Atur Rak"
                     >
-                        <Briefcase size={16} /> Atur Rak Ruangan Ini
+                        <Settings2 size={18} />
                     </button>
                 </div>
 
-                {/* 3 TABS PILLS - RESPONSIVE ADAPTIVE */}
-                <div className="tri-tabs">
-                    <button className={`tri-btn ${activeTab === 'target' ? 'active' : ''}`} onClick={() => setActiveTab('target')}>
-                        <span className="tab-icon"><Target size={20} /></span>
-                        <span className="tab-text-full">1. Presentasi Baru</span>
-                        <span className="tab-text-short">Presentasi</span>
-                    </button>
-                    <button className={`tri-btn ${activeTab === 'radar' ? 'active' : ''}`} onClick={() => setActiveTab('radar')}>
-                        <span className="tab-icon"><Eye size={20} /></span>
-                        <span className="tab-text-full">2. Jurnal Observasi</span>
-                        <span className="tab-text-short">Observasi</span>
-                    </button>
-                    <button className={`tri-btn ${activeTab === 'overview' ? 'active' : ''}`} onClick={() => setActiveTab('overview')}>
-                        <span className="tab-icon"><BarChart3 size={20} /></span>
-                        <span className="tab-text-full">3. Statistik Kelas</span>
-                        <span className="tab-text-short">Statistik</span>
-                    </button>
-                </div>
+                <div style={{ height: '2px', background: '#F1F5F9', marginBottom: '32px' }}></div>
             </div>
 
             <div className="main-playground">
                 {loading && <div style={{ textAlign: 'center', marginTop: 50, color: '#94A3B8' }}>Sabar bund, memuat prajurit kelas...</div>}
 
-                {/* =========================================
-            TAB 1: TARGET PRESENTASI (ACTION-FIRST) - OPSI 3 (MODERN MATERIAL-FIRST)
-         ========================================= */}
-                {activeTab === 'target' && !loading && (
+                {!loading && (
                     <div className="tab-pane fade-in">
-                        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '24px', flexWrap: 'wrap', gap: '16px' }}>
-                            <div className="section-title" style={{ margin: 0, display: 'flex', alignItems: 'center', gap: 8 }}>MATERI SIAP PRESENTASI <Book size={18} /></div>
+                        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '16px', flexWrap: 'wrap', gap: '16px' }}>
+                            <div className="section-title" style={{ margin: 0, display: 'flex', alignItems: 'center', gap: 8 }}>DAFTAR RAK AKTIF <Package size={18} /></div>
                             <div style={{ display: 'flex', gap: '8px', alignItems: 'center' }}>
-                                <div style={{ display: 'flex', gap: '12px', marginRight: '8px', padding: '6px 12px', background: 'white', borderRadius: '100px', border: '1px solid #E2E8F0', fontSize: '0.65rem', fontWeight: 900 }}>
-                                    <div style={{ display: 'flex', alignItems: 'center', gap: '4px' }}><div style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#10B981' }}></div> MAHIR</div>
-                                    <div style={{ display: 'flex', alignItems: 'center', gap: '4px' }}><div style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#3B82F6' }}></div> BERLATIH</div>
-                                </div>
-                                <div className="search-bar-solid" style={{ margin: 0, padding: '8px 16px', borderRadius: '100px', width: '250px' }}>
-                                    <Search size={14} color="#94A3B8" />
-                                    <input type="text" placeholder="Cari materi di rak..." value={shelfSearch} onChange={e => setShelfSearch(e.target.value)} style={{ fontSize: '0.8rem' }} />
-                                </div>
                                 <div style={{ backgroundColor: '#EEF2FF', padding: '10px 16px', borderRadius: '100px', fontSize: '0.8rem', fontWeight: 900, color: '#4F46E5', border: '1px solid #C7D2FE' }}>
-                                    {shelfItems.length} Materi
+                                    {shelfCoverage.length} Alat Terpilih
                                 </div>
                             </div>
+                        </div>
+
+                        {/* 🛠️ SHELF FILTERS - COMPACT & MODERN */}
+                        <div style={{ display: 'flex', gap: '10px', marginBottom: '24px', flexWrap: 'wrap' }}>
+                             <div className="search-bar-solid" style={{ margin: 0, padding: '8px 16px', borderRadius: '14px', flex: 2, minWidth: '200px', background: '#F1F5F9', border: 'none' }}>
+                                <Search size={14} color="#94A3B8" />
+                                <input type="text" placeholder="Cari nama alat..." value={shelfSearch} onChange={e => setShelfSearch(e.target.value)} style={{ fontSize: '0.85rem' }} />
+                            </div>
+                            <select 
+                                value={selectedShelfArea}
+                                onChange={e => { setSelectedShelfArea(e.target.value); setSelectedShelfSubArea('Semua Sub Area'); }}
+                                style={{ flex: 1, minWidth: '140px', padding: '10px 16px', borderRadius: '14px', border: '1.5px solid #F1F5F9', background: 'white', fontWeight: 800, color: '#1E293B', fontSize: '0.8rem', outline: 'none' }}
+                            >
+                                {uniqueShelfAreas.map(a => <option key={a} value={a}>{a}</option>)}
+                            </select>
+                            <select 
+                                value={selectedShelfSubArea}
+                                onChange={e => setSelectedShelfSubArea(e.target.value)}
+                                style={{ flex: 1, minWidth: '140px', padding: '10px 16px', borderRadius: '14px', border: '1.5px solid #F1F5F9', background: 'white', fontWeight: 800, color: '#1E293B', fontSize: '0.8rem', outline: 'none' }}
+                            >
+                                {uniqueShelfSubAreas.map(sa => <option key={sa} value={sa}>{sa === 'Semua Sub Area' ? sa : (sa.includes(' / ') ? sa.split(' / ')[0] : sa)}</option>)}
+                            </select>
                         </div>
 
                         {shelfCoverage.length === 0 ? (
@@ -684,46 +698,46 @@ export default function AreaTracker() {
                                 {shelfCoverage.map(data => {
                                     const isSelectedMateri = formMateri === data.label;
 
+                                    const cardStyle = { 
+                                        display: 'block', 
+                                        transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)', 
+                                        border: isSelectedMateri ? '2px solid #4F46E5' : '2px solid #F1F5F9' 
+                                    };
+
                                     return (
-                                        <div key={data.label} className={`target-card ${isSelectedMateri ? 'selected-materi' : ''}`} style={{ display: 'block', transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)', border: isSelectedMateri ? '2px solid #4F46E5' : '2px solid #F1F5F9' }}>
-                                            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '16px', cursor: 'pointer' }} onClick={() => setFormMateri(isSelectedMateri ? '' : data.label)}>
+                                        <div key={data.label} className={`target-card ${isSelectedMateri ? 'selected-materi' : ''}`} style={cardStyle}>
+                                            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', cursor: 'pointer' }} onClick={() => setFormMateri(isSelectedMateri ? '' : data.label)}>
                                                 <div style={{ flex: 1 }}>
-                                                    <div style={{ display: 'flex', alignItems: 'center', gap: '6px', marginBottom: '6px' }}>
-                                                        <span style={{ fontSize: '0.65rem', fontWeight: 950, color: '#4F46E5', background: '#EEF2FF', padding: '2px 8px', borderRadius: '6px' }}>
+                                                    <div style={{ display: 'flex', alignItems: 'center', gap: '6px', marginBottom: '4px' }}>
+                                                        <span style={{ fontSize: '0.6rem', fontWeight: 950, color: '#4F46E5', background: '#EEF2FF', padding: '1px 6px', borderRadius: '4px' }}>
                                                             {data.label.split(':')[0]}
                                                         </span>
-                                                        <span style={{ fontSize: '0.65rem', fontWeight: 950, color: '#64748B', display: 'flex', alignItems: 'center', gap: '4px' }}>
-                                                            <Package size={10} /> {lookupTool(data.label).presentation?.toolDisplay?.split(',')[0] || "Alat Peraga"}
+                                                        <span style={{ fontSize: '0.6rem', fontWeight: 800, color: '#94A3B8' }}>
+                                                            {lookupTool(data.label).presentation?.toolDisplay?.split(',')[0] || "Alat Peraga"}
                                                         </span>
                                                     </div>
 
-                                                    <h3 style={{ margin: 0, fontSize: '1rem', fontWeight: 950, color: '#1E293B', display: 'flex', flexDirection: 'column', gap: '2px' }}>
-                                                        <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                                                            {data.label.split(': ')[1]?.split(' / ')[0] || data.label}
-                                                            {isSelectedMateri && <Sparkles size={16} color="#4F46E5" />}
-                                                        </div>
-                                                        {data.label.includes(' / ') && (
-                                                            <span style={{ fontSize: '0.7rem', fontWeight: 700, color: '#94A3B8', fontStyle: 'italic', marginTop: '1px' }}>
-                                                                {data.label.split(' / ')[1]}
-                                                            </span>
-                                                        )}
+                                                    <h3 style={{ margin: 0, fontSize: '0.95rem', fontWeight: 950, color: '#1E293B', display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: '8px' }}>
+                                                        {data.label.split(': ')[1]?.split(' / ')[0] || data.label}
+                                                        {isSelectedMateri && <Sparkles size={14} color="#4F46E5" />}
                                                     </h3>
                                                     
-                                                    {/* 🌈 RAINBOW PROGRESS BAR */}
-                                                    <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginTop: '10px' }}>
-                                                        <div 
-                                                            onClick={(e) => { e.stopPropagation(); setExpandedMateri(expandedMateri === data.label ? null : data.label); }}
-                                                            style={{ height: '8px', width: '120px', background: '#F1F5F9', borderRadius: '20px', overflow: 'hidden', display: 'flex', cursor: 'pointer' }}
-                                                        >
-                                                            <div style={{ width: `${data.masteredPercent}%`, height: '100%', background: '#10B981' }} title="Mastered" />
-                                                            <div style={{ width: `${data.workingPercent}%`, height: '100%', background: '#3B82F6' }} title="Working" />
-                                                        </div>
-                                                        <span style={{ fontSize: '0.7rem', fontWeight: 900, color: '#64748B' }}>{data.masteredPercent + data.workingPercent}% Tuntas</span>
+                                                    {/* 🌈 SUBTLE INDICATOR BAR */}
+                                                    <div 
+                                                        onClick={(e) => { e.stopPropagation(); setExpandedMateri(expandedMateri === data.label ? null : data.label); }}
+                                                        style={{ height: '4px', width: '80px', background: '#F1F5F9', borderRadius: '10px', overflow: 'hidden', display: 'flex', marginTop: '10px', cursor: 'help' }}
+                                                    >
+                                                        <div style={{ width: `${data.masteredPercent}%`, height: '100%', background: '#10B981' }} />
+                                                        <div style={{ width: `${data.workingPercent}%`, height: '100%', background: '#3B82F6' }} />
                                                     </div>
                                                 </div>
-                                                <div style={{ textAlign: 'right' }}>
-                                                    <div style={{ fontSize: '1.2rem', fontWeight: 950, color: '#4F46E5' }}>{data.working.length + data.mastered.length} <span style={{ fontSize: '0.75rem', color: '#94A3B8' }}>/ {searchedStudents.length}</span></div>
-                                                    <div style={{ fontSize: '0.65rem', fontWeight: 900, color: '#94A3B8' }}>ANAK TELAH DAPAT</div>
+
+                                                <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+                                                    {!isSelectedMateri && (
+                                                        <div style={{ color: '#94A3B8' }}>
+                                                            <ArrowRightCircle size={20} />
+                                                        </div>
+                                                    )}
                                                 </div>
                                             </div>
 
@@ -740,8 +754,11 @@ export default function AreaTracker() {
                                                             <div style={{ fontSize: '0.7rem', color: '#64748B' }}>{data.working.length > 0 ? data.working.map(s => s.name.split(' ')[0]).join(', ') : '-'}</div>
                                                         </div>
                                                     </div>
+                                                    <div style={{ marginTop: '8px', fontSize: '0.65rem', color: '#94A3B8', fontWeight: 700 }}>
+                                                        Akurasi: {data.masteredPercent + data.workingPercent}% kelas telah dipresentasikan.
+                                                    </div>
                                                     <div style={{ marginTop: '10px', paddingTop: '10px', borderTop: '1px solid #E2E8F0', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                                                        <div style={{ fontSize: '0.6rem', fontWeight: 900, color: '#64748B' }}>🎯 TARGET: {data.waiting.length} ANAK</div>
+                                                        <div style={{ fontSize: '0.6rem', fontWeight: 900, color: '#64748B' }}>📊 BELUM: {data.waiting.length} ANAK</div>
                                                         {data.waiting.length > 0 && (
                                                             <button 
                                                                 onClick={(e) => { 
@@ -756,7 +773,7 @@ export default function AreaTracker() {
                                                                 }}
                                                                 style={{ padding: '4px 8px', background: 'white', border: '1px solid #C7D2FE', borderRadius: '6px', fontSize: '0.6rem', fontWeight: 800, color: '#4F46E5', cursor: 'pointer' }}
                                                             >
-                                                                Pilih Semua Target
+                                                                Pilih Sisa Anak
                                                             </button>
                                                         )}
                                                     </div>
@@ -813,10 +830,15 @@ export default function AreaTracker() {
                                                                 <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap', justifyContent: 'flex-end' }}>
                                                                     <button
                                                                         className="btn-start-presentation outline"
-                                                                        style={{ padding: '12px 20px', fontSize: '0.8rem', background: 'white', color: '#4F46E5', border: '2px solid #C7D2FE', boxShadow: 'none' }}
+                                                                        style={{ 
+                                                                            padding: '12px 24px', fontSize: '0.8rem', background: '#F8FAFC', color: '#4F46E5', 
+                                                                            border: '2px dashed #C7D2FE', boxShadow: 'none', borderRadius: '16px',
+                                                                            display: 'flex', alignItems: 'center', gap: '8px'
+                                                                        }}
                                                                         onClick={() => handleActionWithReview('smart', data.label)}
                                                                     >
-                                                                        <Settings2 size={14} /> Opsi Lanjut
+                                                                        <Settings2 size={16} /> 
+                                                                        <span>Set Level Detail (Opsi Lanjut)</span>
                                                                     </button>
 
                                                                     <button
@@ -844,14 +866,20 @@ export default function AreaTracker() {
                                                     </div>
 
                                                     <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '16px', flexWrap: 'wrap', gap: '8px' }}>
-                                                        <div style={{ fontSize: '0.75rem', fontWeight: 900, color: '#475569' }}>
-                                                            {showFullGrid ? 'SEMUA MURID DI KELAS' : 'SIAPA YANG AKAN MENERIMA PRESENTASI INI?'}
+                                                        <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                                                            <div style={{ fontSize: '0.75rem', fontWeight: 900, color: '#475569' }}>
+                                                                {showFullGrid ? 'SEMUA MURID' : 'BELUM PRESENTASI'}
+                                                            </div>
+                                                            <div style={{ display: 'flex', gap: '4px' }}>
+                                                                <span style={{ fontSize: '0.6rem', padding: '2px 4px', borderRadius: '4px', background: '#F1F5F9', color: '#64748B', fontWeight: 900 }}>W: Berlatih</span>
+                                                                <span style={{ fontSize: '0.6rem', padding: '2px 4px', borderRadius: '4px', background: '#ECFDF5', color: '#059669', fontWeight: 900 }}>M: Mahir</span>
+                                                            </div>
                                                         </div>
                                                         <button
                                                             onClick={() => setShowFullGrid(!showFullGrid)}
-                                                            style={{ background: '#F1F5F9', border: 'none', padding: '6px 12px', borderRadius: '10px', fontSize: '0.7rem', fontWeight: 800, color: '#64748B', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: 4 }}
+                                                            style={{ background: '#F1F5F9', border: 'none', padding: '8px 14px', borderRadius: '12px', fontSize: '0.7rem', fontWeight: 800, color: '#4F46E5', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: 6 }}
                                                         >
-                                                            {showFullGrid ? <><EyeOff size={12} /> Hanya Belum Dapat</> : <><Eye size={12} /> Lihat Semua Murid</>}
+                                                            {showFullGrid ? <><EyeOff size={12} /> Sembunyikan yg Sudah</> : <><Eye size={12} /> Lihat Semua Murid</>}
                                                         </button>
                                                     </div>
 
@@ -859,20 +887,37 @@ export default function AreaTracker() {
                                                         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(130px, 1fr))', gap: '10px' }}>
                                                             {(showFullGrid ? data.all : data.waiting).map(kid => {
                                                                 const isSelected = selectedKids.includes(kid.id);
-                                                                const alreadyHad = data.presented.some(p => p.id === kid.id);
+                                                                const repKey = `${kid.id}_${data.label}`;
+                                                                const currentStatus = repetitions[repKey]?.level || null; // 'P', 'W', 'M'
+                                                                const alreadyHad = !!currentStatus;
 
                                                                 return (
                                                                     <div key={kid.id}
                                                                         onClick={() => toggleKidSelection(kid.id)}
-                                                                        className={`mini-selection-pill ${isSelected ? 'active' : ''} ${alreadyHad ? 'already-had' : ''}`}
+                                                                        className={`mini-selection-pill ${isSelected ? 'active' : ''}`}
                                                                         style={{
-                                                                            padding: '10px', borderRadius: '14px', border: isSelected ? '2px solid #4F46E5' : '1px solid #E2E8F0',
-                                                                            background: isSelected ? '#EEF2FF' : (alreadyHad ? '#F8FAFC' : 'white'), cursor: 'pointer', transition: 'all 0.2s',
-                                                                            display: 'flex', alignItems: 'center', gap: '8px', opacity: (alreadyHad && !isSelected) ? 0.6 : 1
+                                                                            padding: '10px', borderRadius: '16px', border: isSelected ? '2px solid #4F46E5' : '1px solid #E2E8F0',
+                                                                            background: isSelected ? '#EEF2FF' : 'white', cursor: 'pointer', transition: 'all 0.2s',
+                                                                            display: 'flex', alignItems: 'center', gap: '8px', position: 'relative'
                                                                         }}>
-                                                                        <div style={{ width: '20px', height: '20px', borderRadius: '50%', background: isSelected ? '#4F46E5' : (alreadyHad ? '#CBD5E1' : '#F1F5F9'), color: isSelected ? 'white' : '#94A3B8', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '0.6rem', fontWeight: 900, position: 'relative' }}>
-                                                                            {isSelected ? '✓' : (alreadyHad ? '↺' : kid.name.substring(0, 1))}
-                                                                            {/* Inline Prerequisite Indicator */}
+                                                                        
+                                                                        {/* Status Badge Overlays */}
+                                                                        {currentStatus && !isSelected && (
+                                                                             <div style={{ 
+                                                                                position: 'absolute', top: -6, right: -6, 
+                                                                                background: currentStatus === 'M' ? '#10B981' : '#3B82F6', 
+                                                                                color: 'white', width: '18px', height: '18px', borderRadius: '50%',
+                                                                                fontSize: '0.6rem', fontWeight: 950, display: 'flex', alignItems: 'center', justifyContent: 'center',
+                                                                                border: '2px solid white', boxShadow: '0 2px 4px rgba(0,0,0,0.1)', zIndex: 2
+                                                                             }}>
+                                                                                 {currentStatus}
+                                                                             </div>
+                                                                        )}
+
+                                                                        <div style={{ width: '22px', height: '22px', borderRadius: '50%', background: isSelected ? '#4F46E5' : '#F1F5F9', color: isSelected ? 'white' : '#94A3B8', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '0.65rem', fontWeight: 900, position: 'relative', flexShrink: 0 }}>
+                                                                            {isSelected ? '✓' : kid.name.substring(0, 1)}
+                                                                            
+                                                                            {/* Prerequisite Alert */}
                                                                             {(() => {
                                                                                 let foundIdx = -1;
                                                                                 let areaList = [];
@@ -883,13 +928,13 @@ export default function AreaTracker() {
                                                                                 if (foundIdx > 0) {
                                                                                     for (let i = 0; i < foundIdx; i++) {
                                                                                         const preLabel = typeof areaList[i] === 'object' ? areaList[i].label : areaList[i];
-                                                                                        if (!repetitions[`${kid.id}_${preLabel}`]) return <div style={{ position: 'absolute', top: -4, right: -4, background: '#F59E0B', color: 'white', borderRadius: '50%', width: '10px', height: '10px', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '7px', border: '1px solid white' }}>!</div>;
+                                                                                        if (!repetitions[`${kid.id}_${preLabel}`]) return <div style={{ position: 'absolute', top: -5, right: -5, background: '#F59E0B', color: 'white', borderRadius: '50%', width: '12px', height: '12px', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '8px', border: '1.5px solid white', zIndex: 10 }}>!</div>;
                                                                                     }
                                                                                 }
                                                                                 return null;
                                                                             })()}
                                                                         </div>
-                                                                        <div style={{ fontSize: '0.75rem', fontWeight: 800, color: isSelected ? '#4F46E5' : '#475569', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis', flex: 1 }}>
+                                                                        <div style={{ fontSize: '0.73rem', fontWeight: isSelected ? 900 : 700, color: isSelected ? '#4F46E5' : (alreadyHad ? '#94A3B8' : '#334155'), whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis', flex: 1 }}>
                                                                             {kid.name}
                                                                         </div>
                                                                     </div>
@@ -916,117 +961,6 @@ export default function AreaTracker() {
                     </div>
                 )}
 
-
-
-                {/* =========================================
-            TAB 2: RADAR OBSERVASI (SAPU PANDANG) 
-         ========================================= */}
-                {activeTab === 'radar' && !loading && (
-                    <div className="tab-pane fade-in">
-                        <div className="sweep-instruction">
-                            <Lightbulb size={24} style={{ flexShrink: 0 }} />
-                            <div><b>Petunjuk:</b> Pilih beberapa siswa yang bekerja di area/meja yang sama, lalu tekan tombol "Catat".</div>
-                        </div>
-
-                        <div className="search-bar-solid" style={{ marginBottom: '20px' }}>
-                            <Search size={18} color="#94A3B8" />
-                            <input type="text" placeholder="Cari anak spesifik..." value={searchQuery} onChange={e => setSearchQuery(e.target.value)} style={{ flex: 1 }} />
-                            
-                            <div style={{ width: '1.5px', height: '20px', background: '#E2E8F0', margin: '0 4px' }}></div>
-                            
-                            <button 
-                                onClick={() => setShowOnlyPending(!showOnlyPending)}
-                                style={{
-                                    background: 'none', border: 'none', padding: '4px 8px',
-                                    color: showOnlyPending ? 'var(--primary)' : '#94A3B8',
-                                    display: 'flex', alignItems: 'center', gap: '6px',
-                                    cursor: 'pointer', transition: 'all 0.2s'
-                                }}
-                            >
-                                {showOnlyPending ? <EyeOff size={18} /> : <Eye size={18} />}
-                                <span style={{ fontSize: '0.7rem', fontWeight: 900, display: window.innerWidth > 400 ? 'inline' : 'none' }}>
-                                    {showOnlyPending ? 'Filter: Pending' : 'Semua'}
-                                </span>
-                            </button>
-                        </div>
-
-                        {currentRoomStudents.length === 0 && activeRoom !== 'Semua Ruang' && (
-                            <div style={{ backgroundColor: '#FFFBEB', border: '1px solid #FEF3C7', padding: '12px 16px', borderRadius: '16px', marginBottom: '20px', color: '#B45309', fontSize: '0.85rem', fontWeight: 800, display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                                <div>⚠️ Tidak ada murid terdaftar di "{activeRoom}".</div>
-                                <button onClick={() => navigate('/students')} style={{ background: '#D97706', color: 'white', border: 'none', padding: '6px 12px', borderRadius: '8px', cursor: 'pointer', fontSize: '0.75rem' }}>Daftarkan Murid</button>
-                            </div>
-                        )}
-
-                        <div className="radar-grid">
-                            {currentRoomStudents
-                                .filter(s => s.name.toLowerCase().includes(searchQuery.toLowerCase()))
-                                .filter(s => showOnlyPending ? !observedToday.includes(s.id) : true)
-                                .sort((a, b) => {
-                                    const aObs = observedToday.includes(a.id);
-                                    const bObs = observedToday.includes(b.id);
-                                    if (aObs && !bObs) return 1;
-                                    if (!aObs && bObs) return -1;
-                                    return 0;
-                                })
-                                .map(kid => {
-                                    const isObserved = observedToday.includes(kid.id);
-                                    const isSelected = selectedKids.includes(kid.id);
-                                    return (
-                                        <div key={kid.id} className={`radar-kid-card ${isSelected ? 'selected' : ''} ${isObserved ? 'observed-subdued' : ''}`} onClick={() => toggleKidSelection(kid.id)} style={{ opacity: isObserved && !isSelected ? 0.6 : 1 }}>
-                                            <div className={`radar-avatar ${isSelected ? 'active-avatar' : ''} ${isObserved ? 'observed-avatar' : ''}`}>
-                                                {isSelected ? <CheckCircle2 size={24} /> : (isObserved ? '✓' : kid.name.substring(0, 2))}
-                                            </div>
-                                            <div className="radar-info">
-                                                <h4 style={{ margin: 0, color: isObserved ? '#94A3B8' : '#0F172A' }}>{kid.name}</h4>
-                                                <div style={{ fontSize: '0.65rem', color: '#94A3B8', fontWeight: 800, marginBottom: '4px' }}>ROMBEL: {kid.rombel || '?'}</div>
-                                                {isObserved ? (
-                                                    <div className="status-done"><CheckCircle2 size={12} /> Selesai Diobservasi</div>
-                                                ) : (
-                                                    <div className="status-urgent"><AlertTriangle size={12} /> Belum diobservasi</div>
-                                                )}
-                                            </div>
-                                        </div>
-                                    )
-                                })}
-                        </div>
-
-                        {/* FAB: CATAT KELOMPOK */}
-                        <div className={`floating-action-bar ${(selectedKids.length > 0 && !showSheet) ? 'visible' : ''}`}>
-                            <div className="fab-text">
-                                <div className="badge-count">{selectedKids.length}</div> Terpilih
-                            </div>
-                            <button className="btn-fab-catat" onClick={() => handleActionWithReview('smart', formMateri)}>
-                                Catat Bersamaan <Sparkles size={16} />
-                            </button>
-                        </div>
-                    </div>
-                )}
-
-                {/* =========================================
-            TAB 3: IKHTISAR KURVA (OVERVIEW)
-         ========================================= */}
-                {activeTab === 'overview' && !loading && (
-                    <div className="tab-pane fade-in">
-                        <div className="section-title" style={{ display: 'flex', alignItems: 'center', gap: 8 }}>PETA KURVA KELAS HARI INI <BarChart3 size={18} /></div>
-                        <div className="overview-cards">
-                            <div className="ov-card bg-green">
-                                <h3>Anak Telah Disapa</h3>
-                                <h1>{currentRoomStudents.filter(s => s.selectedArea).length} <span>/ {currentRoomStudents.length}</span></h1>
-                                <p>Tugas observasi Bunda sudah hebat hari ini!</p>
-                            </div>
-                            <div className="ov-card bg-blue">
-                                <h3>Great Work Terekam</h3>
-                                <h1>{currentRoomStudents.filter(s => s.focus === '😍').length} <span>anak</span></h1>
-                                <p>Mencapai fase konsentrasi mendalam (😍)</p>
-                            </div>
-                        </div>
-                        <div className="empty-state-nice" style={{ marginTop: 24 }}>
-                            <BookOpen color="#94A3B8" size={32} />
-                            <h3>Laporan Terperinci</h3>
-                            <p>Waktu spesifik (menit dan jam log) telah direkam otomatis ke database rapot wali kelas tanpa perlu Ustadzah ketik sedikitpun.</p>
-                        </div>
-                    </div>
-                )}
             </div>
 
             {/* =========================================
@@ -1038,14 +972,40 @@ export default function AreaTracker() {
 
                     <div className="sheet-header">
                         <div>
-                            <h2 style={{ color: '#1E293B', fontWeight: 950 }}>Merekam Sesi: {selectedKids.length} Anak</h2>
-                            <div className="sheet-names" style={{ color: '#64748B', display: 'flex', gap: '4px', flexWrap: 'wrap' }}>
+                            <h2 style={{ color: '#1E293B', fontWeight: 950 }}>Catat Sesi: {selectedKids.length} Anak</h2>
+                            <div className="sheet-names" style={{ color: '#64748B', display: 'flex', gap: '4px', flexWrap: 'wrap', marginTop: '4px' }}>
                                 {students.filter(s => selectedKids.includes(s.id)).map(s => (
-                                    <span key={s.id} style={{ background: '#F1F5F9', padding: '2px 8px', borderRadius: '6px', fontSize: '0.75rem' }}>{s.name}</span>
+                                    <span key={s.id} style={{ background: '#F1F5F9', padding: '2px 8px', borderRadius: '6px', fontSize: '0.75rem', fontWeight: 700 }}>{s.name.split(' ')[0]}</span>
                                 ))}
                             </div>
                         </div>
                         <button className="btn-close" onClick={() => setShowSheet(false)}><X size={20} /></button>
+                    </div>
+
+                    {/* 🕵️ SMART ACTIVITY TOGGLE */}
+                    <div style={{ display: 'flex', background: '#F8FAFC', padding: '4px', borderRadius: '12px', border: '1px solid #E2E8F0', marginBottom: '20px' }}>
+                        <button 
+                            onClick={() => setActivityType('presentation')}
+                            style={{ 
+                                flex: 1, padding: '10px', border: 'none', borderRadius: '10px', 
+                                background: (activityType === 'presentation' || (activityType === 'auto' && selectedKids.every(kId => !(repetitions[`${kId}_${formMateri}`] > 0)))) ? 'var(--primary)' : 'transparent',
+                                color: (activityType === 'presentation' || (activityType === 'auto' && selectedKids.every(kId => !(repetitions[`${kId}_${formMateri}`] > 0)))) ? 'white' : '#64748B',
+                                fontWeight: 900, fontSize: '0.75rem', cursor: 'pointer'
+                            }}
+                        >
+                             Presentasi Baru
+                        </button>
+                        <button 
+                            onClick={() => setActivityType('practice')}
+                            style={{ 
+                                flex: 1, padding: '10px', border: 'none', borderRadius: '10px', 
+                                background: (activityType === 'practice' || (activityType === 'auto' && selectedKids.some(kId => repetitions[`${kId}_${formMateri}`] > 0))) ? '#10B981' : 'transparent',
+                                color: (activityType === 'practice' || (activityType === 'auto' && selectedKids.some(kId => repetitions[`${kId}_${formMateri}`] > 0))) ? 'white' : '#64748B',
+                                fontWeight: 900, fontSize: '0.75rem', cursor: 'pointer'
+                            }}
+                        >
+                             Latihan/Berlatih
+                        </button>
                     </div>
 
                     {/* SECTION: FREEDOM WITH LIMITS */}
@@ -1427,7 +1387,7 @@ export default function AreaTracker() {
         }
 
         /* HEADER & TABS */
-        .app-header-area { padding: 30px 24px 20px; position: sticky; top:0; z-index:100;
+        .app-header-area { padding: 16px 20px 12px; position: sticky; top:0; z-index:100;
             background: rgba(255, 255, 255, 0.85); 
             backdrop-filter: blur(16px) saturate(180%);
             -webkit-backdrop-filter: blur(16px) saturate(180%);

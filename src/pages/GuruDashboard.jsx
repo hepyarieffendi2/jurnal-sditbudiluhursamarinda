@@ -5,7 +5,7 @@ import { collection, getDocs, query, where } from 'firebase/firestore';
 import {
     Users, UserCheck, BookOpen, TrendingUp, ChevronRight, MessageSquare,
     Search, MoreHorizontal, Target, LayoutGrid, GraduationCap,
-    Sparkles, CheckCircle2, ArrowRightCircle, Info, Calendar, Heart, Book, Activity
+    Sparkles, CheckCircle2, ArrowRightCircle, Info, Calendar as LucideCalendar, Heart, Book, Activity, Clock as LucideClock
 } from 'lucide-react';
 
 const QuickStat = ({ title, value, icon: Icon, color }) => (
@@ -103,6 +103,12 @@ export default function GuruDashboard() {
 
             {/* 🚀 TEACHER CYCLE (CENTERED ACTION) */}
             <div style={{ marginBottom: '48px' }}>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', marginBottom: '24px' }}>
+                    <div style={{ fontSize: '0.8rem', fontWeight: 900, color: '#64748B', display: 'flex', alignItems: 'center', gap: '8px', textTransform: 'uppercase', letterSpacing: '1px' }}>
+                       <LucideClock size={14} /> Siklus Harian (Selesaikan Sesi)
+                    </div>
+                </div>
+                
                 <div style={{ display: 'flex', gap: '24px', flexWrap: 'wrap' }}>
                     {/* Card 1: THE BIG HERO (Action) */}
                     <Link to="/eksplorasi" style={{ textDecoration: 'none', flex: '2', minWidth: '350px' }}>
@@ -118,14 +124,14 @@ export default function GuruDashboard() {
                                     <div style={{ width: '48px', height: '48px', borderRadius: '16px', background: 'rgba(255,255,255,0.1)', color: 'white', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                                         <Target size={28} />
                                     </div>
-                                    <span style={{ fontWeight: 900, fontSize: '0.85rem', letterSpacing: '1px', textTransform: 'uppercase', opacity: 0.7 }}>Aksi Harian Utama</span>
+                                    <span style={{ fontWeight: 900, fontSize: '0.85rem', letterSpacing: '1px', textTransform: 'uppercase', opacity: 0.7 }}>Aksi Observasi</span>
                                 </div>
-                                <h2 style={{ fontSize: '2rem', fontWeight: 950, marginBottom: '12px' }}>Mulai Radar Observasi</h2>
+                                <h2 style={{ fontSize: '2rem', fontWeight: 950, marginBottom: '12px' }}>Radar Observasi</h2>
                                 <p style={{ fontSize: '1.1rem', opacity: 0.8, fontWeight: 600, maxWidth: '400px', lineHeight: 1.5 }}>
-                                    Observasi aktivitas santri secara bersamaan, rekam penggunaan alat peraga, dan pantau siklus kerja kelas.
+                                    Input data harian murid segera setelah sesi sentra berakhir untuk menjaga akurasi 5 Pilar AMI.
                                 </p>
                                 <div style={{ marginTop: '32px', display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '12px 24px', background: 'white', color: '#0F172A', borderRadius: '100px', fontWeight: 950 }}>
-                                    Buka Radar Sesi <ArrowRightCircle size={20} />
+                                    Input Jurnal Harian <ArrowRightCircle size={20} />
                                 </div>
                             </div>
                         </div>
@@ -133,19 +139,15 @@ export default function GuruDashboard() {
 
                     {/* Sidebar Actions Column */}
                     <div style={{ flex: '1', display: 'flex', flexDirection: 'column', gap: '20px', minWidth: '300px' }}>
-                        <Link to="/setelan-rak" style={{ textDecoration: 'none' }}>
-                            <div className="card-soft cycle-card" style={{ padding: '24px', background: 'white', border: '1.5px solid #F1F5F9' }}>
-                                <LayoutGrid size={24} color="#AF52DE" style={{ marginBottom: '16px' }} />
-                                <h3 style={{ margin: '0 0 8px 0', fontSize: '1.2rem', fontWeight: 900, color: '#1E293B' }}>Tata Rak & Alat Peraga</h3>
-                                <p style={{ margin: 0, fontSize: '0.85rem', color: '#64748B', fontWeight: 600 }}>Pilih media belajar fisik yang aktif di kelas Bunda minggu ini.</p>
-                            </div>
-                        </Link>
+                        <div style={{ fontSize: '0.8rem', fontWeight: 900, color: '#64748B', display: 'flex', alignItems: 'center', gap: '8px', textTransform: 'uppercase', letterSpacing: '1px', margin: '8px 0' }}>
+                           <LayoutGrid size={14} /> Persiapan Lingkungan
+                        </div>
 
-                        <Link to="/jurnal-harian" style={{ textDecoration: 'none' }}>
-                            <div className="card-soft cycle-card" style={{ padding: '24px', background: 'white', border: '1.5px solid #F1F5F9' }}>
-                                <Calendar size={24} color="#0EA5E9" style={{ marginBottom: '16px' }} />
-                                <h3 style={{ margin: '0 0 8px 0', fontSize: '1.2rem', fontWeight: 900, color: '#1E293B' }}>Linimasa Jurnal</h3>
-                                <p style={{ margin: 0, fontSize: '0.85rem', color: '#64748B', fontWeight: 600 }}>Tinjau rekapan aktivitas santri dan log harian Sentra.</p>
+                        <Link to="/setelan-rak" style={{ textDecoration: 'none' }}>
+                            <div className="card-soft cycle-card" style={{ padding: '20px', background: '#F8FAFC', border: '1.5px solid #F1F5F9' }}>
+                                <LayoutGrid size={20} color="#64748B" style={{ marginBottom: '12px' }} />
+                                <h3 style={{ margin: '0 0 4px 0', fontSize: '1.1rem', fontWeight: 900, color: '#1E293B' }}>Siapkan Rak Kelas</h3>
+                                <p style={{ margin: 0, fontSize: '0.8rem', color: '#64748B', fontWeight: 600 }}>Update isi aparatus fisik di rak sentra Bunda.</p>
                             </div>
                         </Link>
                     </div>
@@ -153,12 +155,12 @@ export default function GuruDashboard() {
             </div>
 
             {/* 📊 PEDAGOGICAL INSIGHTS (CLASS SNAPSHOT) */}
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '20px', marginBottom: '40px' }}>
-                <QuickStat title="Murid Hadir" value={`${presentCount}/${studentCount || '...'}`} icon={UserCheck} color="#10B981" />
-                <QuickStat title="Log Aktivitas" value={jurnalCount} icon={Activity} color="#6366F1" />
-                <QuickStat title="Focus Utama" value={logs.filter(l => l.konsentrasiEmoji === '😍').length > 0 ? 'Fokus Mendalam' : 'Stabil'} icon={Sparkles} color="#F59E0B" />
-                <QuickStat title="Mood Kelas" value={logs.filter(l => l.mood === 'Tenang').length > logs.filter(l => l.mood === 'Frustrasi').length ? 'Tenang' : 'Aktif'} icon={Heart} color="#EC4899" />
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '20px', marginBottom: '40px' }}>
+                <QuickStat title="Kehadiran Murid" value={`${presentCount}/${studentCount || '...'}`} icon={UserCheck} color="#10B981" />
+                <QuickStat title="Log Sesi Ini" value={jurnalCount} icon={Activity} color="#6366F1" />
+                <QuickStat title="Ketenangan Kelas" value={logs.filter(l => l.mood === 'Tenang').length > logs.filter(l => l.mood === 'Frustrasi').length ? 'Kondusif' : 'Perlu Pendampingan'} icon={Heart} color="#EC4899" />
             </div>
+
 
             {/* 📘 TEACHER LEARNING & MISSION (THE SPIRIT) */}
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))', gap: '32px' }}>

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useAuth } from '../context/AuthContext';
-import { ShieldAlert, XCircle, CheckCircle2, AlertTriangle, Lightbulb, Save, Edit3, Plus, Trash2, X, Loader, ChevronDown, ChevronUp, Download } from 'lucide-react';
+import { ShieldAlert, XCircle, CheckCircle2, AlertTriangle, Lightbulb, Save, Edit3, Plus, Trash2, X, Loader, ChevronDown, ChevronUp, Download, Search } from 'lucide-react';
 import { db } from '../firebase-config';
 import { doc, getDoc, setDoc } from 'firebase/firestore';
 
@@ -139,6 +139,15 @@ const defaultCases = [
     tradisional: "Heh, jangan lari-lari! Kalau jatuh dan bocor kepalanya baru tahu rasa kamu nanti! Berhenti!",
     positif: "Beri sentuhan lembut di bahunya untuk menghentikan larinya. 'Peraturan sekolah kita, ruangan dan tangga adalah tempat pejalan kaki. Berlari sangat berbahaya untuk keselamatanmu.'",
     konsekuensi: "Penerapan konsep *Walk It Again* (Jalan Ulang). Anak disuruh kembali mundur/naik ke titik sebelum ia mulai berlari, lalu mengulangi rutenya dengan cara 'berjalan kaki lambat' sambil disaksikan guru."
+  },
+  {
+    id: 16,
+    kategori: "Karakter & Ibadah",
+    title: "Lambat / Menunda Berbaris Shalat",
+    kasus: "Saat instruksi Shalat Dhuha/Dzuhur berkumandang, siswa malah asyik mengobrol, bermain santai, atau lambat mengambil wudhu sehingga membuang waktu jamaah.",
+    tradisional: "Guru berteriak dari jauh: 'Ayo cepat baris! 1... 2... 3... yang belum baris Bapak hukum!' (Dan pada akhirnya guru marah-marah hingga merusak *mood* ibadah).",
+    positif: "Biasakan *SOP Transisi* (misal: menyalakan lagu nasyid/murottal tanpa meneriaki). Datangi personal siswa yang lalai: 'Waktu transisi sudah hampir habis. Menghadap Tuhan tidak dengan bermalas-malasan. Simpan obrolanmu sekarang.'",
+    konsekuensi: "Waktu istirahat pribadi/bermainnya akan dipotong untuk dikompensasikan dengan waktu yang ia hilangkan tadi, ATAU ia harus bertugas membereskan dan menggulung semua sajadah paling akhir di saat temannya yang lain boleh kembali ke kelas."
   }
 ];
 
@@ -150,6 +159,8 @@ export default function DisiplinPositifPage() {
   const [activeFilter, setActiveFilter] = useState("Semua");
   const [expandedId, setExpandedId] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
+  const [editSearchTerm, setEditSearchTerm] = useState("");
+  const [expandedEditId, setExpandedEditId] = useState(null);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -196,6 +207,8 @@ export default function DisiplinPositifPage() {
       positif: 'Respons positif...', 
       konsekuensi: 'Konsekuensi logis...'
     }, ...cases]);
+    setExpandedEditId(newId);
+    setEditSearchTerm(""); // Reset search so new case is visible
   };
 
   const handleRemoveKasus = (id) => {
@@ -344,62 +357,128 @@ export default function DisiplinPositifPage() {
       ) : (
         /* Edit Mode */
         <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', background: '#F1F5F9', padding: '16px 24px', borderRadius: '16px' }}>
-            <span style={{ fontWeight: 800, color: '#334155' }}>Mode Edit Kurikulum</span>
-            <div style={{ display: 'flex', gap: '12px' }}>
-               <button onClick={() => {
-                  if(window.confirm('Aksi ini akan me-reset daftar aturan kembali ke Template Standar (15 Kasus Bawaan). Lanjutkan?')) {
-                     setCases(defaultCases);
-                  }
-               }} style={{ background: 'white', color: '#475569', border: '1px solid #CBD5E1', padding: '10px 20px', borderRadius: '10px', fontWeight: 'bold', display: 'flex', alignItems: 'center', gap: '8px', cursor: 'pointer' }}>
-                 <Download size={18} /> Reset ke Template (15 Kasus)
-               </button>
-               <button onClick={handleAddKasus} style={{ background: 'var(--primary)', color: 'white', border: 'none', padding: '10px 20px', borderRadius: '10px', fontWeight: 'bold', display: 'flex', alignItems: 'center', gap: '8px', cursor: 'pointer' }}>
-                 <Plus size={18} /> Tambah Kasus Baru
-               </button>
+          {/* Editor Header & Control */}
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', background: '#F1F5F9', padding: '20px', borderRadius: '16px' }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '12px' }}>
+              <span style={{ fontWeight: 800, color: '#334155', fontSize: '1.2rem' }}>Daftar Kasus (Mode Edit)</span>
+              <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
+                 <button onClick={() => {
+                    if(window.confirm('Aksi ini akan me-reset daftar aturan kembali ke Template Standar. Lanjutkan?')) {
+                       setCases(defaultCases);
+                    }
+                 }} style={{ background: 'white', color: '#475569', border: '1px solid #CBD5E1', padding: '10px 16px', borderRadius: '12px', fontWeight: 'bold', display: 'flex', alignItems: 'center', gap: '6px', cursor: 'pointer', fontSize: '0.9rem' }}>
+                   <Download size={16} /> Reset Template
+                 </button>
+                 <button onClick={handleAddKasus} style={{ background: 'var(--primary)', color: 'white', border: 'none', padding: '10px 16px', borderRadius: '12px', fontWeight: 'bold', display: 'flex', alignItems: 'center', gap: '6px', cursor: 'pointer', fontSize: '0.9rem' }}>
+                   <Plus size={16} /> Kasus Baru
+                 </button>
+              </div>
+            </div>
+            
+            {/* Search Bar */}
+            <div style={{ position: 'relative', width: '100%' }}>
+              <Search size={20} color="#94A3B8" style={{ position: 'absolute', left: '16px', top: '50%', transform: 'translateY(-50%)' }} />
+              <input 
+                type="text" 
+                placeholder="Cari berdasarkan judul kasus, kategori, atau deskripsi..." 
+                value={editSearchTerm}
+                onChange={(e) => setEditSearchTerm(e.target.value)}
+                style={{ width: '100%', padding: '14px 14px 14px 44px', borderRadius: '12px', border: '1px solid #CBD5E1', outline: 'none', fontSize: '0.95rem', boxSizing: 'border-box', boxShadow: '0 2px 4px rgba(0,0,0,0.02)' }}
+              />
             </div>
           </div>
 
-          {cases.map((item) => (
-            <div key={item.id} style={{ background: 'white', padding: '24px', borderRadius: '16px', border: '1px solid #E2E8F0', display: 'flex', flexDirection: 'column', gap: '16px', position: 'relative' }}>
-              <button 
-                onClick={() => handleRemoveKasus(item.id)}
-                style={{ position: 'absolute', top: '24px', right: '24px', background: '#FEE2E2', color: '#EF4444', border: 'none', width: '36px', height: '36px', borderRadius: '10px', display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer' }}
-              >
-                <Trash2 size={18} />
-              </button>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+            {cases.filter(item => 
+              item.title.toLowerCase().includes(editSearchTerm.toLowerCase()) || 
+              item.kategori.toLowerCase().includes(editSearchTerm.toLowerCase()) ||
+              item.kasus.toLowerCase().includes(editSearchTerm.toLowerCase())
+            ).map((item) => {
+              const isEditExpanded = expandedEditId === item.id;
               
-              <div style={{ display: 'grid', gridTemplateColumns: '150px 1fr', gap: '20px', alignItems: 'center' }}>
-                <span style={{ fontWeight: 700, color: '#64748B', fontSize: '0.9rem' }}>Judul & Kategori</span>
-                <div style={{ display: 'flex', gap: '12px' }}>
-                  <input type="text" value={item.title} onChange={e => handleChange(item.id, 'title', e.target.value)} style={{ flex: 2, padding: '12px', borderRadius: '10px', border: '1px solid #CBD5E1', outline: 'none', fontWeight: 600 }} placeholder="Judul Kasus" />
-                  <input type="text" value={item.kategori} onChange={e => handleChange(item.id, 'kategori', e.target.value)} style={{ flex: 1, padding: '12px', borderRadius: '10px', border: '1px solid #CBD5E1', outline: 'none' }} placeholder="Kategori" />
-                </div>
-              </div>
+              return (
+                <div key={item.id} style={{ background: 'white', borderRadius: '16px', border: isEditExpanded ? '2px solid var(--primary)' : '1px solid #E2E8F0', overflow: 'hidden', transition: 'all 0.2s', boxShadow: isEditExpanded ? '0 8px 20px rgba(0,0,0,0.06)' : 'none' }}>
+                  {/* Compact Header for Edit */}
+                  <div 
+                    onClick={() => setExpandedEditId(isEditExpanded ? null : item.id)}
+                    style={{ padding: '16px 20px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', cursor: 'pointer', background: isEditExpanded ? '#F8FAFC' : 'white' }}
+                  >
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
+                      <span style={{ fontSize: '0.75rem', fontWeight: 800, color: '#64748B', textTransform: 'uppercase' }}>{item.kategori}</span>
+                      <span style={{ fontWeight: 700, color: '#0F172A', fontSize: '1.05rem' }}>{item.title}</span>
+                    </div>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+                      <button 
+                        onClick={(e) => { e.stopPropagation(); handleRemoveKasus(item.id); }}
+                        style={{ background: '#FEE2E2', color: '#EF4444', border: 'none', width: '32px', height: '32px', borderRadius: '8px', display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer', zIndex: 2 }}
+                        title="Hapus Kasus"
+                      >
+                        <Trash2 size={16} />
+                      </button>
+                      <div style={{ color: '#94A3B8' }}>
+                         {isEditExpanded ? <ChevronUp size={20} /> : <Edit3 size={20} />}
+                      </div>
+                    </div>
+                  </div>
 
-              <div style={{ display: 'grid', gridTemplateColumns: '150px 1fr', gap: '20px', alignItems: 'start' }}>
-                <span style={{ fontWeight: 700, color: '#64748B', fontSize: '0.9rem', marginTop: '12px' }}>Situasi (Kasus)</span>
-                <textarea value={item.kasus} onChange={e => handleChange(item.id, 'kasus', e.target.value)} style={{ width: '100%', padding: '12px', borderRadius: '10px', border: '1px solid #CBD5E1', outline: 'none', resize: 'vertical', minHeight: '60px' }} placeholder="Jelaskan deskripsi situasinya..." />
-              </div>
+                  {/* Expanded Form for Editing */}
+                  {isEditExpanded && (
+                    <div style={{ padding: '24px', borderTop: '1px solid #E2E8F0', display: 'flex', flexDirection: 'column', gap: '20px', animation: 'fadeIn 0.3s ease-in-out' }}>
+                      
+                      <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                        <span style={{ fontWeight: 700, color: '#475569', fontSize: '0.9rem' }}>Judul & Kategori</span>
+                        <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', width: '100%' }}>
+                          <input type="text" value={item.title} onChange={e => handleChange(item.id, 'title', e.target.value)} style={{ width: '100%', padding: '12px', borderRadius: '10px', border: '1px solid #CBD5E1', outline: 'none', fontWeight: 600, boxSizing: 'border-box' }} placeholder="Judul Kasus" />
+                          <input type="text" value={item.kategori} onChange={e => handleChange(item.id, 'kategori', e.target.value)} style={{ width: '100%', padding: '12px', borderRadius: '10px', border: '1px solid #CBD5E1', outline: 'none', boxSizing: 'border-box' }} placeholder="Kategori" />
+                        </div>
+                      </div>
 
-              <div style={{ display: 'grid', gridTemplateColumns: '150px 1fr 1fr', gap: '20px', alignItems: 'start' }}>
-                <span style={{ fontWeight: 700, color: '#64748B', fontSize: '0.9rem', marginTop: '12px' }}>Perbandingan Respons</span>
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
-                  <span style={{ fontSize: '0.8rem', color: '#EF4444', fontWeight: 700, display: 'flex', alignItems: 'center', gap: '4px' }}><X size={14}/> Tradisional (Hindari)</span>
-                  <textarea value={item.tradisional} onChange={e => handleChange(item.id, 'tradisional', e.target.value)} style={{ width: '100%', padding: '12px', borderRadius: '10px', border: '1px solid #FECACA', background: '#FEF2F2', outline: 'none', resize: 'vertical', minHeight: '80px', color: '#991B1B' }} />
-                </div>
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
-                  <span style={{ fontSize: '0.8rem', color: '#10B981', fontWeight: 700, display: 'flex', alignItems: 'center', gap: '4px' }}><CheckCircle2 size={14}/> Disiplin Positif (Lakukan)</span>
-                  <textarea value={item.positif} onChange={e => handleChange(item.id, 'positif', e.target.value)} style={{ width: '100%', padding: '12px', borderRadius: '10px', border: '1px solid #A7F3D0', background: '#ECFDF5', outline: 'none', resize: 'vertical', minHeight: '80px', color: '#065F46' }} />
-                </div>
-              </div>
+                      <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                        <span style={{ fontWeight: 700, color: '#475569', fontSize: '0.9rem' }}>Situasi (Kasus)</span>
+                        <textarea value={item.kasus} onChange={e => handleChange(item.id, 'kasus', e.target.value)} style={{ width: '100%', padding: '12px', borderRadius: '10px', border: '1px solid #CBD5E1', outline: 'none', resize: 'vertical', minHeight: '80px', boxSizing: 'border-box' }} placeholder="Jelaskan deskripsi situasinya..." />
+                      </div>
 
-              <div style={{ display: 'grid', gridTemplateColumns: '150px 1fr', gap: '20px', alignItems: 'start', marginTop: '8px', paddingTop: '16px', borderTop: '1px dashed #E2E8F0' }}>
-                <span style={{ fontWeight: 700, color: '#2563EB', fontSize: '0.9rem', marginTop: '12px' }}>Konsekuensi Logis</span>
-                <textarea value={item.konsekuensi} onChange={e => handleChange(item.id, 'konsekuensi', e.target.value)} style={{ width: '100%', padding: '12px', borderRadius: '10px', border: '1px solid #BFDBFE', background: '#EFF6FF', outline: 'none', resize: 'vertical', minHeight: '60px', color: '#1E40AF', fontWeight: 500 }} placeholder="Jelaskan konsekuensi logis untuk pemulihan..." />
+                      <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+                        <span style={{ fontWeight: 700, color: '#475569', fontSize: '0.9rem' }}>Perbandingan Respons</span>
+                        
+                        <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                          <span style={{ fontSize: '0.85rem', color: '#E11D48', fontWeight: 700, display: 'flex', alignItems: 'center', gap: '6px' }}><XCircle size={16}/> Tradisional (Hindari)</span>
+                          <textarea value={item.tradisional} onChange={e => handleChange(item.id, 'tradisional', e.target.value)} style={{ width: '100%', padding: '12px', borderRadius: '10px', border: '1px solid #FECACA', background: '#FFF1F2', outline: 'none', resize: 'vertical', minHeight: '80px', color: '#9F1239', boxSizing: 'border-box' }} />
+                        </div>
+                        
+                        <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                          <span style={{ fontSize: '0.85rem', color: '#16A34A', fontWeight: 700, display: 'flex', alignItems: 'center', gap: '6px' }}><CheckCircle2 size={16}/> Disiplin Positif (Lakukan)</span>
+                          <textarea value={item.positif} onChange={e => handleChange(item.id, 'positif', e.target.value)} style={{ width: '100%', padding: '12px', borderRadius: '10px', border: '1px solid #A7F3D0', background: '#F0FDF4', outline: 'none', resize: 'vertical', minHeight: '80px', color: '#166534', boxSizing: 'border-box' }} />
+                        </div>
+                      </div>
+
+                      <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', marginTop: '8px', paddingTop: '16px', borderTop: '1px dashed #E2E8F0' }}>
+                        <span style={{ fontWeight: 700, color: '#2563EB', fontSize: '0.9rem' }}>Konsekuensi Logis</span>
+                        <textarea value={item.konsekuensi} onChange={e => handleChange(item.id, 'konsekuensi', e.target.value)} style={{ width: '100%', padding: '12px', borderRadius: '10px', border: '1px solid #BFDBFE', background: '#EFF6FF', outline: 'none', resize: 'vertical', minHeight: '80px', color: '#1E40AF', fontWeight: 500, boxSizing: 'border-box' }} placeholder="Jelaskan konsekuensi logis untuk pemulihan..." />
+                      </div>
+
+                      <div style={{ display: 'flex', justifyContent: 'flex-end', marginTop: '12px' }}>
+                         <button 
+                             onClick={() => setExpandedEditId(null)}
+                             style={{ background: '#F8FAFC', color: '#334155', border: '1px solid #CBD5E1', padding: '10px 24px', borderRadius: '10px', fontWeight: 'bold', cursor: 'pointer' }}
+                         >Tutup Editor</button>
+                      </div>
+                    </div>
+                  )}
+                </div>
+              );
+            })}
+            
+            {cases.filter(item => 
+              item.title.toLowerCase().includes(editSearchTerm.toLowerCase()) || 
+              item.kategori.toLowerCase().includes(editSearchTerm.toLowerCase()) ||
+              item.kasus.toLowerCase().includes(editSearchTerm.toLowerCase())
+            ).length === 0 && (
+              <div style={{ padding: '40px', textAlign: 'center', color: '#94A3B8' }}>
+                Tidak ada kasus yang sesuai dengan pencarian "{editSearchTerm}".
               </div>
-            </div>
-          ))}
+            )}
+          </div>
         </div>
       )}
     </div>
