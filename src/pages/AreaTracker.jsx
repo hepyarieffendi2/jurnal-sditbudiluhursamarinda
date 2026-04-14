@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import { db } from '../firebase-config';
 import {
-  collection, getDocs, doc, setDoc, getDoc, query, where, limit, addDoc, serverTimestamp, Timestamp, deleteDoc
+  collection, getDocs, doc, setDoc, getDoc, query, where, limit, addDoc, serverTimestamp, Timestamp, deleteDoc, writeBatch
 } from 'firebase/firestore';
 import { AREA_SENTRA, MATURITY_LEVELS, CONCENTRATION_EMOJIS } from '../data/areaSentra';
 import {
@@ -10,7 +10,7 @@ import {
   Moon, Hash, BookOpen, Leaf, Globe2, Wand2, MapPin, PackageOpen, Loader2, ClipboardList,
   MessageSquare, Package, AlertCircle, TrendingUp, Target, Sparkles, Settings2, RotateCcw,
   LayoutGrid, Book, Globe, Home, Briefcase, Calendar, Activity, Award, Zap, User, Users, Heart, ArrowRightCircle, Eye, EyeOff, AlertTriangle,
-  PackageSearch, ChevronRight, GraduationCap, ShieldCheck, Flame, Users2, HeartHandshake, Smile, SmilePlus
+  PackageSearch, ChevronRight, GraduationCap, ShieldCheck, Flame, Users2, HeartHandshake, Smile, SmilePlus, HelpCircle
 } from 'lucide-react';
 
 const IconMap = { Moon, Hash, BookOpen, Leaf, Globe2, Wand2 };
@@ -44,13 +44,14 @@ export default function AreaTracker() {
   const [showPrepSheet, setShowPrepSheet] = useState(false);
   const [showSheet, setShowSheet] = useState(false);
   const [activeDrawerMateri, setActiveDrawerMateri] = useState(null);
+  const [activePilarHelp, setActivePilarHelp] = useState(null); // 🚀 Help Tooltip State
   
   const [selectedKids, setSelectedKids] = useState([]);
   const [showFullGrid, setShowFullGrid] = useState(false);
   const [activityType, setActivityType] = useState('auto');
   const [loadingAction, setLoadingAction] = useState(false);
 
-  // 📝 5 Pilar Observasi Sentra (Identical to Dashboard)
+  // 📝 5 Pilar Observasi Sentra (AMI Indonesia Labels)
   const [maturity, setMaturity] = useState('P');
   const [concentration, setConcentration] = useState('Exploration');
   const [socialContext, setSocialContext] = useState('Individual');
@@ -205,15 +206,18 @@ export default function AreaTracker() {
     if (!activeDrawerMateri || selectedKids.length === 0) return;
     setLoadingAction(true);
     const toolInfo = lookupTool(activeDrawerMateri);
+    const batch = writeBatch(db);
+    
     try {
-        for (const sId of selectedKids) {
+        selectedKids.forEach(sId => {
             const student = students.find(s => s.id === sId);
             const isPractice = (activityType === 'practice' || (activityType === 'auto' && repetitions[`${sId}_${activeDrawerMateri}`]?.count > 0));
             
             const finalMaturity = showSheet ? maturity : (isPractice ? 'W' : 'P');
             const finalConcentration = showSheet ? concentration : (isPractice ? 'Asyik' : 'Exploration');
 
-            await addDoc(collection(db, 'jurnal_aktivitas'), {
+            const newDocRef = doc(collection(db, 'jurnal_aktivitas'));
+            batch.set(newDocRef, {
                 murid: student.name, muridId: sId, area: toolInfo.area, aktivitas: toolInfo.activity, pencapaian: activeDrawerMateri,
                 kematangan: finalMaturity, 
                 konsentrasi: finalConcentration, 
@@ -222,15 +226,20 @@ export default function AreaTracker() {
                 restorasi: showSheet ? restoration : true,
                 durasi: 15, guru: "Ustadzah",
                 tanggal: selectedDate === new Date().toISOString().split('T')[0] ? serverTimestamp() : Timestamp.fromDate(new Date(selectedDate)),
-                mode: 'pilar_sentra_observasi'
+                mode: 'pilar_sentra_v2'
             });
-        }
+        });
+
+        await batch.commit();
         setShowSuccess(true);
         setTimeout(() => setShowSuccess(false), 2000);
         setSelectedKids([]);
         setActiveDrawerMateri(null);
         setShowSheet(false);
-    } catch (e) { console.error(e); }
+    } catch (e) { 
+        console.error("Save error:", e);
+        alert("Gagal menyimpan: " + e.message);
+    }
     finally { setLoadingAction(false); }
   };
 
@@ -256,24 +265,52 @@ export default function AreaTracker() {
   const activeToolInfo = activeDrawerMateri ? lookupTool(activeDrawerMateri) : null;
   const activeProgress = activeDrawerMateri ? getProgressData(activeDrawerMateri) : null;
 
+  // 🚀 Pilar Guidance Data (AMI Standard)
+  const PILAR_GUIDE = {
+    maturity: {
+      title: "Kematangan (P-W-M-N)",
+      text: "P: Presentasi pertama guru.\nW: Anak memilih & mengulang sendiri.\nM: Anak sudah menguasai & tuntas.\nN: Anak kesulitan, menyalahgunakan alat, atau butuh demo ulang."
+    },
+    concentration: {
+      title: "Konsentrasi",
+      text: "Eksplorasi: Baru tahap coba-coba/penasaran.\nAsyik Bekerja: Anak mulai fokus meski ada distraksi.\nDeep Focus: Konsentrasi mendalam, anak 'tenggelam' dalam kerjanya."
+    },
+    social: {
+      title: "Konteks Sosial",
+      text: "Individual: Bekerja sendiri dengan dunianya.\nBerpasangan: Bekerja berdampingan (Parallel play/Shared).\nKelompok: Berbagi peran untuk satu tujuan."
+    },
+    independence: {
+      title: "Kemandirian",
+      text: "Mandiri: Memilih, memproses & mengakhiri sendiri.\nButuh Dorongan: Anak ragu, menunggu perintah, atau mencari persetujuan guru terus-menerus."
+    },
+    restoration: {
+      title: "Restorasi Alat",
+      text: "YA: Dikembalikan ke rak sesuai urutan & rapi.\nTIDAK: Ditinggal di meja/karpet tanpa dirapikan."
+    }
+  };
+
   return (
     <div className="unified-sentra-container" style={{ paddingBottom: '100px' }}>
       
       <div className="control-center-header" style={{ position: 'sticky', top: 0, zIndex: 1000, background: 'rgba(255, 255, 255, 0.95)', backdropFilter: 'blur(20px)', padding: '12px 16px', borderBottom: '1.5px solid #F1F5F9' }}>
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '12px' }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                <div className="room-badge" style={{ background: '#EEF2FF', color: 'var(--primary)', padding: '6px 12px', borderRadius: '12px', fontWeight: 950, fontSize: '0.8rem', display: 'flex', alignItems: 'center', gap: 6, border: '1px solid #C7D2FE' }}>
-                    <MapPin size={13} /> 
-                    <select value={activeRoom} onChange={e => setActiveRoom(e.target.value)} style={{ background: 'transparent', border: 'none', fontWeight: 950, color: 'inherit', outline: 'none', cursor: 'pointer' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flex: 1, minWidth: 0 }}>
+                <div className="room-badge" style={{ background: '#EEF2FF', color: 'var(--primary)', padding: '6px 10px', borderRadius: '12px', fontWeight: 950, fontSize: '0.75rem', display: 'flex', alignItems: 'center', gap: 6, border: '1px solid #C7D2FE', width: '100%', minWidth: 0 }}>
+                    <MapPin size={13} style={{ flexShrink: 0 }} /> 
+                    <select value={activeRoom} onChange={e => setActiveRoom(e.target.value)} style={{ background: 'transparent', border: 'none', fontWeight: 950, color: 'inherit', outline: 'none', cursor: 'pointer', width: '100%', minWidth: 0, textOverflow: 'ellipsis' }}>
                         {roomList.map(r => (
                             <option key={r.id} value={r.name}>{r.level ? `${r.level} - ` : ''}{r.name}</option>
                         ))}
                     </select>
                 </div>
             </div>
-            <div style={{ display: 'flex', background: '#F1F5F9', padding: '3px', borderRadius: '12px', border: '1px solid #E2E8F0' }}>
-                <button onClick={() => setViewMode('observasi')} style={{ padding: '6px 12px', borderRadius: '9px', border: 'none', background: viewMode === 'observasi' ? 'white' : 'transparent', color: viewMode === 'observasi' ? 'var(--primary)' : '#64748B', fontWeight: 950, fontSize: '0.7rem', cursor: 'pointer', boxShadow: viewMode === 'observasi' ? '0 2px 8px rgba(0,0,0,0.05)' : 'none' }}>🏢 RAK</button>
-                <button onClick={() => setViewMode('kelola')} style={{ padding: '6px 12px', borderRadius: '9px', border: 'none', background: viewMode === 'kelola' ? 'white' : 'transparent', color: viewMode === 'kelola' ? 'var(--primary)' : '#64748B', fontWeight: 950, fontSize: '0.7rem', cursor: 'pointer', boxShadow: viewMode === 'kelola' ? '0 2px 8px rgba(0,0,0,0.05)' : 'none' }}>🛠️ ATUR</button>
+            <div style={{ display: 'flex', background: '#F1F5F9', padding: '3px', borderRadius: '14px', border: '1px solid #E2E8F0', flexShrink: 0 }}>
+                <button onClick={() => setViewMode('observasi')} style={{ padding: '7px 12px', borderRadius: '11px', border: 'none', background: viewMode === 'observasi' ? 'white' : 'transparent', color: viewMode === 'observasi' ? 'var(--primary)' : '#64748B', fontWeight: 950, fontSize: '0.65rem', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: 4, boxShadow: viewMode === 'observasi' ? '0 4px 12px rgba(0,0,0,0.08)' : 'none', transition: '0.3s' }}>
+                    <LayoutGrid size={13} /> RAK
+                </button>
+                <button onClick={() => setViewMode('kelola')} style={{ padding: '7px 12px', borderRadius: '11px', border: 'none', background: viewMode === 'kelola' ? 'white' : 'transparent', color: viewMode === 'kelola' ? 'var(--primary)' : '#64748B', fontWeight: 950, fontSize: '0.65rem', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: 4, boxShadow: viewMode === 'kelola' ? '0 4px 12px rgba(0,0,0,0.08)' : 'none', transition: '0.3s' }}>
+                    <Settings2 size={13} /> ATUR
+                </button>
             </div>
         </div>
 
@@ -369,7 +406,7 @@ export default function AreaTracker() {
                     <div key={sub.id} style={{ backgroundColor: 'white', borderRadius: '24px', border: '1.5px solid #F1F5F9', overflow: 'hidden' }}>
                         <div onClick={() => setActiveSubAreaId(isExpanded ? null : sub.id)} style={{ padding: '20px 24px', cursor: 'pointer', display: 'flex', justifyContent: 'space-between', alignItems: 'center', background: isExpanded ? `${activeArea.color}05` : 'white' }}>
                             <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
-                                <div style={{ width: '48px', height: '40px', borderRadius: '12px', background: isExpanded ? activeArea.color : '#F8FAFC', color: isExpanded ? 'white' : '#94A3B8', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 950, fontSize: '0.7rem' }}>{gradeRange}</div>
+                                <div style={{ minWidth: '40px', height: '40px', borderRadius: '50%', background: isExpanded ? activeArea.color : '#F1F5F9', color: isExpanded ? 'white' : '#64748B', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 950, fontSize: '0.65rem', border: '1.5px solid', borderColor: isExpanded ? 'rgba(255,255,255,0.3)' : '#E2E8F0', flexShrink: 0 }}>{gradeRange}</div>
                                 <div>
                                     <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
                                         <div style={{ display: 'flex', flexDirection: 'column' }}>
@@ -504,23 +541,34 @@ export default function AreaTracker() {
              <div style={{ background: 'white', width: '100%', borderTopLeftRadius: 32, borderTopRightRadius: 32, padding: '32px 24px 48px', animation: 'slideUp 0.4s ease', maxHeight: '90vh', overflowY: 'auto' }} onClick={e => e.stopPropagation()}>
                     <div style={{ width: 40, height: 4, background: '#CBD5E1', borderRadius: 10, margin: '0 auto 24px' }} />
                     <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 24 }}>
-                        <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
-                           <h2 style={{ fontSize: '1.3rem', fontWeight: 950, color: '#1E293B' }}>Fokus Observasi Sentra</h2>
+                        <div style={{ display: 'flex', flexDirection: 'column' }}>
+                           <h2 style={{ fontSize: '1.2rem', fontWeight: 950, color: '#1E293B' }}>Fokus Observasi ({selectedKids.length} Murid)</h2>
+                           <p style={{ fontSize: '0.65rem', color: '#64748B', fontWeight: 700, marginTop: 2, maxWidth: '250px', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
+                                {selectedKids.map(id => students.find(s => s.id === id)?.name).join(', ')}
+                           </p>
                         </div>
                         <button onClick={() => setShowSheet(false)} style={{ background: '#F1F5F9', border: 'none', padding: '8px', borderRadius: '50%' }}><X size={20}/></button>
                     </div>
                     
                     <div style={{ display: 'flex', flexDirection: 'column', gap: 24 }}>
                         {/* 1. Kematangan (P-W-M-N) */}
-                        <div style={{ padding: '16px', background: '#FFF7ED', borderRadius: '24px', border: '1px solid #FFEDD5' }}>
-                            <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 12 }}>
-                                <Sparkles size={18} color="#D97706" />
-                                <p style={{ fontSize: '0.75rem', fontWeight: 950, color: '#9A3412', margin: 0, letterSpacing: '0.5px' }}>1. KEMATANGAN (P-W-M-N)</p>
+                        <div style={{ padding: '16px', background: '#FFF7ED', borderRadius: '24px', border: '1px solid #FFEDD5', position: 'relative' }}>
+                            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 12 }}>
+                                <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+                                    <Sparkles size={18} color="#D97706" />
+                                    <p style={{ fontSize: '0.75rem', fontWeight: 950, color: '#9A3412', margin: 0, letterSpacing: '0.5px' }}>1. KEMATANGAN (P-W-M-N)</p>
+                                </div>
+                                <button onClick={() => setActivePilarHelp(activePilarHelp === 'maturity' ? null : 'maturity')} style={{ border: 'none', background: 'white', borderRadius: '50%', padding: '4px', cursor: 'pointer', boxShadow: '0 2px 5px rgba(0,0,0,0.05)' }}>
+                                    <HelpCircle size={15} color="#D97706" />
+                                </button>
                             </div>
+                            {activePilarHelp === 'maturity' && (
+                                <div style={{ background: 'white', padding: '12px', borderRadius: '12px', fontSize: '0.7rem', color: '#9A3412', border: '1px solid #FFEDD5', marginBottom: 12, lineHeight: 1.4, whiteSpace: 'pre-line' }}>{PILAR_GUIDE.maturity.text}</div>
+                            )}
                             <div style={{ display: 'flex', gap: 8 }}>
                                 {[
-                                    {id: 'P', label: 'Pondasi'}, 
-                                    {id: 'W', label: 'Working'}, 
+                                    {id: 'P', label: 'Presentasi'}, 
+                                    {id: 'W', label: 'Berlatih'}, 
                                     {id: 'M', label: 'Mahir'},
                                     {id: 'N', label: 'Bantuan'}
                                 ].map(l => (
@@ -533,10 +581,18 @@ export default function AreaTracker() {
 
                         {/* 2. Konsentrasi */}
                         <div style={{ padding: '16px', background: '#FEF2F2', borderRadius: '24px', border: '1px solid #FEE2E2' }}>
-                            <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 12 }}>
-                                <Flame size={18} color="#DC2626" />
-                                <p style={{ fontSize: '0.75rem', fontWeight: 950, color: '#991B1B', margin: 0, letterSpacing: '0.5px' }}>2. KONSENTRASI</p>
+                            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 12 }}>
+                                <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+                                    <Flame size={18} color="#DC2626" />
+                                    <p style={{ fontSize: '0.75rem', fontWeight: 950, color: '#991B1B', margin: 0, letterSpacing: '0.5px' }}>2. KONSENTRASI</p>
+                                </div>
+                                <button onClick={() => setActivePilarHelp(activePilarHelp === 'concentration' ? null : 'concentration')} style={{ border: 'none', background: 'white', borderRadius: '50%', padding: '4px', cursor: 'pointer' }}>
+                                    <HelpCircle size={15} color="#DC2626" />
+                                </button>
                             </div>
+                            {activePilarHelp === 'concentration' && (
+                                <div style={{ background: 'white', padding: '12px', borderRadius: '12px', fontSize: '0.7rem', color: '#991B1B', border: '1px solid #FEE2E2', marginBottom: 12, lineHeight: 1.4, whiteSpace: 'pre-line' }}>{PILAR_GUIDE.concentration.text}</div>
+                            )}
                             <div style={{ display: 'flex', gap: 8 }}>
                                 {[
                                     {id: 'Exploration', label: 'Eksplorasi'}, 
@@ -552,10 +608,18 @@ export default function AreaTracker() {
 
                         {/* 3. Konteks Sosial */}
                         <div style={{ padding: '16px', background: '#F5F3FF', borderRadius: '24px', border: '1px solid #EDE9FE' }}>
-                            <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 12 }}>
-                                <Users2 size={18} color="#7C3AED" />
-                                <p style={{ fontSize: '0.75rem', fontWeight: 950, color: '#5B21B6', margin: 0, letterSpacing: '0.5px' }}>3. KONTEKS SOSIAL</p>
+                            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 12 }}>
+                                <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+                                    <Users2 size={18} color="#7C3AED" />
+                                    <p style={{ fontSize: '0.75rem', fontWeight: 950, color: '#5B21B6', margin: 0, letterSpacing: '0.5px' }}>3. KONTEKS SOSIAL</p>
+                                </div>
+                                <button onClick={() => setActivePilarHelp(activePilarHelp === 'social' ? null : 'social')} style={{ border: 'none', background: 'white', borderRadius: '50%', padding: '4px', cursor: 'pointer' }}>
+                                    <HelpCircle size={15} color="#7C3AED" />
+                                </button>
                             </div>
+                            {activePilarHelp === 'social' && (
+                                <div style={{ background: 'white', padding: '12px', borderRadius: '12px', fontSize: '0.7rem', color: '#5B21B6', border: '1px solid #EDE9FE', marginBottom: 12, lineHeight: 1.4, whiteSpace: 'pre-line' }}>{PILAR_GUIDE.social.text}</div>
+                            )}
                             <div style={{ display: 'flex', gap: 8 }}>
                                 {[
                                     {id: 'Individual', label: 'Individual'}, 
@@ -571,10 +635,18 @@ export default function AreaTracker() {
 
                         {/* 4. Kemandirian */}
                         <div style={{ padding: '16px', background: '#EFF6FF', borderRadius: '24px', border: '1px solid #DBEAFE' }}>
-                            <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 12 }}>
-                                <HeartHandshake size={18} color="#2563EB" />
-                                <p style={{ fontSize: '0.75rem', fontWeight: 950, color: '#1E40AF', margin: 0, letterSpacing: '0.5px' }}>4. KEMANDIRIAN</p>
+                            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 12 }}>
+                                <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+                                    <HeartHandshake size={18} color="#2563EB" />
+                                    <p style={{ fontSize: '0.75rem', fontWeight: 950, color: '#1E40AF', margin: 0, letterSpacing: '0.5px' }}>4. KEMANDIRIAN</p>
+                                </div>
+                                <button onClick={() => setActivePilarHelp(activePilarHelp === 'independence' ? null : 'independence')} style={{ border: 'none', background: 'white', borderRadius: '50%', padding: '4px', cursor: 'pointer' }}>
+                                    <HelpCircle size={15} color="#2563EB" />
+                                </button>
                             </div>
+                            {activePilarHelp === 'independence' && (
+                                <div style={{ background: 'white', padding: '12px', borderRadius: '12px', fontSize: '0.7rem', color: '#1E40AF', border: '1px solid #DBEAFE', marginBottom: 12, lineHeight: 1.4, whiteSpace: 'pre-line' }}>{PILAR_GUIDE.independence.text}</div>
+                            )}
                             <div style={{ display: 'flex', gap: 8 }}>
                                 {[
                                     {id: 'Independent', label: 'Mandiri'}, 
@@ -588,15 +660,26 @@ export default function AreaTracker() {
                         </div>
 
                         {/* 5. Restorasi */}
-                        <div style={{ padding: '16px 20px', background: '#ECFDF5', borderRadius: '24px', border: '1px solid #D1FAE5', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                            <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-                                <RotateCcw size={18} color="#059669" />
-                                <p style={{ fontSize: '0.85rem', fontWeight: 950, color: '#065F46', margin: 0 }}>5. RESTORASI ALAT</p>
+                        <div style={{ padding: '16px 20px', background: '#ECFDF5', borderRadius: '24px', border: '1px solid #D1FAE5' }}>
+                            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 12 }}>
+                                <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+                                    <RotateCcw size={18} color="#059669" />
+                                    <p style={{ fontSize: '0.85rem', fontWeight: 950, color: '#065F46', margin: 0 }}>5. RESTORASI ALAT</p>
+                                </div>
+                                <button onClick={() => setActivePilarHelp(activePilarHelp === 'restoration' ? null : 'restoration')} style={{ border: 'none', background: 'white', borderRadius: '50%', padding: '4px', cursor: 'pointer' }}>
+                                    <HelpCircle size={15} color="#059669" />
+                                </button>
                             </div>
-                            <button onClick={() => setRestoration(!restoration)} style={{ background: restoration ? '#059669' : '#D1FAE5', border: 'none', width: 68, height: 32, borderRadius: '100px', position: 'relative', transition: '0.3s' }}>
-                                <div style={{ position: 'absolute', top: 4, left: restoration ? 40 : 4, width: 24, height: 24, background: 'white', borderRadius: '50%', transition: '0.3s' }} />
-                                <span style={{ fontSize: '0.6rem', fontWeight: 950, color: restoration ? 'white' : '#065F46', position: 'absolute', left: restoration ? 8 : 34, top: '50%', transform: 'translateY(-50%)' }}>{restoration ? 'YA' : 'TDK'}</span>
-                            </button>
+                            {activePilarHelp === 'restoration' && (
+                                <div style={{ background: 'white', padding: '12px', borderRadius: '12px', fontSize: '0.7rem', color: '#065F46', border: '1px solid #D1FAE5', marginBottom: 12, lineHeight: 1.4, whiteSpace: 'pre-line' }}>{PILAR_GUIDE.restoration.text}</div>
+                            )}
+                            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                                <span style={{ fontSize: '0.7rem', color: '#065F46', fontWeight: 700 }}>Anak merapikan kembali ke rak sesuai urutan.</span>
+                                <button onClick={() => setRestoration(!restoration)} style={{ background: restoration ? '#059669' : '#D1FAE5', border: 'none', width: 68, height: 32, borderRadius: '100px', position: 'relative', transition: '0.3s' }}>
+                                    <div style={{ position: 'absolute', top: 4, left: restoration ? 40 : 4, width: 24, height: 24, background: 'white', borderRadius: '50%', transition: '0.3s' }} />
+                                    <span style={{ fontSize: '0.6rem', fontWeight: 950, color: restoration ? 'white' : '#065F46', position: 'absolute', left: restoration ? 8 : 34, top: '50%', transform: 'translateY(-50%)' }}>{restoration ? 'YA' : 'TDK'}</span>
+                                </button>
+                            </div>
                         </div>
                     </div>
 
