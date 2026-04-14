@@ -21,8 +21,10 @@
   --text-muted: #636E72;
   --border-color: #E2E8F0;
   --accent-purple-light: #E4DFFF;
-  
-  /* 🚀 PREMIUM SAVE BAR (Unified Across Modules) */
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+
+/* 🚀 PREMIUM SAVE BAR (Unified Across Modules) */
 .premium-save-bar {
     position: fixed;
     bottom: 24px;
@@ -36,7 +38,7 @@
     align-items: center;
     z-index: 2000;
     border: 1px solid #E2E8F0;
-    min-width: 280px; /* 🚀 Wider for better presence */
+    min-width: 280px;
     white-space: nowrap;
     animation: slideUp 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -47,13 +49,8 @@
     transform: scale(1.05);
 }
 
-.active-area-glow svg {
-    color: white !important;
-}
-
-.active-area-glow span {
-    color: rgba(255,255,255,0.9) !important;
-}
+.active-area-glow svg { color: white !important; }
+.active-area-glow span { color: rgba(255,255,255,0.9) !important; }
 
 .premium-save-bar button {
     background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%) !important;
@@ -63,7 +60,7 @@
 
 @media (max-width: 1024px) {
     .premium-save-bar {
-        bottom: 130px; /* 🚀 Lifted slightly more for Zen spacing */
+        bottom: 130px;
         width: 88%;
         max-width: 320px;
         justify-content: center;
@@ -74,22 +71,9 @@
     from { transform: translate(-50%, 40px); opacity: 0; }
     to { transform: translate(-50%, 0); opacity: 1; }
 }
-  --shadow-out: 10px 10px 20px rgba(163, 177, 198, 0.4), -10px -10px 20px #FFFFFF;
-  --shadow-inset: inset 6px 6px 12px rgba(163, 177, 198, 0.3), inset -6px -6px 12px #FFFFFF;
-  --shadow-button: 8px 8px 16px rgba(163, 177, 198, 0.3), -8px -8px 16px #FFFFFF;
-  
-  --text-main: #44476A;
-  --text-muted: #797D9A;
-  
-  --border-radius-xl: 32px;
-  --border-radius-lg: 24px;
-
-  --shadow-sm: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-}
 
 @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 @keyframes popIn { from { transform: scale(0.8) translateY(20px); opacity: 0; } to { transform: scale(1) translateY(0); opacity: 1; } }
-@keyframes slideUp { from { transform: translateY(100%); } to { transform: translateY(0); } }
 @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
 
 .selected-card {
