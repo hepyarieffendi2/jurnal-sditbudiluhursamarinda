@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import { db } from '../firebase-config';
-import { collection, addDoc, serverTimestamp, query, where, getDocs, Timestamp } from 'firebase/firestore';
+import { collection, addDoc, serverTimestamp, query, where, getDocs, Timestamp, setDoc } from 'firebase/firestore';
 import { AREA_SENTRA, MATURITY_LEVELS, CONCENTRATION_EMOJIS } from '../data/areaSentra';
 import {
     CheckCircle2, Search, Target, LayoutGrid, Info, X, Play, AlertTriangle, MapPin, Sparkles, BookOpen, Loader2, PackageOpen,
@@ -16,7 +16,9 @@ export default function AreaTracker() {
     const roomParam = searchParams.get('room');
     const [activityType, setActivityType] = useState('auto'); // 'auto', 'presentation', 'practice'
     const [activeRoom, setActiveRoom] = useState(roomParam || 'Semua Ruang');
+    const [showMode, setShowMode] = useState('rak'); // 'rak' (Rak Saya), 'semua' (Semua Materi)
     const [expandedMateri, setExpandedMateri] = useState(null); // Track which materia's names are being peeked
+    const [selectedGrade, setSelectedGrade] = useState('SEMUA'); // 'SEMUA', 'K1', 'K2', 'K3'
 
     // Data State
     const [students, setStudents] = useState([]);
@@ -168,6 +170,31 @@ export default function AreaTracker() {
         };
         fetchShelfData();
     }, [activeRoom]);
+    
+    // 🛠️ TOGGLE MATERIAL ON/OFF THE SHELF
+    const toggleMaterialInShelf = async (materiLabel) => {
+        if (!activeRoom || activeRoom === 'Semua Ruang') {
+            alert("Pilih kelas spesifik dulu untuk mengatur rak.");
+            return;
+        }
+        
+        const newShelf = shelfItems.includes(materiLabel) 
+            ? shelfItems.filter(i => i !== materiLabel)
+            : [...shelfItems, materiLabel];
+        
+        setShelfItems(newShelf);
+        
+        try {
+            await setDoc(doc(db, 'setelan_rak', activeRoom), {
+                items: newShelf,
+                updatedAt: serverTimestamp()
+            }, { merge: true });
+        } catch (err) {
+            console.error("Gagal update rak:", err);
+            // Rollback UI on failure
+            setShelfItems(shelfItems);
+        }
+    };
 
     // 📊 FETCH ALL REPETITIONS (MASTER SYNC FOR DASHBOARD)
     useEffect(() => {
@@ -412,13 +439,18 @@ export default function AreaTracker() {
 
     const searchedStudents = currentRoomStudents.filter(s => s.name.toLowerCase().includes(searchQuery.toLowerCase()));
 
-    const shelfCoverage = shelfItems
+    const itemsToDisplay = showMode === 'rak' 
+        ? shelfItems 
+        : curriculum.flatMap(a => a.subAreas.flatMap(sa => sa.levels.map(l => typeof l === 'object' ? l.label : l)));
+
+    const shelfCoverage = itemsToDisplay
         .filter(item => {
             const tool = lookupTool(item);
             const matchesSearch = !shelfSearch || item.toLowerCase().includes(shelfSearch.toLowerCase());
             const matchesArea = selectedShelfArea === 'Semua Area' || tool.area === selectedShelfArea;
             const matchesSubArea = selectedShelfSubArea === 'Semua Sub Area' || tool.activity === selectedShelfSubArea;
-            return matchesSearch && matchesArea && matchesSubArea;
+            const matchesGrade = selectedGrade === 'SEMUA' || item.startsWith(selectedGrade + ':');
+            return matchesSearch && matchesArea && matchesSubArea && matchesGrade;
         })
         .map(item => {
             const mastered = [];
@@ -636,19 +668,106 @@ export default function AreaTracker() {
                         </select>
                     </div>
 
-                    <button
-                        onClick={() => navigate(`/setelan-rak?room=${encodeURIComponent(activeRoom)}`)}
-                        style={{
-                            width: '44px', height: '44px', display: 'flex', alignItems: 'center', justifyContent: 'center',
-                            background: '#F8FAFC', color: '#64748B', border: '1px solid #E2E8F0', borderRadius: '12px', cursor: 'pointer'
+                </div>
+
+                {/* 🚀 TOGGLE MODE: RAK SAYA vs SEMUA MATERI */}
+                <div style={{ display: 'flex', background: '#F1F5F9', padding: '4px', borderRadius: '16px', marginBottom: '20px', border: '1px solid #E2E8F0', height: '52px' }}>
+                    <button 
+                        onClick={() => setShowMode('rak')}
+                        style={{ 
+                            flex: 1, borderRadius: '12px', border: 'none', 
+                            background: showMode === 'rak' ? 'white' : 'transparent',
+                            color: showMode === 'rak' ? 'var(--primary)' : '#64748B',
+                            fontWeight: 950, fontSize: '0.85rem', cursor: 'pointer',
+                            display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px',
+                            boxShadow: showMode === 'rak' ? '0 4px 12px rgba(0,0,0,0.08)' : 'none',
+                            transition: 'all 0.3s'
                         }}
-                        title="Atur Rak"
                     >
-                        <Settings2 size={18} />
+                        <LayoutGrid size={18} /> RAK SAYA
+                    </button>
+                    <button 
+                        onClick={() => setShowMode('semua')}
+                        style={{ 
+                            flex: 1, borderRadius: '12px', border: 'none', 
+                            background: showMode === 'semua' ? 'white' : 'transparent',
+                            color: showMode === 'semua' ? 'var(--primary)' : '#64748B',
+                            fontWeight: 950, fontSize: '0.85rem', cursor: 'pointer',
+                            display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px',
+                            boxShadow: showMode === 'semua' ? '0 4px 12px rgba(0,0,0,0.08)' : 'none',
+                            transition: 'all 0.3s'
+                        }}
+                    >
+                        <BookOpen size={18} /> LIHAT KURIKULUM
                     </button>
                 </div>
 
-                <div style={{ height: '2px', background: '#F1F5F9', marginBottom: '32px' }}></div>
+                <div style={{ height: '2px', background: '#F1F5F9', marginBottom: '16px' }}></div>
+
+                {/* 🎨 AREA CHIPS - HORIZONTAL SCROLL (MODERN STYLE) */}
+                <div style={{ 
+                    display: 'flex', gap: '12px', overflowX: 'auto', paddingBottom: '16px', 
+                    marginBottom: '8px', msOverflowStyle: 'none', scrollbarWidth: 'none' 
+                }}>
+                    {['Semua Area', ...curriculum.map(a => a.name)].map(areaName => {
+                        const styleMap = {
+                            'Agama Islam / Islamic Studies (PAI)': { icon: <Moon size={18} />, color: '#AF52DE' },
+                            'Practical Life / Exercise of Practical Life (EPL)': { icon: <Briefcase size={18} />, color: '#64748B' },
+                            'Sensorial / Sensory Development': { icon: <Box size={18} />, color: '#F59E0B' },
+                            'Matematika / Mathematics': { icon: <Hash size={18} />, color: '#2563EB' },
+                            'Bahasa / Language': { icon: <Book size={18} />, color: '#4F46E5' },
+                            'Sains Alam / Science & Botany (Cosmic Education)': { icon: <Zap size={18} />, color: '#059669' },
+                            'Budaya / Culture & Geography (Cosmic Education)': { icon: <Globe size={18} />, color: '#1E3A8A' },
+                            'Semua Area': { icon: <LayoutGrid size={18} />, color: '#1E293B' }
+                        };
+                        const style = styleMap[areaName] || { icon: <Package size={18} />, color: '#64748B' };
+                        const isActive = selectedShelfArea === areaName;
+                        
+                        return (
+                            <button
+                                key={areaName}
+                                onClick={() => { setSelectedShelfArea(areaName); setSelectedShelfSubArea('Semua Sub Area'); }}
+                                style={{
+                                    display: 'flex', alignItems: 'center', gap: '10px', padding: '12px 24px', borderRadius: '100px',
+                                    background: isActive ? style.color : 'white',
+                                    color: isActive ? 'white' : '#1E293B',
+                                    border: '1.5px solid ' + (isActive ? style.color : '#F1F5F9'),
+                                    fontWeight: 900, fontSize: '0.85rem', cursor: 'pointer', transition: 'all 0.3s',
+                                    whiteSpace: 'nowrap', boxShadow: isActive ? `0 8px 20px ${style.color}44` : 'none',
+                                    flexShrink: 0
+                                }}
+                            >
+                                {style.icon} {areaName === 'Semua Area' ? areaName : areaName.split(' / ')[0].toUpperCase()}
+                            </button>
+                        );
+                    })}
+                </div>
+
+                {/* 🎓 GRADE LEVEL FILTER (PILLS STYLE) */}
+                <div style={{ 
+                    display: 'flex', alignItems: 'center', gap: '16px', background: '#F8FAFC', 
+                    padding: '8px 16px', borderRadius: '16px', marginBottom: '24px', flexWrap: 'wrap' 
+                }}>
+                    <span style={{ fontSize: '0.65rem', fontWeight: 900, color: '#64748B', letterSpacing: '1px' }}>FILTER TINGKAT:</span>
+                    <div style={{ display: 'flex', gap: '8px' }}>
+                        {['SEMUA', 'K1', 'K2', 'K3'].map(g => (
+                            <button
+                                key={g}
+                                onClick={() => setSelectedGrade(g)}
+                                style={{
+                                    padding: '6px 14px', borderRadius: '10px', fontSize: '0.75rem', fontWeight: 900,
+                                    background: selectedGrade === g ? 'white' : 'transparent',
+                                    color: selectedGrade === g ? 'var(--primary)' : '#64748B',
+                                    border: 'none',
+                                    boxShadow: selectedGrade === g ? '0 4px 10px rgba(0,0,0,0.05)' : 'none',
+                                    cursor: 'pointer', transition: 'all 0.2s'
+                                }}
+                            >
+                                {g}
+                            </button>
+                        ))}
+                    </div>
+                </div>
             </div>
 
             <div className="main-playground">
@@ -665,26 +784,23 @@ export default function AreaTracker() {
                             </div>
                         </div>
 
-                        {/* 🛠️ SHELF FILTERS - COMPACT & MODERN */}
+                        {/* 🛠️ SUB-AREA FILTER & SEARCH */}
                         <div style={{ display: 'flex', gap: '10px', marginBottom: '24px', flexWrap: 'wrap' }}>
-                             <div className="search-bar-solid" style={{ margin: 0, padding: '8px 16px', borderRadius: '14px', flex: 2, minWidth: '200px', background: '#F1F5F9', border: 'none' }}>
+                             <div className="search-bar-solid" style={{ margin: 0, padding: '8px 16px', borderRadius: '14px', flex: 2, minWidth: '200px', background: 'white', border: '1.5px solid #F1F5F9' }}>
                                 <Search size={14} color="#94A3B8" />
                                 <input type="text" placeholder="Cari nama alat..." value={shelfSearch} onChange={e => setShelfSearch(e.target.value)} style={{ fontSize: '0.85rem' }} />
                             </div>
-                            <select 
-                                value={selectedShelfArea}
-                                onChange={e => { setSelectedShelfArea(e.target.value); setSelectedShelfSubArea('Semua Sub Area'); }}
-                                style={{ flex: 1, minWidth: '140px', padding: '10px 16px', borderRadius: '14px', border: '1.5px solid #F1F5F9', background: 'white', fontWeight: 800, color: '#1E293B', fontSize: '0.8rem', outline: 'none' }}
-                            >
-                                {uniqueShelfAreas.map(a => <option key={a} value={a}>{a}</option>)}
-                            </select>
-                            <select 
-                                value={selectedShelfSubArea}
-                                onChange={e => setSelectedShelfSubArea(e.target.value)}
-                                style={{ flex: 1, minWidth: '140px', padding: '10px 16px', borderRadius: '14px', border: '1.5px solid #F1F5F9', background: 'white', fontWeight: 800, color: '#1E293B', fontSize: '0.8rem', outline: 'none' }}
-                            >
-                                {uniqueShelfSubAreas.map(sa => <option key={sa} value={sa}>{sa === 'Semua Sub Area' ? sa : (sa.includes(' / ') ? sa.split(' / ')[0] : sa)}</option>)}
-                            </select>
+                            
+                            <div style={{ flex: 1, minWidth: '140px', background: '#F8FAFC', padding: '10px 16px', borderRadius: '14px', display: 'flex', alignItems: 'center', gap: '8px', border: '1.5px solid #F1F5F9' }}>
+                                <Filter size={14} color="#94A3B8" />
+                                <select 
+                                    value={selectedShelfSubArea}
+                                    onChange={e => setSelectedShelfSubArea(e.target.value)}
+                                    style={{ flex: 1, border: 'none', background: 'transparent', fontWeight: 800, color: '#1E293B', fontSize: '0.8rem', outline: 'none' }}
+                                >
+                                    {['Semua Sub Area', ...Array.from(new Set(curriculum.flatMap(a => a.subAreas.map(sa => sa.name))))].map(sa => <option key={sa} value={sa}>{sa === 'Semua Sub Area' ? sa : (sa.includes(' / ') ? sa.split(' / ')[0] : sa)}</option>)}
+                                </select>
+                            </div>
                         </div>
 
                         {shelfCoverage.length === 0 ? (
@@ -733,10 +849,25 @@ export default function AreaTracker() {
                                                 </div>
 
                                                 <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-                                                    {!isSelectedMateri && (
-                                                        <div style={{ color: '#94A3B8' }}>
-                                                            <ArrowRightCircle size={20} />
+                                                    {showMode === 'semua' ? (
+                                                        <div 
+                                                            onClick={e => { e.stopPropagation(); toggleMaterialInShelf(data.label); }}
+                                                            style={{ 
+                                                                width: '32px', height: '32px', borderRadius: '10px', 
+                                                                background: shelfItems.includes(data.label) ? '#4F46E5' : 'white',
+                                                                border: shelfItems.includes(data.label) ? 'none' : '2px solid #E2E8F0',
+                                                                display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer',
+                                                                transition: 'all 0.3s'
+                                                            }}
+                                                        >
+                                                            {shelfItems.includes(data.label) && <CheckCircle2 size={18} color="white" />}
                                                         </div>
+                                                    ) : (
+                                                        !isSelectedMateri && (
+                                                            <div style={{ color: '#94A3B8' }}>
+                                                                <ArrowRightCircle size={20} />
+                                                            </div>
+                                                        )
                                                     )}
                                                 </div>
                                             </div>

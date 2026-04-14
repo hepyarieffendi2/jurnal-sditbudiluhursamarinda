@@ -45,7 +45,6 @@ function App() {
                     <Route path="/tilawati" element={<TilawatiTracker />} />
                     <Route path="/murid/:id" element={<ProfilMurid />} />
                     <Route path="/observasi/baru" element={<FormJurnal />} />
-                    <Route path="/setelan-rak" element={<ClassSetup />} />
                     <Route path="/manajemen-kurikulum" element={<CurriculumManager />} />
                     <Route path="/students" element={<StudentManager />} />
                     <Route path="/jurnal-harian" element={<DailyJournal />} />
