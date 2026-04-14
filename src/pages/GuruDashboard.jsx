@@ -143,7 +143,7 @@ export default function GuruDashboard() {
                            <LayoutGrid size={14} /> Persiapan Lingkungan
                         </div>
 
-                        <Link to="/eksplorasi" style={{ textDecoration: 'none' }}>
+                        <Link to="/setelan-rak" style={{ textDecoration: 'none' }}>
                             <div className="card-soft cycle-card" style={{ padding: '20px', background: '#F8FAFC', border: '1.5px solid #F1F5F9' }}>
                                 <LayoutGrid size={20} color="#64748B" style={{ marginBottom: '12px' }} />
                                 <h3 style={{ margin: '0 0 4px 0', fontSize: '1.1rem', fontWeight: 900, color: '#1E293B' }}>Siapkan Rak Kelas</h3>
