@@ -6,7 +6,7 @@ import { AREA_SENTRA, MATURITY_LEVELS, CONCENTRATION_EMOJIS } from '../data/area
 import {
     CheckCircle2, Search, Target, LayoutGrid, Info, X, Play, AlertTriangle, MapPin, Sparkles, BookOpen, Loader2, PackageOpen,
     ArrowRightCircle, RotateCcw, Filter, Eye, EyeOff, Settings2, Trash2, MessageSquare, Package, AlertCircle, BarChart3, Lightbulb, Book,
-    Globe, Home, Briefcase, Calendar, Activity, Award, Zap, User, Users, Heart, Hash, ArrowLeft
+    Globe, Home, Briefcase, Calendar, Activity, Award, Zap, User, Users, Heart, Hash, ArrowLeft, Moon, Box
 } from 'lucide-react';
 import { deleteDoc, doc } from 'firebase/firestore';
 
