@@ -27,6 +27,7 @@ export default function CurriculumManager() {
     const [searchTerm, setSearchTerm] = useState('');
     const [activeGradeFilter, setActiveGradeFilter] = useState('Semua');
     const [editingItem, setEditingItem] = useState(null); // { label, originalLabel, data, grades, areaColor }
+    const [detailDrawerItem, setDetailDrawerItem] = useState(null); // 🚀 New: Detail Drawer State
     const [showShoppingList, setShowShoppingList] = useState(false);
     const [expandedCard, setExpandedCard] = useState(null);
 
@@ -771,16 +772,28 @@ export default function CurriculumManager() {
                                                         (lvl.presentation.toolsList && lvl.presentation.toolsList.length > 0)
                                                     );
                                                     const hasVideo = isObject && lvl.presentation?.videoUrl;
-                                                    const isExpanded = expandedCard === `${subArea.id}-${index}`;
 
                                                     const gradeColors = { 'K1': '#3B82F6', 'K2': '#8B5CF6', 'K3': '#F59E0B', '3Y': '#10B981' };
 
                                                     return (
-                                                        <div className="material-card" key={index} style={{ backgroundColor: 'white', borderRadius: '16px', border: isExpanded ? `2px solid ${activeArea.color}40` : '1px solid #F1F5F9', overflow: 'hidden', transition: 'all 0.25s ease', boxShadow: isExpanded ? `0 8px 24px ${activeArea.color}12` : '0 1px 3px rgba(0,0,0,0.02)' }}>
+                                                        <div className="material-card" key={index} style={{ backgroundColor: 'white', borderRadius: '16px', border: '1px solid #F1F5F9', overflow: 'hidden', transition: 'all 0.25s ease', boxShadow: '0 1px 3px rgba(0,0,0,0.02)' }}>
 
                                                             {/* Card Header — Always visible */}
                                                             <div
-                                                                onClick={() => setExpandedCard(isExpanded ? null : `${subArea.id}-${index}`)}
+                                                                onClick={() => setDetailDrawerItem({
+                                                                    lvl,
+                                                                    isObject,
+                                                                    label,
+                                                                    indTitle,
+                                                                    engTitle,
+                                                                    hasTool,
+                                                                    hasPresentation,
+                                                                    hasVideo,
+                                                                    stepsCount,
+                                                                    areaColor: activeArea.color,
+                                                                    bgColor: activeArea.bgColor,
+                                                                    areaName: activeArea.name
+                                                                })}
                                                                 style={{ padding: '16px 20px', display: 'flex', alignItems: 'center', gap: '14px', cursor: 'pointer', transition: 'background 0.15s' }}
                                                                 className="card-header-hover"
                                                             >
@@ -829,108 +842,10 @@ export default function CurriculumManager() {
                                                                 </div>
 
                                                                 {/* Expand Arrow */}
-                                                                <div style={{ marginLeft: '8px', transform: isExpanded ? 'rotate(180deg)' : 'rotate(0deg)', transition: 'transform 0.25s ease', color: '#94A3B8', flexShrink: 0 }}>
+                                                                <div style={{ marginLeft: '8px', color: '#94A3B8', flexShrink: 0 }}>
                                                                     <ChevronRight size={18} />
                                                                 </div>
                                                             </div>
-
-                                                            {/* Expanded Content — Inline Preview */}
-                                                            {isExpanded && (
-                                                                <div style={{ padding: '0 20px 20px', borderTop: '1px solid #F8FAFC', animation: 'accordionIn 0.25s ease' }}>
-
-                                                                    {/* Tool/Apparatus */}
-                                                                    {hasTool && (
-                                                                        <div style={{ marginTop: '12px', padding: '12px 16px', backgroundColor: '#FFFBEB', borderRadius: '12px', border: '1px solid #FEF3C7' }}>
-                                                                            <div style={{ fontSize: '0.7rem', fontWeight: 800, color: '#D97706', textTransform: 'uppercase', letterSpacing: '0.8px', marginBottom: '6px' }}>🧰 Alat / Apparatus</div>
-                                                                            <div style={{ fontSize: '0.85rem', fontWeight: 600, color: '#92400E', lineHeight: '1.5' }}>
-                                                                                {lvl.presentation.toolDisplay || (lvl.presentation.toolsList?.join(', ')) || lvl.presentation.tool}
-                                                                            </div>
-                                                                        </div>
-                                                                    )}
-
-                                                                    {/* Steps Preview — Unified AreaTracker Style */}
-                                                                    {hasPresentation && (
-                                                                        <div style={{ marginTop: '12px', padding: '16px', backgroundColor: '#F8FAFC', borderRadius: '24px', border: '1px solid #E2E8F0' }}>
-                                                                            <div style={{ fontSize: '0.7rem', fontWeight: 950, color: '#64748B', textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '16px', display: 'flex', alignItems: 'center', gap: '8px' }}>
-                                                                                <Activity size={12} /> Panduan Presentasi AMI
-                                                                            </div>
-                                                                            <div className="modern-steps-container">
-                                                                                {(() => {
-                                                                                    let stepCounter = 0;
-                                                                                    return lvl.presentation.steps.map((step, si) => {
-                                                                                        const isHeader = typeof step === 'string' && (step.startsWith('I.') || step.startsWith('--') || step.startsWith('II.') || step.startsWith('III.') || step.startsWith('IV.') || step.startsWith('V.'));
-
-                                                                                        if (isHeader) {
-                                                                                            return (
-                                                                                                <div key={si} className="modern-step-header">
-                                                                                                    <div className="modern-header-dot" style={{ backgroundColor: activeArea.color }}></div>
-                                                                                                    {step.replace(/---/g, '').replace(/^[IVX]+\.\s*/, '').trim()}
-                                                                                                </div>
-                                                                                            );
-                                                                                        }
-
-                                                                                        stepCounter++;
-                                                                                        const stepMatch = step.match(/^(\d+\.)\s(.*)/);
-                                                                                        const stepNum = stepMatch ? stepMatch[1] : `${stepCounter}.`;
-                                                                                        const stepText = stepMatch ? stepMatch[2] : step;
-
-                                                                                        return (
-                                                                                            <div key={si} className="modern-step-row">
-                                                                                                <div className="modern-step-num">{stepNum}</div>
-                                                                                                <div className="modern-step-content" style={{ color: '#334155' }}>
-                                                                                                    {stepText.split(/'([^']+)'/).map((part, index) =>
-                                                                                                        index % 2 === 1 ? (
-                                                                                                            <div key={index} className="modern-dialogue-box">
-                                                                                                                <MessageSquare size={12} style={{ marginTop: 4 }} />
-                                                                                                                <span>"{part}"</span>
-                                                                                                            </div>
-                                                                                                        ) : part
-                                                                                                    )}
-                                                                                                </div>
-                                                                                            </div>
-                                                                                        );
-                                                                                    });
-                                                                                })()}
-                                                                            </div>
-                                                                        </div>
-                                                                    )}
-
-                                                                    {/* Control of Error */}
-                                                                    {isObject && lvl.presentation?.error && (
-                                                                        <div style={{ marginTop: '10px', padding: '12px 16px', backgroundColor: '#FFF1F2', borderRadius: '12px', border: '1px solid #FFE4E6' }}>
-                                                                            <div style={{ fontSize: '0.7rem', fontWeight: 800, color: '#E11D48', textTransform: 'uppercase', letterSpacing: '0.8px', marginBottom: '4px' }}>⚠️ Kontrol Kesalahan</div>
-                                                                            <div style={{ fontSize: '0.82rem', fontWeight: 500, color: '#9F1239', lineHeight: '1.5' }}>{lvl.presentation.error}</div>
-                                                                        </div>
-                                                                    )}
-
-                                                                    {/* Action Buttons */}
-                                                                    <div style={{ marginTop: '14px', display: 'flex', gap: '8px', justifyContent: 'flex-end' }}>
-                                                                        <button
-                                                                            onClick={() => {
-                                                                                const prefix = label.split(': ')[0] || '';
-                                                                                // Filter only K1, K2, or K3 to avoid accidental garbage in grades state
-                                                                                const grades = prefix.split('-').filter(g => ['K1', 'K2', 'K3'].includes(g));
-                                                                                setEditingItem({
-                                                                                    label,
-                                                                                    originalLabel: label,
-                                                                                    data: isObject ? lvl.presentation : null,
-                                                                                    grades: grades.length > 0 ? grades : ['K1'], // Fallback ke K1 jika format tidak dikenal
-                                                                                    areaColor: activeArea.color
-                                                                                });
-                                                                            }}
-                                                                            style={{ padding: '8px 16px', borderRadius: '10px', border: `1.5px solid ${activeArea.color}40`, backgroundColor: activeArea.bgColor, color: activeArea.color, fontWeight: 700, fontSize: '0.8rem', display: 'flex', alignItems: 'center', gap: '6px', cursor: 'pointer', transition: 'all 0.15s' }}
-                                                                        >
-                                                                            <Edit3 size={14} /> Edit Panduan
-                                                                        </button>
-                                                                        <button
-                                                                            onClick={() => handleDeleteMaterial(label)}
-                                                                            style={{ padding: '8px 12px', borderRadius: '10px', border: '1.5px solid #FEE2E2', backgroundColor: '#FFF5F5', color: '#EF4444', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', transition: 'all 0.15s', fontWeight: 700, fontSize: '0.8rem', gap: '6px' }}
-                                                                        >
-                                                                            <Trash2 size={14} /> Hapus
-                                                                        </button>
-                                                                    </div>
-                                                                </div>
-                                                            )}
                                                         </div>
                                                     );
                                                 })}
@@ -944,22 +859,29 @@ export default function CurriculumManager() {
                 )}
             </div>
 
-            {/* 🛠️ EDIT/ELABORASI MODAL */}
+
+            {/* 🛠️ EDIT/ELABORASI MODAL (CENTERED) */}
             {editingItem && (
-                <div style={{ position: 'fixed', inset: 0, backgroundColor: 'rgba(15, 23, 42, 0.7)', zIndex: 4000, display: 'flex', alignItems: 'flex-end', justifyContent: 'flex-end', backdropFilter: 'blur(4px)' }} onClick={() => setEditingItem(null)}>
+                <div style={{ position: 'fixed', inset: 0, backgroundColor: 'rgba(15, 23, 42, 0.7)', zIndex: 4000, display: 'flex', alignItems: 'center', justifyContent: 'center', backdropFilter: 'blur(8px)', padding: '20px' }} onClick={() => setEditingItem(null)}>
                     <div
-                        style={{ backgroundColor: 'white', width: '600px', height: '100%', borderTopLeftRadius: '32px', borderBottomLeftRadius: '32px', display: 'flex', flexDirection: 'column', animation: 'slideLeft 0.3s cubic-bezier(0.16, 1, 0.3, 1)', boxShadow: '-10px 0 40px rgba(0,0,0,0.1)' }}
+                        style={{ backgroundColor: 'white', width: '100%', maxWidth: '750px', maxHeight: '90vh', borderRadius: '32px', display: 'flex', flexDirection: 'column', animation: 'popIn 0.3s cubic-bezier(0.34, 1.56, 0.64, 1)', boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.25)', overflow: 'hidden' }}
                         onClick={e => e.stopPropagation()}
                     >
-                        <div style={{ padding: '32px 40px', borderBottom: '1px solid #F1F5F9' }}>
+                        <div style={{ padding: '32px 40px', borderBottom: '1px solid #F1F5F9', position: 'relative' }}>
                             <h3 style={{ fontSize: '1.4rem', fontWeight: 900, marginBottom: '8px' }}>Edit Buku Panduan (Album)</h3>
+                            <button 
+                                onClick={() => setEditingItem(null)}
+                                style={{ position: 'absolute', top: 32, right: 32, background: '#F1F5F9', border: 'none', width: 36, height: 36, borderRadius: '50%', color: '#64748B', display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer' }}
+                            >
+                                <X size={20} />
+                            </button>
                             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                                 <div style={{ fontWeight: 700, color: editingItem.areaColor, fontSize: '0.9rem', display: 'flex', alignItems: 'center', gap: '8px' }}>
                                     Target Materi: <span style={{ color: '#1E293B' }}>{editingItem.label.split(': ')[1]?.split(' / ')[0]}</span>
                                 </div>
                                 <button
                                     onClick={generateAIGuide}
-                                    style={{ backgroundColor: '#F5F3FF', color: '#7C3AED', border: '1px solid #7C3AED40', borderRadius: '8px', padding: '6px 12px', fontSize: '0.75rem', fontWeight: 800, display: 'flex', alignItems: 'center', gap: '6px', cursor: 'pointer' }}
+                                    style={{ backgroundColor: '#F5F3FF', color: '#7C3AED', border: '1px solid #7C3AED40', borderRadius: '8px', padding: '6px 12px', fontSize: '0.75rem', fontWeight: 800, display: 'flex', alignItems: 'center', gap: '6px', cursor: 'pointer', marginRight: 48 }}
                                 >
                                     <Wand2 size={14} /> Tuangkan Panduan (AI Magic)
                                 </button>
@@ -967,7 +889,6 @@ export default function CurriculumManager() {
                         </div>
 
                         <div style={{ padding: '40px', flex: 1, overflowY: 'auto', display: 'flex', flexDirection: 'column', gap: '24px' }}>
-
                             <div>
                                 <label style={{ fontSize: '0.75rem', fontWeight: 800, color: '#94A3B8', display: 'block', marginBottom: '8px' }}>TARGET KELAS</label>
                                 <div style={{ display: 'flex', gap: '10px' }}>
@@ -1072,11 +993,202 @@ export default function CurriculumManager() {
 
                         </div>
 
-                        <div style={{ padding: '32px 40px', borderTop: '1px solid #F1F5F9', backgroundColor: '#F8FAFC', borderBottomLeftRadius: '32px', display: 'flex', gap: '16px' }}>
+                        <div style={{ padding: '32px 40px', borderTop: '1px solid #F1F5F9', backgroundColor: '#F8FAFC', borderRadius: '0 0 32px 32px', display: 'flex', gap: '16px' }}>
                             <button onClick={() => setEditingItem(null)} style={{ flex: 1, padding: '16px', borderRadius: '16px', border: '2px solid #CBD5E1', background: 'transparent', fontWeight: 800, color: '#64748B', cursor: 'pointer' }}>Batal</button>
                             <button onClick={handleSaveEdit} style={{ flex: 2, padding: '16px', borderRadius: '16px', border: 'none', background: 'var(--primary)', color: 'white', fontWeight: 900, cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px', boxShadow: '0 8px 20px rgba(99, 102, 241, 0.3)' }}>
                                 <Save size={20} /> Simpan Panduan
                             </button>
+                        </div>
+                    </div>
+                </div>
+            )}
+
+            {/* 📘 DETAIL DRAWER (SLIDE FROM RIGHT) */}
+            {detailDrawerItem && (
+                <div 
+                    style={{ position: 'fixed', inset: 0, backgroundColor: 'rgba(15, 23, 42, 0.4)', backdropFilter: 'blur(8px)', zIndex: 10000, display: 'flex', justifyContent: 'flex-end' }} 
+                    onClick={() => setDetailDrawerItem(null)}
+                >
+                    <div 
+                        style={{ background: 'white', width: '100%', maxWidth: '500px', height: '100%', display: 'flex', flexDirection: 'column', animation: 'slideLeft 0.3s cubic-bezier(0.16, 1, 0.3, 1)', boxShadow: '-15px 0 50px rgba(0,0,0,0.1)' }} 
+                        onClick={e => e.stopPropagation()}
+                    >
+                        {/* Header High Impact Style (from AreaTracker) */}
+                        <div style={{ padding: '32px 40px 24px', borderBottom: '1px solid #F1F5F9', background: `${detailDrawerItem.areaColor}05` }}>
+                            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 16 }}>
+                                <div style={{ background: detailDrawerItem.areaColor, color: 'white', padding: '6px 14px', borderRadius: '10px', fontSize: '0.65rem', fontWeight: 950, letterSpacing: '1px' }}>
+                                    ALBUM PANDUAN
+                                </div>
+                                <button onClick={() => setDetailDrawerItem(null)} style={{ background: 'white', border: '1px solid #E2E8F0', width: 36, height: 36, borderRadius: '50%', color: '#64748B', display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer' }}>
+                                    <X size={20}/>
+                                </button>
+                            </div>
+                            
+                            <h2 style={{ fontSize: '1.4rem', fontWeight: 950, color: '#1E293B', lineHeight: 1.2, margin: 0 }}>
+                                {detailDrawerItem.indTitle}
+                            </h2>
+                            {detailDrawerItem.engTitle && (
+                                <p style={{ fontSize: '0.85rem', color: '#64748B', fontWeight: 700, fontStyle: 'italic', marginTop: 8 }}>
+                                    {detailDrawerItem.engTitle}
+                                </p>
+                            )}
+                            <div style={{ display: 'flex', gap: 8, marginTop: 16 }}>
+                                <div style={{ fontSize: '0.65rem', fontWeight: 800, background: '#F1F5F9', color: '#64748B', padding: '4px 8px', borderRadius: '6px' }}>
+                                    MATERI: {detailDrawerItem.areaName}
+                                </div>
+                                {detailDrawerItem.stepsCount > 0 && (
+                                    <div style={{ fontSize: '0.65rem', fontWeight: 800, background: `${detailDrawerItem.areaColor}15`, color: detailDrawerItem.areaColor, padding: '4px 8px', borderRadius: '6px' }}>
+                                        {detailDrawerItem.stepsCount} LANGKAH
+                                    </div>
+                                )}
+                            </div>
+                        </div>
+
+                        {/* Content Scrollable */}
+                        <div style={{ flex: 1, overflowY: 'auto', padding: '32px 40px 48px' }}>
+                            {/* Apparatus */}
+                            {detailDrawerItem.hasTool && (
+                                <div style={{ marginBottom: '32px', padding: '20px', backgroundColor: '#FFFBEB', borderRadius: '20px', border: '1px solid #FEF3C7' }}>
+                                    <div style={{ fontSize: '0.7rem', fontWeight: 950, color: '#D97706', textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '10px', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                                        <Package size={14} /> Alat / Apparatus (APE)
+                                    </div>
+                                    <div style={{ fontSize: '0.9rem', fontWeight: 700, color: '#92400E', lineHeight: '1.6' }}>
+                                        {detailDrawerItem.lvl.presentation.toolDisplay || (detailDrawerItem.lvl.presentation.toolsList?.join(', ')) || detailDrawerItem.lvl.presentation.tool}
+                                    </div>
+                                </div>
+                            )}
+
+                            {/* Steps */}
+                            {detailDrawerItem.hasPresentation ? (
+                                <div>
+                                    <div style={{ fontSize: '0.7rem', fontWeight: 950, color: '#64748B', textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '20px', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                                        <Activity size={12} /> Langkah Presentasi AMI
+                                    </div>
+                                    <div className="modern-steps-container">
+                                        {(() => {
+                                            let stepCounter = 0;
+                                            return detailDrawerItem.lvl.presentation.steps.map((step, si) => {
+                                                const isHeader = typeof step === 'string' && (step.startsWith('I.') || step.startsWith('--') || step.startsWith('II.') || step.startsWith('III.') || step.startsWith('IV.') || step.startsWith('V.'));
+
+                                                if (isHeader) {
+                                                    return (
+                                                        <div key={si} className="modern-step-header" style={{ marginTop: si === 0 ? 0 : 24 }}>
+                                                            <div className="modern-header-dot" style={{ backgroundColor: detailDrawerItem.areaColor }}></div>
+                                                            {step.replace(/---/g, '').replace(/^[IVX]+\.\s*/, '').trim()}
+                                                        </div>
+                                                    );
+                                                }
+
+                                                stepCounter++;
+                                                const stepMatch = typeof step === 'string' ? step.match(/^(\d+\.)\s(.*)/) : null;
+                                                const stepNum = stepMatch ? stepMatch[1] : `${stepCounter}.`;
+                                                const stepText = stepMatch ? stepMatch[2] : step;
+
+                                                return (
+                                                    <div key={si} className="modern-step-row">
+                                                        <div className="modern-step-num">{stepNum}</div>
+                                                        <div className="modern-step-content">
+                                                            {typeof stepText === 'string' ? stepText.split(/'([^']+)'/).map((part, index) =>
+                                                                index % 2 === 1 ? (
+                                                                    <div key={index} className="modern-dialogue-box">
+                                                                        <MessageSquare size={12} style={{ marginTop: 4, flexShrink: 0 }} />
+                                                                        <span>"{part}"</span>
+                                                                    </div>
+                                                                ) : part
+                                                            ) : stepText}
+                                                        </div>
+                                                    </div>
+                                                );
+                                            });
+                                        })()}
+                                    </div>
+                                </div>
+                            ) : (
+                                <div style={{ padding: '32px 20px', background: '#F8FAFC', borderRadius: '24px', border: '1px dashed #E2E8F0', textAlign: 'center', color: '#94A3B8' }}>
+                                    <Sparkles size={32} style={{ marginBottom: 12, opacity: 0.5 }} />
+                                    <p style={{ fontSize: '0.85rem', fontWeight: 700, margin: 0 }}>Belum ada langkah presentasi.</p>
+                                </div>
+                            )}
+
+                            {/* Control of Error */}
+                            {detailDrawerItem.lvl.presentation?.error && (
+                                <div style={{ marginTop: '40px', padding: '20px', backgroundColor: '#FFF1F2', borderRadius: '24px', border: '1px solid #FFE4E6' }}>
+                                    <div style={{ fontSize: '0.7rem', fontWeight: 950, color: '#E11D48', textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '8px', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                                        <Tag size={14} /> Kontrol Kesalahan
+                                    </div>
+                                    <div style={{ fontSize: '0.9rem', fontWeight: 600, color: '#9F1239', lineHeight: '1.5' }}>
+                                        {detailDrawerItem.lvl.presentation.error}
+                                    </div>
+                                </div>
+                            )}
+
+                            {/* Video Video preview */}
+                            {detailDrawerItem.hasVideo && (
+                                <div style={{ marginTop: '32px' }}>
+                                    <div style={{ fontSize: '0.7rem', fontWeight: 950, color: '#EF4444', textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '12px', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                                        <Video size={14} /> Video Tutorial
+                                    </div>
+                                    <div 
+                                        onClick={() => window.open(detailDrawerItem.lvl.presentation.videoUrl, '_blank')}
+                                        style={{ 
+                                            position: 'relative', width: '100%', borderRadius: '24px', 
+                                            overflow: 'hidden', cursor: 'pointer', aspectRatio: '16/9',
+                                            background: '#0F172A', border: '1px solid #E2E8F0',
+                                            boxShadow: '0 12px 24px rgba(0,0,0,0.1)'
+                                        }}
+                                    >
+                                        {getYTThumbnail(detailDrawerItem.lvl.presentation.videoUrl) ? (
+                                            <>
+                                                <img src={getYTThumbnail(detailDrawerItem.lvl.presentation.videoUrl)} alt="Thumbnail" style={{ width: '100%', height: '100%', objectFit: 'cover', opacity: 0.7 }} />
+                                                <div style={{ position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                                                    <div style={{ width: 56, height: 56, borderRadius: '50%', background: 'white', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                                                        <div style={{ width: 0, height: 0, borderTop: '8px solid transparent', borderBottom: '8px solid transparent', borderLeft: '14px solid #EF4444', marginLeft: 4 }}></div>
+                                                    </div>
+                                                </div>
+                                            </>
+                                        ) : (
+                                            <div style={{ width: '100%', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'white', fontWeight: 900 }}>NONTON VIDEO</div>
+                                        )}
+                                    </div>
+                                </div>
+                            )}
+                        </div>
+
+                        {/* Footer Action */}
+                        <div style={{ padding: '24px 40px', borderTop: '1px solid #F1F5F9', background: 'white' }}>
+                            <div style={{ display: 'flex', gap: '12px' }}>
+                                <button 
+                                    onClick={() => {
+                                        const { label, isObject, lvl, areaColor } = detailDrawerItem;
+                                        const prefix = label.split(': ')[0] || '';
+                                        const grades = prefix.split('-').filter(g => ['K1', 'K2', 'K3'].includes(g));
+                                        setEditingItem({
+                                            label,
+                                            originalLabel: label,
+                                            data: isObject ? lvl.presentation : null,
+                                            grades: grades.length > 0 ? grades : ['K1'],
+                                            areaColor
+                                        });
+                                        setDetailDrawerItem(null);
+                                    }}
+                                    style={{ flex: 1, padding: '16px', borderRadius: '16px', background: detailDrawerItem.areaColor, color: 'white', fontWeight: 950, fontSize: '0.9rem', border: 'none', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8, boxShadow: `0 10px 20px ${detailDrawerItem.areaColor}40` }}
+                                >
+                                    <Edit3 size={18} /> EDIT MATERI
+                                </button>
+                                <button 
+                                    onClick={() => {
+                                        if (window.confirm(`Hapus materi "${detailDrawerItem.indTitle}"?`)) {
+                                            handleDeleteMaterial(detailDrawerItem.label);
+                                            setDetailDrawerItem(null);
+                                        }
+                                    }}
+                                    style={{ padding: '16px', borderRadius: '16px', background: '#FEF2F2', color: '#EF4444', border: '2px solid #FEE2E2', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', transition: 'all 0.2s' }}
+                                    onMouseEnter={e => e.currentTarget.style.backgroundColor = '#FEE2E2'}
+                                    onMouseLeave={e => e.currentTarget.style.backgroundColor = '#FEF2F2'}
+                                >
+                                    <Trash2 size={20} />
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>

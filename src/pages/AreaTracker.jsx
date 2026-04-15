@@ -10,10 +10,21 @@ import {
   Moon, Hash, BookOpen, Leaf, Globe2, Wand2, MapPin, PackageOpen, Loader2, ClipboardList,
   MessageSquare, Package, AlertCircle, TrendingUp, Target, Sparkles, Settings2, RotateCcw,
   LayoutGrid, Book, Globe, Home, Briefcase, Calendar, Activity, Award, Zap, User, Users, Heart, ArrowRightCircle, Eye, EyeOff, AlertTriangle,
-  PackageSearch, ChevronRight, GraduationCap, ShieldCheck, Flame, Users2, HeartHandshake, Smile, SmilePlus, HelpCircle
+  PackageSearch, ChevronRight, GraduationCap, ShieldCheck, Flame, Users2, HeartHandshake, Smile, SmilePlus, HelpCircle, Video
 } from 'lucide-react';
 
 const IconMap = { Moon, Hash, BookOpen, Leaf, Globe2, Wand2 };
+
+const getYTThumbnail = (url) => {
+  if (!url) return null;
+  const regExp = /^.*(youtu\.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
+  const match = url.match(regExp);
+  if (match && match[2].length === 11) {
+    return `https://img.youtube.com/vi/${match[2]}/mqdefault.jpg`;
+  }
+  return null;
+};
+
 const AreaIcon = ({ name, color, size = 18 }) => {
   const IconComp = IconMap[name] || Star;
   return <IconComp size={size} color={color} />;
@@ -157,6 +168,14 @@ export default function AreaTracker() {
         setTimeout(() => { setShowSuccess(false); setViewMode('observasi'); }, 1500);
     } catch (e) { console.error(e); }
     finally { setLoadingAction(false); }
+  };
+
+  const hasTPL = (materi) => {
+    if (typeof materi !== 'object' || !materi.presentation?.steps) return false;
+    return materi.presentation.steps.some(step => 
+       step.toUpperCase().includes('TPL') || 
+       step.toUpperCase().includes('THREE PERIOD LESSON')
+    );
   };
 
   const lookupTool = (materiLabel) => {
@@ -440,6 +459,7 @@ export default function AreaTracker() {
                                                     {isFoundation ? <span style={{ fontSize: '0.5rem', fontWeight: 950, color: '#059669', background: '#ECFDF5', padding: '1px 5px', borderRadius: '4px' }}>PONDASI</span> 
                                                     : isAdvanced ? <span style={{ fontSize: '0.5rem', fontWeight: 950, color: '#7C3AED', background: '#F5F3FF', padding: '1px 5px', borderRadius: '4px' }}>LANJUTAN</span> 
                                                     : <span style={{ fontSize: '0.5rem', fontWeight: 950, color: '#2563EB', background: '#EFF6FF', padding: '1px 5px', borderRadius: '4px' }}>PENGEMBANGAN</span>}
+                                                    {hasTPL(m) && <span style={{ fontSize: '0.5rem', fontWeight: 950, color: 'white', background: '#F43F5E', padding: '1px 5px', borderRadius: '4px' }}>WAJIB TPL</span>}
                                                     {viewMode === 'kelola' && popularData[label] >= 3 && <span style={{ fontSize: '0.5rem', fontWeight: 950, color: '#D97706', background: '#FFFBEB', padding: '1px 5px', borderRadius: '4px' }}>🔥 POPULER</span>}
                                                 </div>
                                                 <div style={{ display: 'flex', flexDirection: 'column' }}>
@@ -473,7 +493,10 @@ export default function AreaTracker() {
               <div className="side-drawer-content" onClick={e => e.stopPropagation()}>
                     <div style={{ padding: '24px', borderBottom: '1px solid #F1F5F9', background: `${activeToolInfo.color}05` }}>
                         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 12 }}>
-                            <div style={{ background: activeToolInfo.color, color: 'white', padding: '4px 12px', borderRadius: '8px', fontSize: '0.6rem', fontWeight: 950 }}>{activeToolInfo.area.toUpperCase()}</div>
+                            <div style={{ display: 'flex', gap: 6 }}>
+                                <div style={{ background: activeToolInfo.color, color: 'white', padding: '4px 12px', borderRadius: '8px', fontSize: '0.6rem', fontWeight: 950 }}>{activeToolInfo.area.toUpperCase()}</div>
+                                {hasTPL(activeToolInfo.itemObj) && <div style={{ background: '#F43F5E', color: 'white', padding: '4px 12px', borderRadius: '8px', fontSize: '0.6rem', fontWeight: 950 }}>WAJIB TPL</div>}
+                            </div>
                             <button onClick={() => setActiveDrawerMateri(null)} style={{ background: 'white', border: '1px solid #E2E8F0', width: 32, height: 32, borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#64748B' }}><X size={18}/></button>
                         </div>
                         <h2 style={{ fontSize: '1.2rem', fontWeight: 950, color: '#1E293B', lineHeight: 1.2 }}>
@@ -726,48 +749,227 @@ export default function AreaTracker() {
           </div>
       )}
 
-      {/* 📘 GUIDE MODAL (CENTERED) */}
+      {/* 📘 GUIDE MODAL (SIDE DRAWER STYLE FOR PREMIUM FEEL) */}
       {showGuide && (
-          <div style={{ position: 'fixed', inset: 0, zIndex: 11000, background: 'rgba(15, 23, 42, 0.4)', backdropFilter: 'blur(8px)', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: 20 }} onClick={() => setShowGuide(null)}>
-             <div style={{ background: 'white', width: '100%', maxWidth: '550px', borderRadius: '32px', padding: '32px', maxHeight: '85vh', overflowY: 'auto', animation: 'popIn 0.3s ease' }} onClick={e => e.stopPropagation()}>
-                    <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 20 }}>
-                        <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
-                            <div style={{ background: '#EEF2FF', color: 'var(--primary)', padding: '10px', borderRadius: '12px' }}><BookOpen size={20}/></div>
-                            <h2 style={{ fontSize: '1.2rem', fontWeight: 950, color: '#1E293B' }}>Panduan Presentasi</h2>
-                        </div>
-                        <button onClick={() => setShowGuide(null)} style={{ background: '#F1F5F9', border: 'none', width: 36, height: 36, borderRadius: '50%', color: '#64748B' }}><X size={20}/></button>
-                    </div>
-                    
-                    <h3 style={{ fontSize: '1rem', fontWeight: 900, marginBottom: 4 }}>{showGuide.label}</h3>
-                    
-                    {showGuide.presentation ? (
-                        <div style={{ display: 'flex', flexDirection: 'column', gap: 16, marginTop: 20 }}>
-                            <div>
-                                <h4 style={{ fontSize: '0.75rem', fontWeight: 950, color: 'var(--primary)', marginBottom: 8 }}>🎯 TUJUAN (DIRECT AIM)</h4>
-                                <p style={{ fontSize: '0.85rem', color: '#475569', lineHeight: 1.5 }}>{showGuide.presentation.directAim || 'Melatih koordinasi dan fokus anak.'}</p>
+          <div style={{ position: 'fixed', inset: 0, zIndex: 20000, background: 'rgba(15, 23, 42, 0.6)', backdropFilter: 'blur(8px)', display: 'flex', justifyContent: 'flex-end' }} onClick={() => setShowGuide(null)}>
+             <div 
+                style={{ 
+                    background: 'white', width: '100%', maxWidth: '500px', height: '100%', 
+                    boxShadow: '-10px 0 40px rgba(0,0,0,0.1)', animation: 'slideLeft 0.3s cubic-bezier(0.16, 1, 0.3, 1)',
+                    display: 'flex', flexDirection: 'column', overflow: 'hidden'
+                }} 
+                onClick={e => e.stopPropagation()}
+             >
+                    {/* Header: High Impact */}
+                    <div style={{ padding: '32px 40px 24px', borderBottom: '1px solid #F1F5F9', background: `${activeToolInfo?.color || '#3B82F6'}05` }}>
+                        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 12 }}>
+                            <div style={{ display: 'flex', gap: 8, alignItems: 'center' }}>
+                                <div style={{ background: activeToolInfo?.color || '#3B82F6', color: 'white', padding: '6px 14px', borderRadius: '10px', fontSize: '0.65rem', fontWeight: 950, letterSpacing: '0.5px' }}>
+                                    ALBUM PANDUAN
+                                </div>
+                                {hasTPL(showGuide) && (
+                                    <div style={{ background: '#F43F5E', color: 'white', padding: '6px 14px', borderRadius: '10px', fontSize: '0.65rem', fontWeight: 950 }}>
+                                        WAJIB TPL
+                                    </div>
+                                )}
                             </div>
-                            <div>
-                                <h4 style={{ fontSize: '0.75rem', fontWeight: 950, color: 'var(--primary)', marginBottom: 8 }}>📝 LANGKAH-LANGKAH</h4>
-                                <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
-                                    {(showGuide.presentation.steps || ['Ajak anak ke rak', 'Bawa alat ke meja', 'Lakukan demo']).map((step, idx) => (
-                                        <div key={idx} style={{ display: 'flex', gap: 12 }}>
-                                            <span style={{ fontWeight: 950, color: 'var(--primary)', fontSize: '0.85rem' }}>{idx+1}.</span>
-                                            <p style={{ fontSize: '0.85rem', color: '#475569', margin: 0 }}>{step}</p>
-                                        </div>
-                                    ))}
+                            <button onClick={() => setShowGuide(null)} style={{ background: 'white', border: '1px solid #E2E8F0', width: 36, height: 36, borderRadius: '50%', color: '#64748B', display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer' }}><X size={20}/></button>
+                        </div>
+                        
+                        <h2 style={{ fontSize: '1.4rem', fontWeight: 950, color: '#0F172A', lineHeight: 1.2, margin: 0 }}>
+                            {showGuide.label?.split(': ')[1]?.split(' / ')[0] || showGuide.label}
+                        </h2>
+                        {showGuide.label?.includes(' / ') && (
+                            <p style={{ fontSize: '0.85rem', color: '#64748B', fontWeight: 700, fontStyle: 'italic', marginTop: 6 }}>
+                                {showGuide.label.split(' / ')[1]}
+                            </p>
+                        )}
+                    </div>
+
+                    {/* Content: Scrollable */}
+                    <div style={{ flex: 1, overflowY: 'auto', padding: '32px 40px 48px' }}>
+                        
+                        {/* 1. Apparatus / Alat */}
+                        {(showGuide.presentation?.toolDisplay || showGuide.presentation?.tool || (showGuide.presentation?.toolsList?.length > 0)) && (
+                            <div style={{ marginBottom: '32px', padding: '20px', backgroundColor: '#FFFBEB', borderRadius: '20px', border: '1px solid #FEF3C7' }}>
+                                <div style={{ fontSize: '0.7rem', fontWeight: 950, color: '#D97706', textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '10px', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                                    <Package size={14} /> Alat / Apparatus (APE)
+                                </div>
+                                <div style={{ fontSize: '0.9rem', fontWeight: 700, color: '#92400E', lineHeight: '1.6' }}>
+                                    {showGuide.presentation.toolDisplay || (showGuide.presentation.toolsList?.join(', ')) || showGuide.presentation.tool}
                                 </div>
                             </div>
+                        )}
+
+                        {/* 2. Direct Aim / Tujuan */}
+                        {showGuide.presentation?.directAim && (
+                            <div style={{ marginBottom: '32px' }}>
+                                <div style={{ fontSize: '0.7rem', fontWeight: 950, color: activeToolInfo?.color || '#3B82F6', textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '8px', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                                    <Zap size={14} /> Tujuan Pembelajaran
+                                </div>
+                                <p style={{ fontSize: '0.95rem', color: '#475569', fontWeight: 600, lineHeight: 1.6, margin: 0 }}>
+                                    {showGuide.presentation.directAim}
+                                </p>
+                            </div>
+                        )}
+
+                        {/* 3. Presentation Steps: GRANULAR DETAIL UI */}
+                        <div>
+                            <div style={{ fontSize: '0.7rem', fontWeight: 950, color: '#64748B', textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '20px', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                                <Activity size={12} /> Langkah Presentasi AMI
+                            </div>
+                            
+                            {showGuide.presentation?.steps?.length > 0 ? (
+                                <div className="modern-steps-container">
+                                    {(() => {
+                                        let stepCounter = 0;
+                                        return showGuide.presentation.steps.map((step, si) => {
+                                            const isHeader = typeof step === 'string' && (step.startsWith('I.') || step.startsWith('--') || step.startsWith('II.') || step.startsWith('III.') || step.startsWith('IV.') || step.startsWith('V.'));
+
+                                            if (isHeader) {
+                                                return (
+                                                    <div key={si} className="modern-step-header" style={{ marginTop: si === 0 ? 0 : 24 }}>
+                                                        <div className="modern-header-dot" style={{ backgroundColor: activeToolInfo?.color || '#3B82F6' }}></div>
+                                                        {step.replace(/---/g, '').replace(/^[IVX]+\.\s*/, '').trim()}
+                                                    </div>
+                                                );
+                                            }
+
+                                            stepCounter++;
+                                            const stepMatch = typeof step === 'string' ? step.match(/^(\d+\.)\s(.*)/) : null;
+                                            const stepNum = stepMatch ? stepMatch[1] : `${stepCounter}.`;
+                                            const stepText = stepMatch ? stepMatch[2] : step;
+
+                                            return (
+                                                <div key={si} className="modern-step-row">
+                                                    <div className="modern-step-num">{stepNum}</div>
+                                                    <div className="modern-step-content">
+                                                        {typeof stepText === 'string' ? stepText.split(/'([^']+)'/).map((part, index) =>
+                                                            index % 2 === 1 ? (
+                                                                <div key={index} className="modern-dialogue-box">
+                                                                    <MessageSquare size={12} style={{ marginTop: 4, flexShrink: 0 }} />
+                                                                    <span>"{part}"</span>
+                                                                </div>
+                                                            ) : part
+                                                        ) : stepText}
+                                                    </div>
+                                                </div>
+                                            );
+                                        });
+                                    })()}
+                                </div>
+                            ) : (
+                                <div style={{ padding: '32px 20px', background: '#F8FAFC', borderRadius: '24px', border: '1px dashed #E2E8F0', textAlign: 'center', color: '#94A3B8' }}>
+                                    <AlertCircle size={32} style={{ marginBottom: 12, opacity: 0.5 }} />
+                                    <p style={{ fontSize: '0.85rem', fontWeight: 700, margin: 0 }}>Belum ada langkah presentasi mendetail.</p>
+                                </div>
+                            )}
                         </div>
-                    ) : (
-                        <div style={{ padding: '20px', background: '#F8FAFC', borderRadius: '16px', textAlign: 'center', color: '#94A3B8', marginTop: 20 }}>
-                            Belum ada panduan detail untuk materi ini.
-                        </div>
-                    )}
-                    
-                    <button onClick={() => setShowGuide(null)} style={{ width: '100%', marginTop: 24, padding: '14px', background: '#F1F5F9', color: '#475569', borderRadius: '12px', border: 'none', fontWeight: 950 }}>Tutup</button>
+
+                        {/* 4. Control of Error */}
+                        {showGuide.presentation?.error && (
+                            <div style={{ marginTop: '40px', padding: '20px', backgroundColor: '#FEF2F2', borderRadius: '24px', border: '1px solid #FEE2E2' }}>
+                                <div style={{ fontSize: '0.7rem', fontWeight: 950, color: '#DC2626', textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '8px', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                                    <ShieldCheck size={14} /> Kontrol Kesalahan
+                                </div>
+                                <div style={{ fontSize: '0.9rem', fontWeight: 600, color: '#991B1B', lineHeight: '1.5' }}>
+                                    {showGuide.presentation.error}
+                                </div>
+                            </div>
+                        )}
+                        
+                        {/* 5. Video Preview Section (New Granular UI Feature) */}
+                        {showGuide.presentation?.videoUrl && (
+                            <div style={{ marginTop: '32px' }}>
+                                <div style={{ fontSize: '0.7rem', fontWeight: 950, color: '#E11D48', textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '12px', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                                    <Video size={14} /> Video Tutorial Tersemat
+                                </div>
+                                
+                                <div 
+                                    onClick={() => window.open(showGuide.presentation.videoUrl, '_blank')}
+                                    style={{ 
+                                        position: 'relative', width: '100%', borderRadius: '24px', 
+                                        overflow: 'hidden', cursor: 'pointer', aspectRatio: '16/9',
+                                        background: '#0F172A', border: '1px solid #E2E8F0',
+                                        boxShadow: '0 12px 24px rgba(0,0,0,0.1)'
+                                    }}
+                                >
+                                    {getYTThumbnail(showGuide.presentation.videoUrl) ? (
+                                        <>
+                                            <img 
+                                                src={getYTThumbnail(showGuide.presentation.videoUrl)} 
+                                                alt="Video Thumbnail" 
+                                                style={{ width: '100%', height: '100%', objectFit: 'cover', opacity: 0.7 }}
+                                            />
+                                            <div style={{ position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', background: 'rgba(0,0,0,0.2)' }}>
+                                                <div style={{ width: 64, height: 64, borderRadius: '50%', background: 'white', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: '0 8px 16px rgba(0,0,0,0.2)' }}>
+                                                    <div style={{ width: 0, height: 0, borderTop: '10px solid transparent', borderBottom: '10px solid transparent', borderLeft: '16px solid #EF4444', marginLeft: 4 }}></div>
+                                                </div>
+                                            </div>
+                                            <div style={{ position: 'absolute', bottom: 16, left: 16, right: 16, background: 'rgba(255,255,255,0.95)', padding: '8px 16px', borderRadius: '12px', fontSize: '0.75rem', fontWeight: 800, color: '#0F172A', textAlign: 'center', backdropFilter: 'blur(4px)' }}>
+                                                KLIK UNTUK NONTON DI YOUTUBE
+                                            </div>
+                                        </>
+                                    ) : (
+                                        <div style={{ width: '100%', height: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: 12 }}>
+                                            <Video size={48} color="white" opacity={0.5} />
+                                            <span style={{ color: 'white', fontWeight: 900, fontSize: '0.8rem' }}>NONTON VIDEO DEMO</span>
+                                        </div>
+                                    )}
+                                </div>
+                            </div>
+                        )}
+                    </div>
              </div>
           </div>
       )}
+
+      <style>{`
+        @keyframes slideUp { from { transform: translateY(100%); } to { transform: translateY(0); } }
+        @keyframes popIn { from { transform: scale(0.95); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+        @keyframes slideLeft { from { transform: translateX(100%); } to { transform: translateX(0); } }
+        
+        .side-drawer-overlay {
+            position: fixed; inset: 0; background: rgba(15, 23, 42, 0.4); 
+            backdrop-filter: blur(4px); z-index: 10000; display: flex; justify-content: flex-end;
+        }
+        .side-drawer-content {
+            background: white; width: 100%; maxWidth: 450px; height: 100%;
+            animation: slideLeft 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            display: flex; flexDirection: column;
+            boxShadow: -10px 0 30px rgba(0,0,0,0.1);
+        }
+
+        /* Modern Steps Styles from CurriculumManager */
+        .modern-steps-container { position: relative; padding-left: 20px; }
+        .modern-steps-container::before { 
+            content: ''; position: absolute; left: 6px; top: 10px; bottom: 10px; 
+            width: 2px; background: #F1F5F9; border-radius: 2px;
+        }
+        .modern-step-header { 
+            position: relative; margin-top: 24px; margin-bottom: 16px;
+            font-size: 0.85rem; font-weight: 950; color: #0F172A; text-transform: uppercase;
+            padding-left: 10px; letter-spacing: 0.5px;
+        }
+        .modern-header-dot { 
+            position: absolute; left: -20px; top: 50%; transform: translateY(-50%);
+            width: 14px; height: 14px; border: 3px solid white; border-radius: 50%;
+            box-shadow: 0 0 0 2px #F1F5F9;
+        }
+        .modern-step-row { position: relative; display: flex; gap: 16px; margin-bottom: 20px; }
+        .modern-step-num { 
+            font-size: 0.8rem; font-weight: 950; color: #94A3B8; 
+            width: 24px; flex-shrink: 0; text-align: right; margin-top: 2px;
+        }
+        .modern-step-content { font-size: 0.95rem; font-weight: 600; color: #334155; line-height: 1.6; flex: 1; }
+        .modern-dialogue-box { 
+            background: #F1F5F9; padding: 12px 16px; border-radius: 12px; 
+            margin: 10px 0; color: #4F46E5; font-weight: 800; font-size: 0.9rem;
+            display: flex; gap: 10px; align-items: flex-start;
+            border-left: 4px solid #4F46E5;
+        }
+        .modern-dialogue-box span { font-style: italic; }
+      `}</style>
     </div>
   );
 }
