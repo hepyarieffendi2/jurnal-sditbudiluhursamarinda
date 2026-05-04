@@ -138,8 +138,14 @@ export default function CurriculumTimeline() {
     return null;
   };
 
+  // 🔍 LOOKUP FUNCTION: Maps label to full level object from database
   const lookupFullLevel = (label) => {
     let result = null;
+    if (!label) return null;
+    
+    const searchLabel = label.toLowerCase().trim();
+    
+    // Exact match first
     AREA_SENTRA_CYCLE2.forEach(area => {
       area.subAreas.forEach(sub => {
         sub.levels.forEach(lvl => {
@@ -155,6 +161,29 @@ export default function CurriculumTimeline() {
         });
       });
     });
+    
+    if (result) return result;
+
+    // Fuzzy match if no exact match
+    AREA_SENTRA_CYCLE2.forEach(area => {
+      area.subAreas.forEach(sub => {
+        sub.levels.forEach(lvl => {
+          const lvlLabel = typeof lvl === 'object' ? lvl.label : lvl;
+          if (lvlLabel && (
+            lvlLabel.toLowerCase().includes(searchLabel) || 
+            searchLabel.includes(lvlLabel.toLowerCase())
+          )) {
+            result = { 
+              ...lvl, 
+              areaColor: area.color, 
+              areaName: area.name,
+              subAreaName: sub.name
+            };
+          }
+        });
+      });
+    });
+    
     return result;
   };
 
@@ -428,9 +457,26 @@ export default function CurriculumTimeline() {
                       <div className="norm-content">
                           <div className="norm-top-row">
                             <span className="norm-label">{item.label}</span>
-                            <span className="timing-badge">
-                              {item.timing}
-                            </span>
+                            <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                              <button
+                                onClick={(e) => {
+                                  e.stopPropagation();
+                                  const fullData = lookupFullLevel(item.label);
+                                  if (fullData) {
+                                    setShowGuide(fullData);
+                                  } else {
+                                    alert(`Panduan untuk "${item.label}" sedang dalam penyusunan.`);
+                                  }
+                                }}
+                                className="guide-btn-mini"
+                                title="Lihat Panduan Pedagogis"
+                              >
+                                <Eye size={12} />
+                              </button>
+                              <span className="timing-badge">
+                                {item.timing}
+                              </span>
+                            </div>
                           </div>
                           <span className="norm-desc">{item.desc}</span>
                       </div>
@@ -847,7 +893,21 @@ export default function CurriculumTimeline() {
         
         .norm-icon-box { width: 44px; height: 44px; border-radius: 14px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: all 0.3s; }
         .norm-content { flex: 1; display: flex; flex-direction: column; gap: 2px; }
-        .norm-top-row { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+        .norm-top-row { display: flex; align-items: center; justify-content: space-between; gap: 8px; width: 100%; }
+        .guide-btn-mini { 
+          background: #EEF2FF; 
+          color: #6366F1; 
+          border: 1px solid #C7D2FE; 
+          width: 24px; 
+          height: 24px; 
+          border-radius: 6px; 
+          display: flex; 
+          align-items: center; 
+          justify-content: center; 
+          cursor: pointer; 
+          transition: all 0.2s;
+        }
+        .guide-btn-mini:hover { background: #E0E7FF; transform: scale(1.1); }
         .norm-label { font-size: 0.85rem; font-weight: 900; color: #1E293B; line-height: 1.3; transition: color 0.3s; word-break: break-word; }
         .norm-item.checked .norm-label { color: white; }
         .norm-desc { font-size: 0.65rem; font-weight: 800; color: #64748B; text-transform: uppercase; letter-spacing: 0.5px; transition: color 0.3s; }
