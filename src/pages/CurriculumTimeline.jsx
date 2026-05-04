@@ -124,9 +124,9 @@ export default function CurriculumTimeline() {
   const [progressMap, setProgressMap] = useState({});
   const [totalStudents, setTotalStudents] = useState(0);
   const [activeRoom, setActiveRoom] = useState(null);
-  const [loading, setLoading] = useState(true);
   const [showSchedule, setShowSchedule] = useState(false);
   const [showGuide, setShowGuide] = useState(null);
+  const [curriculumData, setCurriculumData] = useState([]);
 
   const getYTThumbnail = (url) => {
     if (!url) return null;
@@ -144,9 +144,10 @@ export default function CurriculumTimeline() {
     if (!label) return null;
     
     const searchLabel = label.toLowerCase().trim();
+    const sourceData = curriculumData.length > 0 ? curriculumData : AREA_SENTRA_CYCLE2;
     
     // Exact match first
-    AREA_SENTRA_CYCLE2.forEach(area => {
+    sourceData.forEach(area => {
       area.subAreas.forEach(sub => {
         sub.levels.forEach(lvl => {
           const lvlLabel = typeof lvl === 'object' ? lvl.label : lvl;
@@ -165,7 +166,7 @@ export default function CurriculumTimeline() {
     if (result) return result;
 
     // Fuzzy match if no exact match
-    AREA_SENTRA_CYCLE2.forEach(area => {
+    sourceData.forEach(area => {
       area.subAreas.forEach(sub => {
         sub.levels.forEach(lvl => {
           const lvlLabel = typeof lvl === 'object' ? lvl.label : lvl;
@@ -246,6 +247,18 @@ export default function CurriculumTimeline() {
         finalMap[k] = counts[k].size;
       });
       setProgressMap(finalMap);
+      
+      // Also fetch curriculum from Firebase if available
+      try {
+        const curSnap = await getDocs(collection(db, 'kurikulum_pusat'));
+        if (!curSnap.empty) {
+          const curData = curSnap.docs.map(d => ({ id: d.id, ...d.data() }));
+          setCurriculumData(curData);
+        }
+      } catch (curErr) {
+        console.error("Error fetching kurikulum_pusat:", curErr);
+      }
+      
       setLoading(false);
     };
     fetchProgress();
@@ -266,7 +279,9 @@ export default function CurriculumTimeline() {
   // 🧠 Logic: Filter all K1 lessons and distribute them across 40 weeks
   const k1Lessons = useMemo(() => {
     const lessons = [];
-    AREA_SENTRA_CYCLE2.forEach(area => {
+    const sourceData = curriculumData.length > 0 ? curriculumData : AREA_SENTRA_CYCLE2;
+    
+    sourceData.forEach(area => {
       area.subAreas.forEach(sub => {
         sub.levels.forEach(level => {
           const label = typeof level === 'object' ? level.label : level;
@@ -305,7 +320,7 @@ export default function CurriculumTimeline() {
     // Pedagogical Sort: Practical Life -> Language/Math -> Science/Culture
     const areaOrder = { 'practical': 1, 'bahasa': 2, 'math': 3, 'sosial': 4, 'sains': 5, 'seni': 6 };
     return lessons.sort((a, b) => (areaOrder[a.areaId] || 99) - (areaOrder[b.areaId] || 99));
-  }, []);
+  }, [curriculumData]);
 
   // 📅 Distribute lessons to weeks
   const timelineData = useMemo(() => {
