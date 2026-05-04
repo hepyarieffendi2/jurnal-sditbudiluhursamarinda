@@ -8764,13 +8764,47 @@ export const AREA_SENTRA_CYCLE2 = [
             } 
           },
           { 
+            label: 'K1: Adab Membawa & Menyimpan Alat / Carrying & Storing Materials', 
+            presentation: { 
+              toolDisplay: 'Tray with objects, Working mat',
+              steps: [
+                "I. KEGIATAN AWAL: [Berkesadaran]",
+                "1. Memulai dengan membaca Basmalah.",
+                "2. Undang anak: 'Alat ini adalah perantara ilmu, mari kita membawanya dengan penuh hormat.'",
+                "3. Tunjukkan rak yang berisi nampan materi (bisa dengan benda pecah belah).",
+                "II. KEGIATAN INTI: [Bermakna] - MEMAHAMI",
+                "4. Posisi tubuh: 'Berdiri tegak menghadap rak.' (AMI: Stand in front of the shelf).",
+                "5. In English: 'Carrying a Tray, Balance, Focus, and Respect.'",
+                "6. Cara memegang nampan: 'Gunakan kedua telapak tangan memegang sisi kiri and kanan nampan.'",
+                "7. Siku rapat ke tubuh: 'Tarik nampan mendekati tubuh, setinggi pinggang (Pusar).'",
+                "8. Berjalan perlahan: 'Fokus pandangan lurus ke depan and perhatikan jalan.'",
+                "9. Jelaskan: 'Berjalan tenang adalah bentuk kehati-hatian (Tuma'ninah) menjaga amanah.'",
+                "10. Meletakkan alat: 'Turunkan satu sisi nampan dulu, perlahan turunkan sisi lainnya tanpa suara.'",
+                "11. Mengembalikan ke rak: 'Bawa nampan dengan cara yang sama and kembalikan persis pada tempatnya.'",
+                "III. KEGIATAN INTI: [Bermakna] - MENGAPLIKASIKAN",
+                "12. Latihan membawa nampan berisi mangkuk kosong berjalan mengitari karpet.",
+                "13. Latihan membawa nampan dengan segelas air (menguji keseimbangan).",
+                "14. Berdiskusi: 'Apa yang terjadi jika kita berlari saat membawa ilmu (alat)?'",
+                "IV. KEGIATAN INTI: [Berkesadaran] - MEREFLEKSIKAN",
+                "15. Memberikan apresiasi atas usaha, keseimbangan, dan kehati-hatian anak (Ihsan).",
+                "16. Mengajak anak bersyukur atas karunia tubuh yang sehat dan otot yang kuat.",
+                "17. Menanyakan perasaan anak saat berhasil meletakkan barang tanpa suara.",
+                "V. KEGIATAN PENUTUP: [Menyenangkan]",
+                "18. Beri kesempatan teman selanjutnya mencoba.",
+                "19. Pastikan alat dalam keadaan bersih sebelum ditinggalkan (Thaharah).",
+                "20. Membaca Hamdalah.",
+                "21. Ucapkan kepada murid: Alhamdulillahi jaza kumullohu khoiro."
+              ] 
+            } 
+          },
+          { 
             label: 'K1: Adab Berjalan di Dalam Kelas / Walking in the Classroom', 
             presentation: { 
               toolDisplay: 'Prayer mat, Working mat, Small obstruction',
               steps: [
                 "I. KEGIATAN AWAL: [Berkesadaran]",
                 "1. Memulai dengan membaca Basmalah.",
-                "2. Undang anak: 'Bagaimana cara lewat jika teman kita sedang asyik belajar atau shalat?'",
+                "2. Undang anak: 'Bagaimana cara lewat jika teman kita sedang asyik belajar?'",
                 "3. Letakkan karpet kerja di lantai sebagai batas area.",
                 "II. KEGIATAN INTI: [Bermakna] - MEMAHAMI",
                 "4. Berhenti 3 langkah sebelum area: 'Jangan langsung menerjang.'",

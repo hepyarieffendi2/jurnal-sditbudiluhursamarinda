@@ -1,0 +1,883 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manual Pelatihan Pondasi Ketenangan - SDIT Budi Luhur</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        :root {
+            --primary: #1E3A8A; /* Navy Blue */
+            --accent: #D97706; /* Amber */
+            --bg: #F8FAFC;
+            --text: #1E293B;
+            --border: #E2E8F0;
+        }
+
+        @page {
+            size: A4;
+            margin: 10mm;
+        }
+
+        @page:first {
+            margin: 0;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #E2E8F0;
+            color: var(--text);
+            -webkit-print-color-adjust: exact !important;
+            print-color-adjust: exact !important;
+        }
+
+        .cover-page {
+            height: 100vh;
+            background-color: var(--primary);
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20mm;
+            box-sizing: border-box;
+            position: relative;
+            page-break-after: always;
+            z-index: 10;
+        }
+
+        .cover-logo {
+            width: 150px;
+            margin-bottom: 30px;
+        }
+
+        .cover-page h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            margin: 0 0 10px 0;
+            letter-spacing: -1px;
+            line-height: 1.2;
+        }
+
+        .cover-page h2 {
+            font-size: 1.5rem;
+            font-weight: 400;
+            opacity: 0.9;
+            margin: 0 0 40px 0;
+        }
+
+        .school-info {
+            margin-top: 80px;
+            font-weight: 700;
+            font-size: 1.2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            padding-top: 30px;
+        }
+
+        /* --- CONTENT PAGES --- */
+        .page {
+            background-color: white;
+            padding: 10mm 15mm 20mm 15mm; /* Extra bottom padding for footer */
+            min-height: 277mm; /* Full drawable A4 height with 10mm margins */
+            box-sizing: border-box;
+            position: relative;
+            page-break-after: always;
+            margin: 20px auto;
+            max-width: 210mm;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        /* In print mode, remove the box shadow and margin since it is the paper */
+        @media print {
+            body { background: white; }
+            .page {
+                box-shadow: none;
+                margin: 0;
+                padding: 10mm 15mm 20mm 15mm;
+                width: 100%;
+                max-width: none;
+                min-height: 277mm;
+            }
+            .no-print { display: none !important; }
+            .page-footer {
+                position: absolute;
+                bottom: 5mm;
+                left: 15mm;
+                right: 15mm;
+            }
+        }
+
+        .header-mini {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px; /* Reduced from 25px */
+            border-bottom: 2px solid var(--border);
+            padding-bottom: 10px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: var(--primary);
+        }
+
+        .header-mini span:first-of-type {
+            font-weight: 500;
+            color: #94a3b8; /* Muted gray for subtitle */
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .header-mini span:last-of-type {
+            font-weight: 800;
+            color: var(--primary);
+            font-size: 0.85rem;
+        }
+
+        .header-logo {
+            height: 35px;
+        }
+
+        .section-title {
+            margin-bottom: 15px; /* Reduced from 25px */
+        }
+
+        .day-badge {
+            background: var(--primary);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.7rem; /* Reduced */
+            font-weight: 700;
+            display: inline-block;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .section-title h2 {
+            font-size: 1.5rem; /* Reduced from 1.8rem */
+            margin: 0;
+            color: var(--primary);
+            font-weight: 800;
+            letter-spacing: -0.5px;
+        }
+
+        /* --- PRESENTATION BOX --- */
+        .presentation-box {
+            background: white;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            padding: 15px; /* Reduced from 20px */
+            margin-bottom: 15px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+        }
+
+        .presentation-box h3 {
+            font-size: 1.2rem; /* Slightly reduced */
+            color: #0f172a;
+            margin: 0 0 5px 0;
+        }
+
+        /* --- NEW META CARDS UI --- */
+        .en-title {
+            display: inline-block;
+            background: rgba(30, 58, 138, 0.08);
+            color: var(--primary);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem; /* Reduced */
+            font-weight: 700;
+            margin-bottom: 10px;
+            margin-top: -5px;
+            letter-spacing: 0.5px;
+        }
+
+        .meta-cards {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px; /* Reduced from 15px */
+            margin-bottom: 15px;
+        }
+
+        .meta-card {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 8px; /* Reduced from 12px */
+            display: flex;
+            gap: 10px;
+            align-items: flex-start;
+        }
+
+        .meta-icon {
+            color: var(--accent);
+            flex-shrink: 0;
+            width: 18px; /* Slightly smaller */
+            height: 18px;
+        }
+
+        .meta-text strong {
+            display: block;
+            font-size: 0.7rem; /* Reduced */
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 2px;
+        }
+
+        .meta-text p {
+            margin: 0;
+            font-size: 0.75rem; /* Reduced from 0.8rem */
+            color: #475569;
+            line-height: 1.3;
+        }
+
+        .steps-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            column-count: 2;
+            column-gap: 30px;
+            display: block;
+        }
+
+        .step-item {
+            display: flex;
+            gap: 10px;
+            font-size: 0.8rem; /* Reduced from 0.85rem */
+            color: #334155;
+            line-height: 1.3;
+            margin-bottom: 6px; /* Reduced from 10px */
+            break-inside: avoid;
+            page-break-inside: avoid;
+        }
+
+        .step-num {
+            font-weight: 800;
+            color: var(--primary);
+            opacity: 0.5;
+            width: 18px;
+            flex-shrink: 0;
+        }
+
+        .dialogue {
+            color: var(--primary);
+            font-weight: 700;
+            font-style: italic;
+        }
+
+        .page-footer {
+            position: absolute;
+            bottom: 5mm;
+            left: 15mm;
+            right: 15mm;
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.7rem;
+            color: #94a3b8;
+            border-top: 1px dashed #cbd5e1;
+            padding-top: 10px;
+            font-weight: 500;
+        }
+
+        .print-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 15px 25px;
+            border-radius: 30px;
+            font-family: inherit;
+            font-weight: 700;
+            font-size: 1rem;
+            cursor: pointer;
+            box-shadow: 0 10px 15px -3px rgba(30, 58, 138, 0.3);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            z-index: 100;
+            transition: transform 0.2s;
+        }
+
+        .print-btn:hover {
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body>
+    <button class="print-btn no-print" onclick="window.print()">
+        <i data-lucide="printer"></i> Cetak Manual (PDF)
+    </button>
+
+    <div class="cover-page">
+        <img src="LOGO SDIT BUDI LUHUR TRANSPARAN PUTIH.png" alt="Logo SDIT Budi Luhur" class="cover-logo" onerror="this.src='public/logo-budiluhur.png'">
+        <h1>Pondasi Ketenangan</h1>
+        <h2>Manual Pelatihan Guru Sentra (Cycle 2)</h2>
+        <div class="school-info">SDIT BUDI LUHUR SAMARINDA</div>
+    </div>
+
+    <!-- Page 1 -->
+    <div class="page">
+        <div class="header-mini">
+            <img src="public/logo-budiluhur.png" alt="Logo" class="header-logo">
+            <span>Pondasi Ketenangan</span>
+            <span>Halaman 01</span>
+        </div>
+
+        
+            <div class="section-title">
+                <div class="day-badge">Hari 1</div>
+                <h2>Physical Mastery & Environment</h2>
+            </div>
+
+        <div class="presentation-box">
+            <h3>1. Adab Berjalan di Dalam Kelas</h3>
+            <span class="en-title">Walking in the Classroom</span>
+            <div class="meta-cards">
+                <div class="meta-card">
+                    <i data-lucide="target" class="meta-icon"></i>
+                    <div class="meta-text">
+                        <strong>Tujuan :</strong>
+                        <p>Membangun kesadaran batasan ruang (spatial awareness), kontrol motorik kasar, dan rasa hormat pada area kerja.</p>
+                    </div>
+                </div>
+                <div class="meta-card">
+                    <i data-lucide="clock" class="meta-icon"></i>
+                    <div class="meta-text">
+                        <strong>Penerapan:</strong>
+                        <p>Masa Orientasi (Hari ke-1) / Transisi antar aktivitas</p>
+                    </div>
+                </div>
+            </div>
+            <div class="steps-list">
+
+                            <div class="step-item"><span class="step-num">1</span><span>Memulai dengan membaca Basmalah.</span></div>
+                            <div class="step-item"><span class="step-num">2</span><span>Undang anak: <span class="dialogue">"Bagaimana cara lewat jika teman kita sedang asyik belajar?"</span></span></div>
+                            <div class="step-item"><span class="step-num">3</span><span>Letakkan karpet kerja di lantai sebagai batas area.</span></div>
+                            <div class="step-item"><span class="step-num">4</span><span>Berhenti 3 langkah sebelum area: <span class="dialogue">"Jangan langsung menerjang."</span></span></div>
+                            <div class="step-item"><span class="step-num">5</span><span>In English: <span class="dialogue">"Privacy, Boundary, Respect, and Personal Space."</span></span></div>
+                            <div class="step-item"><span class="step-num">6</span><span>Lihat sekeliling: <span class="dialogue">"Cari jalan memutar yang paling jauh dari karpet teman."</span></span></div>
+                            <div class="step-item"><span class="step-num">7</span><span>Jika harus dekat: <span class="dialogue">"Tundukkan badan sedikit and ucapkan Permisi (Excuse me)."</span></span></div>
+                            <div class="step-item"><span class="step-num">8</span><span>Jelaskan Larangan lewat di depan orang Shalat: <span class="dialogue">"Tunggu hingga ia selesai atau gunakan Sutrah."</span></span></div>
+                            <div class="step-item"><span class="step-num">9</span><span>Berjalan jinjit (Tiptoe): <span class="dialogue">"Jangan membuat suara gaduh di dekat orang yang fokus."</span></span></div>
+                            <div class="step-item"><span class="step-num">10</span><span>Berikan senyuman kecil jika berpapasan mata, lalu lanjut jalan.</span></div>
+                            <div class="step-item"><span class="step-num">11</span><span>TPL: <span class="dialogue">"Bolehkan kita menginjak karpet teman?"</span>, <span class="dialogue">"Kenapa kita harus tenang saat lewat?"</span>.</span></div>
+                            <div class="step-item"><span class="step-num">12</span><span>Bermain <span class="dialogue">"Labirin Karpet"</span>: Berjalan melewati 5 karpet tanpa menyentuh satupun.</span></div>
+                            <div class="step-item"><span class="step-num">13</span><span>Membuat tanda <span class="dialogue">"Mohon Tenang"</span> untuk diletakkan di dekat area kerja mandiri.</span></div>
+                            <div class="step-item"><span class="step-num">14</span><span>Mencoba berjalan dengan membawa segelas air tanpa tumpah saat melewati halangan.</span></div>
+                            <div class="step-item"><span class="step-num">15</span><span>Memberikan apresiasi atas usaha, ketelitian, dan kejujuran anak dalam belajar.</span></div>
+                            <div class="step-item"><span class="step-num">16</span><span>Mengajak anak bersyukur atas ilmu baru dan kemampuan yang Allah anugerahkan.</span></div>
+                            <div class="step-item"><span class="step-num">17</span><span>Menanyakan perasaan anak setelah berhasil menyelesaikan tantangan ini.</span></div>
+                            <div class="step-item"><span class="step-num">18</span><span>Rapikan kembali posisi karpet peraga ke raknya.</span></div>
+                            <div class="step-item"><span class="step-num">19</span><span>Susun kursi agar jalur jalan tetap luas (Safety).</span></div>
+                            <div class="step-item"><span class="step-num">20</span><span>Membaca Hamdalah.</span></div>
+                            <div class="step-item"><span class="step-num">21</span><span>Ucapkan kepada murid: Alhamdulillahi jaza kumullohu khoiro.</span></div>
+            </div>
+        </div>
+        
+        <div class="page-footer">
+            <span>SDIT Budi Luhur Samarinda &copy; 2026</span>
+            <span>Panduan Pondasi Ketenangan | Rev.2026.05</span>
+        </div>
+    </div>
+
+    <!-- Page 2 -->
+    <div class="page">
+        <div class="header-mini">
+            <img src="public/logo-budiluhur.png" alt="Logo" class="header-logo">
+            <span>Pondasi Ketenangan</span>
+            <span>Halaman 02</span>
+        </div>
+
+        
+
+        <div class="presentation-box">
+            <h3>2. Merapikan Karpet & Kursi</h3>
+            <span class="en-title">Cleaning & Organizing Material Shelves</span>
+            <div class="meta-cards">
+                <div class="meta-card">
+                    <i data-lucide="target" class="meta-icon"></i>
+                    <div class="meta-text">
+                        <strong>Tujuan :</strong>
+                        <p>Menanamkan tanggung jawab, kemandirian memelihara keteraturan kelas, dan presisi gerakan tangan.</p>
+                    </div>
+                </div>
+                <div class="meta-card">
+                    <i data-lucide="clock" class="meta-icon"></i>
+                    <div class="meta-text">
+                        <strong>Penerapan:</strong>
+                        <p>Setelah selesai menggunakan alat / Sebelum transisi</p>
+                    </div>
+                </div>
+            </div>
+            <div class="steps-list">
+
+                            <div class="step-item"><span class="step-num">1</span><span>Memulai dengan membaca Basmalah.</span></div>
+                            <div class="step-item"><span class="step-num">2</span><span>Undang anak: <span class="dialogue">"Rak kita adalah rumah bagi alat-alat ilmu. Mari kita jaga kesuciannya."</span></span></div>
+                            <div class="step-item"><span class="step-num">3</span><span>Siapkan kain lap mikrofiber.</span></div>
+                            <div class="step-item"><span class="step-num">4</span><span>Turunkan semua nampan materi dari satu dahan rak ke lantai (Mat).</span></div>
+                            <div class="step-item"><span class="step-num">5</span><span>In English: <span class="dialogue">"Organizing, Labelling, and Tidying up."</span></span></div>
+                            <div class="step-item"><span class="step-num">6</span><span>Lap permukaan kayu dahan rak dari kiri ke kanan.</span></div>
+                            <div class="step-item"><span class="step-num">7</span><span>Bersihkan debu pada tiap nampan and isinya satu per satu.</span></div>
+                            <div class="step-item"><span class="step-num">8</span><span>Susun kembali materi: <span class="dialogue">"Mulai dari yang termudah di kiri ke yang tersulit di kanan."</span></span></div>
+                            <div class="step-item"><span class="step-num">9</span><span>Pastikan label nama materi terlihat jelas di depan.</span></div>
+                            <div class="step-item"><span class="step-num">10</span><span>Jelaskan: <span class="dialogue">"Barang yang tertata memudahkan teman lain untuk menemukannya."</span></span></div>
+                            <div class="step-item"><span class="step-num">11</span><span>Cek isi materi: <span class="dialogue">"Apakah ada pensil yang tumpul or kertas yang habis?"</span> (Amanah).</span></div>
+                            <div class="step-item"><span class="step-num">12</span><span>Menjadi <span class="dialogue">"Warden Rak"</span> (Penanggung Jawab rak) selama seminggu.</span></div>
+                            <div class="step-item"><span class="step-num">13</span><span>Membuat label baru yang lebih indah menggunakan tulisan tangan.</span></div>
+                            <div class="step-item"><span class="step-num">14</span><span>Mengurutkan materi berdasarkan abjad atau area.</span></div>
+                            <div class="step-item"><span class="step-num">15</span><span>Memberikan apresiasi atas usaha, ketelitian, dan kejujuran anak dalam belajar.</span></div>
+                            <div class="step-item"><span class="step-num">16</span><span>Mengajak anak bersyukur atas ilmu baru dan kemampuan yang Allah anugerahkan.</span></div>
+                            <div class="step-item"><span class="step-num">17</span><span>Menanyakan perasaan anak setelah berhasil menyelesaikan tantangan ini.</span></div>
+                            <div class="step-item"><span class="step-num">18</span><span>Kibaskan kain lap di luar ruangan.</span></div>
+                            <div class="step-item"><span class="step-num">19</span><span>Lipat kain lap and simpan ke dalam laci kebersihan.</span></div>
+                            <div class="step-item"><span class="step-num">20</span><span>Membaca Hamdalah.</span></div>
+                            <div class="step-item"><span class="step-num">21</span><span>Ucapkan kepada murid: Alhamdulillahi jaza kumullohu khoiro.</span></div>
+            </div>
+        </div>
+        
+        <div class="page-footer">
+            <span>SDIT Budi Luhur Samarinda &copy; 2026</span>
+            <span>Panduan Pondasi Ketenangan | Rev.2026.05</span>
+        </div>
+    </div>
+
+    <!-- Page 3 -->
+    <div class="page">
+        <div class="header-mini">
+            <img src="public/logo-budiluhur.png" alt="Logo" class="header-logo">
+            <span>Pondasi Ketenangan</span>
+            <span>Halaman 03</span>
+        </div>
+
+        
+
+        <div class="presentation-box">
+            <h3>3. Adab Membawa & Menyimpan Alat</h3>
+            <span class="en-title">Carrying & Storing Materials</span>
+            <div class="meta-cards">
+                <div class="meta-card">
+                    <i data-lucide="target" class="meta-icon"></i>
+                    <div class="meta-text">
+                        <strong>Tujuan :</strong>
+                        <p>Melatih keseimbangan, fokus visual, dan kehati-hatian (Tuma'ninah) dalam menjaga amanah barang.</p>
+                    </div>
+                </div>
+                <div class="meta-card">
+                    <i data-lucide="clock" class="meta-icon"></i>
+                    <div class="meta-text">
+                        <strong>Penerapan:</strong>
+                        <p>Setiap mengambil dan mengembalikan alat sentra</p>
+                    </div>
+                </div>
+            </div>
+            <div class="steps-list">
+
+                            <div class="step-item"><span class="step-num">1</span><span>Memulai dengan membaca Basmalah.</span></div>
+                            <div class="step-item"><span class="step-num">2</span><span>Undang anak: <span class="dialogue">"Alat ini adalah perantara ilmu, mari kita membawanya dengan penuh hormat."</span></span></div>
+                            <div class="step-item"><span class="step-num">3</span><span>Tunjukkan rak yang berisi nampan materi (bisa dengan benda pecah belah).</span></div>
+                            <div class="step-item"><span class="step-num">4</span><span>Posisi tubuh: <span class="dialogue">"Berdiri tegak menghadap rak."</span> (AMI: Stand in front of the shelf).</span></div>
+                            <div class="step-item"><span class="step-num">5</span><span>In English: <span class="dialogue">"Carrying a Tray, Balance, Focus, and Respect."</span></span></div>
+                            <div class="step-item"><span class="step-num">6</span><span>Cara memegang nampan: <span class="dialogue">"Gunakan kedua telapak tangan memegang sisi kiri and kanan nampan."</span></span></div>
+                            <div class="step-item"><span class="step-num">7</span><span>Siku rapat ke tubuh: <span class="dialogue">"Tarik nampan mendekati tubuh, setinggi pinggang (Pusar)."</span></span></div>
+                            <div class="step-item"><span class="step-num">8</span><span>Berjalan perlahan: <span class="dialogue">"Fokus pandangan lurus ke depan and perhatikan jalan."</span></span></div>
+                            <div class="step-item"><span class="step-num">9</span><span>Jelaskan: <span class="dialogue">"Berjalan tenang adalah bentuk kehati-hatian (Tuma"</span>ninah) menjaga amanah.'</span></div>
+                            <div class="step-item"><span class="step-num">10</span><span>Meletakkan alat: <span class="dialogue">"Turunkan satu sisi nampan dulu, perlahan turunkan sisi lainnya tanpa suara."</span></span></div>
+                            <div class="step-item"><span class="step-num">11</span><span>Mengembalikan ke rak: <span class="dialogue">"Bawa nampan dengan cara yang sama and kembalikan persis pada tempatnya."</span></span></div>
+                            <div class="step-item"><span class="step-num">12</span><span>Latihan membawa nampan berisi mangkuk kosong berjalan mengitari karpet.</span></div>
+                            <div class="step-item"><span class="step-num">13</span><span>Latihan membawa nampan dengan segelas air (menguji keseimbangan).</span></div>
+                            <div class="step-item"><span class="step-num">14</span><span>Berdiskusi: <span class="dialogue">"Apa yang terjadi jika kita berlari saat membawa ilmu (alat)?"</span></span></div>
+                            <div class="step-item"><span class="step-num">15</span><span>Memberikan apresiasi atas usaha, keseimbangan, dan kehati-hatian anak (Ihsan).</span></div>
+                            <div class="step-item"><span class="step-num">16</span><span>Mengajak anak bersyukur atas karunia tubuh yang sehat dan otot yang kuat.</span></div>
+                            <div class="step-item"><span class="step-num">17</span><span>Menanyakan perasaan anak saat berhasil meletakkan barang tanpa suara.</span></div>
+                            <div class="step-item"><span class="step-num">18</span><span>Beri kesempatan teman selanjutnya mencoba.</span></div>
+                            <div class="step-item"><span class="step-num">19</span><span>Pastikan alat dalam keadaan bersih sebelum ditinggalkan (Thaharah).</span></div>
+                            <div class="step-item"><span class="step-num">20</span><span>Membaca Hamdalah.</span></div>
+                            <div class="step-item"><span class="step-num">21</span><span>Ucapkan kepada murid: Alhamdulillahi jaza kumullohu khoiro.</span></div>
+            </div>
+        </div>
+        
+        <div class="page-footer">
+            <span>SDIT Budi Luhur Samarinda &copy; 2026</span>
+            <span>Panduan Pondasi Ketenangan | Rev.2026.05</span>
+        </div>
+    </div>
+
+    <!-- Page 4 -->
+    <div class="page">
+        <div class="header-mini">
+            <img src="public/logo-budiluhur.png" alt="Logo" class="header-logo">
+            <span>Pondasi Ketenangan</span>
+            <span>Halaman 04</span>
+        </div>
+
+        
+            <div class="section-title">
+                <div class="day-badge">Hari 2</div>
+                <h2>Focus & Voice Calibration</h2>
+            </div>
+
+        <div class="presentation-box">
+            <h3>4. Volume Bicara & Silence Game</h3>
+            <span class="en-title">Voice Volume & Silence Game</span>
+            <div class="meta-cards">
+                <div class="meta-card">
+                    <i data-lucide="target" class="meta-icon"></i>
+                    <div class="meta-text">
+                        <strong>Tujuan :</strong>
+                        <p>Meningkatkan regulasi diri, kontrol impuls (menahan diri), dan kepekaan pendengaran.</p>
+                    </div>
+                </div>
+                <div class="meta-card">
+                    <i data-lucide="clock" class="meta-icon"></i>
+                    <div class="meta-text">
+                        <strong>Penerapan:</strong>
+                        <p>Saat kelas terlalu berisik / Sebelum sesi hening</p>
+                    </div>
+                </div>
+            </div>
+            <div class="steps-list">
+
+                            <div class="step-item"><span class="step-num">1</span><span>Memulai dengan membaca Basmalah.</span></div>
+                            <div class="step-item"><span class="step-num">2</span><span>Undang anak: <span class="dialogue">"Mari kita dengarkan suara keheningan di hati kita."</span></span></div>
+                            <div class="step-item"><span class="step-num">3</span><span>Guru: <span class="dialogue">"Lonceng ini adalah tanda kita mulai memasuki dunia sunyi (Silence Game)."</span></span></div>
+                            <div class="step-item"><span class="step-num">4</span><span>Guru mendemonstrasikan posisi duduk yang tenang tanpa gerak sedikitpun.</span></div>
+                            <div class="step-item"><span class="step-num">5</span><span>In English: <span class="dialogue">"Whispering, Silence, Quiet, and Peaceful."</span></span></div>
+                            <div class="step-item"><span class="step-num">6</span><span>Guru berbisik (Whispering) nama satu anak dengan sangat lembut.</span></div>
+                            <div class="step-item"><span class="step-num">7</span><span>Anak yang dipanggil berjalan jinjit mendekati guru tanpa suara.</span></div>
+                            <div class="step-item"><span class="step-num">8</span><span>Jelaskan: <span class="dialogue">"Berbisik adalah cara kita menghargai telinga orang lain (Adab)."</span></span></div>
+                            <div class="step-item"><span class="step-num">9</span><span>Lakukan permainan <span class="dialogue">"Bisik Berantai"</span> dengan pesan kalimat thoyyibah.</span></div>
+                            <div class="step-item"><span class="step-num">10</span><span>Gunakan kartu kontrol volume: Berteriak (X), Bicara Biasa, Berbisik (Gold).</span></div>
+                            <div class="step-item"><span class="step-num">11</span><span>Jelaskan: <span class="dialogue">"Suara yang lembut lebih mudah didengar oleh hati."</span></span></div>
+                            <div class="step-item"><span class="step-num">12</span><span>Mencoba melakukan pekerjaan (misal: menuang) dalam suasana sunyi total.</span></div>
+                            <div class="step-item"><span class="step-num">13</span><span>Berjalan melewati teman yang bekerja dengan suara kaki sesenyap mungkin.</span></div>
+                            <div class="step-item"><span class="step-num">14</span><span>Menghafal hadits: <span class="dialogue">"Bicaralah yang baik atau diam."</span></span></div>
+                            <div class="step-item"><span class="step-num">15</span><span>Memberikan apresiasi atas usaha, ketelitian, dan kejujuran anak dalam belajar.</span></div>
+                            <div class="step-item"><span class="step-num">16</span><span>Mengajak anak bersyukur atas ilmu baru dan kemampuan yang Allah anugerahkan.</span></div>
+                            <div class="step-item"><span class="step-num">17</span><span>Menanyakan perasaan anak setelah berhasil menyelesaikan tantangan ini.</span></div>
+                            <div class="step-item"><span class="step-num">18</span><span>Simpan kartu volume ke dalam laci materi.</span></div>
+                            <div class="step-item"><span class="step-num">19</span><span>Rapikan karpet masing-masing menuju rak.</span></div>
+                            <div class="step-item"><span class="step-num">20</span><span>Membaca Hamdalah.</span></div>
+                            <div class="step-item"><span class="step-num">21</span><span>Ucapkan kepada murid: Alhamdulillahi jaza kumullohu khoiro.</span></div>
+            </div>
+        </div>
+        
+        <div class="page-footer">
+            <span>SDIT Budi Luhur Samarinda &copy; 2026</span>
+            <span>Panduan Pondasi Ketenangan | Rev.2026.05</span>
+        </div>
+    </div>
+
+    <!-- Page 5 -->
+    <div class="page">
+        <div class="header-mini">
+            <img src="public/logo-budiluhur.png" alt="Logo" class="header-logo">
+            <span>Pondasi Ketenangan</span>
+            <span>Halaman 05</span>
+        </div>
+
+        
+
+        <div class="presentation-box">
+            <h3>5. Mendengar & Memperhatikan</h3>
+            <span class="en-title">Active Listening</span>
+            <div class="meta-cards">
+                <div class="meta-card">
+                    <i data-lucide="target" class="meta-icon"></i>
+                    <div class="meta-text">
+                        <strong>Tujuan :</strong>
+                        <p>Membangun adab menuntut ilmu, kontak mata, dan keterampilan menyimak aktif (Active Listening).</p>
+                    </div>
+                </div>
+                <div class="meta-card">
+                    <i data-lucide="clock" class="meta-icon"></i>
+                    <div class="meta-text">
+                        <strong>Penerapan:</strong>
+                        <p>Saat instruksi klasikal / circle time</p>
+                    </div>
+                </div>
+            </div>
+            <div class="steps-list">
+
+                            <div class="step-item"><span class="step-num">1</span><span>Memulai dengan membaca Basmalah.</span></div>
+                            <div class="step-item"><span class="step-num">2</span><span>Undang anak membentuk lingkaran (Halaqah): <span class="dialogue">"Mari kita bermusyawarah, menyatukan hati dalam keputusan."</span></span></div>
+                            <div class="step-item"><span class="step-num">3</span><span>Guru: <span class="dialogue">"Allah memerintahkan kita untuk bermusyawarah dalam segala urusan."</span></span></div>
+                            <div class="step-item"><span class="step-num">4</span><span>Guru menjelaskan aturan main: <span class="dialogue">"Listen with your ears and your heart."</span></span></div>
+                            <div class="step-item"><span class="step-num">5</span><span>Demonstrasikan posisi duduk yang menghadap pembicara (Adab Majelis).</span></div>
+                            <div class="step-item"><span class="step-num">6</span><span>Guru melakukan kontak mata dengan anak secara lembut (Memperhatikan Lawan Bicara).</span></div>
+                            <div class="step-item"><span class="step-num">7</span><span>Saat satu anak bicara, yang lain diam mutlak (Mendengar Aktif).</span></div>
+                            <div class="step-item"><span class="step-num">8</span><span>Guru: <span class="dialogue">"Diammu saat saudaramu bicara adalah bentuk memuliakannya."</span></span></div>
+                            <div class="step-item"><span class="step-num">9</span><span>Berikan frase Inggris untuk menanggapi: <span class="dialogue">"That"</span>s a good point,<span class="dialogue">" atau "</span>I agree with you.'</span></div>
+                            <div class="step-item"><span class="step-num">10</span><span>Ajarkan cara menyanggah dengan santun: <span class="dialogue">"I have a different idea,"</span> bukan <span class="dialogue">"You are wrong."</span></span></div>
+                            <div class="step-item"><span class="step-num">11</span><span>Guru: <span class="dialogue">"Berbeda pendapat itu boleh, tapi hati harus tetap satu (Ukhuwah)."</span></span></div>
+                            <div class="step-item"><span class="step-num">12</span><span>Latih memparafrase secara lisan: <span class="dialogue">"So, you mean that...?"</span></span></div>
+                            <div class="step-item"><span class="step-num">13</span><span>Tekankan bahwa dalam diskusi, kita mencari kebenaran (Haq), bukan kemenangan diri.</span></div>
+                            <div class="step-item"><span class="step-num">14</span><span>Guru: <span class="dialogue">"Bicaralah yang benar atau diam (Sunnah Nabi)."</span></span></div>
+                            <div class="step-item"><span class="step-num">15</span><span>Mintalah kelompok diskusi memutuskan satu proyek bersama (berbagi peran).</span></div>
+                            <div class="step-item"><span class="step-num">16</span><span>Minta anak memberikan pujian kepada teman yang memberikan ide bagus.</span></div>
+                            <div class="step-item"><span class="step-num">17</span><span>Memberikan apresiasi atas usaha, ketelitian, dan kejujuran anak dalam belajar atau berdiskusi.</span></div>
+                            <div class="step-item"><span class="step-num">18</span><span>Mengajak anak bersyukur atas kemampuan menjalin ukhuwah.</span></div>
+                            <div class="step-item"><span class="step-num">19</span><span>Simpan kembali <span class="dialogue">"Speaking Object"</span> ke rak materi.</span></div>
+                            <div class="step-item"><span class="step-num">20</span><span>Membaca Hamdalah.</span></div>
+                            <div class="step-item"><span class="step-num">21</span><span>Ucapkan kepada murid: Alhamdulillahi jaza kumullohu khoiro.</span></div>
+            </div>
+        </div>
+        
+        <div class="page-footer">
+            <span>SDIT Budi Luhur Samarinda &copy; 2026</span>
+            <span>Panduan Pondasi Ketenangan | Rev.2026.05</span>
+        </div>
+    </div>
+
+    <!-- Page 6 -->
+    <div class="page">
+        <div class="header-mini">
+            <img src="public/logo-budiluhur.png" alt="Logo" class="header-logo">
+            <span>Pondasi Ketenangan</span>
+            <span>Halaman 06</span>
+        </div>
+
+        
+            <div class="section-title">
+                <div class="day-badge">Hari 3</div>
+                <h2>Social Harmony & Respect</h2>
+            </div>
+
+        <div class="presentation-box">
+            <h3>6. Adab Menonton Teman Bekerja</h3>
+            <span class="en-title">Watching a Friend Work</span>
+            <div class="meta-cards">
+                <div class="meta-card">
+                    <i data-lucide="target" class="meta-icon"></i>
+                    <div class="meta-text">
+                        <strong>Tujuan :</strong>
+                        <p>Menghargai privasi teman, melatih kesabaran, dan belajar dari observasi tanpa mengganggu.</p>
+                    </div>
+                </div>
+                <div class="meta-card">
+                    <i data-lucide="clock" class="meta-icon"></i>
+                    <div class="meta-text">
+                        <strong>Penerapan:</strong>
+                        <p>Saat ingin bergabung dengan teman yang sedang bekerja</p>
+                    </div>
+                </div>
+            </div>
+            <div class="steps-list">
+
+                            <div class="step-item"><span class="step-num">1</span><span>Memulai dengan membaca Basmalah.</span></div>
+                            <div class="step-item"><span class="step-num">2</span><span>Undang anak: <span class="dialogue">"Hari ini kita belajar cara menghargai rahasia kerja teman kita."</span></span></div>
+                            <div class="step-item"><span class="step-num">3</span><span>Guru: <span class="dialogue">"Menonton adalah cara belajar yang tenang, tapi pastikan temanmu tetap nyaman."</span></span></div>
+                            <div class="step-item"><span class="step-num">4</span><span>Dekati teman dengan langkah tanpa suara: <span class="dialogue">"Berdiri di jarak sekitar 1 meter (jangkauan mata)."</span></span></div>
+                            <div class="step-item"><span class="step-num">5</span><span>In English: <span class="dialogue">"Observe, Privacy, Distance, and Non-Interruption."</span></span></div>
+                            <div class="step-item"><span class="step-num">6</span><span>Posisi tubuh: <span class="dialogue">"Tangan di belakang punggung atau di samping tubuh (untuk menahan diri tidak menyentuh alat)."</span></span></div>
+                            <div class="step-item"><span class="step-num">7</span><span>Tetap diam: <span class="dialogue">"Jangan bicara atau memberi instruksi kepada teman yang sedang bekerja."</span></span></div>
+                            <div class="step-item"><span class="step-num">8</span><span>Guru: <span class="dialogue">"Biarkan temanmu fokus menyempurnakan pekerjaannya (Ihsan)."</span></span></div>
+                            <div class="step-item"><span class="step-num">9</span><span>Jika ingin mencoba: <span class="dialogue">"Tunggu sampai temanmu selesai dan mengembalikan alat ke rak."</span></span></div>
+                            <div class="step-item"><span class="step-num">10</span><span>Berikan senyum atau anggukan kecil jika teman menoleh, sebagai tanda hormat.</span></div>
+                            <div class="step-item"><span class="step-num">11</span><span>TPL: <span class="dialogue">"Di mana posisi tangan saat menonton?"</span>, <span class="dialogue">"Bolehkah kita bicara saat menonton?"</span>.</span></div>
+                            <div class="step-item"><span class="step-num">12</span><span>Praktik menonton teman melakukan <span class="dialogue">"Pouring"</span> selama 1 menit tanpa menyentuh.</span></div>
+                            <div class="step-item"><span class="step-num">13</span><span>Menjelaskan perasaan saat <span class="dialogue">"ditunggu"</span> teman dengan cara yang sopan vs tidak sopan.</span></div>
+                            <div class="step-item"><span class="step-num">14</span><span>Menghargai hak anak lain untuk fokus dan berkonsentrasi.</span></div>
+                            <div class="step-item"><span class="step-num">15</span><span>Bersyukur atas kesempatan belajar dari keberhasilan orang lain.</span></div>
+                            <div class="step-item"><span class="step-num">16</span><span>Mundur perlahan tanpa mematikan semangat teman.</span></div>
+                            <div class="step-item"><span class="step-num">17</span><span>Membaca Hamdalah.</span></div>
+            </div>
+        </div>
+        
+        <div class="page-footer">
+            <span>SDIT Budi Luhur Samarinda &copy; 2026</span>
+            <span>Panduan Pondasi Ketenangan | Rev.2026.05</span>
+        </div>
+    </div>
+
+    <!-- Page 7 -->
+    <div class="page">
+        <div class="header-mini">
+            <img src="public/logo-budiluhur.png" alt="Logo" class="header-logo">
+            <span>Pondasi Ketenangan</span>
+            <span>Halaman 07</span>
+        </div>
+
+        
+
+        <div class="presentation-box">
+            <h3>7. Adab Menunggu Giliran</h3>
+            <span class="en-title">Waiting for a Turn</span>
+            <div class="meta-cards">
+                <div class="meta-card">
+                    <i data-lucide="target" class="meta-icon"></i>
+                    <div class="meta-text">
+                        <strong>Tujuan :</strong>
+                        <p>Melatih regulasi emosi (menunda kepuasan), toleransi, dan memahami konsep antrean adil.</p>
+                    </div>
+                </div>
+                <div class="meta-card">
+                    <i data-lucide="clock" class="meta-icon"></i>
+                    <div class="meta-text">
+                        <strong>Penerapan:</strong>
+                        <p>Saat alat yang diinginkan sedang digunakan teman</p>
+                    </div>
+                </div>
+            </div>
+            <div class="steps-list">
+
+                            <div class="step-item"><span class="step-num">1</span><span>Memulai dengan membaca Basmalah.</span></div>
+                            <div class="step-item"><span class="step-num">2</span><span>Undang anak: <span class="dialogue">"Bagaimana jika kita semua ingin menggunakan alat yang sama di saat yang sama?"</span></span></div>
+                            <div class="step-item"><span class="step-num">3</span><span>Guru memperkenalkan <span class="dialogue">"Kartu Antrean"</span> sebagai alat bantu kesabaran.</span></div>
+                            <div class="step-item"><span class="step-num">4</span><span>Cek ketersediaan alat: <span class="dialogue">"Jika alat tidak ada di rak, cari siapa yang sedang menggunakannya."</span></span></div>
+                            <div class="step-item"><span class="step-num">5</span><span>In English: <span class="dialogue">"Waiting, Queue, Turn-taking, and Self-Control."</span></span></div>
+                            <div class="step-item"><span class="step-num">6</span><span>Gunakan Kartu: <span class="dialogue">"Letakkan Kartu Antrean di atas meja teman atau di gantungan rak alat tersebut."</span></span></div>
+                            <div class="step-item"><span class="step-num">7</span><span>Menuju pekerjaan lain: <span class="dialogue">"Jangan berdiri mematung di depan teman. Lakukan aktivitas lain sementara menunggu."</span></span></div>
+                            <div class="step-item"><span class="step-num">8</span><span>Guru: <span class="dialogue">"Menunggu dengan produktif adalah ciri orang yang sabar dan mandiri."</span></span></div>
+                            <div class="step-item"><span class="step-num">9</span><span>Respon teman: <span class="dialogue">"Saat teman selesai, ia wajib mencari anak yang memiliki kartu antrean berikutnya."</span></span></div>
+                            <div class="step-item"><span class="step-num">10</span><span>Terima alat dengan santun: <span class="dialogue">"Ucapkan Jazakumullahu Khairan saat giliranmu tiba."</span></span></div>
+                            <div class="step-item"><span class="step-num">11</span><span>TPL: <span class="dialogue">"Apa yang kita lakukan setelah menaruh kartu antrean?"</span>, <span class="dialogue">"Siapa yang menyerahkan alat?"</span>.</span></div>
+                            <div class="step-item"><span class="step-num">12</span><span>Simulasi antrean menggunakan 1 alat populer (misal: Stamp Game) untuk 3 anak.</span></div>
+                            <div class="step-item"><span class="step-num">13</span><span>Menghafal Hadits: <span class="dialogue">"Sesungguhnya Allah bersama orang-orang yang bersabar."</span></span></div>
+                            <div class="step-item"><span class="step-num">14</span><span>Melatih pengendalian impuls (keinginan segera) demi ketertiban bersama.</span></div>
+                            <div class="step-item"><span class="step-num">15</span><span>Bersyukur atas kesempatan berbagi alat dengan adil.</span></div>
+                            <div class="step-item"><span class="step-num">16</span><span>Simpan kartu antrean kembali ke kotaknya jika sudah selesai.</span></div>
+                            <div class="step-item"><span class="step-num">17</span><span>Membaca Hamdalah.</span></div>
+            </div>
+        </div>
+        
+        <div class="page-footer">
+            <span>SDIT Budi Luhur Samarinda &copy; 2026</span>
+            <span>Panduan Pondasi Ketenangan | Rev.2026.05</span>
+        </div>
+    </div>
+
+    <!-- Page 8 -->
+    <div class="page">
+        <div class="header-mini">
+            <img src="public/logo-budiluhur.png" alt="Logo" class="header-logo">
+            <span>Pondasi Ketenangan</span>
+            <span>Halaman 08</span>
+        </div>
+
+        
+
+        <div class="presentation-box">
+            <h3>8. Interupsi & Memotong Pembicaraan</h3>
+            <span class="en-title">Interrupting Courteously</span>
+            <div class="meta-cards">
+                <div class="meta-card">
+                    <i data-lucide="target" class="meta-icon"></i>
+                    <div class="meta-text">
+                        <strong>Tujuan :</strong>
+                        <p>Membangun kesantunan sosial, kontrol impuls verbal, dan rasa hormat.</p>
+                    </div>
+                </div>
+                <div class="meta-card">
+                    <i data-lucide="clock" class="meta-icon"></i>
+                    <div class="meta-text">
+                        <strong>Penerapan:</strong>
+                        <p>Saat butuh bantuan namun guru/teman sedang bicara</p>
+                    </div>
+                </div>
+            </div>
+            <div class="steps-list">
+
+                            <div class="step-item"><span class="step-num">1</span><span>Memulai dengan membaca Basmalah.</span></div>
+                            <div class="step-item"><span class="step-num">2</span><span>Undang anak: <span class="dialogue">"Terkadang kita punya hal darurat saat Guru sedang bicara. Mari belajar cara memberi tahu tanpa memutus kalimat."</span></span></div>
+                            <div class="step-item"><span class="step-num">3</span><span>Guru sedang berpura-pura bicara dengan rekan sejawat.</span></div>
+                            <div class="step-item"><span class="step-num">4</span><span>Dekati dengan tenang: <span class="dialogue">"Berdiri di dekat jangkauan mata orang yang ingin diajak bicara."</span></span></div>
+                            <div class="step-item"><span class="step-num">5</span><span>In English: <span class="dialogue">"Interrupting, Manners, Wait Card, and Patience."</span></span></div>
+                            <div class="step-item"><span class="step-num">6</span><span>Jika sesama jenis (Laki-laki ke Laki-laki / Perempuan ke Perempuan): Letakkan telapak tangan kanan dengan lembut di atas pundak orang tersebut.</span></div>
+                            <div class="step-item"><span class="step-num">7</span><span>Jika lawan jenis (Laki-laki ke Perempuan / Perempuan ke Laki-laki): Letakkan <span class="dialogue">"Kartu Interupsi"</span> di atas meja dekat jangkauan tangan orang tersebut tanpa menyentuh fisik.</span></div>
+                            <div class="step-item"><span class="step-num">8</span><span>Tunggu dengan sabar: Jangan bicara dulu sampai Guru memberikan isyarat (anggukan atau telapak tangan terbuka).</span></div>
+                            <div class="step-item"><span class="step-num">9</span><span>Saat Guru merespons isyaratmu: <span class="dialogue">"Sampaikan niatmu dengan suara lembut."</span></span></div>
+                            <div class="step-item"><span class="step-num">10</span><span>Mulai bicara: <span class="dialogue">"Mohon maaf, Guru. Saya butuh bantuan (Sebutkan alasan darurat)."</span></span></div>
+                            <div class="step-item"><span class="step-num">11</span><span>Jelaskan: <span class="dialogue">"Jika hal tersebut tidak darurat, tunggulah sampai pembicaraan benar-benar selesai."</span></span></div>
+                            <div class="step-item"><span class="step-num">12</span><span>TPL: <span class="dialogue">"Apa fungsi kartu interupsi?"</span>, <span class="dialogue">"Kenapa kita tidak boleh langsung bersuara?"</span>.</span></div>
+                            <div class="step-item"><span class="step-num">13</span><span>Simulasi menunggu giliran bicara dalam lingkaran besar (Circle time).</span></div>
+                            <div class="step-item"><span class="step-num">14</span><span>Menjelaskan perbedaan situasi <span class="dialogue">"Darurat"</span> (Luka, Api, Sakit) dan <span class="dialogue">"Tidak Darurat"</span>.</span></div>
+                            <div class="step-item"><span class="step-num">15</span><span>Bermain peran antara anak yang ingin meminjam alat vs Guru yang sedang mengajar.</span></div>
+                            <div class="step-item"><span class="step-num">16</span><span>Memberikan apresiasi atas usaha, ketelitian, dan kejujuran anak dalam menjaga adab.</span></div>
+                            <div class="step-item"><span class="step-num">17</span><span>Mengajak anak bersyukur atas kemampuan mengendalikan diri (Sabar).</span></div>
+                            <div class="step-item"><span class="step-num">18</span><span>Menanyakan perasaan anak saat dihargai waktu dan bicaranya oleh orang lain.</span></div>
+                            <div class="step-item"><span class="step-num">19</span><span>Simpan <span class="dialogue">"Kartu Interupsi"</span> kembali ke saku atau meja guru.</span></div>
+                            <div class="step-item"><span class="step-num">20</span><span>Kembali ke area kerja mandiri dengan tenang.</span></div>
+                            <div class="step-item"><span class="step-num">21</span><span>Membaca Hamdalah.</span></div>
+                            <div class="step-item"><span class="step-num">22</span><span>Ucapkan kepada murid: Alhamdulillahi jaza kumullohu khoiro.</span></div>
+            </div>
+        </div>
+        
+        <div class="page-footer">
+            <span>SDIT Budi Luhur Samarinda &copy; 2026</span>
+            <span>Panduan Pondasi Ketenangan | Rev.2026.05</span>
+        </div>
+    </div>
+
+    <!-- Page 9 -->
+    <div class="page">
+        <div class="header-mini">
+            <img src="public/logo-budiluhur.png" alt="Logo" class="header-logo">
+            <span>Pondasi Ketenangan</span>
+            <span>Halaman 09</span>
+        </div>
+
+        
+
+        <div class="presentation-box">
+            <h3>9. Meminta Maaf & Tabayyun</h3>
+            <span class="en-title">Apology & Conflict Resolution</span>
+            <div class="meta-cards">
+                <div class="meta-card">
+                    <i data-lucide="target" class="meta-icon"></i>
+                    <div class="meta-text">
+                        <strong>Tujuan :</strong>
+                        <p>Mengembangkan empati, keberanian mengakui kesalahan, dan resolusi konflik sehat.</p>
+                    </div>
+                </div>
+                <div class="meta-card">
+                    <i data-lucide="clock" class="meta-icon"></i>
+                    <div class="meta-text">
+                        <strong>Penerapan:</strong>
+                        <p>Saat terjadi perselisihan atau ketidaksengajaan</p>
+                    </div>
+                </div>
+            </div>
+            <div class="steps-list">
+
+                            <div class="step-item"><span class="step-num">1</span><span>Memulai dengan membaca Basmalah.</span></div>
+                            <div class="step-item"><span class="step-num">2</span><span>Undang dua anak: <span class="dialogue">"Jika ada perselisihan, jangan biarkan matahari terbenam sebelum kita berdamai."</span></span></div>
+                            <div class="step-item"><span class="step-num">3</span><span>Siapkan <span class="dialogue">"Bunga Perdamaian"</span> (Peace Rose) atau benda lembut lainnya.</span></div>
+                            <div class="step-item"><span class="step-num">4</span><span>Pegang Bunga: <span class="dialogue">"Hanya orang yang memegang bunga yang boleh bicara."</span></span></div>
+                            <div class="step-item"><span class="step-num">5</span><span>In English: <span class="dialogue">"Peace Rose, Apology, Forgiveness, and Conflict Resolution."</span></span></div>
+                            <div class="step-item"><span class="step-num">6</span><span>Ungkapkan perasaan: <span class="dialogue">"Aku merasa sedih saat kamu mengambil pensilku."</span></span></div>
+                            <div class="step-item"><span class="step-num">7</span><span>Berikan bunga ke teman: <span class="dialogue">"Teman merespon dengan mendengarkan tanpa memotong."</span></span></div>
+                            <div class="step-item"><span class="step-num">8</span><span>Ucapkan Maaf: <span class="dialogue">"Mohon maafkan aku, aku tidak akan mengulanginya (Amanah)."</span></span></div>
+                            <div class="step-item"><span class="step-num">9</span><span>Jelaskan Tabayyun: <span class="dialogue">"Tanyakan dulu alasannya, jangan langsung marah."</span></span></div>
+                            <div class="step-item"><span class="step-num">10</span><span>Berjabatan tangan atau berpelukan (sesama muhrim): <span class="dialogue">"Kita kembali bersaudara."</span></span></div>
+                            <div class="step-item"><span class="step-num">11</span><span>TPL: <span class="dialogue">"Apa yang kita lakukan jika kita berbuat salah?"</span>, <span class="dialogue">"Bagaimana perasaanmu setelah maaf-maafan?"</span>.</span></div>
+                            <div class="step-item"><span class="step-num">12</span><span>Menuliskan <span class="dialogue">"Janji Perdamaian"</span> di atas kertas berbentuk hati.</span></div>
+                            <div class="step-item"><span class="step-num">13</span><span>Mempraktekkan cara mendengarkan teman selama 1 menit tanpa bicara.</span></div>
+                            <div class="step-item"><span class="step-num">14</span><span>Menghafal doa <span class="dialogue">"Allahummaghfirli"</span> (Ya Allah ampuni aku).</span></div>
+                            <div class="step-item"><span class="step-num">15</span><span>Memberikan apresiasi atas usaha, ketelitian, dan kejujuran anak dalam belajar.</span></div>
+                            <div class="step-item"><span class="step-num">16</span><span>Mengajak anak bersyukur atas ilmu baru dan kemampuan yang Allah anugerahkan.</span></div>
+                            <div class="step-item"><span class="step-num">17</span><span>Menanyakan perasaan anak setelah berhasil menyelesaikan tantangan ini.</span></div>
+                            <div class="step-item"><span class="step-num">18</span><span>Simpan bunga perdamaian ke vas di pojok kelas.</span></div>
+                            <div class="step-item"><span class="step-num">19</span><span>Gulung matras area tenang dengan rapi.</span></div>
+                            <div class="step-item"><span class="step-num">20</span><span>Membaca Hamdalah.</span></div>
+                            <div class="step-item"><span class="step-num">21</span><span>Ucapkan kepada murid: Alhamdulillahi jaza kumullohu khoiro.</span></div>
+            </div>
+        </div>
+        
+        <div class="page-footer">
+            <span>SDIT Budi Luhur Samarinda &copy; 2026</span>
+            <span>Panduan Pondasi Ketenangan | Rev.2026.05</span>
+        </div>
+    </div>
+
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>

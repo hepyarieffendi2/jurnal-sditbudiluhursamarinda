@@ -127,6 +127,7 @@ export default function CurriculumTimeline() {
   const [showSchedule, setShowSchedule] = useState(false);
   const [showGuide, setShowGuide] = useState(null);
   const [curriculumData, setCurriculumData] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   const getYTThumbnail = (url) => {
     if (!url) return null;
@@ -209,7 +210,25 @@ export default function CurriculumTimeline() {
     findRoom();
   }, [user]);
 
-  // 📡 Step 2: Sync Normalization Checklist
+  // 📡 Step 2: Fetch Global Curriculum (Independent of Room)
+  useEffect(() => {
+    const fetchCurriculum = async () => {
+      try {
+        const curSnap = await getDocs(collection(db, 'kurikulum_pusat'));
+        if (!curSnap.empty) {
+          const curData = curSnap.docs.map(d => ({ id: d.id, ...d.data() }));
+          setCurriculumData(curData);
+        }
+      } catch (curErr) {
+        console.error("Error fetching kurikulum_pusat:", curErr);
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchCurriculum();
+  }, []);
+
+  // 📡 Step 3: Sync Normalization Checklist
   useEffect(() => {
     if (!activeRoom) return;
     const docRef = doc(db, 'class_status', activeRoom);
@@ -222,44 +241,32 @@ export default function CurriculumTimeline() {
     return () => unsub();
   }, [activeRoom]);
 
-  // 📡 Step 3: Fetch Live Progress (Student Counts)
+  // 📡 Step 4: Fetch Live Progress (Student Counts)
   useEffect(() => {
     if (!activeRoom) return;
     
     const fetchProgress = async () => {
-      // Fetch all activity journals for this class
-      // Note: In a real production app, we might want to index this better
-      const q = query(collection(db, 'jurnal_aktivitas'));
-      const snap = await getDocs(q);
-      
-      const counts = {};
-      snap.docs.forEach(d => {
-        const data = d.data();
-        // Only count if student is in this room
-        // Simplified: Count unique students per pencapaian
-        const key = data.pencapaian;
-        if (!counts[key]) counts[key] = new Set();
-        counts[key].add(data.murid);
-      });
-
-      const finalMap = {};
-      Object.keys(counts).forEach(k => {
-        finalMap[k] = counts[k].size;
-      });
-      setProgressMap(finalMap);
-      
-      // Also fetch curriculum from Firebase if available
       try {
-        const curSnap = await getDocs(collection(db, 'kurikulum_pusat'));
-        if (!curSnap.empty) {
-          const curData = curSnap.docs.map(d => ({ id: d.id, ...d.data() }));
-          setCurriculumData(curData);
-        }
-      } catch (curErr) {
-        console.error("Error fetching kurikulum_pusat:", curErr);
+        // Fetch all activity journals for this class
+        const q = query(collection(db, 'jurnal_aktivitas'));
+        const snap = await getDocs(q);
+        
+        const counts = {};
+        snap.docs.forEach(d => {
+          const data = d.data();
+          const key = data.pencapaian;
+          if (!counts[key]) counts[key] = new Set();
+          counts[key].add(data.murid);
+        });
+
+        const finalMap = {};
+        Object.keys(counts).forEach(k => {
+          finalMap[k] = counts[k].size;
+        });
+        setProgressMap(finalMap);
+      } catch (err) {
+        console.error("Error fetching progress:", err);
       }
-      
-      setLoading(false);
     };
     fetchProgress();
   }, [activeRoom]);
@@ -352,6 +359,15 @@ export default function CurriculumTimeline() {
   }, [k1Lessons]);
 
   const categories = ['Semua', ...new Set(k1Lessons.map(l => l.areaName))];
+
+  if (loading) {
+    return (
+      <div style={{ height: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column', gap: '16px', color: '#64748B' }}>
+        <Loader2 size={32} className="animate-spin" />
+        <p style={{ fontWeight: 800 }}>Memuat Timeline Kurikulum...</p>
+      </div>
+    );
+  }
 
   return (
     <div className="timeline-container" style={{ maxWidth: '1200px', margin: '0 auto', padding: '20px' }}>
