@@ -3,7 +3,7 @@ import { useParams, useSearchParams, useNavigate } from 'react-router-dom';
 import { db } from '../firebase-config';
 import { collection, query, where, orderBy, getDocs, doc, getDoc } from 'firebase/firestore';
 import { AREA_SENTRA } from '../data/areaSentra';
-import { ArrowLeft, Calendar, BookOpen, Clock, User, Award, Filter, ChevronRight, LayoutGrid, Sparkles, TrendingUp, CheckCircle2, AlertTriangle } from 'lucide-react';
+import { ArrowLeft, Calendar, BookOpen, Clock, User, Award, Filter, ChevronRight, LayoutGrid, Sparkles, TrendingUp, CheckCircle2, AlertTriangle, FileText } from 'lucide-react';
 
 export default function ProfilMurid() {
   const { id } = useParams();
@@ -133,21 +133,60 @@ export default function ProfilMurid() {
   return (
     <div className="page-container">
       {/* Profil Header (Simplified for SPA) */}
-      <div style={{ backgroundColor: 'var(--primary)', color: 'white', padding: '32px', borderRadius: '24px', marginBottom: '32px', display: 'flex', alignItems: 'center', gap: '24px', position: 'relative', overflow: 'hidden' }}>
+      <div style={{ 
+        backgroundColor: 'var(--primary)', 
+        color: 'white', 
+        padding: '32px', 
+        borderRadius: '24px', 
+        marginBottom: '32px', 
+        display: 'flex', 
+        alignItems: 'center', 
+        gap: '24px', 
+        position: 'relative', 
+        overflow: 'hidden',
+        flexWrap: 'wrap' // 📱 Responsive fix
+      }}>
         <div style={{ position: 'absolute', right: '-20px', top: '-20px', opacity: 0.1 }}>
             <Sparkles size={150} />
         </div>
         
-        <div style={{ width: '80px', height: '80px', borderRadius: '24px', backgroundColor: 'rgba(255,255,255,0.2)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '2rem', fontWeight: 800 }}>
-          {(student?.name || 'P').charAt(0)}
+        <div style={{ display: 'flex', alignItems: 'center', gap: '20px', flex: 1, minWidth: '300px' }}>
+            <div style={{ width: '80px', height: '80px', borderRadius: '24px', backgroundColor: 'rgba(255,255,255,0.2)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '2rem', fontWeight: 800, flexShrink: 0 }}>
+              {(student?.name || 'P').charAt(0)}
+            </div>
+            <div>
+              <h1 style={{ fontSize: '2.2rem', marginBottom: '4px', lineHeight: 1.1 }}>{student?.name || 'Memuat...'}</h1>
+              <div style={{ display: 'flex', gap: '16px', fontSize: '0.9rem', opacity: 0.9 }}>
+                <span>{student?.grade || 'Sentra Dasar'}</span>
+                <span>•</span>
+                <span>ID: {id?.substring(0, 8)}</span>
+              </div>
+            </div>
         </div>
-        <div>
-          <h1 style={{ fontSize: '2.2rem', marginBottom: '4px' }}>{student?.name || 'Memuat...'}</h1>
-          <div style={{ display: 'flex', gap: '16px', fontSize: '0.9rem', opacity: 0.9 }}>
-            <span>{student?.grade || 'Sentra Dasar'}</span>
-            <span>•</span>
-            <span>ID: {id?.substring(0, 8)}</span>
-          </div>
+        
+        {/* 🚀 ACTION: CETAK RAPOR */}
+        <div style={{ display: 'flex', gap: '12px' }}>
+             <button 
+                onClick={() => navigate(`/rapor/${id}`)}
+                style={{ 
+                    backgroundColor: 'white', 
+                    color: 'var(--primary)', 
+                    border: 'none', 
+                    padding: '14px 28px', 
+                    borderRadius: '16px', 
+                    fontWeight: 900, 
+                    cursor: 'pointer', 
+                    display: 'flex', 
+                    alignItems: 'center', 
+                    gap: '10px',
+                    boxShadow: '0 8px 16px rgba(0,0,0,0.15)',
+                    transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
+                    whiteSpace: 'nowrap'
+                }}
+                className="hover-pop"
+             >
+                <FileText size={20} /> Cetak Rapor Digital
+             </button>
         </div>
       </div>
 

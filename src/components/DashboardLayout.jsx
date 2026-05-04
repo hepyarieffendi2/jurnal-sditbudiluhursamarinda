@@ -1,7 +1,7 @@
 import React from 'react';
 import { Outlet, Link, useLocation } from 'react-router-dom';
-import { LayoutDashboard, Users, BookOpen, LogOut, Bell, Search, Activity, Calendar, Sparkles, LayoutGrid, Plus, Menu, X, Heart, Book, GraduationCap, Target, List, ShieldAlert } from 'lucide-react';
-import { useAuth } from '../context/AuthContext';
+import { LayoutDashboard, Users, BookOpen, LogOut, Bell, Search, Activity, Calendar, Sparkles, LayoutGrid, Plus, Menu, X, Heart, Book, GraduationCap, Target, Milestone, List, ShieldAlert, BarChart3, UserCog, Link2, FileText } from 'lucide-react';
+import { useAuth, getRoleLabel, getRoleColor, ROLES, canManageContent, canManageAccounts, isKepsek } from '../context/AuthContext';
 
 export default function DashboardLayout() {
     const { user, logout } = useAuth();
@@ -10,6 +10,60 @@ export default function DashboardLayout() {
 
     const isActive = (path) => location.pathname === path;
     const closeSidebar = () => setIsSidebarOpen(false);
+
+    const roleColor = getRoleColor(user?.role);
+    const roleLabel = getRoleLabel(user?.role);
+
+    // Build menu items based on role
+    const dailyMenu = [];
+    const adminMenu = [];
+
+    // ===== MENU HARIAN =====
+    // Dashboard — everyone gets it, but different dashboard for kepsek
+    dailyMenu.push({ to: '/dashboard', icon: LayoutDashboard, label: 'Dashboard' });
+
+    // Guru & Kurikulum: daily input menus
+    if (user?.role !== ROLES.KEPSEK) {
+        dailyMenu.push({ to: '/presensi', icon: Calendar, label: 'Presensi' });
+        dailyMenu.push({ to: '/eksplorasi', icon: GraduationCap, label: 'Sesi Sentra' });
+        dailyMenu.push({ to: '/ibadah', icon: Heart, label: 'Ibadah & Rutinitas' });
+        dailyMenu.push({ to: '/tilawati', icon: Book, label: 'Tilawati' });
+        dailyMenu.push({ to: '/jurnal-harian', icon: List, label: 'Rekap Jurnal' });
+    }
+
+    // Kepsek: monitoring menus
+    if (user?.role === ROLES.KEPSEK) {
+        dailyMenu.push({ to: '/laporan', icon: BarChart3, label: 'Laporan Sekolah' });
+        dailyMenu.push({ to: '/presensi', icon: Calendar, label: 'Presensi' });
+        dailyMenu.push({ to: '/jurnal-harian', icon: List, label: 'Rekap Jurnal' });
+    }
+
+    // ===== MENU ADMINISTRASI =====
+    // Data Siswa — everyone except kepsek gets full access
+    adminMenu.push({ to: '/students', icon: Users, label: 'Data Siswa & Rombel' });
+    adminMenu.push({ to: '/rapor/preview', icon: FileText, label: 'Rapor Digital (Kumer)' });
+
+    // Kurikulum / Album — guru: read, kurikulum: edit
+    if (user?.role !== ROLES.KEPSEK) {
+        adminMenu.push({ to: '/manajemen-kurikulum', icon: BookOpen, label: 'Kurikulum / Album' });
+        adminMenu.push({ to: '/cetak-lkpd', icon: Sparkles, label: 'Generator Kartu (LKPD)' });
+        adminMenu.push({ to: '/rencana', icon: Target, label: 'Jadwal & Target' });
+        adminMenu.push({ to: '/timeline', icon: Milestone, label: 'Timeline Kurikulum' });
+    }
+
+    // Disiplin Positif — everyone
+    adminMenu.push({ to: '/disiplin-positif', icon: ShieldAlert, label: 'Disiplin Positif' });
+
+    // Manajemen Akun — kurikulum & kepsek only
+    if (canManageAccounts(user?.role)) {
+        adminMenu.push({ to: '/manajemen-akun', icon: UserCog, label: 'Manajemen Akun' });
+        adminMenu.push({ to: '/mapping-kumer', icon: Link2, label: 'Mapping Kumer' });
+    }
+
+    // Kepsek: laporan
+    if (user?.role === ROLES.KEPSEK) {
+        // Laporan already added in daily menu
+    }
 
     return (
         <div className="app-layout" style={{ minHeight: '100vh', position: 'relative' }}>
@@ -24,45 +78,26 @@ export default function DashboardLayout() {
                     <button onClick={closeSidebar} className="desktop-hide" style={{ background: 'none', border: 'none', cursor: 'pointer', padding: 0 }}><X size={24} color="var(--text-muted)" /></button>
                 </div>
 
-                <div style={{ fontSize: '0.7rem', fontWeight: 900, color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '12px', marginLeft: '12px' }}>Menu Harian</div>
+                <div style={{ fontSize: '0.7rem', fontWeight: 900, color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '12px', marginLeft: '12px' }}>
+                    {user?.role === ROLES.KEPSEK ? 'Monitoring' : 'Menu Harian'}
+                </div>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '4px', marginBottom: '32px' }}>
-                    <Link to="/dashboard" onClick={closeSidebar} className={`sidebar-link ${isActive('/dashboard') ? 'active' : ''}`}>
-                        <LayoutDashboard size={20} /> Dashboard
-                    </Link>
-                    <Link to="/presensi" onClick={closeSidebar} className={`sidebar-link ${isActive('/presensi') ? 'active' : ''}`}>
-                        <Calendar size={20} /> Presensi
-                    </Link>
-                    <Link to="/eksplorasi" onClick={closeSidebar} className={`sidebar-link ${isActive('/eksplorasi') ? 'active' : ''}`}>
-                        <GraduationCap size={20} /> Sesi Sentra
-                    </Link>
-                    <Link to="/ibadah" onClick={closeSidebar} className={`sidebar-link ${isActive('/ibadah') ? 'active' : ''}`}>
-                        <Heart size={20} /> Ibadah & Rutinitas
-                    </Link>
-                    <Link to="/tilawati" onClick={closeSidebar} className={`sidebar-link ${isActive('/tilawati') ? 'active' : ''}`}>
-                        <Book size={20} /> Tilawati
-                    </Link>
-                    <Link to="/jurnal-harian" onClick={closeSidebar} className={`sidebar-link ${isActive('/jurnal-harian') ? 'active' : ''}`}>
-                        <List size={20} /> Rekap Jurnal
-                    </Link>
+                    {dailyMenu.map(item => (
+                        <Link key={item.to} to={item.to} onClick={closeSidebar} className={`sidebar-link ${isActive(item.to) ? 'active' : ''}`}>
+                            <item.icon size={20} /> {item.label}
+                        </Link>
+                    ))}
                 </div>
 
-                <div style={{ fontSize: '0.7rem', fontWeight: 900, color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '12px', marginLeft: '12px' }}>Perencanaan & Administrasi</div>
+                <div style={{ fontSize: '0.7rem', fontWeight: 900, color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '12px', marginLeft: '12px' }}>
+                    {user?.role === ROLES.KEPSEK ? 'Pengawasan' : 'Perencanaan & Administrasi'}
+                </div>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
-                    <Link to="/students" onClick={closeSidebar} className={`sidebar-link ${isActive('/students') ? 'active' : ''}`}>
-                        <Users size={20} /> Data Siswa & Rombel
-                    </Link>
-                    <Link to="/manajemen-kurikulum" onClick={closeSidebar} className={`sidebar-link ${isActive('/manajemen-kurikulum') ? 'active' : ''}`}>
-                        <BookOpen size={20} /> Kurikulum / Album
-                    </Link>
-                    <Link to="/cetak-lkpd" onClick={closeSidebar} className={`sidebar-link ${isActive('/cetak-lkpd') ? 'active' : ''}`}>
-                        <Sparkles size={20} /> Generator Kartu (LKPD)
-                    </Link>
-                    <Link to="/rencana" onClick={closeSidebar} className={`sidebar-link ${isActive('/rencana') ? 'active' : ''}`}>
-                        <Target size={20} /> Jadwal & Target
-                    </Link>
-                    <Link to="/disiplin-positif" onClick={closeSidebar} className={`sidebar-link ${isActive('/disiplin-positif') ? 'active' : ''}`}>
-                        <ShieldAlert size={20} /> Disiplin Positif
-                    </Link>
+                    {adminMenu.map(item => (
+                        <Link key={item.to} to={item.to} onClick={closeSidebar} className={`sidebar-link ${isActive(item.to) ? 'active' : ''}`}>
+                            <item.icon size={20} /> {item.label}
+                        </Link>
+                    ))}
                 </div>
 
                 <div style={{ marginTop: 'auto', paddingTop: '24px', borderTop: '1px solid #E2E8F0', display: 'flex', flexDirection: 'column', gap: '16px' }}>
@@ -72,7 +107,19 @@ export default function DashboardLayout() {
                         </div>
                         <div style={{ display: 'flex', flexDirection: 'column', overflow: 'hidden' }}>
                             <span style={{ fontSize: '0.9rem', fontWeight: 900, color: '#1E293B', whiteSpace: 'nowrap', textOverflow: 'ellipsis' }}>{user?.displayName || 'Bunda Sari'}</span>
-                            <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)', fontWeight: 700 }}>{user?.role || 'Guru Kelas'}</span>
+                            <span style={{ 
+                                fontSize: '0.7rem', 
+                                fontWeight: 800, 
+                                color: roleColor.text,
+                                backgroundColor: roleColor.bg,
+                                border: `1px solid ${roleColor.border}`,
+                                padding: '2px 8px',
+                                borderRadius: '6px',
+                                width: 'fit-content',
+                                marginTop: '2px'
+                            }}>
+                                {roleLabel}
+                            </span>
                         </div>
                     </div>
                     <button onClick={() => { logout(); closeSidebar(); }} style={{ width: '100%', color: 'var(--danger)', fontWeight: 800, background: 'var(--danger-light)', padding: '12px', borderRadius: '12px', border: 'none', fontSize: '0.9rem', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '10px', justifyContent: 'center', transition: 'all 0.2s' }}>
@@ -110,26 +157,52 @@ export default function DashboardLayout() {
 
             {/* 📱 FLOATING BOTTOM NAVIGATION (Mobile only) */}
             <nav className="bottom-nav desktop-hide">
-                <Link to="/presensi" className={`nav-item ${isActive('/presensi') ? 'active' : ''}`}>
-                    <Calendar size={22} color={isActive('/presensi') ? 'var(--primary)' : 'var(--text-muted)'} />
-                    <span>Presensi</span>
-                </Link>
-                <Link to="/ibadah" className={`nav-item ${isActive('/ibadah') ? 'active' : ''}`}>
-                    <Heart size={22} color={isActive('/ibadah') ? 'var(--primary)' : 'var(--text-muted)'} />
-                    <span>Rutin</span>
-                </Link>
+                {user?.role !== ROLES.KEPSEK ? (
+                    <>
+                        <Link to="/presensi" className={`nav-item ${isActive('/presensi') ? 'active' : ''}`}>
+                            <Calendar size={22} color={isActive('/presensi') ? 'var(--primary)' : 'var(--text-muted)'} />
+                            <span>Presensi</span>
+                        </Link>
+                        <Link to="/ibadah" className={`nav-item ${isActive('/ibadah') ? 'active' : ''}`}>
+                            <Heart size={22} color={isActive('/ibadah') ? 'var(--primary)' : 'var(--text-muted)'} />
+                            <span>Rutin</span>
+                        </Link>
 
-                {/* 🚀 ELECTRIC BLUE FAB (Central Action - Sentra) */}
-                <Link to="/eksplorasi" style={{ textDecoration: 'none' }}>
-                    <div className={`fab-center ${isActive('/eksplorasi') ? 'active' : ''}`} style={{ backgroundColor: isActive('/eksplorasi') ? 'var(--primary)' : '#2D3436' }}>
-                        <GraduationCap size={32} color="white" />
-                    </div>
-                </Link>
+                        {/* 🚀 ELECTRIC BLUE FAB (Central Action - Sentra) */}
+                        <Link to="/eksplorasi" style={{ textDecoration: 'none' }}>
+                            <div className={`fab-center ${isActive('/eksplorasi') ? 'active' : ''}`} style={{ backgroundColor: isActive('/eksplorasi') ? 'var(--primary)' : '#2D3436' }}>
+                                <GraduationCap size={32} color="white" />
+                            </div>
+                        </Link>
 
-                <Link to="/tilawati" className={`nav-item ${isActive('/tilawati') ? 'active' : ''}`}>
-                    <Book size={22} color={isActive('/tilawati') ? 'var(--primary)' : 'var(--text-muted)'} />
-                    <span>Tilawati</span>
-                </Link>
+                        <Link to="/tilawati" className={`nav-item ${isActive('/tilawati') ? 'active' : ''}`}>
+                            <Book size={22} color={isActive('/tilawati') ? 'var(--primary)' : 'var(--text-muted)'} />
+                            <span>Tilawati</span>
+                        </Link>
+                    </>
+                ) : (
+                    <>
+                        <Link to="/dashboard" className={`nav-item ${isActive('/dashboard') ? 'active' : ''}`}>
+                            <LayoutDashboard size={22} color={isActive('/dashboard') ? 'var(--primary)' : 'var(--text-muted)'} />
+                            <span>Home</span>
+                        </Link>
+                        <Link to="/laporan" className={`nav-item ${isActive('/laporan') ? 'active' : ''}`}>
+                            <BarChart3 size={22} color={isActive('/laporan') ? 'var(--primary)' : 'var(--text-muted)'} />
+                            <span>Laporan</span>
+                        </Link>
+
+                        <Link to="/disiplin-positif" style={{ textDecoration: 'none' }}>
+                            <div className={`fab-center ${isActive('/disiplin-positif') ? 'active' : ''}`} style={{ backgroundColor: isActive('/disiplin-positif') ? 'var(--primary)' : '#2D3436' }}>
+                                <ShieldAlert size={32} color="white" />
+                            </div>
+                        </Link>
+
+                        <Link to="/manajemen-akun" className={`nav-item ${isActive('/manajemen-akun') ? 'active' : ''}`}>
+                            <UserCog size={22} color={isActive('/manajemen-akun') ? 'var(--primary)' : 'var(--text-muted)'} />
+                            <span>Akun</span>
+                        </Link>
+                    </>
+                )}
 
                 <button onClick={() => setIsSidebarOpen(true)} className="nav-item" style={{ background: 'none', border: 'none', cursor: 'pointer' }}>
                     <Menu size={22} color="var(--text-muted)" />

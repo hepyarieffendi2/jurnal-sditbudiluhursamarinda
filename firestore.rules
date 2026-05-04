@@ -1,0 +1,68 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    
+    // 1. Aturan Lama Bapak (Registrasi, Visits, dsb)
+    match /registrations/{document=**} {
+      allow read, create: if true;
+      allow update, delete: if request.auth != null;
+    }
+    match /visits/{document=**} {
+      allow read, create: if true;
+      allow update, delete: if request.auth != null;
+    }
+    match /settings/{document=**} {
+      allow read: if true;
+      allow write: if request.auth != null;
+    }
+    match /programs/{document=**} {
+      allow read: if true;
+      allow write: if request.auth != null;
+    }
+    match /testimonials/{document=**} {
+      allow read: if true;
+      allow write: if request.auth != null;
+    }
+    match /gallery/{document=**} {
+      allow read: if true;
+      allow write: if request.auth != null;
+    }
+
+    // 2. ⭐ ATURAN JURNAL SENTRA & ADMINISTRASI (Dibuat Fleksibel)
+    
+    match /students/{document=**} {
+      allow read, write: if true; 
+    }
+
+    match /master_rombel/{document=**} {
+      allow read, write: if true; 
+    }
+
+    match /kurikulum_pusat/{document=**} {
+      allow read: if true;
+      allow write: if request.auth != null;
+    }
+    
+    match /setelan_rak/{document=**} {
+      allow read, write: if true; 
+    }
+    
+    match /riwayat_rak/{document=**} {
+      allow read, write: if true;
+    }
+
+    match /jurnal_aktivitas/{document=**} {
+      allow read, write: if true;
+    }
+
+    // 3. 🔐 SISTEM ROLE & MANAJEMEN AKUN
+    
+    match /users/{document=**} {
+      allow read, write: if true;
+    }
+
+    match /pending_users/{document=**} {
+      allow read, write: if true;
+    }
+  }
+}

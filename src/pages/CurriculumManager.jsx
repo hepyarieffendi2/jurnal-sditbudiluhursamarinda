@@ -47,6 +47,42 @@ export default function CurriculumManager() {
     const stepsRef = useRef(null);
     const errorRef = useRef(null);
     const videoRef = useRef(null);
+    const prereqRef = useRef(null);
+    const directAimRef = useRef(null);
+    const indirectAimRef = useRef(null);
+
+    // --- INTEGRASI PEDAGOGI OTOMATIS (BULK) ---
+    const getPedagogicalMetadata = (label) => {
+        const pure = label.split(': ')[1]?.split(' / ')[0]?.toLowerCase() || label.toLowerCase();
+        
+        const masterData = {
+            "sandpaper": { p: "Kesiapan auditori bunyi huruf.", d: "Asosiasi simbol visual dengan bunyi.", i: "Persiapan otot tangan untuk menulis." },
+            "stamp game": { p: "Golden Beads (Manik Emas).", d: "Operasi mtk (kabataku) secara abstrak.", i: "Pemahaman nilai tempat ribuan." },
+            "golden beads": { p: "Pengenalan angka 1-10.", d: "Konsep kuantitas sistem desimal.", i: "Persiapan operasi matematika besar." },
+            "pink tower": { p: "Koordinasi motorik kasar.", d: "Diskriminasi visual dimensi (besar-kecil).", i: "Persiapan konsep kubik & desimal." },
+            "metal inset": { p: "Cara memegang pensil.", d: "Kontrol tangan & presisi garis.", i: "Persiapan menulis (handwriting)." },
+            "moveable alphabet": { p: "Sandpaper Letters.", d: "Analisis bunyi & menyusun kata.", i: "Persiapan membaca & mengeja." },
+            "spindle box": { p: "Angka raba.", d: "Konsep angka nol & hitungan 1-9.", i: "Asosiasi kuantitas dengan simbol." },
+            "number rods": { p: "Hitungan lisan 1-10.", d: "Konsep kuantitas 1-10 secara linier.", i: "Persiapan sistem desimal." },
+            "tahfidz": { p: "Adab terhadap Al-Qur'an.", d: "Menghafal firman Allah dengan tartil.", i: "Ketenangan hati & penguatan memori." },
+            "adab": { p: "Contoh dari teladan guru.", d: "Pembiasaan karakter islami (Ihsan).", i: "Membangun lingkungan yang damai." }
+        };
+
+        const found = Object.keys(masterData).find(key => pure.includes(key));
+        if (found) {
+            return {
+                prerequisites: masterData[found].p,
+                directAim: masterData[found].d,
+                indirectAim: masterData[found].i
+            };
+        }
+
+        return {
+            prerequisites: "Telah tuntas materi sebelumnya di album ini.",
+            directAim: "Penguasaan konsep dasar sesuai nama materi.",
+            indirectAim: "Kemandirian, konsentrasi, dan koordinasi."
+        };
+    };
 
     const seedCycle2 = async () => {
         if (!window.confirm("Bunda, apakah yakin ingin menyelaraskan Kurikulum? Video URL yang sudah ada di Database akan tetap dipertahankan, namun langkah-langkah presentasi akan diperbarui sesuai standar terbaru.")) return;
@@ -77,32 +113,34 @@ export default function CurriculumManager() {
                 await deleteDoc(doc(db, 'kurikulum_pusat', docSnap.id));
             }
 
-            // 3. Inject Video URL lama ke data AREA_SENTRA_CYCLE2 yang baru
             const finalData = AREA_SENTRA_CYCLE2.map(area => {
                 const newSubAreas = area.subAreas.map(sa => {
                     const newLevels = sa.levels.map(lvl => {
                         const label = typeof lvl === 'object' ? lvl.label : lvl;
                         const key = `${area.id}|${sa.id}|${label}`;
+                        
+                        // Miliki metadata otomatis
+                        const meta = getPedagogicalMetadata(label);
 
-                        if (existingVideoMap[key]) {
-                            // Jika materi berupa object, inject ke presentation
-                            if (typeof lvl === 'object') {
-                                return {
-                                    ...lvl,
-                                    presentation: {
-                                        ...(lvl.presentation || {}),
-                                        videoUrl: existingVideoMap[key]
-                                    }
-                                };
-                            } else {
-                                // Jika materi berupa string, ubah jadi object agar bisa simpan videoUrl
-                                return {
-                                    label: lvl,
-                                    presentation: { videoUrl: existingVideoMap[key], steps: [] }
-                                };
-                            }
+                        if (typeof lvl === 'object') {
+                            return {
+                                ...lvl,
+                                presentation: {
+                                    ...meta, // Default meta
+                                    ...(lvl.presentation || {}), // Ovveride dengan data di file jika ada
+                                    videoUrl: existingVideoMap[key] || lvl.presentation?.videoUrl || '' // Prioritas video database
+                                }
+                            };
+                        } else {
+                            return {
+                                label: lvl,
+                                presentation: { 
+                                    ...meta,
+                                    videoUrl: existingVideoMap[key] || '', 
+                                    steps: [] 
+                                }
+                            };
                         }
-                        return lvl;
                     });
                     return { ...sa, levels: newLevels };
                 });
@@ -372,7 +410,10 @@ export default function CurriculumManager() {
                             tool: toolRef.current?.value || '',
                             steps: stepsRef.current?.value ? stepsRef.current.value.split('\n').filter(s => s.trim() !== '') : [],
                             error: errorRef.current?.value || '',
-                            videoUrl: videoRef.current?.value || ''
+                            videoUrl: videoRef.current?.value || '',
+                            prerequisites: prereqRef.current?.value || '',
+                            directAim: directAimRef.current?.value || '',
+                            indirectAim: indirectAimRef.current?.value || ''
                         }
                     };
                 });
@@ -460,7 +501,13 @@ export default function CurriculumManager() {
         if (stepsRef.current) stepsRef.current.value = suggested.steps.join('\n');
         if (errorRef.current) errorRef.current.value = suggested.error;
 
-        alert(`Magic AI: Panduan Presentasi untuk "${materialName}" berhasil dituangkan! ✨`);
+        // Auto-populate pedagogical context
+        const meta = getPedagogicalMetadata(editingItem.label);
+        if (prereqRef.current) prereqRef.current.value = meta.prerequisites;
+        if (directAimRef.current) directAimRef.current.value = meta.directAim;
+        if (indirectAimRef.current) indirectAimRef.current.value = meta.indirectAim;
+
+        alert(`Magic AI: Panduan Presentasi Berbasis Pedagogi untuk "${materialName}" berhasil dituangkan! ✨`);
     };
 
     const getYTThumbnail = (url) => {
@@ -489,26 +536,76 @@ export default function CurriculumManager() {
                     </div>
                     <h1 style={{ fontSize: '2.4rem', fontWeight: 950, color: '#0F172A', margin: 0, letterSpacing: '-1.5px' }}>Album Management</h1>
                 </div>
-                <div style={{ display: 'flex', gap: '12px' }}>
+                <div style={{ display: 'flex', gap: '12px', alignItems: 'center' }}>
+                    <div style={{ 
+                        display: 'flex', 
+                        alignItems: 'center', 
+                        background: 'rgba(241, 245, 249, 0.8)', 
+                        padding: '4px', 
+                        borderRadius: '16px', 
+                        border: '1.5px solid #E2E8F0',
+                        boxShadow: 'inset 0 2px 4px rgba(0,0,0,0.02)',
+                        transition: 'all 0.3s ease'
+                    }} className="search-group">
+                        <div style={{ padding: '0 12px', color: '#94A3B8' }}>
+                            <Search size={18} />
+                        </div>
+                        <input 
+                            type="text" 
+                            placeholder="Cari kurikulum..." 
+                            value={searchTerm}
+                            onChange={(e) => setSearchTerm(e.target.value)}
+                            style={{ 
+                                border: 'none', 
+                                background: 'transparent', 
+                                padding: '10px 0', 
+                                outline: 'none', 
+                                fontWeight: 700, 
+                                fontSize: '0.9rem', 
+                                color: '#1E293B',
+                                width: searchTerm ? '200px' : '150px',
+                                transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)'
+                            }}
+                        />
+                        {searchTerm && (
+                            <button 
+                                onClick={() => setSearchTerm('')}
+                                style={{ 
+                                    background: '#E2E8F0', 
+                                    border: 'none', 
+                                    borderRadius: '50%', 
+                                    width: '24px', 
+                                    height: '24px', 
+                                    display: 'flex', 
+                                    alignItems: 'center', 
+                                    justifyContent: 'center', 
+                                    cursor: 'pointer', 
+                                    marginRight: '8px',
+                                    color: '#64748B'
+                                }}
+                            >
+                                <X size={14} />
+                            </button>
+                        )}
+                    </div>
+
                     <button
                         onClick={() => setShowShoppingList(true)}
                         className="btn-glass"
                         style={{ padding: '12px 18px', borderRadius: '14px', border: '1.5px solid #E2E8F0', background: 'white', color: '#64748B', fontWeight: 800, cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '8px' }}
                     >
-                        <Package size={18} /> Inventaris
+                        <Package size={18} /> <span className="tab-text-full">Inventaris</span>
                     </button>
 
-                    <div style={{ position: 'relative' }}>
-                        <button
-                            className="btn-primary"
-                            onClick={() => {
-                                if (window.confirm("Buka panel Sinkronisasi AI?")) seedCycle2();
-                            }}
-                            style={{ padding: '12px 18px', borderRadius: '14px', background: '#0F172A', color: 'white', border: 'none', fontWeight: 900, cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '8px', boxShadow: '0 10px 20px rgba(15,23,42,0.2)' }}
-                        >
-                            <Wand2 size={18} /> <span className="tab-text-full">Sync AI</span>
-                        </button>
-                    </div>
+                    <button
+                        className="btn-primary"
+                        onClick={() => {
+                            if (window.confirm("Buka panel Sinkronisasi AI?")) seedCycle2();
+                        }}
+                        style={{ padding: '12px 18px', borderRadius: '14px', background: '#0F172A', color: 'white', border: 'none', fontWeight: 900, cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '8px', boxShadow: '0 10px 20px rgba(15,23,42,0.2)' }}
+                    >
+                        <Wand2 size={18} /> <span className="tab-text-full">Sync AI</span>
+                    </button>
                 </div>
             </div>
 
@@ -720,16 +817,79 @@ export default function CurriculumManager() {
                                 </div>
 
                                 {/* Command Bar: Consolidated Search & Actions (Sticky) */}
-                                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '12px 32px', backgroundColor: 'rgba(255,255,255,0.95)', backdropFilter: 'blur(10px)', borderTop: '1px solid #F1F5F9', borderBottom: '1px solid #F1F5F9', position: 'sticky', top: 0, zIndex: 10 }}>
-                                    <div style={{ position: 'relative', flex: 1, maxWidth: '400px' }}>
-                                        <Search size={14} style={{ position: 'absolute', left: '16px', top: '50%', transform: 'translateY(-50%)', color: '#94A3B8' }} />
-                                        <input
-                                            type="text"
-                                            placeholder={`Cari materi di ${activeSubArea?.name}...`}
-                                            value={searchTerm}
-                                            onChange={e => setSearchTerm(e.target.value)}
-                                            style={{ padding: '12px 16px 12px 42px', borderRadius: '14px', border: '1px solid #E2E8F0', fontSize: '0.9rem', outline: 'none', width: '100%', fontWeight: 700, backgroundColor: '#F8FAFC' }}
-                                        />
+                                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '12px 32px', backgroundColor: 'rgba(255,255,255,0.8)', backdropFilter: 'blur(12px)', borderTop: '1px solid #F1F5F9', borderBottom: '1px solid #F1F5F9', position: 'sticky', top: 0, zIndex: 10 }}>
+                                    <div style={{ display: 'flex', alignItems: 'center', gap: '12px', flex: 1 }}>
+                                        <div style={{ 
+                                            position: 'relative', 
+                                            flex: 1, 
+                                            maxWidth: '500px',
+                                            transition: 'all 0.3s ease'
+                                        }}>
+                                            <Search size={16} style={{ 
+                                                position: 'absolute', 
+                                                left: '18px', 
+                                                top: '50%', 
+                                                transform: 'translateY(-50%)', 
+                                                color: searchTerm ? activeArea.color : '#94A3B8',
+                                                transition: 'color 0.3s ease'
+                                            }} />
+                                            <input
+                                                type="text"
+                                                placeholder={`Cari materi di ${activeSubArea?.name}...`}
+                                                value={searchTerm}
+                                                onChange={e => setSearchTerm(e.target.value)}
+                                                style={{ 
+                                                    padding: '14px 20px 14px 50px', 
+                                                    borderRadius: '18px', 
+                                                    border: searchTerm ? `2px solid ${activeArea.color}40` : '1px solid #E2E8F0', 
+                                                    fontSize: '0.95rem', 
+                                                    outline: 'none', 
+                                                    width: '100%', 
+                                                    fontWeight: 700, 
+                                                    backgroundColor: searchTerm ? 'white' : '#F8FAFC',
+                                                    boxShadow: searchTerm ? `0 10px 25px ${activeArea.color}10` : 'none',
+                                                    transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)'
+                                                }}
+                                            />
+                                            {searchTerm && (
+                                                <button 
+                                                    onClick={() => setSearchTerm('')}
+                                                    style={{ 
+                                                        position: 'absolute', 
+                                                        right: '14px', 
+                                                        top: '50%', 
+                                                        transform: 'translateY(-50%)',
+                                                        background: '#F1F5F9', 
+                                                        border: 'none', 
+                                                        borderRadius: '10px', 
+                                                        padding: '6px 10px',
+                                                        fontSize: '0.7rem',
+                                                        fontWeight: 900,
+                                                        color: '#64748B',
+                                                        cursor: 'pointer',
+                                                        display: 'flex',
+                                                        alignItems: 'center',
+                                                        gap: '4px'
+                                                    }}
+                                                >
+                                                    <X size={12} /> ESC
+                                                </button>
+                                            )}
+                                        </div>
+                                        <button style={{ 
+                                            padding: '14px', 
+                                            borderRadius: '18px', 
+                                            border: '1px solid #E2E8F0', 
+                                            background: 'white', 
+                                            color: '#64748B',
+                                            cursor: 'pointer',
+                                            display: 'flex',
+                                            alignItems: 'center',
+                                            justifyContent: 'center',
+                                            transition: 'all 0.2s'
+                                        }} className="hover-lift">
+                                            <Filter size={18} />
+                                        </button>
                                     </div>
 
                                     <div style={{ display: 'flex', gap: '12px', alignItems: 'center', marginLeft: '24px' }}>
@@ -916,6 +1076,22 @@ export default function CurriculumManager() {
                             </div>
 
                             <div>
+                                <label style={{ fontSize: '0.8rem', fontWeight: 600, color: '#64748B', display: 'block', marginBottom: '8px' }}>Prasyarat (Prerequisites)</label>
+                                <input ref={prereqRef} type="text" defaultValue={editingItem.data?.prerequisites || ''} placeholder="Materi apa yang harus dikuasai sebelumnya?" style={{ width: '100%', padding: '14px 16px', borderRadius: '8px', border: '1px solid #E2E8F0', backgroundColor: '#F8FAFC', outline: 'none', fontSize: '0.95rem', fontWeight: 500, transition: 'all 0.2s' }} onFocus={e => e.target.style.borderColor = '#CBD5E1'} onBlur={e => e.target.style.borderColor = '#E2E8F0'} />
+                            </div>
+
+                            <div style={{ display: 'flex', gap: '16px' }}>
+                                <div style={{ flex: 1 }}>
+                                    <label style={{ fontSize: '0.8rem', fontWeight: 600, color: '#64748B', display: 'block', marginBottom: '8px' }}>Tujuan Langsung</label>
+                                    <input ref={directAimRef} type="text" defaultValue={editingItem.data?.directAim || ''} placeholder="Direct Aim..." style={{ width: '100%', padding: '14px 16px', borderRadius: '8px', border: '1px solid #E2E8F0', backgroundColor: '#F8FAFC', outline: 'none', fontSize: '0.95rem', fontWeight: 500, transition: 'all 0.2s' }} onFocus={e => e.target.style.borderColor = '#CBD5E1'} onBlur={e => e.target.style.borderColor = '#E2E8F0'} />
+                                </div>
+                                <div style={{ flex: 1 }}>
+                                    <label style={{ fontSize: '0.8rem', fontWeight: 600, color: '#64748B', display: 'block', marginBottom: '8px' }}>Tujuan Tidak Langsung</label>
+                                    <input ref={indirectAimRef} type="text" defaultValue={editingItem.data?.indirectAim || ''} placeholder="Indirect Aim..." style={{ width: '100%', padding: '14px 16px', borderRadius: '8px', border: '1px solid #E2E8F0', backgroundColor: '#F8FAFC', outline: 'none', fontSize: '0.95rem', fontWeight: 500, transition: 'all 0.2s' }} onFocus={e => e.target.style.borderColor = '#CBD5E1'} onBlur={e => e.target.style.borderColor = '#E2E8F0'} />
+                                </div>
+                            </div>
+
+                            <div>
                                 <label style={{ fontSize: '0.8rem', fontWeight: 600, color: '#64748B', display: 'block', marginBottom: '8px' }}>Material / Alat yang Diperlukan (APE)</label>
                                 <div style={{ display: 'flex', gap: '10px' }}>
                                     <input ref={toolRef} type="text" defaultValue={editingItem.data?.toolDisplay || (editingItem.data?.toolsList?.join(', ')) || editingItem.data?.tool || ''} placeholder="Contoh: Balok merah biru, alas karpet..." style={{ flex: 1, padding: '14px 16px', borderRadius: '8px', border: '1px solid #E2E8F0', backgroundColor: '#F8FAFC', outline: 'none', fontSize: '0.95rem', fontWeight: 500, transition: 'all 0.2s' }} onFocus={e => e.target.style.borderColor = '#CBD5E1'} onBlur={e => e.target.style.borderColor = '#E2E8F0'} />
@@ -1043,17 +1219,42 @@ export default function CurriculumManager() {
                                 )}
                             </div>
                         </div>
-
                         {/* Content Scrollable */}
                         <div style={{ flex: 1, overflowY: 'auto', padding: '32px 40px 48px' }}>
                             {/* Apparatus */}
                             {detailDrawerItem.hasTool && (
-                                <div style={{ marginBottom: '32px', padding: '20px', backgroundColor: '#FFFBEB', borderRadius: '20px', border: '1px solid #FEF3C7' }}>
-                                    <div style={{ fontSize: '0.7rem', fontWeight: 950, color: '#D97706', textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '10px', display: 'flex', alignItems: 'center', gap: '8px' }}>
-                                        <Package size={14} /> Alat / Apparatus (APE)
+                                <div style={{ padding: '24px 20px', background: `${detailDrawerItem.areaColor}08`, borderRadius: '24px', border: `1px solid ${detailDrawerItem.areaColor}15` }}>
+                                    <div style={{ fontSize: '0.7rem', fontWeight: 950, color: detailDrawerItem.areaColor, textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '16px', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                                        <Package size={14} /> Alat & Bahan
                                     </div>
-                                    <div style={{ fontSize: '0.9rem', fontWeight: 700, color: '#92400E', lineHeight: '1.6' }}>
-                                        {detailDrawerItem.lvl.presentation.toolDisplay || (detailDrawerItem.lvl.presentation.toolsList?.join(', ')) || detailDrawerItem.lvl.presentation.tool}
+                                    <div style={{ fontSize: '0.9rem', fontWeight: 600, color: '#475569', lineHeight: '1.5' }}>
+                                        {detailDrawerItem.lvl.presentation.toolDisplay || detailDrawerItem.lvl.presentation.tool || detailDrawerItem.lvl.presentation.toolsList?.join(', ')}
+                                    </div>
+                                </div>
+                            )}
+
+                            {/* Prerequisites & Aims */}
+                            {(detailDrawerItem.lvl.presentation?.prerequisites || detailDrawerItem.lvl.presentation?.directAim || detailDrawerItem.lvl.presentation?.indirectAim) && (
+                                <div style={{ marginTop: '24px', display: 'flex', flexDirection: 'column', gap: '16px' }}>
+                                    {detailDrawerItem.lvl.presentation.prerequisites && (
+                                        <div style={{ padding: '16px 20px', background: '#F8FAFC', borderRadius: '20px', border: '1px solid #E2E8F0' }}>
+                                            <div style={{ fontSize: '0.65rem', fontWeight: 900, color: '#64748B', textTransform: 'uppercase', letterSpacing: '0.5px', marginBottom: '4px' }}>Prasyarat</div>
+                                            <div style={{ fontSize: '0.85rem', fontWeight: 600, color: '#334155' }}>{detailDrawerItem.lvl.presentation.prerequisites}</div>
+                                        </div>
+                                    )}
+                                    <div style={{ display: 'flex', gap: '12px' }}>
+                                        {detailDrawerItem.lvl.presentation.directAim && (
+                                            <div style={{ flex: 1, padding: '16px 20px', background: '#F0F9FF', borderRadius: '20px', border: '1px solid #BAE6FD' }}>
+                                                <div style={{ fontSize: '0.65rem', fontWeight: 900, color: '#0369A1', textTransform: 'uppercase', letterSpacing: '0.5px', marginBottom: '4px' }}>Tujuan Langsung</div>
+                                                <div style={{ fontSize: '0.85rem', fontWeight: 600, color: '#075985' }}>{detailDrawerItem.lvl.presentation.directAim}</div>
+                                            </div>
+                                        )}
+                                        {detailDrawerItem.lvl.presentation.indirectAim && (
+                                            <div style={{ flex: 1, padding: '16px 20px', background: '#F5F3FF', borderRadius: '20px', border: '1px solid #DDD6FE' }}>
+                                                <div style={{ fontSize: '0.65rem', fontWeight: 900, color: '#6D28D9', textTransform: 'uppercase', letterSpacing: '0.5px', marginBottom: '4px' }}>Tujuan Tdk Langsung</div>
+                                                <div style={{ fontSize: '0.85rem', fontWeight: 600, color: '#5B21B6' }}>{detailDrawerItem.lvl.presentation.indirectAim}</div>
+                                            </div>
+                                        )}
                                     </div>
                                 </div>
                             )}
@@ -1373,6 +1574,17 @@ export default function CurriculumManager() {
           }
           .card-header-hover:hover {
               background-color: #F8FAFC !important;
+          }
+          .search-group:focus-within {
+              border-color: var(--primary) !important;
+              background: white !important;
+              box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+              width: 300px;
+          }
+          .hover-lift:hover {
+              transform: translateY(-2px);
+              background: #F8FAFC;
+              border-color: #CBD5E1;
           }
           @keyframes accordionIn {
               from { opacity: 0; transform: translateY(-5px); }

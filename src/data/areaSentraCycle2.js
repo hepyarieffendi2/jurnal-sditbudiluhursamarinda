@@ -16,6 +16,9 @@ export const AREA_SENTRA_CYCLE2 = [
             presentation: { 
               toolDisplay: "Sandpaper Hijaiyah Letters, Baki Pasir",
               toolsList: ["Sandpaper Hijaiyah", "Sand Tray"], 
+              prerequisites: "Anak sudah mengenal bunyi huruf hijaiyah secara lisan (auditori).",
+              directAim: "Menghubungkan lambang visual huruf hijaiyah dengan bunyi dan gerakan menulisnya.",
+              indirectAim: "Melatih otot jari dan memori otot (muscle memory) untuk persiapan menulis Arab.",
               error: "Mekanis: Goresan salah; Auditori: Salah bunyi makhraj.",
               steps: [
                 "I. KEGIATAN AWAL: [Berkesadaran]",
@@ -435,47 +438,6 @@ export const AREA_SENTRA_CYCLE2 = [
         name: 'Akhlak', 
         levels: [
           { 
-            label: 'K1: Adab Makan & Minum Sunnah / Sunnah Etiquette for Eating & Drinking', 
-            presentation: { 
-              toolDisplay: "Nampan, Gelas, Serbet, Alas Makan",
-              toolsList: ["Tray", "Glass", "Napkin"], 
-              error: "Mekanis: Menggunakan tangan kiri; tidak duduk saat minum.",
-              steps: [
-                "I. KEGIATAN AWAL: [Berkesadaran]",
-                "1. Memulai dengan membaca Basmalah.",
-                "2. Undang anak: 'Mari kita belajar cara makan yang dicintai Allah dan Rasul-Nya.'",
-                "3. Siapkan nampan berisi gelas, serbet, dan alat makan.",
-                "4. Duduk dengan tenang di atas kursi atau lesehan.",
-                "II. KEGIATAN INTI: [Bermakna] - MEMAHAMI",
-                "5. Guru mendemonstrasikan mencuci tangan dengan air mengalir.",
-                "6. Guru: 'Tangan kita harus bersih (Thaharah) sebelum menyentuh rezeki Allah.'",
-                "7. Ucapkan doa makan dengan suara yang lembut dan jelas.",
-                "8. Ambil gelas dengan tangan KANAN: 'Gunakan tangan terbaikmu.'",
-                "9. Minum dengan 3 kali tegukan, jangan bernapas di dalam gelas.",
-                "10. Guru: 'Rasakan airnya mengalir, Allah berikan kita kesegaran.'",
-                "11. Ambil makanan yang paling dekat dengan posisimu (Adab Rasul).",
-                "12. Kunyah makanan perlahan tanpa mengeluarkan suara (Ihsan).",
-                "13. Berhenti makan sebelum kenyang, sesuai pesan Rasulullaah saw.",
-                "14. Jelaskan bahwa makanan adalah nikmat yang tidak boleh dicela.",
-                "15. Bersihkan sisa makanan di piring hingga bersih (Amanah).",
-                "16. Ucapkan doa setelah makan sebagai rasa syukur (Hamdalah).",
-                "17. Lipat serbet kembali dengan rapi ke tempat asalnya.",
-                "III. KEGIATAN INTI: [Bermakna] - MENGAPLIKASIKAN",
-                "18. Minta anak mempraktikkan makan siang dengan 3 sunnah Rasulullah.",
-                "19. Latih anak melayani temannya mengambilkan air minum (Kedermawanan).",
-                "IV. KEGIATAN INTI: [Berkesadaran] - MEREFLEKSIKAN",
-                "20. Memberikan apresiasi atas usaha, ketelitian, dan kejujuran anak dalam belajar.",
-                "21. Mengajak anak bersyukur atas ilmu baru dan kemampuan yang Allah anugerahkan.",
-                "22. Menanyakan perasaan anak setelah berhasil menyelesaikan tantangan ini.",
-                "V. KEGIATAN PENUTUP: [Menyenangkan]",
-                "23. Cuci kembali peralatan makan dan keringkan dengan lap.",
-                "24. Simpan nampan ke rak peralatan praktis asalnya.",
-                "25. Membaca Hamdalah.",
-                "26. Ucapkan kepada murid: Alhamdulillahi jaza kumullohu khoiro."
-              ] 
-            } 
-          },
-          { 
             label: 'K1: Hafalan Hadis Harian / Daily Hadith Memorization', 
             presentation: { 
               toolDisplay: "Kartu Hadis Bergambar, Pohon Kebaikan",
@@ -515,47 +477,6 @@ export const AREA_SENTRA_CYCLE2 = [
                 "26. Ucapkan kepada murid: Alhamdulillahi jaza kumullohu khoiro."
               ] 
             }
-          },
-          { 
-            label: 'K2: Adab Berbicara & Mendengar / Etiquette of Speaking & Listening', 
-            presentation: { 
-              toolDisplay: "Cermin Berhias, Kantong Kata Baik, Lonceng",
-              toolsList: ["Mirror", "Word Bags"], 
-              error: "Sosial: Memotong pembicaraan orang lain; suara terlalu keras.",
-              steps: [
-                "I. KEGIATAN AWAL: [Berkesadaran]",
-                "1. Memulai dengan membaca Basmalah.",
-                "2. Undang anak: 'Mari kita belajar rahasia mutiara yang keluar dari lisan kita.'",
-                "3. Siapkan kantong berisi gulungan kertas 'Kata-kata Baik' (Salam, Maaf, Tolong, Terima Kasih).",
-                "II. KEGIATAN INTI: [Bermakna] - MEMAHAMI",
-                "4. Guru mendemonstrasikan cara mendengarkan: Menatap mata and bibir terkunci.",
-                "5. Guru: 'Mendengarkan adalah cara kita menghormati teman (Adab).'",
-                "6. Gunakan lonceng: Saat lonceng berbunyi, semua berhenti bicara and mendengarkan.",
-                "7. Demonstrasikan 'Suara Dalam': Bicara dengan volume yang hanya terdengar oleh kawan bicara.",
-                "8. Guru: 'Lisan kita harus jujur (Shiddiq) and manis seperti madu.'",
-                "9. Bahas larangan mengejek (Ghibah) menggunakan analogi buah yang busuk.",
-                "10. Berikan simulasi: Anak meminta izin sebelum berbicara di dalam lingkaran.",
-                "11. Ajarkan cara meminta maaf jika tidak sengaja menyakiti hati kawan.",
-                "12. Jelaskan bahwa malaikat selalu mencatat setiap kata yang kita ucapkan.",
-                "13. Guru: 'Gunakan mulutmu untuk berdzikir and berkata yang bermanfaat.'",
-                "14. Pantau interaksi anak saat bekerja dalam kelompok.",
-                "15. Berikan apresiasi pada anak yang mampu mendengarkan presentasi guru hingga usai.",
-                "16. Katakan: 'Betapa indahnya kelas ini jika semua bicara dengan penuh cinta.'",
-                "17. Biarkan anak berlatih mengucapkan 'Jazakallahu khair' kepada kawannya.",
-                "III. KEGIATAN INTI: [Bermakna] - MENGAPLIKASIKAN",
-                "18. Minta anak mengumpulkan 5 ucapan 'Terima Kasih' dari teman-temannya hari ini.",
-                "19. Latih anak menjadi pendengar yang baik saat teman menceritakan idenya.",
-                "IV. KEGIATAN INTI: [Berkesadaran] - MEREFLEKSIKAN",
-                "20. Memberikan apresiasi atas usaha, ketelitian, dan kejujuran anak dalam belajar.",
-                "21. Mengajak anak bersyukur atas ilmu baru dan kemampuan yang Allah anugerahkan.",
-                "22. Menanyakan perasaan anak setelah berhasil menyelesaikan tantangan ini.",
-                "V. KEGIATAN PENUTUP: [Menyenangkan]",
-                "23. Simpan cermin and kantong kata baik ke lemari adab.",
-                "24. Rapikan kursi presentasi.",
-                "25. Membaca Hamdalah.",
-                "26. Ucapkan kepada murid: Alhamdulillahi jaza kumullohu khoiro."
-              ] 
-            } 
           },
           { 
             label: 'K2: Hafalan Hadis Harian (Lvl 2) / Daily Hadith Memorization (Lvl 2)', 
@@ -728,47 +649,6 @@ export const AREA_SENTRA_CYCLE2 = [
         id: 'fikih', 
         name: 'Fikih', 
         levels: [
-          { 
-            label: 'K1: Tata Cara Berwudhu / Procedure for Wudhu (Thaharah)', 
-            presentation: { 
-              toolDisplay: "Poster Wudhu, Teko Air, Baskom, Handuk Kecil",
-              toolsList: ["Water Pitcher", "Basin", "Towel"], 
-              error: "Mekanis: Urutan wudhu terbalik; tidak tertib (Tertib).",
-              steps: [
-                "I. KEGIATAN AWAL: [Berkesadaran]",
-                "1. Memulai dengan membaca Basmalah.",
-                "2. Undang anak: 'Mari kita bersuci agar kita suci saat menghadap Allah.'",
-                "3. Siapkan area kerja dengan baskom and teko berisi air bersih.",
-                "4. Guru menunjukkan poster urutan wudhu yang benar.",
-                "II. KEGIATAN INTI: [Bermakna] - MEMAHAMI",
-                "5. Guru melipat lengan baju hingga ke atas siku dengan rapi.",
-                "6. Ucapkan niat wudhu di dalam hati dengan penuh kehadiran hati.",
-                "7. Cuci kedua telapak tangan hingga sela-sela jari (3 kali).",
-                "8. Guru: 'Bersihkan tanganmu dari segala hal yang tidak baik.'",
-                "9. Berkumur-kumur and hirup air ke hidung (Istinsyaq) dengan lembut.",
-                "10. Basuh muka secara merata hingga batas rambut and telinga.",
-                "11. Basuh tangan kanan hingga sikut, lalu tangan kiri (3 kali).",
-                "12. Usap sebagian kepala and telinga dengan air yang baru.",
-                "13. Basuh kaki kanan hingga mata kaki, lalu kaki kiri.",
-                "14. Guru: 'Pastikan air menyentuh setiap lekukan kulitmu (Ihsan).'",
-                "15. Jelaskan bahwa wudhu bukan sekadar membasahi, tapi mensucikan jiwa.",
-                "16. Berdoa setelah wudhu dengan menghadap kiblat.",
-                "17. Keringkan anggota wudhu dengan handuk kecil secara perlahan.",
-                "III. KEGIATAN INTI: [Bermakna] - MENGAPLIKASIKAN",
-                "18. Minta anak mempraktikkan wudhu di wastafel sekolah dengan aliran air kecil (Hemat).",
-                "19. Latih anak menghafal urutan wudhu menggunakan kartu bergambar.",
-                "IV. KEGIATAN INTI: [Berkesadaran] - MEREFLEKSIKAN",
-                "20. Memberikan apresiasi atas usaha, ketelitian, dan kejujuran anak dalam belajar.",
-                "21. Mengajak anak bersyukur atas ilmu baru dan kemampuan yang Allah anugerahkan.",
-                "22. Menanyakan perasaan anak setelah berhasil menyelesaikan tantangan ini.",
-                "V. KEGIATAN PENUTUP: [Menyenangkan]",
-                "23. Buang air bekas di baskom ke saluran pembuangan.",
-                "24. Simpan kembali peralatan wudhu ke tempat asalnya.",
-                "25. Membaca Hamdalah.",
-                "26. Ucapkan kepada murid: Alhamdulillahi jaza kumullohu khoiro."
-              ] 
-            } 
-          },
           { 
             label: 'K1: Praktik Sholat 2 Rakaat / 2-Rakaat Prayer Practice (Fajr)', 
             presentation: { 
@@ -8316,6 +8196,62 @@ export const AREA_SENTRA_CYCLE2 = [
             } 
           }
         ]
+      },
+      {
+        id: 'pkn_simbol',
+        name: 'Simbol & Sila Pancasila',
+        levels: [
+          { 
+            label: 'K1: Kartu 3 Bagian Simbol Pancasila / Pancasila Symbols 3-Part Cards', 
+            presentation: { 
+              toolDisplay: 'Garuda Pancasila, Kartu 3 Bagian (Gambar, Label, Kontrol)',
+              steps: [
+                "1. Membaca Basmalah.",
+                "2. Kenalkan Lambang Garuda: 'Ini adalah identitas kita sebagai bangsa yang kuat.'",
+                "3. Gunakan Three Period Lesson untuk mengenali: Bintang, Rantai, Pohon Beringin, Kepala Banteng, Padi & Kapas.",
+                "4. Cocokkan gambar simbol dengan sila yang dibacakan guru.",
+                "5. Membaca Hamdalah."
+              ] 
+            } 
+          },
+          { 
+            label: 'K1-K2: Menghafal Sila dengan Gerakan / Sila Memorization with Gestures', 
+            presentation: { 
+              toolDisplay: 'Poster Pancasila Besar',
+              steps: [
+                "1. Berdiri tegak and rapi (Sikap Sempurna).",
+                "2. Guru membacakan sila demi sila dengan gerakan tangan yang mewakili maknanya (Ketuhanan, Keadilan, dll).",
+                "3. Anak mengikuti dengan tartil and tertib."
+              ]
+            }
+          }
+        ]
+      },
+      {
+        id: 'pkn_nkri',
+        name: 'Identitas & NKRI',
+        levels: [
+          { 
+            label: 'K1-K2: Mewarnai & Mengenal Bendera Merah Putih / The Indonesian Flag', 
+            presentation: { 
+              toolDisplay: 'Kertas Gambar, Cat Air (Merah & Putih)',
+              steps: [
+                "1. Jelaskan arti Merah (Berani) and Putih (Suci).",
+                "2. Latih anak mewarnai dengan rapi tanpa keluar garis."
+              ]
+            }
+          },
+          { 
+            label: 'K2-K3: Peta Provinsi & Budaya Lokal / Provincial Maps & Local Culture', 
+            presentation: { 
+              toolDisplay: 'Puzzle Map Indonesia, Gambar Pakaian Adat',
+              steps: [
+                "1. Menemukan letak Kalimantan Timur di peta.",
+                "2. Mengenali keberagaman suku yang tetap rukun (Bhinneka Tunggal Ika)."
+              ]
+            }
+          }
+        ]
       }
     ]
   },
@@ -8993,40 +8929,6 @@ export const AREA_SENTRA_CYCLE2 = [
             } 
           },
           { 
-            label: 'K2: Adab Menyambut Tamu / Receiving a Visitor', 
-            presentation: { 
-              toolDisplay: 'Guest chair, Tray with snacks, Guestbook, Pen',
-              steps: [
-                "I. KEGIATAN AWAL: [Berkesadaran]",
-                "1. Memulai dengan membaca Basmalah.",
-                "2. Undang anak: 'Siapa yang ingin menjadi tuan rumah bagi tamu sekolah hari ini?'",
-                "3. Tentukan dua anak sebagai 'Greeters'.",
-                "II. KEGIATAN INTI: [Bermakna] - MEMAHAMI",
-                "4. Sambutan di Pintu: 'Ucapkan Assalamu'alaikum dengan wajah ceria (Smile).'",
-                "5. In English: 'Welcome, Guest, Hospitality (Ikramul Dhaif), and Invitation.'",
-                "6. Persilakan Duduk: 'Silakan duduk di sini, Bapak/Ibu (Gesture dengan tangan terbuka).'",
-                "7. Berikan Informasi: 'Selamat datang di Kelas Budi Luhur. Saya (Sebutkan Nama).'",
-                "8. Tawarkan Minum: 'Bolehkah saya ambilkan air minum?'",
-                "9. Ambilkan nampan: 'Bawa nampan dengan dua tangan and letakkan perlahan (An-Nur: 27).'",
-                "10. Berikan Buku Tamu: 'Mohon berkenan mengisi identitas kedatangan.'",
-                "11. Jelaskan adab: 'Memuliakan tamu adalah tanda iman kepada Allah and hari akhir.'",
-                "III. KEGIATAN INTI: [Bermakna] - MENGAPLIKASIKAN",
-                "12. Latihan berjabat tangan (firm grip) and menatap mata (Eye contact).",
-                "13. Menyusun paket snack kecil untuk bingkisan tamu.",
-                "14. Melakukan simulasi tur kelas singkat (Class tour) untuk tamu.",
-                "IV. KEGIATAN INTI: [Berkesadaran] - MEREFLEKSIKAN",
-                "15. Memberikan apresiasi atas usaha, ketelitian, dan kejujuran anak dalam belajar.",
-                "16. Mengajak anak bersyukur atas ilmu baru dan kemampuan yang Allah anugerahkan.",
-                "17. Menanyakan perasaan anak setelah berhasil menyelesaikan tantangan ini.",
-                "V. KEGIATAN PENUTUP: [Menyenangkan]",
-                "18. Cuci gelas bekas tamu and lap nampan hingga kering.",
-                "19. Simpan buku tamu ke meja front-desk kelas.",
-                "20. Membaca Hamdalah.",
-                "21. Ucapkan kepada murid: Alhamdulillahi jaza kumullohu khoiro."
-              ] 
-            } 
-          },
-          { 
             label: 'K2: Adab Berkomunikasi Digital / Using Telephone & Messaging', 
             presentation: { 
               toolDisplay: 'Toy phone/Model, Chat template on paper, Tablet (Mock)',
@@ -9057,111 +8959,7 @@ export const AREA_SENTRA_CYCLE2 = [
                 "19. Buang kertas sisa desain layar ke tempat sampah.",
                 "20. Membaca Hamdalah.",
                 "21. Ucapkan kepada murid: Alhamdulillahi jaza kumullohu khoiro."
-              ] 
-            } 
-          },
-          { 
-            label: 'K1-K3: Mendengar & Memperhatikan / Active Listening', 
-            presentation: { 
-              toolDisplay: 'Speaking Object (Stone/Stick)',
-              toolsList: ['Speaking Object'], 
-              error: 'Interupsi; tidak melakukan kontak mata dengan pembicara.',
-              steps: [
-                "I. KEGIATAN AWAL: [Berkesadaran]",
-                "1. Memulai dengan membaca Basmalah.",
-                "2. Undang anak membentuk lingkaran (Halaqah): 'Mari kita bermusyawarah, menyatukan hati dalam keputusan.'",
-                "3. Guru: 'Allah memerintahkan kita untuk bermusyawarah dalam segala urusan.'",
-                "II. KEGIATAN INTI: [Bermakna] - MEMAHAMI",
-                "4. Guru menjelaskan aturan main: 'Listen with your ears and your heart.'",
-                "5. Demonstrasikan posisi duduk yang menghadap pembicara (Adab Majelis).",
-                "6. Guru melakukan kontak mata dengan anak secara lembut (Memperhatikan Lawan Bicara).",
-                "7. Saat satu anak bicara, yang lain diam mutlak (Mendengar Aktif).",
-                "8. Guru: 'Diammu saat saudaramu bicara adalah bentuk memuliakannya.'",
-                "9. Berikan frase Inggris untuk menanggapi: 'That's a good point,' atau 'I agree with you.'",
-                "10. Ajarkan cara menyanggah dengan santun: 'I have a different idea,' bukan 'You are wrong.'",
-                "11. Guru: 'Berbeda pendapat itu boleh, tapi hati harus tetap satu (Ukhuwah).'",
-                "12. Latih memparafrase secara lisan: 'So, you mean that...?'",
-                "13. Tekankan bahwa dalam diskusi, kita mencari kebenaran (Haq), bukan kemenangan diri.",
-                "14. Guru: 'Bicaralah yang benar atau diam (Sunnah Nabi).'",
-                "III. KEGIATAN INTI: [Bermakna] - MENGAPLIKASIKAN",
-                "15. Mintalah kelompok diskusi memutuskan satu proyek bersama (berbagi peran).",
-                "16. Minta anak memberikan pujian kepada teman yang memberikan ide bagus.",
-                "IV. KEGIATAN INTI: [Berkesadaran] - MEREFLEKSIKAN",
-                "17. Memberikan apresiasi atas usaha, ketelitian, dan kejujuran anak dalam belajar atau berdiskusi.",
-                "18. Mengajak anak bersyukur atas kemampuan menjalin ukhuwah.",
-                "V. KEGIATAN PENUTUP: [Menyenangkan]",
-                "19. Simpan kembali 'Speaking Object' ke rak materi.",
-                "20. Membaca Hamdalah.",
-                "21. Ucapkan kepada murid: Alhamdulillahi jaza kumullohu khoiro."
-              ] 
-            } 
-          },
-          { 
-            label: 'K3: Teknik Negosiasi & Resolusi Konflik / Peer-to-Peer Negotiation', 
-            presentation: { 
-              toolDisplay: 'Negotiation Cards, Balance scale, Group problem case',
-              steps: [
-                "I. KEGIATAN AWAL: [Berkesadaran]",
-                "1. Memulai dengan membaca Basmalah.",
-                "2. Undang 3-4 anak: 'Apa yang kita lakukan jika kita semua ingin menggunakan alat yang sama?'",
-                "3. Siapkan timbangan (Scales) sebagai simbol keadilan.",
-                "II. KEGIATAN INTI: [Bermakna] - MEMAHAMI",
-                "4. Identifikasi Masalah: 'Sebutkan apa yang kamu inginkan dengan tenang.'",
-                "5. In English: 'Negotiation, Win-win Solution, Fairness, and Compromise.'",
-                "6. Mencari Solusi Tengah: 'Bagaimana jika aku pakai 10 menit, lalu kamu 10 menit?' (Turn-taking).",
-                "7. Mencari Alternatif: 'Maukah kita bekerja sama (Collaboration) menggunakannya berdua?'",
-                "8. Tulis Kesepakatan: 'Gunakan kertas untuk mencatat siapa duluan (Amanah).'",
-                "9. Jelaskan Al-Hujurat 10: 'Semua mukmin bersaudara, maka damaikanlah di antara keduanya.'",
-                "10. Lakukan 'High Five' or Salaman setelah sepakat.",
-                "11. TPL: 'Apa itu kompromi?', 'Bolehkah kita memaksakan kehendak?'.",
-                "III. KEGIATAN INTI: [Bermakna] - MENGAPLIKASIKAN",
-                "12. Membuat 'Roda Solusi' berisi 5 cara menyelesaikan masalah tanpa marah.",
-                "13. Menjadi 'Mediator' saat ada teman yang berselisih di gazebo.",
-                "14. Menghitung waktu tunggu di timer kelas untuk bergantian alat.",
-                "IV. KEGIATAN INTI: [Berkesadaran] - MEREFLEKSIKAN",
-                "15. Memberikan apresiasi atas usaha, ketelitian, dan kejujuran anak dalam belajar.",
-                "16. Mengajak anak bersyukur atas ilmu baru dan kemampuan yang Allah anugerahkan.",
-                "17. Menanyakan perasaan anak setelah berhasil menyelesaikan tantangan ini.",
-                "V. KEGIATAN PENUTUP: [Menyenangkan]",
-                "18. Simpan timbangan ke rak matematika/geografi.",
-                "19. Bersihkan area pertemuan dari sisa kertas.",
-                "20. Membaca Hamdalah.",
-                "21. Ucapkan kepada murid: Alhamdulillahi jaza kumullohu khoiro."
-              ] 
-            } 
-          },
-          { 
-            label: 'K3: Memberi & Menerima Apresiasi / Giving & Receiving Appreciation', 
-            presentation: { 
-              toolDisplay: 'Thank you cards, Small gifts (Stickers/Flowers), Mirror',
-              steps: [
-                "I. KEGIATAN AWAL: [Berkesadaran]",
-                "1. Memulai dengan membaca Basmalah.",
-                "2. Undang anak: 'Barangsiapa tidak bersyukur pada manusia, ia tidak bersyukur pada Allah.'",
-                "3. Siapkan kartu ucapan kosong.",
-                "II. KEGIATAN INTI: [Bermakna] - MEMAHAMI",
-                "4. Cara Memberi: 'Tatap matanya, tersenyumlah, and sebutkan hal spesifik yang kamu sukai.'",
-                "5. In English: 'Appreciation, Gratitude, Humble, and Radiant.'",
-                "6. Contoh Kalimat: 'Jazaakillahu khoyr, lukisanmu membuatku bahagia hari ini.'",
-                "7. Cara Menerima: 'Ucapkan Alhamdulillah, lihat wajahnya, and katakan Terima Kasih.'",
-                "8. Jelaskan: 'Jangan sombong (ujub) saat dipuji, kembalikan semua pujian pada Allah.'",
-                "9. Menulis Apresiasi: 'Tulis hal baik tentang teman di 'Pohon Kebaikan' kelas.'",
-                "10. Gesture: Memberikan kartu dengan dua tangan sebagai bentuk hormat.",
-                "11. Doa: 'Ya Allah, jadikan aku lebih baik dari praduga mereka.'",
-                "III. KEGIATAN INTI: [Bermakna] - MENGAPLIKASIKAN",
-                "12. Menyerahkan satu catatan apresiasi untuk petugas kebersihan sekolah.",
-                "13. Menghafal 3 asmaul husna yang berkaitan dengan syukur (Asy-Syakur).",
-                "14. Membuat prakarya bunga kertas untuk diletakkan di meja Guru.",
-                "IV. KEGIATAN INTI: [Berkesadaran] - MEREFLEKSIKAN",
-                "15. Memberikan apresiasi atas usaha, ketelitian, dan kejujuran anak dalam belajar.",
-                "16. Mengajak anak bersyukur atas ilmu baru dan kemampuan yang Allah anugerahkan.",
-                "17. Menanyakan perasaan anak setelah berhasil menyelesaikan tantangan ini.",
-                "V. KEGIATAN PENUTUP: [Menyenangkan]",
-                "18. Simpan amplop and kartu ke dalam laci seni.",
-                "19. Rapikan kembali alat tulis ke wadahnya.",
-                "20. Membaca Hamdalah.",
-                "21. Ucapkan kepada murid: Alhamdulillahi jaza kumullohu khoiro."
-              ] 
+                ] 
             } 
           }
         ] 
@@ -9581,6 +9379,184 @@ export const AREA_SENTRA_CYCLE2 = [
                 "V. KEGIATAN PENUTUP: [Menyenangkan]",
                 "18. Lipat kembali peta besar sesuai urutan lipatan aslinya.",
                 "19. Simpan kompas ke dalam box kulitnya.",
+                "20. Membaca Hamdalah.",
+                "21. Ucapkan kepada murid: Alhamdulillahi jaza kumullohu khoiro."
+              ] 
+            } 
+          }
+        ] 
+      },
+      { 
+        id: 'komunitas', 
+        name: 'Relasi Sosial & Komunitas / Social Relations & Community', 
+        levels: [
+          { 
+            label: 'K2-K3: Prosedur Musyawarah Kelas / Class Meeting Procedure', 
+            presentation: { 
+              toolDisplay: 'Agenda book, Speaking object, Timer, Meeting bell',
+              steps: [
+                "I. KEGIATAN AWAL: [Berkesadaran]",
+                "1. Memulai dengan membaca Basmalah.",
+                "2. Undang seluruh komunitas kelas ke area lingkaran (Circle Area).",
+                "3. Guru: 'Lingkaran ini adalah tempat di mana semua suara dihargai (Adab Majelis).'",
+                "II. KEGIATAN INTI: [Bermakna] - MEMAHAMI",
+                "4. Membuka Agenda: 'Ketua rapat membacakan isu yang telah ditulis di buku agenda selama seminggu.'",
+                "5. In English: 'Agenda, Facilitator, Consensus, and Respectful Listening.'",
+                "6. Aturan Speaking Object: 'Hanya yang memegang benda ini yang boleh bicara.'",
+                "7. Menyampaikan Masalah: 'Sebutkan fakta masalahnya, bukan menyalahkan orangnya (No Blaming).'",
+                "8. Brainstorming Solusi: 'Setiap anak boleh memberikan ide solusi yang adil bagi semua.'",
+                "9. Jelaskan Asy-Syura 38: 'Urusan mereka diputuskan dengan musyawarah antara mereka.'",
+                "10. Mencapai Konsensus: 'Pilih solusi yang paling disetujui (Win-win) and buat kesepakatan tertulis.'",
+                "11. Penutupan: 'Ketua rapat merangkum hasil and mengucapkan terima kasih.'",
+                "III. KEGIATAN INTI: [Bermakna] - MENGAPLIKASIKAN",
+                "12. Memperagakan peran sebagai Moderator (Pemandu) and Sekretaris (Pencatat).",
+                "13. Membuat poster 'Kesepakatan Kelas' hasil musyawarah hari ini.",
+                "14. Menghargai keberanian teman dalam menyampaikan pendapat yang berbeda.",
+                "IV. KEGIATAN INTI: [Berkesadaran] - MEREFLEKSIKAN",
+                "15. Memberikan apresiasi atas kedewasaan anak dalam mengelola emosi kelompok.",
+                "16. Mengajak anak bersyukur atas terciptanya kedamaian melalui musyawarah.",
+                "17. Menanyakan perasaan anak setelah masalah kelas teratasi bersama.",
+                "V. KEGIATAN PENUTUP: [Menyenangkan]",
+                "18. Simpan buku agenda ke rak administrasi kelas.",
+                "19. Rapikan kembali area lingkaran untuk bekerja mandiri.",
+                "20. Membaca Hamdalah.",
+                "21. Ucapkan kepada murid: Alhamdulillahi jaza kumullohu khoiro."
+              ] 
+            } 
+          },
+          { 
+            label: 'K1-K3: Mendengar & Memperhatikan / Active Listening', 
+            presentation: { 
+              toolDisplay: 'Speaking Object (Stone/Stick)',
+              toolsList: ['Speaking Object'], 
+              error: 'Interupsi; tidak melakukan kontak mata dengan pembicara.',
+              steps: [
+                "I. KEGIATAN AWAL: [Berkesadaran]",
+                "1. Memulai dengan membaca Basmalah.",
+                "2. Undang anak membentuk lingkaran (Halaqah): 'Mari kita bermusyawarah, menyatukan hati dalam keputusan.'",
+                "3. Guru: 'Allah memerintahkan kita untuk bermusyawarah dalam segala urusan.'",
+                "II. KEGIATAN INTI: [Bermakna] - MEMAHAMI",
+                "4. Guru menjelaskan aturan main: 'Listen with your ears and your heart.'",
+                "5. Demonstrasikan posisi duduk yang menghadap pembicara (Adab Majelis).",
+                "6. Guru melakukan kontak mata dengan anak secara lembut (Memperhatikan Lawan Bicara).",
+                "7. Saat satu anak bicara, yang lain diam mutlak (Mendengar Aktif).",
+                "8. Guru: 'Diammu saat saudaramu bicara adalah bentuk memuliakannya.'",
+                "9. Berikan frase Inggris untuk menanggapi: 'That's a good point,' atau 'I agree with you.'",
+                "10. Ajarkan cara menyanggah dengan santun: 'I have a different idea,' bukan 'You are wrong.'",
+                "11. Guru: 'Berbeda pendapat itu boleh, tapi hati harus tetap satu (Ukhuwah).'",
+                "12. Latih memparafrase secara lisan: 'So, you mean that...?'",
+                "13. Tekankan bahwa dalam diskusi, kita mencari kebenaran (Haq), bukan kemenangan diri.",
+                "14. Guru: 'Bicaralah yang benar atau diam (Sunnah Nabi).'",
+                "III. KEGIATAN INTI: [Bermakna] - MENGAPLIKASIKAN",
+                "15. Mintalah kelompok diskusi memutuskan satu proyek bersama (berbagi peran).",
+                "16. Minta anak memberikan pujian kepada teman yang memberikan ide bagus.",
+                "IV. KEGIATAN INTI: [Berkesadaran] - MEREFLEKSIKAN",
+                "17. Memberikan apresiasi atas usaha, ketelitian, dan kejujuran anak dalam belajar atau berdiskusi.",
+                "18. Mengajak anak bersyukur atas kemampuan menjalin ukhuwah.",
+                "V. KEGIATAN PENUTUP: [Menyenangkan]",
+                "19. Simpan kembali 'Speaking Object' ke rak materi.",
+                "20. Membaca Hamdalah.",
+                "21. Ucapkan kepada murid: Alhamdulillahi jaza kumullohu khoiro."
+              ] 
+            } 
+          },
+          { 
+            label: 'K3: Teknik Negosiasi & Resolusi Konflik / Peer-to-Peer Negotiation', 
+            presentation: { 
+              toolDisplay: 'Negotiation Cards, Balance scale, Group problem case',
+              steps: [
+                "I. KEGIATAN AWAL: [Berkesadaran]",
+                "1. Memulai dengan membaca Basmalah.",
+                "2. Undang 3-4 anak: 'Apa yang kita lakukan jika kita semua ingin menggunakan alat yang sama?'",
+                "3. Siapkan timbangan (Scales) sebagai simbol keadilan.",
+                "II. KEGIATAN INTI: [Bermakna] - MEMAHAMI",
+                "4. Identifikasi Masalah: 'Sebutkan apa yang kamu inginkan dengan tenang.'",
+                "5. In English: 'Negotiation, Win-win Solution, Fairness, and Compromise.'",
+                "6. Mencari Solusi Tengah: 'Bagaimana jika aku pakai 10 menit, lalu kamu 10 menit?' (Turn-taking).",
+                "7. Mencari Alternatif: 'Maukah kita bekerja sama (Collaboration) menggunakannya berdua?'",
+                "8. Tulis Kesepakatan: 'Gunakan kertas untuk mencatat siapa duluan (Amanah).'",
+                "9. Jelaskan Al-Hujurat 10: 'Semua mukmin bersaudara, maka damaikanlah di antara keduanya.'",
+                "10. Lakukan 'High Five' or Salaman setelah sepakat.",
+                "11. TPL: 'Apa itu kompromi?', 'Bolehkah kita memaksakan kehendak?'.",
+                "III. KEGIATAN INTI: [Bermakna] - MENGAPLIKASIKAN",
+                "12. Membuat 'Roda Solusi' berisi 5 cara menyelesaikan masalah tanpa marah.",
+                "13. Menjadi 'Mediator' saat ada teman yang berselisih di gazebo.",
+                "14. Menghitung waktu tunggu di timer kelas untuk bergantian alat.",
+                "IV. KEGIATAN INTI: [Berkesadaran] - MEREFLEKSIKAN",
+                "15. Memberikan apresiasi atas usaha, ketelitian, dan kejujuran anak dalam belajar.",
+                "16. Mengajak anak bersyukur atas ilmu baru dan kemampuan yang Allah anugerahkan.",
+                "17. Menanyakan perasaan anak setelah berhasil menyelesaikan tantangan ini.",
+                "V. KEGIATAN PENUTUP: [Menyenangkan]",
+                "18. Simpan timbangan ke rak matematika/geografi.",
+                "19. Bersihkan area pertemuan dari sisa kertas.",
+                "20. Membaca Hamdalah.",
+                "21. Ucapkan kepada murid: Alhamdulillahi jaza kumullohu khoiro."
+              ] 
+            } 
+          },
+          { 
+            label: 'K3: Memberi & Menerima Apresiasi / Giving & Receiving Appreciation', 
+            presentation: { 
+              toolDisplay: 'Thank you cards, Small gifts (Stickers/Flowers), Mirror',
+              steps: [
+                "I. KEGIATAN AWAL: [Berkesadaran]",
+                "1. Memulai dengan membaca Basmalah.",
+                "2. Undang anak: 'Barangsiapa tidak bersyukur pada manusia, ia tidak bersyukur pada Allah.'",
+                "3. Siapkan kartu ucapan kosong.",
+                "II. KEGIATAN INTI: [Bermakna] - MEMAHAMI",
+                "4. Cara Memberi: 'Tatap matanya, tersenyumlah, and sebutkan hal spesifik yang kamu sukai.'",
+                "5. In English: 'Appreciation, Gratitude, Humble, and Radiant.'",
+                "6. Contoh Kalimat: 'Jazaakillahu khoyr, lukisanmu membuatku bahagia hari ini.'",
+                "7. Cara Menerima: 'Ucapkan Alhamdulillah, lihat wajahnya, and katakan Terima Kasih.'",
+                "8. Jelaskan: 'Jangan sombong (ujub) saat dipuji, kembalikan semua pujian pada Allah.'",
+                "9. Menulis Apresiasi: 'Tulis hal baik tentang teman di 'Pohon Kebaikan' kelas.'",
+                "10. Gesture: Memberikan kartu dengan dua tangan sebagai bentuk hormat.",
+                "11. Doa: 'Ya Allah, jadikan aku lebih baik dari praduga mereka.'",
+                "III. KEGIATAN INTI: [Bermakna] - MENGAPLIKASIKAN",
+                "12. Menyerahkan satu catatan apresiasi untuk petugas kebersihan sekolah.",
+                "13. Menghafal 3 asmaul husna yang berkaitan dengan syukur (Asy-Syakur).",
+                "14. Membuat prakarya bunga kertas untuk diletakkan di meja Guru.",
+                "IV. KEGIATAN INTI: [Berkesadaran] - MEREFLEKSIKAN",
+                "15. Memberikan apresiasi atas usaha, ketelitian, dan kejujuran anak dalam belajar.",
+                "16. Mengajak anak bersyukur atas ilmu baru dan kemampuan yang Allah anugerahkan.",
+                "17. Menanyakan perasaan anak setelah berhasil menyelesaikan tantangan ini.",
+                "V. KEGIATAN PENUTUP: [Menyenangkan]",
+                "18. Simpan amplop and kartu ke dalam laci seni.",
+                "19. Rapikan kembali alat tulis ke wadahnya.",
+                "20. Membaca Hamdalah.",
+                "21. Ucapkan kepada murid: Alhamdulillahi jaza kumullohu khoiro."
+              ] 
+            } 
+          },
+          { 
+            label: 'K2: Adab Menyambut Tamu / Receiving a Visitor', 
+            presentation: { 
+              toolDisplay: 'Guest chair, Tray with snacks, Guestbook, Pen',
+              steps: [
+                "I. KEGIATAN AWAL: [Berkesadaran]",
+                "1. Memulai dengan membaca Basmalah.",
+                "2. Undang anak: 'Siapa yang ingin menjadi tuan rumah bagi tamu sekolah hari ini?'",
+                "3. Tentukan dua anak sebagai 'Greeters'.",
+                "II. KEGIATAN INTI: [Bermakna] - MEMAHAMI",
+                "4. Sambutan di Pintu: 'Ucapkan Assalamu'alaikum dengan wajah ceria (Smile).'",
+                "5. In English: 'Welcome, Guest, Hospitality (Ikramul Dhaif), and Invitation.'",
+                "6. Persilakan Duduk: 'Silakan duduk di sini, Bapak/Ibu (Gesture dengan tangan terbuka).'",
+                "7. Berikan Informasi: 'Selamat datang di Kelas Budi Luhur. Saya (Sebutkan Nama).'",
+                "8. Tawarkan Minum: 'Bolehkah saya ambilkan air minum?'",
+                "9. Ambilkan nampan: 'Bawa nampan dengan dua tangan and letakkan perlahan (An-Nur: 27).'",
+                "10. Berikan Buku Tamu: 'Mohon berkenan mengisi identitas kedatangan.'",
+                "11. Jelaskan adab: 'Memuliakan tamu adalah tanda iman kepada Allah and hari akhir.'",
+                "III. KEGIATAN INTI: [Bermakna] - MENGAPLIKASIKAN",
+                "12. Latihan berjabat tangan (firm grip) and menatap mata (Eye contact).",
+                "13. Menyusun paket snack kecil untuk bingkisan tamu.",
+                "14. Melakukan simulasi tur kelas singkat (Class tour) untuk tamu.",
+                "IV. KEGIATAN INTI: [Berkesadaran] - MEREFLEKSIKAN",
+                "15. Memberikan apresiasi atas usaha, ketelitian, dan kejujuran anak dalam belajar.",
+                "16. Mengajak anak bersyukur atas ilmu baru dan kemampuan yang Allah anugerahkan.",
+                "17. Menanyakan perasaan anak setelah berhasil menyelesaikan tantangan ini.",
+                "V. KEGIATAN PENUTUP: [Menyenangkan]",
+                "18. Cuci gelas bekas tamu and lap nampan hingga kering.",
+                "19. Simpan buku tamu ke meja front-desk kelas.",
                 "20. Membaca Hamdalah.",
                 "21. Ucapkan kepada murid: Alhamdulillahi jaza kumullohu khoiro."
               ] 
