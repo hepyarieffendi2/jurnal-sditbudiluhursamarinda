@@ -55,6 +55,7 @@ export const getRoleColor = (role) => {
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [viewAsRole, setViewAsRole] = useState(null); // null = use real role
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, async (firebaseUser) => {
@@ -176,10 +177,19 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
+  // Compute effective role: viewAsRole overrides the real role for UI purposes
+  const effectiveRole = viewAsRole || user?.role;
+  const isViewingAs = viewAsRole !== null && viewAsRole !== user?.role;
+
+  // Create an effective user object that components will consume
+  const effectiveUser = user ? { ...user, role: effectiveRole, _realRole: user.role } : null;
+
   return (
     <AuthContext.Provider value={{ 
-      user, login, logout, loading, 
-      getAllUsers, updateUserRole, updateUserProfile 
+      user: effectiveUser, login, logout, loading, 
+      getAllUsers, updateUserRole, updateUserProfile,
+      viewAsRole, setViewAsRole, isViewingAs,
+      realRole: user?.role
     }}>
       {!loading && children}
     </AuthContext.Provider>

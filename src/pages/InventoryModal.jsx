@@ -24,7 +24,7 @@ const ACQUISITION_TYPES = {
 const categorizeTool = (name, area = '') => {
   const n = name.toLowerCase();
   
-  // 1. AUTHENTIC (WAJIB BELI) - Specialized Montessori materials
+  // 1. AUTHENTIC (WAJIB BELI) - Specialized authentic materials
   const keywordsAuthentic = [
     'beads', 'golden', 'stamp game', 'bead cabinet', 'frame', 'checkerboard', 'board', 'papan', 
     'cabinet', 'laci', 'box', 'kotak kayu', 'cube', 'kubus', 'puzzle map', 'insets', 'stand', 

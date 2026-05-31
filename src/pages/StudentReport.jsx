@@ -27,7 +27,7 @@ const StudentReport = () => {
     photo: "https://api.dicebear.com/7.x/avataaars/svg?seed=Ahmad"
   });
 
-  // --- DATA STANDAR AMI (Association Montessori Internationale) ---
+  // --- DATA STANDAR AMI (Association Method Internationale) ---
   
   // Status Skala AMI
   // P (Presented) = Diperkenalkan. Anak sudah melihat presentasi awal.
@@ -132,7 +132,7 @@ const StudentReport = () => {
               <img src="/logo-budiluhur.png" alt="School Logo" className="w-16 h-16 object-contain" />
               <div>
                 <h1 className="text-2xl font-black text-indigo-950 uppercase tracking-widest">Sekolah Dasar IT Budi Luhur</h1>
-                <p className="text-slate-600 tracking-wider">Montessori Elementary Progress Evaluation</p>
+                <p className="text-slate-600 tracking-wider">Elementary Progress Evaluation</p>
               </div>
             </div>
             <div className="text-right">
@@ -167,7 +167,7 @@ const StudentReport = () => {
             onClick={() => setActiveTab('ami')}
             className={`flex-1 py-4 text-sm font-bold uppercase tracking-wider transition-all ${activeTab === 'ami' ? 'bg-white text-indigo-700 border-t-2 border-indigo-700' : 'text-slate-500 hover:bg-slate-100'}`}
           >
-            AMI Progress Report (Montessori)
+            AMI Progress Report (Sentra)
           </button>
           <button 
             onClick={() => setActiveTab('kumer')}
@@ -180,7 +180,7 @@ const StudentReport = () => {
           {/* Report Content Section */}
         <div className="p-6 md:p-12 bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:24px_24px]">
           
-          {/* TAB 1: AMI PROGRESS REPORT (The Real Montessori Way) */}
+          {/* TAB 1: AMI PROGRESS REPORT (The Real Sentra Way) */}
           {activeTab === 'ami' && (
             <div className="anim-fade-in">
               {/* Legend: Enhanced Mastery Card */}
@@ -266,7 +266,7 @@ const StudentReport = () => {
                 </div>
               </div>
 
-              {/* Section 3: Teacher's Narrative (The Core of Montessori Eval) */}
+              {/* Section 3: Teacher's Narrative (The Core of Sentra Eval) */}
               <div className="mb-12">
                 <h2 className="text-xl font-bold text-indigo-950 uppercase tracking-widest flex items-center gap-3 mb-4">
                   <FileText size={24} className="text-indigo-500" />
@@ -284,7 +284,7 @@ const StudentReport = () => {
             <div className="anim-fade-in">
               <div className="mb-6 p-4 bg-blue-50 text-blue-800 rounded-lg text-sm flex items-start gap-3">
                 <Activity className="shrink-0 mt-0.5" size={18} />
-                <p>Halaman ini merupakan konversi capaian Montessori ke dalam format Capaian Pembelajaran (CP) Standar Pendidikan Nasional Kurikulum Merdeka Fase A.</p>
+                <p>Halaman ini merupakan konversi capaian perkembangan Sentra ke dalam format Capaian Pembelajaran (CP) Standar Pendidikan Nasional Kurikulum Merdeka Fase A.</p>
               </div>
 
               <table className="w-full text-left border border-slate-200 rounded-lg overflow-hidden">

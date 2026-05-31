@@ -8,7 +8,7 @@ import { AREA_SENTRA, MATURITY_LEVELS, CONCENTRATION_EMOJIS } from '../data/area
 import {
   ArrowLeft, Save, CheckCircle2, Star, X, Info, History, Search,
   Moon, Hash, BookOpen, Leaf, Globe2, Wand2, MapPin, PackageOpen, Loader2, ClipboardList,
-  MessageSquare, Package, AlertCircle, TrendingUp, Target, Sparkles, Settings2, RotateCcw,
+  MessageSquare, Package, AlertCircle, TrendingUp, Target, Sparkles, Settings2, RotateCcw, CalendarDays, Printer,
   LayoutGrid, Book, Globe, Home, Briefcase, Calendar, Activity, Award, Zap, User, Users, Heart, ArrowRightCircle, Eye, EyeOff, AlertTriangle,
   PackageSearch, ChevronRight, GraduationCap, ShieldCheck, Flame, Users2, HeartHandshake, Smile, SmilePlus, HelpCircle, Video
 } from 'lucide-react';
@@ -23,6 +23,209 @@ const getYTThumbnail = (url) => {
     return `https://img.youtube.com/vi/${match[2]}/mqdefault.jpg`;
   }
   return null;
+};
+
+const renderParentheses = (text) => {
+  if (typeof text !== 'string') return text;
+  
+  const parts = text.split(/\(([^)]+)\)/);
+  return parts.map((part, index) => {
+    if (index % 2 === 1) {
+      return (
+        <span 
+          key={index} 
+          style={{
+            fontStyle: 'italic',
+            color: '#64748B', // Elegant muted slate gray
+            fontSize: '0.88em',
+            fontWeight: 500,
+            marginLeft: '4px',
+            marginRight: '4px'
+          }}
+        >
+          ({part})
+        </span>
+      );
+    }
+    return part;
+  });
+};
+
+const renderTextWithTags = (text) => {
+  if (typeof text !== 'string') return text;
+  
+  const parts = text.split(/\[([^\]]+)\]/);
+  return parts.map((part, index) => {
+    if (index % 2 === 1) {
+      let bgColor = '#F1F5F9';
+      let textColor = '#475569';
+      let borderColor = '#E2E8F0';
+      
+      const lowerPart = part.toLowerCase();
+      if (lowerPart.includes('berkesadaran')) {
+        bgColor = '#EEF2FF'; // Indigo
+        textColor = '#4338CA';
+        borderColor = '#C7D2FE';
+      } else if (lowerPart.includes('bermakna')) {
+        bgColor = '#FFF7ED'; // Orange
+        textColor = '#C2410C';
+        borderColor = '#FED7AA';
+      } else if (lowerPart.includes('menyenangkan')) {
+        bgColor = '#FDF2F8'; // Pink
+        textColor = '#BE185D';
+        borderColor = '#FBCFE8';
+      }
+      
+      return (
+        <span 
+          key={index} 
+          style={{
+            display: 'inline-flex',
+            alignItems: 'center',
+            gap: '4px',
+            padding: '3px 8px',
+            borderRadius: '8px',
+            fontSize: '0.7rem',
+            fontWeight: 855,
+            backgroundColor: bgColor,
+            color: textColor,
+            border: `1px solid ${borderColor}`,
+            marginLeft: '6px',
+            marginRight: '2px',
+            verticalAlign: 'middle',
+            letterSpacing: '0.2px',
+            textTransform: 'uppercase'
+          }}
+        >
+          ✨ {part}
+        </span>
+      );
+    }
+    return renderParentheses(part);
+  });
+};
+
+const DAILY_GUIDES = {
+  1: {
+    theme: 'Fisik & Lingkungan Kelas (Aku & Kelasku)',
+    days: [
+      {
+        day: 'Senin',
+        focus: 'Adab Berjalan di Dalam Kelas (Walking in the Classroom)',
+        circleTime: 'Ustadz/Ustadzah memperagakan berjalan pelan dan tenang di sela-sela meja. Kakak Kelas 2 memodelkan. Guru memperagakan anti-behavior (berlari, menabrak) lalu bertanya secara nalar: "Apa yang akan terjadi pada aparatus jika kita bergerak seperti itu?"',
+        workCycle: 'Latihan berdiri dari lingkaran, berjalan tenang mengambil pensil/buku, lalu kembali tanpa bersuara.',
+        closing: 'Evaluasi bersama: "Apakah ada karpet teman yang terinjak hari ini?"'
+      },
+      {
+        day: 'Selasa',
+        focus: 'Merapikan Karpet & Kursi (Restoring Workspace & Chair)',
+        circleTime: 'Demonstrasi cara membawa karpet tegak lurus di dada, membentang perlahan tanpa suara deburan, dan menggulung karpet rapi (tidak longgar, ujungnya sejajar). Cara mengangkat kursi (pegang dudukan & sandaran), bukan diseret berdecit.',
+        workCycle: 'Kakak Kelas 2 mendampingi adiknya melatih menggulung karpet berkali-kali secara bergantian.',
+        closing: 'Game: Guru membunyikan bel hening, anak-anak harus memasukkan kursi mereka ke kolong meja tanpa suara decitan sedikit pun.'
+      },
+      {
+        day: 'Rabu',
+        focus: 'Adab Membawa & Menyimpan Alat APE (Carrying & Returning)',
+        circleTime: 'Demonstrasi cara membawa nampan/baki kayu menggunakan dua tangan di bawah dada. Cara berjalan membawa beban tanpa goyang, dan meletakkan kembali ke rak dengan posisi presisi (tidak miring, tidak menonjol keluar).',
+        workCycle: 'Latihan mengambil baki kosong/material praktikal dari rak, membawanya ke karpet sendiri, lalu mengembalikannya secara bergantian.',
+        closing: 'Inspeksi rak bersama: "Mari kita lihat apakah rak kita hari ini sudah tersusun rapi dan siap istirahat?"'
+      },
+      {
+        day: 'Kamis',
+        focus: 'Integrasi & Latihan Keseimbangan (Graceful Movement)',
+        circleTime: 'Walking on the Line. Anak-anak berjalan berurutan di atas garis lantai membawa cangkir berisi air (latihan agar tidak tumpah) atau sendok berisi kelereng. Melatih koordinasi tubuh yang anggun (graceful movement).',
+        workCycle: 'Fokus penuh pada kerja mandiri area Practical Life dasar (menuangkan air, meronce, memindahkan kancing) dengan mempraktikkan adab berjalan, karpet, dan rak secara serempak.',
+        closing: 'Apresiasi: Kakak Kelas 2 memberikan umpan balik positif tentang kemajuan adiknya.'
+      },
+      {
+        day: 'Jumat',
+        focus: 'Simulasi Rintangan & Evaluasi Mingguan',
+        circleTime: 'Game Rintangan Karpet. Guru membentang beberapa karpet acak di lantai. Anak-anak bergiliran berjalan membawa baki melintasi kelas tanpa menyentuh, menyenggol, ataupun melangkahi karpet-karpet tersebut.',
+        workCycle: 'Gotong royong membersihkan loker pribadi dan merapikan seluruh kelas menjelang akhir pekan.',
+        closing: 'Refleksi Mingguan: Bersama-sama menyepakati bahwa kelas telah resmi menguasai "Tertib Fisik" dan siap naik level ke "Tertib Suara".'
+      }
+    ]
+  },
+  2: {
+    theme: 'Ketenangan & Konsentrasi (Aku & Diriku)',
+    days: [
+      {
+        day: 'Senin',
+        focus: 'Volume Bicara (4 Level Suara)',
+        circleTime: 'Mengenalkan 4 Level Suara: Level 0 (Hening/Silence), Level 1 (Bisikan/Buddy Voice), Level 2 (Suara Kelas/Montessori Voice), Level 3 (Suara Luar/Outdoor). Latihan memperagakan Level 1 & 2 secara bergantian.',
+        workCycle: 'Guru memantau tingkat kebisingan. Jika ada anak bersuara keras, guru mengetuk lembut pundaknya dan berbisik: "Ustadz/Ustadzah kesulitan mendengar suara hening, bisakah kita kembali ke Level 1?"',
+        closing: 'Silence Game pertama (menutup mata selama 1-2 menit, mendengarkan detak jam atau suara burung di luar).'
+      },
+      {
+        day: 'Selasa',
+        focus: 'Mendengar & Memperhatikan (Active Listening)',
+        circleTime: 'Adab Majelis. Cara duduk tegak melingkar, bersedekap tenang, mata fokus pada Ustadz/Ustadzah atau teman yang sedang bicara, dan tidak memotong pembicaraan. Guru memperagakan drama orang yang diajak bicara tetapi memalingkan muka, lalu mendiskusikan dampaknya.',
+        workCycle: 'Mempraktikkan instruksi lisan berantai yang diberikan guru secara akurat.',
+        closing: 'Silence Game: Guru membisikkan nama anak dengan sangat lembut dari kejauhan. Anak yang namanya dipanggil harus berdiri tanpa suara, menggulung karpetnya, lalu bersiap pulang.'
+      },
+      {
+        day: 'Rabu',
+        focus: 'Adab Menonton Teman Bekerja (Watching a Friend Work)',
+        circleTime: 'Bagaimana cara mengamati teman yang sedang konsentrasi tanpa mengganggunya. Aturannya: Berdiri dengan jarak 1 meter (tangan ditaruh di belakang punggung), tidak menyentuh aparatus teman, dan wajib bertanya sopan sebelum menonton: "Bolehkah aku mengamati caramu bekerja?"',
+        workCycle: 'Latihan menonton langsung secara tertib saat siklus kerja berlangsung.',
+        closing: 'Diskusi refleksi: "Bagaimana rasanya ketika kita sedang fokus bekerja, lalu ada yang menonton dengan sopan vs ada yang mengganggu?"'
+      },
+      {
+        day: 'Kamis',
+        focus: 'Kalibrasi Kebisingan Kelas',
+        circleTime: 'Silence Game Bel Kecil. Anak-anak melingkar dan mengoper bel kecil yang sangat sensitif dari tangan ke tangan tanpa boleh membunyikan bel tersebut sama sekali. Melatih kesadaran motorik dan keheningan kolektif.',
+        workCycle: 'Mempertahankan level suara kelas di Level 1 sepanjang siklus kerja praktikal.',
+        closing: 'Evaluasi grafik kebisingan kelas hari ini bersama anak-anak.'
+      },
+      {
+        day: 'Jumat',
+        focus: 'Simulasi Fokus & Refleksi Batin',
+        circleTime: 'Meditasi/Dzikir Pagi Hening. Anak-anak duduk hening pejam mata selama 3-5 menit untuk menenangkan batin dan memusatkan pikiran sebelum beraktivitas.',
+        workCycle: 'Siklus kerja penuh tanpa instruksi verbal klasikal dari guru. Guru hanya bergerak memberikan kode non-verbal jika diperlukan.',
+        closing: 'Apresiasi mingguan: Merayakan keberhasilan kelas yang mampu bekerja tenang seperti "lebah pekerja yang produktif".'
+      }
+    ]
+  },
+  3: {
+    theme: 'Hubungan Sosial & Harmoni (Aku & Temanku)',
+    days: [
+      {
+        day: 'Senin',
+        focus: 'Adab Menunggu Giliran (Antre Alat)',
+        circleTime: 'Mengingat keterbatasan alat (hanya ada 1 set per rombel). Cara mengantre secara visual: Anak meletakkan kartu namanya sendiri atau sebuah batu kecil penanda di sudut karpet teman yang sedang menggunakan alat tersebut. Ini berarti: "Aku mengantre setelah kamu selesai."',
+        workCycle: 'Melatih langsung sistem antrean batu/kartu nama selama siklus kerja.',
+        closing: 'Evaluasi: "Apakah sistem antre batu kita hari ini berjalan lancar?"'
+      },
+      {
+        day: 'Selasa',
+        focus: 'Adab Interupsi (Teknik AMI)',
+        circleTime: 'Cara mendekati Ustadz/Ustadzah atau teman yang sedang berbicara. Teknik AMI: Anak berjalan tenang mendekati guru, meletakkan satu tangannya di pundak guru secara lembut, lalu menunggu dalam diam tanpa bersuara. Guru akan meletakkan tangannya di atas tangan anak sebagai sinyal melihat.',
+        workCycle: 'Simulasi langsung di mana anak-anak melatih adab interupsi saat guru sedang memandu anak lain.',
+        closing: 'Tanya jawab: "Kenapa kita tidak boleh memanggil Ustadz... Ustadz! dengan berteriak?"'
+      },
+      {
+        day: 'Rabu',
+        focus: 'Resolusi Konflik (Peace Rose / Mawar Perdamaian)',
+        circleTime: 'Mengenalkan Peace Rose. Jika terjadi konflik, ambil mawar fisik di sudut damai. Pegang mawar, katakan: "Aku merasa sedih/marah saat kamu...". Oper mawar ke teman, teman mendengar aktif lalu merespons: "Aku minta maaf karena...". Letakkan kembali dan bersalaman.',
+        workCycle: 'Guru memandu langsung anak-anak yang berkonflik untuk menggunakan Peace Rose di Sudut Damai (Peace Corner).',
+        closing: 'Role-play penyelesaian konflik menggunakan Peace Rose di depan kelas oleh perwakilan Kakak & Adik.'
+      },
+      {
+        day: 'Kamis',
+        focus: 'Simulasi Kolaborasi Buddy',
+        circleTime: 'Diskusi penalaran sosial: "Apa yang harus kita lakukan jika kita tidak sengaja merusak atau menyenggol hasil karya teman hingga berantakan?" Latihan menyampaikan maaf secara tulus (kontak mata, menyebutkan kesalahan, dan menawarkan bantuan).',
+        workCycle: 'Anak-anak diberikan tugas kerja kolaboratif berpasangan bersama Buddynya yang membutuhkan kerja sama erat.',
+        closing: 'Lingkaran Apresiasi: Setiap anak bergiliran menyampaikan satu perbuatan baik yang dilakukan oleh pasangan Buddynya hari ini.'
+      },
+      {
+        day: 'Jumat',
+        focus: 'Perayaan & Piagam Kesepakatan',
+        circleTime: 'Deklarasi Kelas Damai. Seluruh anak menyepakati "Piagam Kesepakatan Kelas". Setiap anak membubuhkan cap jempol berwarna di piagam sebagai komitmen bersama.',
+        workCycle: 'Simulasi Siklus Kerja Mandiri Penuh (2 jam penuh) tanpa interupsi, membuktikan bahwa kelas telah sepenuhnya Ternormalisasi.',
+        closing: 'Perayaan Kelulusan Normalisasi: Ustadz/Ustadzah memberikan selamat kepada Rombel karena telah resmi siap memulai petualangan materi sains/matematika minggu depan!'
+      }
+    ]
+  }
 };
 
 const AreaIcon = ({ name, color, size = 18 }) => {
@@ -56,6 +259,8 @@ export default function AreaTracker() {
   const [showSheet, setShowSheet] = useState(false);
   const [activeDrawerMateri, setActiveDrawerMateri] = useState(null);
   const [activePilarHelp, setActivePilarHelp] = useState(null); // 🚀 Help Tooltip State
+  const [showDailyGuideWeek, setShowDailyGuideWeek] = useState(null);
+  const [activeDailyDay, setActiveDailyDay] = useState(0);
   
   const [selectedKids, setSelectedKids] = useState([]);
   const [showFullGrid, setShowFullGrid] = useState(false);
@@ -441,6 +646,26 @@ export default function AreaTracker() {
                         </div>
                         {isExpanded && (
                             <div style={{ padding: '8px 20px 24px 20px', background: '#F8FAFC', borderTop: '1px solid #F1F5F9' }}>
+                                {(sub.name.toLowerCase().includes('adab') || sub.name.toLowerCase().includes('komunitas')) && (
+                                    <div style={{ background: 'linear-gradient(135deg, #F0F9FF, #E0F2FE)', padding: '16px 20px', borderRadius: '16px', marginBottom: '16px', border: '1.5px solid #BAE6FD', display: 'flex', flexDirection: 'column', gap: '12px' }}>
+                                        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                                            <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                                                <CalendarDays size={20} color="#0284C7" />
+                                                <h4 style={{ margin: 0, fontSize: '0.95rem', fontWeight: 950, color: '#0369A1' }}>Panduan Harian Masa Normalisasi</h4>
+                                            </div>
+                                            <button onClick={() => navigate('/training-manual')} style={{ background: 'white', color: '#0284C7', border: '1.5px solid #BAE6FD', padding: '6px 12px', borderRadius: '10px', fontSize: '0.75rem', fontWeight: 900, cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '6px', transition: 'all 0.2s' }} onMouseEnter={e => e.currentTarget.style.background = '#F0F9FF'} onMouseLeave={e => e.currentTarget.style.background = 'white'}>
+                                                <Printer size={14} /> Cetak 1 Bendel
+                                            </button>
+                                        </div>
+                                        <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
+                                            {[1, 2, 3].map(w => (
+                                                <button key={w} onClick={() => { setShowDailyGuideWeek(w); setActiveDailyDay(0); }} style={{ flex: 1, minWidth: '100px', padding: '10px', borderRadius: '12px', border: 'none', background: 'white', color: '#0284C7', fontWeight: 900, fontSize: '0.75rem', cursor: 'pointer', boxShadow: '0 2px 4px rgba(0,0,0,0.05)' }}>
+                                                    Minggu ke-{w}
+                                                </button>
+                                            ))}
+                                        </div>
+                                    </div>
+                                )}
                                 {filteredLevels.map((m, idx) => {
                                     const label = typeof m === 'object' ? m.label : m;
                                     const isChecked = shelfItems.includes(label);
@@ -850,7 +1075,7 @@ export default function AreaTracker() {
                                                                     <MessageSquare size={12} style={{ marginTop: 4, flexShrink: 0 }} />
                                                                     <span>"{part}"</span>
                                                                 </div>
-                                                            ) : part
+                                                            ) : renderTextWithTags(part)
                                                         ) : stepText}
                                                     </div>
                                                 </div>
@@ -924,7 +1149,71 @@ export default function AreaTracker() {
           </div>
       )}
 
+      {/* 📅 DAILY GUIDE MODAL (Migrated from Timeline) */}
+      {showDailyGuideWeek !== null && (() => {
+        const guide = DAILY_GUIDES[showDailyGuideWeek];
+        const currentDay = guide.days[activeDailyDay];
+        
+        return (
+          <div style={{ position: 'fixed', inset: 0, zIndex: 14000, background: 'rgba(15, 23, 42, 0.6)', backdropFilter: 'blur(4px)', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '20px' }} onClick={() => setShowDailyGuideWeek(null)}>
+            <div style={{ background: 'white', width: '100%', maxWidth: '600px', borderRadius: '24px', overflow: 'hidden', animation: 'scaleIn 0.3s ease' }} onClick={e => e.stopPropagation()}>
+              <div style={{ background: '#10B981', color: 'white', padding: '24px', position: 'relative' }}>
+                <button onClick={() => setShowDailyGuideWeek(null)} style={{ position: 'absolute', top: '24px', right: '24px', background: 'rgba(255,255,255,0.2)', border: 'none', width: '32px', height: '32px', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'white', cursor: 'pointer' }}>
+                  <X size={18} />
+                </button>
+                <div style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', background: 'rgba(255,255,255,0.2)', padding: '6px 12px', borderRadius: '100px', fontSize: '0.7rem', fontWeight: 900, marginBottom: '12px' }}>
+                  <CalendarDays size={14} /> MINGGU KE-{showDailyGuideWeek}
+                </div>
+                <h2 style={{ margin: 0, fontSize: '1.4rem', fontWeight: 950, lineHeight: 1.3 }}>{guide.theme}</h2>
+              </div>
+              
+              <div style={{ display: 'flex', borderBottom: '1.5px solid #F1F5F9', overflowX: 'auto', scrollbarWidth: 'none' }}>
+                {guide.days.map((d, i) => (
+                  <button
+                    key={d.day}
+                    onClick={() => setActiveDailyDay(i)}
+                    style={{ flex: 1, minWidth: '80px', padding: '16px 12px', background: 'transparent', border: 'none', borderBottom: activeDailyDay === i ? '3px solid #10B981' : '3px solid transparent', color: activeDailyDay === i ? '#10B981' : '#64748B', fontWeight: 950, fontSize: '0.85rem', cursor: 'pointer', transition: '0.2s' }}
+                  >
+                    {d.day}
+                  </button>
+                ))}
+              </div>
+              
+              <div style={{ padding: '24px', maxHeight: '60vh', overflowY: 'auto' }}>
+                <h3 style={{ margin: '0 0 20px 0', fontSize: '1.1rem', fontWeight: 900, color: '#1E293B', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                  <Target size={20} color="#10B981" /> {currentDay.focus}
+                </h3>
+                
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+                  <div style={{ background: '#F8FAFC', padding: '16px', borderRadius: '16px', border: '1px solid #E2E8F0' }}>
+                    <div style={{ fontSize: '0.75rem', fontWeight: 900, color: '#64748B', textTransform: 'uppercase', marginBottom: '8px', display: 'flex', alignItems: 'center', gap: '6px' }}>
+                      <Users size={14} /> Circle Time (Klasikal)
+                    </div>
+                    <p style={{ margin: 0, fontSize: '0.9rem', color: '#334155', lineHeight: 1.6 }}>{currentDay.circleTime}</p>
+                  </div>
+                  
+                  <div style={{ background: '#F0FDF4', padding: '16px', borderRadius: '16px', border: '1px solid #DCFCE7' }}>
+                    <div style={{ fontSize: '0.75rem', fontWeight: 900, color: '#166534', textTransform: 'uppercase', marginBottom: '8px', display: 'flex', alignItems: 'center', gap: '6px' }}>
+                      <LayoutGrid size={14} /> Work Cycle (Siklus Kerja)
+                    </div>
+                    <p style={{ margin: 0, fontSize: '0.9rem', color: '#166534', lineHeight: 1.6 }}>{currentDay.workCycle}</p>
+                  </div>
+                  
+                  <div style={{ background: '#FFF7ED', padding: '16px', borderRadius: '16px', border: '1px solid #FFEDD5' }}>
+                    <div style={{ fontSize: '0.75rem', fontWeight: 900, color: '#9A3412', textTransform: 'uppercase', marginBottom: '8px', display: 'flex', alignItems: 'center', gap: '6px' }}>
+                      <Heart size={14} /> Closing & Refleksi
+                    </div>
+                    <p style={{ margin: 0, fontSize: '0.9rem', color: '#9A3412', lineHeight: 1.6 }}>{currentDay.closing}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        );
+      })()}
+
       <style>{`
+        @keyframes scaleIn { from { opacity: 0; transform: scale(0.95) translateY(10px); } to { opacity: 1; transform: scale(1) translateY(0); } }
         @keyframes slideUp { from { transform: translateY(100%); } to { transform: translateY(0); } }
         @keyframes popIn { from { transform: scale(0.95); opacity: 0; } to { transform: scale(1); opacity: 1; } }
         @keyframes slideLeft { from { transform: translateX(100%); } to { transform: translateX(0); } }

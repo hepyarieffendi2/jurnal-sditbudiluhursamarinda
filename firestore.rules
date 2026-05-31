@@ -61,6 +61,14 @@ service cloud.firestore {
       allow read, write: if true;
     }
 
+    match /class_status/{document=**} {
+      allow read, write: if true;
+    }
+
+    match /inventaris_ape/{document=**} {
+      allow read, write: if true;
+    }
+
     match /pending_users/{document=**} {
       allow read, write: if true;
     }

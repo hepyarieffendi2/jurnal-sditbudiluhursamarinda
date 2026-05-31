@@ -20,7 +20,7 @@ import UserManagement from './pages/UserManagement';
 import LaporanSekolah from './pages/LaporanSekolah';
 import KumerMapping from './pages/KumerMapping';
 import StudentReport from './pages/StudentReport';
-import CurriculumTimeline from './pages/CurriculumTimeline';
+import TrainingManual from './pages/TrainingManual';
 import DashboardLayout from './components/DashboardLayout';
 import { useAuth, ROLES, canManageAccounts, isKepsek } from './context/AuthContext';
 
@@ -29,11 +29,12 @@ const ProtectedRoute = ({ children }) => {
     return user ? children : <Navigate to="/login" />;
 };
 
-// Role-based route guard
+// Role-based route guard — uses REAL role (not view-as) for access control
 const RoleRoute = ({ children, allowedRoles }) => {
-    const { user } = useAuth();
+    const { user, realRole } = useAuth();
     if (!user) return <Navigate to="/login" />;
-    if (allowedRoles && !allowedRoles.includes(user.role)) return <Navigate to="/dashboard" />;
+    const checkRole = realRole || user.role;
+    if (allowedRoles && !allowedRoles.includes(checkRole)) return <Navigate to="/dashboard" />;
     return children;
 };
 
@@ -91,7 +92,6 @@ function App() {
                         </RoleRoute>
                     } />
 
-                    <Route path="/timeline" element={<CurriculumTimeline />} />
 
                     <Route path="/rapor/:id" element={<StudentReport />} />
 
@@ -103,8 +103,14 @@ function App() {
                     } />
                 </Route>
 
+                <Route path="/training-manual" element={
+                    <ProtectedRoute>
+                        <TrainingManual />
+                    </ProtectedRoute>
+                } />
+
                 {/* Default Redirect */}
-                <Route path="/" element={<Navigate to="/dashboard" />} />
+                <Route path="*" element={<Navigate to="/dashboard" />} />
             </Routes>
         </Router>
     );

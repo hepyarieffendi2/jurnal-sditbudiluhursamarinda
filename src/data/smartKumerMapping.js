@@ -1,6 +1,6 @@
 /**
  * smartKumerMapping.js
- * Database otomatis yang menghubungkan CP Kumer ke Granul Montessori AMI
+ * Database otomatis yang menghubungkan CP Kumer ke Granul Sentra AMI
  * Referensi Grantul: areaSentraCycle2.js (Database Lengkap)
  */
 

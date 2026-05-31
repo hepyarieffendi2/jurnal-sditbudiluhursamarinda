@@ -171,12 +171,12 @@ export default function KepsekDashboard() {
                 )}
             </div>
 
-            {/* Montessori Quote */}
+            {/* Kutipan Pendidik */}
             <div style={{ marginTop: '40px', padding: '32px', background: '#F8FAFC', border: '1px solid #E2E8F0', borderRadius: '24px', textAlign: 'center' }}>
                 <p style={{ fontSize: '1rem', lineHeight: 1.6, color: '#475569', fontStyle: 'italic', margin: 0, fontWeight: 600 }}>
                     "The greatest sign of success for a teacher is to be able to say, 'The children are now working as if I did not exist.'"
                 </p>
-                <div style={{ fontSize: '0.75rem', fontWeight: 900, marginTop: '12px', color: '#94A3B8', textTransform: 'uppercase' }}>— Maria Montessori</div>
+                <div style={{ fontSize: '0.75rem', fontWeight: 900, marginTop: '12px', color: '#94A3B8', textTransform: 'uppercase' }}>— Dr. Maria M.</div>
             </div>
 
             <style>{`

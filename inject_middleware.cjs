@@ -1,4 +1,6 @@
-import { defineConfig } from 'vite'
+const fs = require('fs');
+
+const configCode = `import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import fs from 'fs'
 import path from 'path'
@@ -20,20 +22,11 @@ const syncAiPlugin = () => ({
             const filePath = path.resolve(__dirname, 'src/data/areaSentraCycle2.js');
             let content = fs.readFileSync(filePath, 'utf8');
             
-            const escapedLabelSingle = label.replace(/'/g, "\\'");
-            const escapedLabelDouble = label.replace(/"/g, '\\"');
-            
-            let idx = content.indexOf(`label: '${escapedLabelSingle}'`);
-            if (idx === -1) idx = content.indexOf(`label: "${escapedLabelDouble}"`);
-            if (idx === -1) idx = content.indexOf(`label: '${label}'`);
-            if (idx === -1) idx = content.indexOf(`label: "${label}"`);
-            
-            console.log("Sync AI requested for:", label);
-            console.log("Found label at index:", idx);
+            let idx = content.indexOf(\`label: '\${label}'\`);
+            if (idx === -1) idx = content.indexOf(\`label: "\${label}"\`);
             
             if (idx !== -1) {
-              let dataIdx = content.indexOf('presentation: {', idx);
-              console.log("Found presentation at index:", dataIdx);
+              let dataIdx = content.indexOf('data: {', idx);
               if (dataIdx !== -1) {
                 let bracketCount = 0;
                 let dataEndIdx = -1;
@@ -52,9 +45,9 @@ const syncAiPlugin = () => ({
                   const stringified = JSON.stringify(data, null, 2);
                   // Remove first and last brace so we can insert into data: { ... }
                   const innerContent = stringified.substring(1, stringified.length - 1);
-                  const formattedInner = innerContent.split('\n').map((line) => '              ' + line).join('\n');
+                  const formattedInner = innerContent.split('\\n').map((line) => '              ' + line).join('\\n');
                   
-                  const replacement = `presentation: {\n${formattedInner}\n            }`;
+                  const replacement = \`data: {\\n\${formattedInner}\\n            }\`;
                   
                   content = content.substring(0, dataIdx) + replacement + content.substring(dataEndIdx);
                   
@@ -63,8 +56,6 @@ const syncAiPlugin = () => ({
                   res.statusCode = 200;
                   res.end(JSON.stringify({ success: true }));
                   return;
-                } else {
-                  console.log("Could not find end of presentation block");
                 }
               }
             }
@@ -88,3 +79,7 @@ const syncAiPlugin = () => ({
 export default defineConfig({
   plugins: [react(), syncAiPlugin()],
 })
+`;
+
+fs.writeFileSync('vite.config.js', configCode, 'utf8');
+console.log('vite.config.js updated successfully!');

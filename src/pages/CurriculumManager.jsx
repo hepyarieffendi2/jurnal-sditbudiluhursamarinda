@@ -1,5 +1,5 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { BookOpen, Edit3, Save, Plus, Trash2, Search, Video, Hash, Leaf, Globe2, Moon, Wand2, Loader2, X, ChevronRight, Package, Book, Sparkles, Activity, MessageSquare, Tag, LayoutGrid, Globe, Heart, ArrowLeft, Palette, Languages, Lightbulb, Calculator, FlaskConical, Filter } from 'lucide-react';
+import React, { useState, useEffect, useRef, useMemo } from 'react';
+import { BookOpen, Edit3, Save, Plus, Trash2, Search, Video, Hash, Leaf, Globe2, Moon, Wand2, Loader2, X, ChevronRight, Package, Book, Sparkles, Activity, MessageSquare, Tag, LayoutGrid, Globe, Heart, ArrowLeft, Palette, Languages, Lightbulb, Calculator, FlaskConical, Filter, Printer, Syringe } from 'lucide-react';
 import InventoryModal from './InventoryModal';
 import { AREA_SENTRA } from '../data/areaSentra';
 import { AREA_SENTRA_CYCLE2 } from '../data/areaSentraCycle2';
@@ -18,6 +18,87 @@ const getIcon = (iconName) => {
     }
 };
 
+const renderParentheses = (text, isPrint = false) => {
+    if (typeof text !== 'string') return text;
+    
+    const parts = text.split(/\(([^)]+)\)/);
+    return parts.map((part, index) => {
+        if (index % 2 === 1) {
+            return (
+                <span 
+                    key={index} 
+                    style={{
+                        fontStyle: 'italic',
+                        color: '#64748B', // Elegant muted slate gray
+                        fontSize: '0.88em',
+                        fontWeight: 500,
+                        marginLeft: '4px',
+                        marginRight: '4px'
+                    }}
+                >
+                    ({part})
+                </span>
+            );
+        }
+        return part;
+    });
+};
+
+const renderTextWithTags = (text, isPrint = false) => {
+    if (typeof text !== 'string') return text;
+    
+    const parts = text.split(/\[([^\]]+)\]/);
+    return parts.map((part, index) => {
+        if (index % 2 === 1) {
+            let bgColor = '#F1F5F9';
+            let textColor = '#475569';
+            let borderColor = '#E2E8F0';
+            
+            const lowerPart = part.toLowerCase();
+            if (lowerPart.includes('berkesadaran')) {
+                bgColor = '#EEF2FF'; // Indigo
+                textColor = '#4338CA';
+                borderColor = '#C7D2FE';
+            } else if (lowerPart.includes('bermakna')) {
+                bgColor = '#FFF7ED'; // Orange
+                textColor = '#C2410C';
+                borderColor = '#FED7AA';
+            } else if (lowerPart.includes('menyenangkan')) {
+                bgColor = '#FDF2F8'; // Pink
+                textColor = '#BE185D';
+                borderColor = '#FBCFE8';
+            }
+            
+            const paddingStyles = isPrint 
+                ? { padding: '1px 5px', fontSize: '0.58rem', borderRadius: '4px', border: `1px solid ${borderColor}` }
+                : { padding: '3px 8px', fontSize: '0.7rem', borderRadius: '8px', border: `1px solid ${borderColor}` };
+            
+            return (
+                <span 
+                    key={index} 
+                    style={{
+                        display: 'inline-flex',
+                        alignItems: 'center',
+                        gap: '4px',
+                        fontWeight: 850,
+                        backgroundColor: bgColor,
+                        color: textColor,
+                        marginLeft: '6px',
+                        marginRight: '2px',
+                        verticalAlign: 'middle',
+                        letterSpacing: '0.2px',
+                        textTransform: 'uppercase',
+                        ...paddingStyles
+                    }}
+                >
+                    ✨ {part}
+                </span>
+            );
+        }
+        return renderParentheses(part, isPrint);
+    });
+};
+
 export default function CurriculumManager() {
     const [curriculum, setCurriculum] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -28,8 +109,10 @@ export default function CurriculumManager() {
     const [activeGradeFilter, setActiveGradeFilter] = useState('Semua');
     const [editingItem, setEditingItem] = useState(null); // { label, originalLabel, data, grades, areaColor }
     const [detailDrawerItem, setDetailDrawerItem] = useState(null); // 🚀 New: Detail Drawer State
+    const [printItem, setPrintItem] = useState(null); // 🖨️ Print State
     const [showShoppingList, setShowShoppingList] = useState(false);
     const [expandedCard, setExpandedCard] = useState(null);
+    const [showSuggestions, setShowSuggestions] = useState(false);
 
     // CRUD States for Area & SubArea
     const [editingArea, setEditingArea] = useState(null);
@@ -85,23 +168,49 @@ export default function CurriculumManager() {
     };
 
     const seedCycle2 = async () => {
-        if (!window.confirm("Bunda, apakah yakin ingin menyelaraskan Kurikulum? Video URL yang sudah ada di Database akan tetap dipertahankan, namun langkah-langkah presentasi akan diperbarui sesuai standar terbaru.")) return;
+        if (!window.confirm("Bunda, apakah yakin ingin menyelaraskan Kurikulum? Semua presentasi yang sudah Bunda edit secara manual dan Link Video di Database akan tetap aman terjaga. ✨")) return;
         setLoading(true);
         try {
             const collRef = collection(db, 'kurikulum_pusat');
             const snapshot = await getDocs(collRef);
 
-            // 1. Ambil data Video URL existing agar tidak hilang
-            const existingVideoMap = {}; // Key: areaId|subAreaId|levelLabel
+            const getPureLabel = (label) => {
+                if (!label) return "";
+                return label.includes(': ') ? label.split(': ').slice(1).join(': ').trim() : label.trim();
+            };
+
+            const getMatchKey = (label) => {
+                return getPureLabel(label).toLowerCase().replace(/\s+/g, ' ');
+            };
+
+            // 1. Ambil data presentasi & grades existing agar tidak hilang
+            const existingPresMap = {}; // Key: areaId|subAreaId|matchKey -> presentation object
+            const existingGradesMap = {}; // Key: areaId|subAreaId|matchKey -> grades array
+            const existingLabelMap = {}; // Key: areaId|subAreaId|matchKey -> full label string from DB
+            const exactPresMap = {}; // Key: areaId|subAreaId|label -> presentation object
+            const exactGradesMap = {}; // Key: areaId|subAreaId|label -> grades array
+
             snapshot.docs.forEach(docSnap => {
                 const area = docSnap.data();
                 area.subAreas?.forEach(sa => {
                     sa.levels?.forEach(lvl => {
                         const label = typeof lvl === 'object' ? lvl.label : lvl;
-                        const videoUrl = typeof lvl === 'object' ? lvl.presentation?.videoUrl : null;
-                        if (videoUrl) {
-                            existingVideoMap[`${docSnap.id}|${sa.id}|${label}`] = videoUrl;
+                        const matchKey = getMatchKey(label);
+                        const presentation = typeof lvl === 'object' ? lvl.presentation : null;
+                        const grades = typeof lvl === 'object' ? lvl.grades : null;
+
+                        const exactKey = `${docSnap.id}|${sa.id}|${label}`;
+                        const pureKey = `${docSnap.id}|${sa.id}|${matchKey}`;
+
+                        if (presentation) {
+                            exactPresMap[exactKey] = presentation;
+                            existingPresMap[pureKey] = presentation;
                         }
+                        if (grades) {
+                            exactGradesMap[exactKey] = grades;
+                            existingGradesMap[pureKey] = grades;
+                        }
+                        existingLabelMap[pureKey] = label;
                     });
                 });
             });
@@ -117,27 +226,40 @@ export default function CurriculumManager() {
                 const newSubAreas = area.subAreas.map(sa => {
                     const newLevels = sa.levels.map(lvl => {
                         const label = typeof lvl === 'object' ? lvl.label : lvl;
-                        const key = `${area.id}|${sa.id}|${label}`;
+                        const matchKey = getMatchKey(label);
+                        const exactKey = `${area.id}|${sa.id}|${label}`;
+                        const pureKey = `${area.id}|${sa.id}|${matchKey}`;
                         
                         // Miliki metadata otomatis
                         const meta = getPedagogicalMetadata(label);
 
+                        // Ambil data dari database (exact match first, then fallback to matchKey)
+                        const dbPres = exactPresMap[exactKey] || existingPresMap[pureKey];
+                        const dbGrades = exactGradesMap[exactKey] || existingGradesMap[pureKey];
+                        const dbLabel = exactPresMap[exactKey] ? label : (existingLabelMap[pureKey] || label);
+
                         if (typeof lvl === 'object') {
                             return {
                                 ...lvl,
+                                label: dbLabel,
+                                grades: dbGrades || lvl.grades || dbLabel.match(/^(K\d|3Y|K\d-K\d)/)?.[0]?.split('-') || ['K1'],
                                 presentation: {
                                     ...meta, // Default meta
-                                    ...(lvl.presentation || {}), // Ovveride dengan data di file jika ada
-                                    videoUrl: existingVideoMap[key] || lvl.presentation?.videoUrl || '' // Prioritas video database
+                                    ...(dbPres || {}), // Prioritas data presentasi dari database (termasuk yang sudah diedit manual)
+                                    ...(lvl.presentation || {}), // Override dengan data di file jika ada (file adalah source of truth untuk curated content!)
+                                    videoUrl: dbPres?.videoUrl || lvl.presentation?.videoUrl || '' // Pastikan video aman
                                 }
                             };
                         } else {
+                            const grades = dbGrades || dbLabel.match(/^(K\d|3Y|K\d-K\d)/)?.[0]?.split('-') || ['K1'];
                             return {
-                                label: lvl,
+                                label: dbLabel,
+                                grades,
                                 presentation: { 
                                     ...meta,
-                                    videoUrl: existingVideoMap[key] || '', 
-                                    steps: [] 
+                                    ...(dbPres || {}),
+                                    videoUrl: dbPres?.videoUrl || '', 
+                                    steps: dbPres?.steps || [] 
                                 }
                             };
                         }
@@ -152,7 +274,7 @@ export default function CurriculumManager() {
                 await setDoc(doc(db, 'kurikulum_pusat', area.id), area);
             }
 
-            alert("Sihir AI Berhasil! Kurikulum telah diperbarui dan Link Video Anda tetap aman terjaga. ✨");
+            alert("Sihir AI Berhasil! Kurikulum telah diperbarui, presentasi manual Bunda, dan Link Video Anda tetap aman terjaga. ✨");
             window.location.reload();
         } catch (e) {
             console.error(e);
@@ -227,6 +349,72 @@ export default function CurriculumManager() {
         };
         fetchCurriculum();
     }, []);
+
+    // Print support listener
+    useEffect(() => {
+        const handleAfterPrint = () => {
+            setPrintItem(null);
+        };
+        window.addEventListener('afterprint', handleAfterPrint);
+        return () => window.removeEventListener('afterprint', handleAfterPrint);
+    }, []);
+
+    // 🔍 SEARCH SUGGESTIONS LOGIC
+    const suggestions = useMemo(() => {
+        if (!searchTerm || searchTerm.length < 2) return [];
+        
+        const matches = [];
+        curriculum.forEach(area => {
+            area.subAreas?.forEach(sa => {
+                sa.levels?.forEach(lvl => {
+                    const label = typeof lvl === 'object' ? lvl.label : lvl;
+                    if (label.toLowerCase().includes(searchTerm.toLowerCase())) {
+                        matches.push({
+                            lvl,
+                            areaId: area.id,
+                            areaName: area.name,
+                            areaColor: area.color,
+                            bgColor: area.bgColor,
+                            subAreaId: sa.id,
+                            subAreaName: sa.name,
+                            label
+                        });
+                    }
+                });
+            });
+        });
+        return matches.slice(0, 10);
+    }, [searchTerm, curriculum]);
+
+    const handleOpenDetailFromSearch = (item) => {
+        const { lvl, areaColor, bgColor, areaName, areaId, subAreaId } = item;
+        const isObject = typeof lvl === 'object';
+        const label = isObject ? lvl.label : lvl;
+        const rawLabel = label.includes(': ') ? label.split(': ').slice(1).join(': ') : label;
+        const [indTitle, engTitle] = rawLabel.split(' / ');
+        
+        const hasPresentation = isObject && lvl.presentation && lvl.presentation.steps?.length > 1;
+        const stepsCount = isObject ? (lvl.presentation?.steps?.filter(s => s.match(/^\d+\./))?.length || 0) : 0;
+        const hasTool = isObject && lvl.presentation && (
+            (lvl.presentation.tool && lvl.presentation.tool.length > 5) ||
+            (lvl.presentation.toolDisplay && lvl.presentation.toolDisplay.length > 5) ||
+            (lvl.presentation.toolsList && lvl.presentation.toolsList.length > 0)
+        );
+        const hasVideo = isObject && lvl.presentation?.videoUrl;
+
+        // Auto-switch view to match the item
+        setActiveAreaId(areaId);
+        setActiveSubAreaId(subAreaId);
+        
+        setDetailDrawerItem({
+            lvl, isObject, label, indTitle, engTitle, 
+            hasTool, hasPresentation, hasVideo, stepsCount,
+            areaColor, bgColor, areaName
+        });
+        
+        setSearchTerm('');
+        setShowSuggestions(false);
+    };
 
     const activeArea = curriculum.find(a => a.id === activeAreaId);
     const activeSubArea = activeArea?.subAreas?.find(sa => sa.id === activeSubAreaId) || activeArea?.subAreas?.[0];
@@ -380,6 +568,34 @@ export default function CurriculumManager() {
             alert("Gagal menambah materi: " + e.message);
         } finally {
             setLoading(false);
+        }
+    };
+
+    const handleSyncAI = async (e, lvl, isObject, rawLabel, label) => {
+        e.stopPropagation();
+        if (!window.confirm(`Suntikkan "${rawLabel}" ke hardcode permanen?`)) return;
+        
+        try {
+            const dataToSync = isObject && lvl.data ? lvl.data : {};
+            
+            const response = await fetch('/api/sync-ai', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    label: label,
+                    data: dataToSync
+                })
+            });
+            
+            const result = await response.json();
+            if (result.success) {
+                alert("Berhasil disuntikkan ke hardcode! 💉✨");
+            } else {
+                alert("Gagal: " + (result.message || result.error));
+            }
+        } catch (error) {
+            console.error(error);
+            alert("Error menyuntikkan ke hardcode: " + error.message);
         }
     };
 
@@ -552,9 +768,19 @@ export default function CurriculumManager() {
                         </div>
                         <input 
                             type="text" 
-                            placeholder="Cari kurikulum..." 
+                            placeholder="Cari kurikulum (misal: Golden)..." 
                             value={searchTerm}
-                            onChange={(e) => setSearchTerm(e.target.value)}
+                            onChange={(e) => {
+                                setSearchTerm(e.target.value);
+                                setShowSuggestions(true);
+                            }}
+                            onFocus={() => setShowSuggestions(true)}
+                            onBlur={() => setTimeout(() => setShowSuggestions(false), 200)}
+                            onKeyDown={(e) => {
+                                if (e.key === 'Enter' && suggestions.length > 0) {
+                                    handleOpenDetailFromSearch(suggestions[0]);
+                                }
+                            }}
                             style={{ 
                                 border: 'none', 
                                 background: 'transparent', 
@@ -567,6 +793,40 @@ export default function CurriculumManager() {
                                 transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)'
                             }}
                         />
+                        
+                        {/* 💡 SUGGESTIONS DROPDOWN */}
+                        {showSuggestions && suggestions.length > 0 && (
+                            <div style={{ 
+                                position: 'absolute', top: 'calc(100% + 12px)', left: 0, right: 0, minWidth: '350px',
+                                background: 'white', borderRadius: '20px', 
+                                boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.15)',
+                                zIndex: 1000, border: '1px solid #E2E8F0', overflow: 'hidden',
+                                animation: 'fadeInUp 0.3s ease'
+                            }}>
+                                <div style={{ padding: '12px 16px', fontSize: '0.7rem', fontWeight: 900, color: '#94A3B8', textTransform: 'uppercase', borderBottom: '1px solid #F1F5F9' }}>Hasil Pencarian Cepat</div>
+                                {suggestions.map((s, i) => (
+                                    <button 
+                                        key={i}
+                                        onClick={() => handleOpenDetailFromSearch(s)}
+                                        style={{ 
+                                            width: '100%', padding: '14px 16px', display: 'flex', alignItems: 'center', gap: '12px',
+                                            border: 'none', background: 'transparent', cursor: 'pointer', borderBottom: i === suggestions.length - 1 ? 'none' : '1px solid #F1F5F9',
+                                            textAlign: 'left', transition: 'all 0.2s'
+                                        }}
+                                        onMouseEnter={e => e.currentTarget.style.background = '#F8FAFC'}
+                                        onMouseLeave={e => e.currentTarget.style.background = 'transparent'}
+                                    >
+                                        <div style={{ width: '10px', height: '10px', borderRadius: '3px', backgroundColor: s.areaColor }} />
+                                        <div style={{ flex: 1 }}>
+                                            <div style={{ fontSize: '0.9rem', fontWeight: 800, color: '#1E293B' }}>{s.label.split(': ')[1]?.split(' / ')[0] || s.label}</div>
+                                            <div style={{ fontSize: '0.65rem', fontWeight: 700, color: '#94A3B8', textTransform: 'uppercase' }}>{s.areaName} › {s.subAreaName}</div>
+                                        </div>
+                                        <ChevronRight size={14} color="#CBD5E1" />
+                                    </button>
+                                ))}
+                            </div>
+                        )}
+                        
                         {searchTerm && (
                             <button 
                                 onClick={() => setSearchTerm('')}
@@ -957,14 +1217,17 @@ export default function CurriculumManager() {
                                                                 style={{ padding: '16px 20px', display: 'flex', alignItems: 'center', gap: '14px', cursor: 'pointer', transition: 'background 0.15s' }}
                                                                 className="card-header-hover"
                                                             >
-                                                                {/* Grade Badge */}
+                                                                {/* Absolute Sequence Order Badge */}
                                                                 <div style={{
-                                                                    padding: '4px 10px', borderRadius: '8px', fontSize: '0.7rem', fontWeight: 900,
-                                                                    backgroundColor: `${gradeColors[grade] || '#94A3B8'}15`,
-                                                                    color: gradeColors[grade] || '#94A3B8',
-                                                                    letterSpacing: '0.5px', flexShrink: 0
-                                                                }}>
-                                                                    {grade || '?'}
+                                                                    width: '22px', height: '22px', borderRadius: '50%', fontSize: '0.72rem', fontWeight: 900,
+                                                                    backgroundColor: '#F8FAFC',
+                                                                    color: '#475569',
+                                                                    border: '1.5px solid #E2E8F0',
+                                                                    display: 'flex', alignItems: 'center', justifyContent: 'center',
+                                                                    flexShrink: 0,
+                                                                    boxShadow: '0 2px 4px rgba(0,0,0,0.02)'
+                                                                }} title={`Materi ke-${subArea.levels.indexOf(lvl) + 1} dalam album`}>
+                                                                    {subArea.levels.indexOf(lvl) + 1}
                                                                 </div>
 
                                                                 {/* Title */}
@@ -989,10 +1252,25 @@ export default function CurriculumManager() {
                                                                             {engTitle}
                                                                         </div>
                                                                     )}
+                                                                    
+                                                                    {/* Grade Badges dipindah ke sini */}
+                                                                    <div style={{ display: 'flex', gap: '4px', marginTop: '4px' }}>
+                                                                        {(isObject && lvl.grades?.length ? lvl.grades : (grade ? [grade] : ['?'])).map((g, i) => (
+                                                                            <div key={i} style={{
+                                                                                padding: '3px 8px', borderRadius: '6px', fontSize: '0.65rem', fontWeight: 900,
+                                                                                backgroundColor: `${gradeColors[g] || '#94A3B8'}15`,
+                                                                                color: gradeColors[g] || '#94A3B8',
+                                                                                letterSpacing: '0.5px'
+                                                                            }}>
+                                                                                {g}
+                                                                            </div>
+                                                                        ))}
+                                                                    </div>
                                                                 </div>
 
                                                                 {/* Status Badges */}
                                                                 <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexShrink: 0 }}>
+
                                                                     <div title="Alat Ada" style={{ opacity: hasTool ? 1 : 0.2, color: '#F59E0B' }}><Package size={14} /></div>
                                                                     <div title="Panduan Siap" style={{ opacity: hasPresentation ? 1 : 0.2, color: '#3B82F6' }}><Book size={14} /></div>
                                                                     <div title="Video Ada" style={{ opacity: hasVideo ? 1 : 0.2, color: '#EF4444' }}><Video size={14} /></div>
@@ -1002,7 +1280,10 @@ export default function CurriculumManager() {
                                                                 </div>
 
                                                                 {/* Expand Arrow */}
-                                                                <div style={{ marginLeft: '8px', color: '#94A3B8', flexShrink: 0 }}>
+                                                                <div style={{ marginLeft: '8px', color: '#94A3B8', flexShrink: 0, display: 'flex', alignItems: 'center', gap: '8px' }}>
+                                                                    <div title="Suntik ke Hardcode (Sync AI)" onClick={(e) => handleSyncAI(e, lvl, isObject, indTitle, label)} style={{ padding: '6px', backgroundColor: '#FEE2E2', color: '#EF4444', borderRadius: '8px', cursor: 'pointer', transition: 'all 0.2s', display: 'flex', alignItems: 'center', justifyContent: 'center' }} className="hover-lift">
+                                                                        <Syringe size={16} />
+                                                                    </div>
                                                                     <ChevronRight size={18} />
                                                                 </div>
                                                             </div>
@@ -1024,7 +1305,7 @@ export default function CurriculumManager() {
             {editingItem && (
                 <div style={{ position: 'fixed', inset: 0, backgroundColor: 'rgba(15, 23, 42, 0.7)', zIndex: 4000, display: 'flex', alignItems: 'center', justifyContent: 'center', backdropFilter: 'blur(8px)', padding: '20px' }} onClick={() => setEditingItem(null)}>
                     <div
-                        style={{ backgroundColor: 'white', width: '100%', maxWidth: '750px', maxHeight: '90vh', borderRadius: '32px', display: 'flex', flexDirection: 'column', animation: 'popIn 0.3s cubic-bezier(0.34, 1.56, 0.64, 1)', boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.25)', overflow: 'hidden' }}
+                        style={{ backgroundColor: 'white', width: '100%', maxWidth: '900px', maxHeight: '90vh', borderRadius: '32px', display: 'flex', flexDirection: 'column', animation: 'popIn 0.3s cubic-bezier(0.34, 1.56, 0.64, 1)', boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.25)', overflow: 'hidden' }}
                         onClick={e => e.stopPropagation()}
                     >
                         <div style={{ padding: '32px 40px', borderBottom: '1px solid #F1F5F9', position: 'relative' }}>
@@ -1098,7 +1379,7 @@ export default function CurriculumManager() {
                                     <button
                                         onClick={() => {
                                             const tool = toolRef.current?.value || editingItem.label.split(': ')[1]?.split(' / ')[0]?.trim();
-                                            window.open(`https://www.google.com/search?q=Montessori+${tool}+material&tbm=isch`, '_blank');
+                                            window.open(`https://www.google.com/search?q=montessori+${tool}+material&tbm=isch`, '_blank');
                                         }}
                                         style={{ padding: '0 16px', borderRadius: '8px', border: '1px solid #E2E8F0', background: 'white', color: '#64748B', fontWeight: 700, fontSize: '0.75rem', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '6px' }}
                                     >
@@ -1113,7 +1394,7 @@ export default function CurriculumManager() {
                                     ref={stepsRef}
                                     defaultValue={editingItem.data?.steps?.join('\n') || ''}
                                     placeholder="1. Gulung karpet&#10;2. Bawa material&#10;3. Demonstrasikan..."
-                                    style={{ width: '100%', padding: '14px 16px', borderRadius: '8px', border: '1px solid #E2E8F0', backgroundColor: '#F8FAFC', outline: 'none', fontSize: '0.95rem', fontWeight: 500, minHeight: '150px', resize: 'vertical', transition: 'all 0.2s' }}
+                                    style={{ width: '100%', padding: '14px 16px', borderRadius: '8px', border: '1px solid #E2E8F0', backgroundColor: '#F8FAFC', outline: 'none', fontSize: '0.95rem', fontWeight: 500, minHeight: '350px', resize: 'vertical', transition: 'all 0.2s' }}
                                     onFocus={e => e.target.style.borderColor = '#CBD5E1'} onBlur={e => e.target.style.borderColor = '#E2E8F0'}
                                 />
                             </div>
@@ -1158,7 +1439,7 @@ export default function CurriculumManager() {
 
                                             const finalQuery = primaryTool ? `${cleanSearch} ${primaryTool}` : cleanSearch;
 
-                                            window.open(`https://www.youtube.com/results?search_query=Montessori+${finalQuery.trim()}+presentation`, '_blank');
+                                            window.open(`https://www.youtube.com/results?search_query=montessori+${finalQuery.trim()}+presentation`, '_blank');
                                         }}
                                         style={{ backgroundColor: '#FEF2F2', color: '#DC2626', border: '1px solid #FECACA', borderRadius: '8px', padding: '0 16px', display: 'flex', alignItems: 'center', gap: '8px', cursor: 'pointer', fontWeight: 700, fontSize: '0.85rem' }}
                                     >
@@ -1209,6 +1490,16 @@ export default function CurriculumManager() {
                                 </p>
                             )}
                             <div style={{ display: 'flex', gap: 8, marginTop: 16 }}>
+                                {(() => {
+                                    const gradeColors = { 'K1': '#3B82F6', 'K2': '#8B5CF6', 'K3': '#F59E0B', '3Y': '#10B981' };
+                                    const rawGradeMatch = detailDrawerItem.label.match(/^(K\d|3Y)/);
+                                    const grades = detailDrawerItem.isObject && detailDrawerItem.lvl.grades?.length ? detailDrawerItem.lvl.grades : (rawGradeMatch ? [rawGradeMatch[1]] : ['?']);
+                                    return grades.map((g, i) => (
+                                        <div key={i} style={{ fontSize: '0.65rem', fontWeight: 900, background: `${gradeColors[g] || '#94A3B8'}15`, color: gradeColors[g] || '#94A3B8', padding: '4px 8px', borderRadius: '6px' }}>
+                                            {g}
+                                        </div>
+                                    ));
+                                })()}
                                 <div style={{ fontSize: '0.65rem', fontWeight: 800, background: '#F1F5F9', color: '#64748B', padding: '4px 8px', borderRadius: '6px' }}>
                                     MATERI: {detailDrawerItem.areaName}
                                 </div>
@@ -1295,7 +1586,7 @@ export default function CurriculumManager() {
                                                                         <MessageSquare size={12} style={{ marginTop: 4, flexShrink: 0 }} />
                                                                         <span>"{part}"</span>
                                                                     </div>
-                                                                ) : part
+                                                                ) : renderTextWithTags(part)
                                                             ) : stepText}
                                                         </div>
                                                     </div>
@@ -1358,6 +1649,32 @@ export default function CurriculumManager() {
                         {/* Footer Action */}
                         <div style={{ padding: '24px 40px', borderTop: '1px solid #F1F5F9', background: 'white' }}>
                             <div style={{ display: 'flex', gap: '12px' }}>
+                                <button 
+                                    onClick={() => {
+                                        setPrintItem({
+                                            title: detailDrawerItem.indTitle,
+                                            engTitle: detailDrawerItem.engTitle,
+                                            areaColor: detailDrawerItem.areaColor,
+                                            areaName: detailDrawerItem.areaName,
+                                            stepsCount: detailDrawerItem.stepsCount,
+                                            hasTool: detailDrawerItem.hasTool,
+                                            toolDisplay: detailDrawerItem.lvl.presentation?.toolDisplay || detailDrawerItem.lvl.presentation?.tool || detailDrawerItem.lvl.presentation?.toolsList?.join(', '),
+                                            prerequisites: detailDrawerItem.lvl.presentation?.prerequisites,
+                                            directAim: detailDrawerItem.lvl.presentation?.directAim,
+                                            indirectAim: detailDrawerItem.lvl.presentation?.indirectAim,
+                                            steps: detailDrawerItem.lvl.presentation?.steps || [],
+                                            error: detailDrawerItem.lvl.presentation?.error,
+                                            hasPresentation: detailDrawerItem.hasPresentation
+                                        });
+                                        setTimeout(() => window.print(), 300);
+                                    }}
+                                    style={{ padding: '16px', borderRadius: '16px', background: '#F1F5F9', color: '#475569', border: '1px solid #E2E8F0', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', transition: 'all 0.2s' }}
+                                    title="Cetak Panduan Guru (PDF)"
+                                    onMouseEnter={e => e.currentTarget.style.backgroundColor = '#E2E8F0'}
+                                    onMouseLeave={e => e.currentTarget.style.backgroundColor = '#F1F5F9'}
+                                >
+                                    <Printer size={20} />
+                                </button>
                                 <button 
                                     onClick={() => {
                                         const { label, isObject, lvl, areaColor } = detailDrawerItem;
@@ -1530,6 +1847,380 @@ export default function CurriculumManager() {
             {showShoppingList && (
                 <InventoryModal curriculum={curriculum} onClose={() => setShowShoppingList(false)} />
             )}
+
+            {/* 🖨️ PREMIUM PRINTABLE CANVAS */}
+            {printItem && (
+                <div className="printable-canvas" style={{ backgroundColor: 'white', color: 'black', minHeight: '100vh', padding: '20px', fontFamily: "'Inter', sans-serif" }}>
+                    <style>
+                        {`
+                            .print-preview-container {
+                                margin: 80px auto 40px auto;
+                            }
+                            @media print {
+                                body * { visibility: hidden; }
+                                .printable-canvas, .printable-canvas * { visibility: visible; }
+                                .printable-canvas { 
+                                    position: absolute; left: 0; top: 0; width: 100%; 
+                                    padding: 0 !important; margin: 0 !important;
+                                    background: white !important;
+                                }
+                                .print-preview-container {
+                                    margin: 0 !important;
+                                    padding: 0 !important;
+                                    max-width: 100% !important;
+                                }
+                                @page { 
+                                    size: A4 portrait; 
+                                    margin: 8mm 10mm 8mm 10mm; 
+                                }
+                                body { background: white !important; -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+                                .no-print { display: none !important; }
+                                .print-page {
+                                    box-shadow: none !important;
+                                    margin: 0 !important;
+                                    padding: 0 !important;
+                                    width: 100% !important;
+                                    min-height: 277mm !important; /* Flexible A4 height */
+                                    height: auto !important;
+                                    position: relative;
+                                    box-sizing: border-box;
+                                    page-break-after: auto;
+                                    break-after: auto;
+                                    page-break-inside: auto;
+                                    break-inside: auto;
+                                }
+                                .print-footer {
+                                    position: relative !important;
+                                    margin-top: 24px !important;
+                                    bottom: auto !important;
+                                    left: auto !important;
+                                    right: auto !important;
+                                    display: flex;
+                                    justify-content: space-between;
+                                }
+                            }
+                            
+                            .print-page {
+                                background-color: white;
+                                box-sizing: border-box;
+                                position: relative;
+                                font-family: 'Inter', sans-serif;
+                                width: 210mm;
+                                height: 297mm; /* High-fidelity screen preview A4 height */
+                                margin: 0 auto;
+                                padding: 32px 32px 48px 32px;
+                                box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+                                border: 1px solid #E2E8F0;
+                                border-radius: 24px;
+                            }
+                            .print-header {
+                                display: flex;
+                                justify-content: space-between;
+                                align-items: center;
+                                margin-bottom: 8px;
+                                border-bottom: 2px solid #E2E8F0;
+                                padding-bottom: 6px;
+                                color: #1E3A8A;
+                            }
+                            .print-header-logo { height: 32px; object-fit: contain; }
+                            .print-section-title { margin-bottom: 10px; }
+                            .print-area-badge {
+                                display: inline-block;
+                                color: white;
+                                padding: 3px 10px;
+                                border-radius: 20px;
+                                font-size: 0.65rem;
+                                font-weight: 700;
+                                text-transform: uppercase;
+                                margin-bottom: 4px;
+                            }
+                            .print-presentation-box {
+                                background: white;
+                                border-radius: 12px;
+                                border: 1px solid #E2E8F0;
+                                padding: 12px 14px;
+                            }
+                            .print-en-title {
+                                display: inline-block;
+                                background: rgba(30, 58, 138, 0.06);
+                                color: #1E3A8A;
+                                padding: 3px 10px;
+                                border-radius: 20px;
+                                font-size: 0.72rem;
+                                font-weight: 700;
+                                margin-bottom: 8px;
+                            }
+                            .print-meta-cards {
+                                display: grid;
+                                grid-template-columns: 1fr 1fr;
+                                gap: 8px;
+                                margin-bottom: 10px;
+                            }
+                            .print-meta-card {
+                                background: #f8fafc;
+                                border: 1px solid #e2e8f0;
+                                border-radius: 8px;
+                                padding: 8px 10px;
+                            }
+                            .print-meta-label {
+                                font-size: 0.6rem;
+                                font-weight: 900;
+                                color: #1E3A8A;
+                                text-transform: uppercase;
+                                margin-bottom: 1px;
+                            }
+                            .print-meta-value {
+                                margin: 0;
+                                font-size: 0.75rem;
+                                color: #475569;
+                                font-weight: 600;
+                                line-height: 1.25;
+                            }
+                            .print-steps-list {
+                                column-count: 2;
+                                column-gap: 18px;
+                                display: block;
+                            }
+                            .print-step-item {
+                                display: flex;
+                                gap: 6px;
+                                font-size: 0.68rem; /* Highly optimized print typography */
+                                line-height: 1.3;
+                                margin-bottom: 4px;
+                                break-inside: avoid;
+                                page-break-inside: avoid;
+                            }
+                            .print-step-num {
+                                font-weight: 800;
+                                color: #1E3A8A;
+                                opacity: 0.6;
+                                min-width: 16px;
+                            }
+                            .print-step-header {
+                                font-size: 0.7rem;
+                                font-weight: 950;
+                                color: #0F172A;
+                                text-transform: uppercase;
+                                margin-top: 6px;
+                                margin-bottom: 4px;
+                                border-bottom: 1px dashed #CBD5E1;
+                                padding-bottom: 2px;
+                                break-inside: avoid;
+                                page-break-inside: avoid;
+                            }
+                            .print-dialogue {
+                                color: #1E3A8A;
+                                font-weight: 700;
+                                font-style: italic;
+                            }
+                            .print-error-box {
+                                margin-top: 10px;
+                                padding: 8px 10px;
+                                background-color: #FFF1F2;
+                                border-radius: 8px;
+                                border: 1px solid #FFE4E6;
+                            }
+                            .print-footer {
+                                position: absolute;
+                                bottom: 24px;
+                                left: 32px;
+                                right: 32px;
+                                display: flex;
+                                justify-content: space-between;
+                                font-size: 0.65rem;
+                                color: #94a3b8;
+                                border-top: 1px dashed #cbd5e1;
+                                padding-top: 6px;
+                            }
+                        `}
+                    </style>
+
+                    <div className="no-print" style={{
+                        position: 'fixed', top: 0, left: 0, right: 0, zIndex: 99999,
+                        padding: '16px 24px', background: 'rgba(255,255,255,0.95)', backdropFilter: 'blur(10px)',
+                        display: 'flex', justifyContent: 'space-between', alignItems: 'center',
+                        borderBottom: '1px solid #E2E8F0', boxShadow: '0 4px 12px rgba(0,0,0,0.05)'
+                    }}>
+                        <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+                            <div style={{ background: '#F1F5F9', padding: '8px', borderRadius: '10px' }}>
+                                <Printer size={20} color="#1E3A8A" />
+                            </div>
+                            <div>
+                                <span style={{ fontWeight: 950, color: '#1E293B', fontSize: '0.95rem', display: 'block' }}>Pratinjau Album Pedagogi Guru</span>
+                                <span style={{ fontSize: '0.75rem', color: '#64748B', fontWeight: 700 }}>Materi: {printItem.title}</span>
+                            </div>
+                        </div>
+                        <div style={{ display: 'flex', gap: '12px' }}>
+                            <button
+                                onClick={() => window.print()}
+                                style={{ padding: '10px 24px', background: printItem.areaColor || '#1E3A8A', color: 'white', borderRadius: '12px', border: 'none', cursor: 'pointer', fontWeight: 950, fontSize: '0.9rem', boxShadow: `0 4px 12px ${printItem.areaColor || '#1E3A8A'}30` }}
+                            >Cetak Sekarang</button>
+                            <button
+                                onClick={() => setPrintItem(null)}
+                                style={{ padding: '10px 20px', background: '#F1F5F9', color: '#475569', borderRadius: '12px', border: '1px solid #E2E8F0', cursor: 'pointer', fontWeight: 950, fontSize: '0.9rem' }}
+                            >Batal</button>
+                        </div>
+                    </div>
+
+                    <div className="print-preview-container" style={{ maxWidth: '800px', fontFamily: "'Inter', sans-serif" }}>
+                        <div className="print-page">
+                            {/* Header */}
+                            <div className="print-header">
+                                <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                                    <img 
+                                        src="/logo-budiluhur.png" 
+                                        alt="Logo" 
+                                        style={{ 
+                                            height: '42px', 
+                                            width: 'auto', 
+                                            display: 'block', 
+                                            objectFit: 'contain',
+                                            marginRight: '4px'
+                                        }} 
+                                    />
+                                    <div style={{ display: 'flex', flexDirection: 'column' }}>
+                                        <span style={{ fontSize: '9pt', fontWeight: 950, letterSpacing: '0.5px' }}>ALBUM PANDUAN PEDAGOGI</span>
+                                        <span style={{ fontSize: '7pt', color: '#64748B', fontWeight: 700 }}>SDIT BUDI LUHUR SAMARINDA</span>
+                                    </div>
+                                </div>
+                                <span style={{ fontSize: '8pt', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '1px' }}>
+                                    {printItem.areaName}
+                                </span>
+                            </div>
+
+                            {/* Title & Apparatus (APE) Side-by-Side Header Grid */}
+                            <div style={{ display: 'grid', gridTemplateColumns: printItem.hasTool ? '1.2fr 0.8fr' : '1fr', gap: '20px', marginBottom: '14px', alignItems: 'start' }}>
+                                {/* Left: Title */}
+                                <div className="print-section-title" style={{ margin: 0 }}>
+                                    <div className="print-area-badge" style={{ backgroundColor: printItem.areaColor, marginBottom: '6px' }}>
+                                        PANDUAN PEDAGOGI
+                                    </div>
+                                    <h2 style={{ fontSize: '1.35rem', fontWeight: 950, color: '#1E293B', margin: 0, lineHeight: 1.15 }}>
+                                        {printItem.title}
+                                    </h2>
+                                    {printItem.engTitle && (
+                                        <span className="print-en-title" style={{ marginTop: '4px', marginBottom: 0 }}>
+                                            {printItem.engTitle}
+                                        </span>
+                                    )}
+                                </div>
+
+                                {/* Right: Apparatus (APE) */}
+                                {printItem.hasTool && (
+                                    <div style={{ padding: '8px 10px', background: `${printItem.areaColor}06`, borderRadius: '8px', borderLeft: `3px solid ${printItem.areaColor}`, boxSizing: 'border-box' }}>
+                                        <div style={{ fontSize: '0.58rem', fontWeight: 950, color: printItem.areaColor, textTransform: 'uppercase', letterSpacing: '0.5px', marginBottom: '2px' }}>
+                                            Alat & Bahan (Apparatus)
+                                        </div>
+                                        <div style={{ fontSize: '0.72rem', fontWeight: 800, color: '#334155', lineHeight: 1.25 }}>
+                                            {printItem.toolDisplay}
+                                        </div>
+                                    </div>
+                                )}
+                            </div>
+
+                            {/* Main Info Frame */}
+                            <div className="print-presentation-box">
+
+                                {/* Prerequisites & Aims */}
+                                {(printItem.prerequisites || printItem.directAim || printItem.indirectAim) && (
+                                    <div className="print-meta-cards">
+                                        {printItem.directAim && (
+                                            <div className="print-meta-card" style={{ background: '#F0F9FF', borderColor: '#BAE6FD' }}>
+                                                <div className="print-meta-label" style={{ color: '#0369A1' }}>Tujuan Langsung</div>
+                                                <p className="print-meta-value" style={{ color: '#075985' }}>{printItem.directAim}</p>
+                                            </div>
+                                        )}
+                                        {printItem.indirectAim && (
+                                            <div className="print-meta-card" style={{ background: '#F5F3FF', borderColor: '#DDD6FE' }}>
+                                                <div className="print-meta-label" style={{ color: '#6D28D9' }}>Tujuan Tidak Langsung</div>
+                                                <p className="print-meta-value" style={{ color: '#5B21B6' }}>{printItem.indirectAim}</p>
+                                            </div>
+                                        )}
+                                        {printItem.prerequisites && (
+                                            <div className="print-meta-card" style={{ gridColumn: (printItem.directAim || printItem.indirectAim) ? 'span 2' : 'span 1' }}>
+                                                <div className="print-meta-label">Prasyarat Kelayakan</div>
+                                                <p className="print-meta-value">{printItem.prerequisites}</p>
+                                            </div>
+                                        )}
+                                    </div>
+                                )}
+
+                                {/* Presentation Steps (2 columns) */}
+                                {printItem.hasPresentation ? (
+                                    <div>
+                                        <div style={{ fontSize: '0.65rem', fontWeight: 950, color: '#64748B', textTransform: 'uppercase', letterSpacing: '0.5px', marginBottom: '10px' }}>
+                                            Langkah-Langkah Presentasi AMI
+                                        </div>
+                                        <div className="print-steps-list">
+                                            {(() => {
+                                                let stepCounter = 0;
+                                                return printItem.steps.map((step, si) => {
+                                                    if (typeof step === 'string' && (step.trim() === '.' || step.trim() === '')) return null;
+
+                                                    const isHeader = typeof step === 'string' && (step.startsWith('I.') || step.startsWith('--') || step.startsWith('II.') || step.startsWith('III.') || step.startsWith('IV.') || step.startsWith('V.'));
+
+                                                    if (isHeader) {
+                                                        return (
+                                                            <div key={si} className="print-step-header">
+                                                                {step.replace(/---/g, '').replace(/^[IVX]+\.\s*/, '').trim()}
+                                                            </div>
+                                                        );
+                                                    }
+
+                                                    stepCounter++;
+                                                    const stepMatch = typeof step === 'string' ? step.match(/^(\d+\.)\s(.*)/) : null;
+                                                    const stepNum = stepMatch ? stepMatch[1] : `${stepCounter}.`;
+                                                    const stepText = stepMatch ? stepMatch[2] : step;
+
+                                                    return (
+                                                        <div key={si} className="print-step-item">
+                                                            <span className="print-step-num">{stepNum}</span>
+                                                            <span style={{ fontWeight: 600, color: '#334155' }}>
+                                                                {typeof stepText === 'string' ? stepText.split(/'([^']+)'/).map((part, index) =>
+                                                                    index % 2 === 1 ? (
+                                                                        <span key={index} className="print-dialogue">"{part}"</span>
+                                                                    ) : renderTextWithTags(part, true)
+                                                                ) : stepText}
+                                                            </span>
+                                                        </div>
+                                                    );
+                                                });
+                                            })()}
+                                        </div>
+                                    </div>
+                                ) : (
+                                    <div style={{ padding: '20px', border: '1px dashed #CBD5E1', borderRadius: '8px', textAlign: 'center', color: '#94A3B8', fontSize: '0.8rem', fontWeight: 700 }}>
+                                        Belum ada langkah presentasi terperinci.
+                                    </div>
+                                )}
+
+                                {/* Control of Error */}
+                                {printItem.error && (
+                                    <div className="print-error-box">
+                                        <div style={{ fontSize: '0.65rem', fontWeight: 950, color: '#E11D48', textTransform: 'uppercase', letterSpacing: '0.5px', marginBottom: '4px' }}>
+                                            Kontrol Kesalahan (Control of Error)
+                                        </div>
+                                        <div style={{ fontSize: '0.8rem', fontWeight: 700, color: '#9F1239', lineHeight: 1.3 }}>
+                                            {printItem.error}
+                                        </div>
+                                    </div>
+                                )}
+                            </div>
+
+                            {/* Footer */}
+                            <div className="print-footer">
+                                <span>SDIT Budi Luhur Samarinda © 2026 | Sentra Budi Luhur</span>
+                                <span>Dicetak: {new Date().toLocaleDateString('id-ID')}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            )}
+
+            {/* 📦 INVENTARIS SARPRAS APE MODAL */}
+            {showShoppingList && (
+                <InventoryModal curriculum={curriculum} onClose={() => setShowShoppingList(false)} />
+            )}
             <style>{`
           /* AreaTracker Style Ported */
           .modern-steps-container { position: relative; padding-left: 20px; margin-top: 12px; }
@@ -1588,6 +2279,10 @@ export default function CurriculumManager() {
           }
           @keyframes accordionIn {
               from { opacity: 0; transform: translateY(-5px); }
+              to { opacity: 1; transform: translateY(0); }
+          }
+          @keyframes fadeInUp {
+              from { opacity: 0; transform: translateY(10px); }
               to { opacity: 1; transform: translateY(0); }
           }
           .btn-primary:active, .btn-glass:active { transform: scale(0.96); }

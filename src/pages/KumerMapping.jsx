@@ -14,6 +14,7 @@ export default function KumerMapping() {
     const [saving, setSaving] = useState(false);
     const [showSuccess, setShowSuccess] = useState(false);
     const [isPickerOpen, setIsPickerOpen] = useState(null); // Stores cpId being edited
+    const [pickerSearch, setPickerSearch] = useState('');
 
     // Fetch existing mappings from Firestore
     useEffect(() => {
@@ -229,10 +230,10 @@ export default function KumerMapping() {
                                         <div style={{ marginTop: '16px', fontSize: '0.75rem', color: '#94A3B8', fontWeight: 700 }}>ID: {cp.id}</div>
                                     </div>
 
-                                    {/* Granul Side (Montessori Budi Luhur) */}
+                                    {/* Granul Side (Sentra Budi Luhur) */}
                                     <div style={{ flex: '1.2', minWidth: '400px', padding: '24px' }}>
                                         <div style={{ fontSize: '0.75rem', fontWeight: 900, color: '#64748B', textTransform: 'uppercase', marginBottom: '16px', display: 'flex', justifyContent: 'space-between' }}>
-                                            Implementasi Granul Montessori (Kita)
+                                            Implementasi Granul Sentra (Kita)
                                             <span>{linkedMaterials.length} Materi</span>
                                         </div>
                                         
@@ -269,36 +270,48 @@ export default function KumerMapping() {
                 <div style={{ position: 'fixed', inset: 0, backgroundColor: 'rgba(0,0,0,0.5)', zIndex: 1000, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '20px', backdropFilter: 'blur(4px)' }}>
                     <div style={{ background: 'white', borderRadius: '24px', width: '100%', maxWidth: '600px', maxHeight: '80vh', display: 'flex', flexDirection: 'column', overflow: 'hidden', boxShadow: '0 25px 50px -12px rgba(0,0,0,0.25)' }}>
                         <div style={{ padding: '20px 24px', borderBottom: '1px solid #F1F5F9', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                            <h3 style={{ margin: 0, fontWeight: 900 }}>Pilih Materi Montessori</h3>
+                            <h3 style={{ margin: 0, fontWeight: 900 }}>Pilih Materi Sentra</h3>
                             <button onClick={() => setIsPickerOpen(null)} style={{ background: 'none', border: 'none', cursor: 'pointer' }}><X size={24} /></button>
                         </div>
                         <div style={{ padding: '16px 24px', backgroundColor: '#F8FAFC' }}>
                              <div style={{ position: 'relative' }}>
                                 <Search style={{ position: 'absolute', left: '12px', top: '50%', transform: 'translateY(-50%)', color: '#94A3B8' }} size={18} />
-                                <input type="text" placeholder="Cari materi (misal: Golden Beads)..." style={{ width: '100%', padding: '10px 10px 10px 40px', borderRadius: '10px', border: '1px solid #E2E8F0', outline: 'none' }} onChange={(e) => {/* Implement search if needed */}} />
+                                <input 
+                                    type="text" 
+                                    placeholder="Cari materi (misal: Golden Beads)..." 
+                                    style={{ width: '100%', padding: '10px 10px 10px 40px', borderRadius: '10px', border: '1px solid #E2E8F0', outline: 'none' }} 
+                                    value={pickerSearch}
+                                    onChange={(e) => setPickerSearch(e.target.value)} 
+                                />
                              </div>
                         </div>
                         <div style={{ flex: 1, overflowY: 'auto', padding: '12px 24px' }}>
-                            {allMaterials.map((mat, i) => {
-                                const isLinked = (mappings[isPickerOpen] || []).includes(mat.label);
-                                return (
-                                    <div 
-                                        key={i} 
-                                        onClick={() => addMaterialToCP(isPickerOpen, mat.label)}
-                                        style={{ 
-                                            padding: '12px', borderRadius: '12px', marginBottom: '4px', cursor: 'pointer',
-                                            backgroundColor: isLinked ? '#F0FDF4' : 'transparent',
-                                            display: 'flex', alignItems: 'center', gap: '12px', transition: 'all 0.1s'
-                                        }}
-                                    >
-                                        <div style={{ flex: 1 }}>
-                                            <div style={{ fontSize: '0.85rem', fontWeight: 700, color: isLinked ? '#166534' : '#1E293B' }}>{mat.label}</div>
-                                            <div style={{ fontSize: '0.7rem', color: '#94A3B8' }}>{mat.area} › {mat.subArea}</div>
+                            {allMaterials
+                                .filter(mat => 
+                                    mat.label.toLowerCase().includes(pickerSearch.toLowerCase()) || 
+                                    mat.area.toLowerCase().includes(pickerSearch.toLowerCase()) || 
+                                    mat.subArea.toLowerCase().includes(pickerSearch.toLowerCase())
+                                )
+                                .map((mat, i) => {
+                                    const isLinked = (mappings[isPickerOpen] || []).includes(mat.label);
+                                    return (
+                                        <div 
+                                            key={i} 
+                                            onClick={() => addMaterialToCP(isPickerOpen, mat.label)}
+                                            style={{ 
+                                                padding: '12px', borderRadius: '12px', marginBottom: '4px', cursor: 'pointer',
+                                                backgroundColor: isLinked ? '#F0FDF4' : 'transparent',
+                                                display: 'flex', alignItems: 'center', gap: '12px', transition: 'all 0.1s'
+                                            }}
+                                        >
+                                            <div style={{ flex: 1 }}>
+                                                <div style={{ fontSize: '0.85rem', fontWeight: 700, color: isLinked ? '#166534' : '#1E293B' }}>{mat.label}</div>
+                                                <div style={{ fontSize: '0.7rem', color: '#94A3B8' }}>{mat.area} › {mat.subArea}</div>
+                                            </div>
+                                            {isLinked ? <CheckCircle2 size={18} color="#10B981" /> : <Plus size={18} color="#CBD5E1" />}
                                         </div>
-                                        {isLinked ? <CheckCircle2 size={18} color="#10B981" /> : <Plus size={18} color="#CBD5E1" />}
-                                    </div>
-                                );
-                            })}
+                                    );
+                                })}
                         </div>
                         <div style={{ padding: '16px 24px', borderTop: '1px solid #F1F5F9', textAlign: 'right' }}>
                             <button onClick={() => setIsPickerOpen(null)} style={{ background: '#1E293B', color: 'white', border: 'none', padding: '10px 24px', borderRadius: '10px', fontWeight: 800, cursor: 'pointer' }}>Selesai</button>

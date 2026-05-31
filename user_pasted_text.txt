@@ -1,0 +1,50 @@
+<USER_REQUEST>
+Prasyarat (Prerequisites)
+Anak sudah menguasai materi Kuantitas Sistem Desimal (sudah pernah memegang benda fisik 1, 10, 100, 1000) dan materi Simbol Sistem Desimal (sudah mengenali kartu angka 1, 10, 100, 1000).
+
+Tujuan Langsung (Direct Aim)
+Anak mampu memasangkan wujud benda fisik dengan lambang angka atau kartu yang tepat.
+
+Tujuan Tidak Langsung (Indirect Aim)
+Persiapan agar anak paham bahwa tulisan lambang angka mewakili jumlah benda nyata yang bisa dipegang, sebagai bekal menyusun angka ribuan yang lebih panjang.
+
+Kontrol Kesalahan (Control of Error)
+Secara visual anak melihat sendiri jika bentuk benda dan panjang kartu tidak sesuai, serta panduan dari guru jika anak salah mengambil pasangan.
+
+
+PENGANGKATAN PERTAMA SISTEM DESIMAL: ASOSIASI JUMLAH DAN SIMBOL
+(Materi Sentra Matematika / Kognitif - SD Kelas Bawah)
+
+I. PIJAKAN AWAL & PERSIAPAN (Pijakan Sebelum Main)
+1. Mulai kegiatan dengan mengucap bersama anak: 'Bismillahirrahmanirrahim.' [Berkesadaran]
+2. Undang anak (kelompok kecil 2-3 orang) ke rak matematika dan katakan: 'Nak, hari ini kita akan menggabungkan benda yang pernah kita raba dengan kartu angka pasangannya.' [Berkesadaran]
+3. Siapkan dua karpet kerja yang letaknya berdekatan (Karpet A dan Karpet B).
+4. Guru membawa nampan berisi Kuantitas (1, 10, 100, 1000) ke Karpet A, dan kotak Kartu Angka Besar ke Karpet B.
+
+II. PRESENTASI INTI (Asosiasi)
+(Catatan Guru: Terapkan Economy of Words secara ketat di tahap ini. Biarkan anak melihat langsung hubungan antara benda dan angkanya secara visual).
+5. Guru menggelar Kartu Angka Besar secara vertikal di Karpet B dari atas ke bawah (1, 10, 100, 1000). [Bermakna - Memahami]
+6. Guru mengambil 1 butir manik dari nampan di Karpet A, meletakkannya di sebelah kanan kartu angka 1 di Karpet B. Guru berkata: 'Ini satu, dan ini angkanya satu.' [Bermakna - Memahami]
+7. Guru mengambil 1 batang puluhan, meletakkannya di sebelah kanan kartu angka 10. Guru berkata: 'Ini sepuluh, dan ini angkanya sepuluh.' [Bermakna - Memahami]
+8. Guru mengambil 1 keping ratu
+<truncated 1668 bytes>
+ 'Yuk, kita kembalikan ke rak. Kalau kelas dan sentra kita rapi, Allah pasti suka.' [Berkesadaran]
+
+IV. REFLEKSI & PENUTUP (Pijakan Setelah Main / Recalling)
+(Dilakukan bersama kelompok kecil tersebut tepat setelah mereka selesai beres-beres).
+19. Memberikan apresiasi: 'Masya Allah, hari ini kalian hebat sekali sudah bisa menjodohkan semua benda dengan angkanya.' [Berkesadaran - Merefleksikan]
+20. Recalling Pengalaman: Guru bertanya kepada anak: 'Siapa yang mau bercerita, saat bermain tadi, mana yang lebih mudah dilakukan, mencari bendanya atau mencari kartunya?' (Biarkan anak menceritakan pengalamannya). [Berkesadaran - Merefleksikan]
+21. Internalisasi Ayat Al-Quran (QS. Az-Zariyat: 49): Guru menyampaikan pesan spiritual: 'Tadi kalian memasangkan benda dengan kartunya, kan? Tahukah kalian, dalam Surah Az-Zariyat ayat 49, Allah berfirman bahwa segala sesuatu diciptakan berpasang-pasangan agar kita mengingat kebesaran Allah. Sama seperti materi hari ini, benda matematika punya pasangan lambang angkanya. Siang pasangannya malam, tangan kanan pasangannya tangan kiri. Semuanya Allah ciptakan dengan rapi dan berpasangan!' [Berkesadaran - Merefleksikan]
+22. Tindak Lanjut / Komitmen: Ajak anak merencanakan kebaikan: 'Karena Allah suka segala sesuatu yang rapi di tempat pasangannya, kira-kira barang apa di kelas ini yang ingin kalian rapikan kembali ke tempat pasangannya hari ini?' [Berkesadaran - Mengaplikasikan]
+23. Mengucap bersama anak kalimat hamdalah sebagai rasa syukur: 'Alhamdulillahi rabbil 'alamin.' [Berkesadaran]
+24. Guru mengucapkan kalimat penutup kepada murid: 'Alhamdulillahi jaza kumullohu khoiro.' [Berkesadaran]
+
+tata cara penulisan kita sudah berubah, seperti di atas
+di golden beads saya sudah mengubah dari level 1 Pengenalan Jumlah
+Introduction to Quantity (1, 10, 100, 1000) sampai level 7 Penjumlahan Dinamis Golden Beads - Dynamic Addition
+
+apakah kamu bisa melanjutkan untuk level 8 - 14
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-05-31T13:12:58+08:00.
+</ADDITIONAL_METADATA>

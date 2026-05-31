@@ -11,7 +11,7 @@ const AreaIcon = ({ name, color, size = 18 }) => {
   return <IconComp size={size} color={color} />;
 };
 
-// Montessori P-W-M-N Maturity Standard
+// Sentra P-W-M-N Maturity Standard
 const MATURITY_META = [
   { level: 'P', title: 'Presented', emoji: '📢', desc: 'Selesai dipresentasikan oleh Guru.', color: '#3B82F6', bg: '#EFF6FF', guide: 'Baru menerima presentasi.' },
   { level: 'W', title: 'Working', emoji: '⚙️', desc: 'Sedang berlatih / mengulang aktivitas.', color: '#F59E0B', bg: '#FFFBEB', guide: 'Tahap mengulang & berlatih.' },
@@ -32,6 +32,86 @@ const SOCIAL_META = [
 ];
 
 const QUICK_DURATIONS = [5, 10, 15, 20, 30, 45, 60];
+
+const renderParentheses = (text) => {
+  if (typeof text !== 'string') return text;
+  
+  const parts = text.split(/\(([^)]+)\)/);
+  return parts.map((part, index) => {
+    if (index % 2 === 1) {
+      return (
+        <span 
+          key={index} 
+          style={{
+            fontStyle: 'italic',
+            color: '#64748B', // Elegant muted slate gray
+            fontSize: '0.88em',
+            fontWeight: 500,
+            marginLeft: '4px',
+            marginRight: '4px'
+          }}
+        >
+          ({part})
+        </span>
+      );
+    }
+    return part;
+  });
+};
+
+const renderTextWithTags = (text) => {
+  if (typeof text !== 'string') return text;
+  
+  const parts = text.split(/\[([^\]]+)\]/);
+  return parts.map((part, index) => {
+    if (index % 2 === 1) {
+      let bgColor = '#F1F5F9';
+      let textColor = '#475569';
+      let borderColor = '#E2E8F0';
+      
+      const lowerPart = part.toLowerCase();
+      if (lowerPart.includes('berkesadaran')) {
+        bgColor = '#EEF2FF'; // Indigo
+        textColor = '#4338CA';
+        borderColor = '#C7D2FE';
+      } else if (lowerPart.includes('bermakna')) {
+        bgColor = '#FFF7ED'; // Orange
+        textColor = '#C2410C';
+        borderColor = '#FED7AA';
+      } else if (lowerPart.includes('menyenangkan')) {
+        bgColor = '#FDF2F8'; // Pink
+        textColor = '#BE185D';
+        borderColor = '#FBCFE8';
+      }
+      
+      return (
+        <span 
+          key={index} 
+          style={{
+            display: 'inline-flex',
+            alignItems: 'center',
+            gap: '4px',
+            padding: '2px 6px',
+            borderRadius: '6px',
+            fontSize: '0.62rem',
+            fontWeight: 800,
+            backgroundColor: bgColor,
+            color: textColor,
+            border: `1px solid ${borderColor}`,
+            marginLeft: '6px',
+            marginRight: '2px',
+            verticalAlign: 'middle',
+            letterSpacing: '0.1px',
+            textTransform: 'uppercase'
+          }}
+        >
+          ✨ {part}
+        </span>
+      );
+    }
+    return renderParentheses(part);
+  });
+};
 
 export default function FormJurnal() {
   const navigate = useNavigate();
@@ -493,10 +573,24 @@ export default function FormJurnal() {
                           }
 
                           stepCounter++;
+                          const stepText = s.replace(/^\d+\.\s*/, '');
                           return (
                             <div key={i} style={styles.guideStep}>
                               <div style={styles.guideStepNum}>{stepCounter}</div>
-                              <div style={styles.guideStepText}>{s.replace(/^\d+\.\s*/, '')}</div>
+                              <div style={styles.guideStepText}>
+                                {typeof stepText === 'string' ? stepText.split(/'([^']+)'/).map((part, index) =>
+                                  index % 2 === 1 ? (
+                                    <div key={index} style={{
+                                      display: 'flex', gap: '8px', padding: '8px 12px', borderRadius: '10px',
+                                      backgroundColor: '#EEF2FF', border: '1px solid #C7D2FE', marginTop: '4px',
+                                      color: '#4338CA', fontStyle: 'italic', fontWeight: 700, fontSize: '0.82rem'
+                                    }}>
+                                      <MessageSquare size={12} style={{ marginTop: 2, flexShrink: 0 }} />
+                                      <span>"{part}"</span>
+                                    </div>
+                                  ) : renderTextWithTags(part)
+                                ) : stepText}
+                              </div>
                             </div>
                           );
                         });
