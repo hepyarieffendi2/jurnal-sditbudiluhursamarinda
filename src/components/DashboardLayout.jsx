@@ -47,7 +47,9 @@ export default function DashboardLayout() {
     }
 
     // ===== MENU ADMINISTRASI =====
-    adminMenu.push({ to: '/students', icon: Users, label: 'Data Siswa & Rombel' });
+    if (user?.role !== ROLES.GURU) {
+        adminMenu.push({ to: '/students', icon: Users, label: 'Data Siswa & Rombel' });
+    }
     adminMenu.push({ to: '/rapor/preview', icon: FileText, label: 'Rapor Digital (Kumer)' });
 
     // Guru: only basic admin tools

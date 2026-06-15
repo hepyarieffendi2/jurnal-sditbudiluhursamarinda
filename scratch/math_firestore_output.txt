@@ -1,0 +1,545 @@
+=== AREA: Matematika / Mathematics ===
+Doc ID: matematika
+Total Sub-Areas: 14
+
+
+================================================================================
+SUB-AREA 1: [math_decimal_gb] Sistem Desimal (Golden Beads) / The Decimal System (Golden Beads)
+Total Levels/Granul: 17
+================================================================================
+  1. K1: Pengenalan Jumlah / Introduction to Quantity (1, 10, 100, 1000) [Grades: K1]
+      Tool: Golden Beads
+      Steps: 30 langkah
+      VideoURL: https://www.youtube.com/watch?v=6_JyJM-QfBk
+  2. K1: Pengenalan Simbol / Introduction to Symbols (The Cards) [Grades: K1]
+      Tool: Small & Large Number Cards
+      Steps: 32 langkah
+      VideoURL: https://www.youtube.com/watch?v=ZifznM-LARI
+  3. K1: Asosiasi Jumlah & Simbol / Association of Quantity & Symbols [Grades: K1]
+      Tool: Golden Beads & Number Cards
+      Steps: 30 langkah
+      VideoURL: https://www.youtube.com/watch?v=8z2zbnD5P1k
+  4. K1: Tata Letak Jumlah / Quantity Layout [Grades: K1]
+      Tool: Golden Beads
+      Prerequisites: Anak sudah menguasai materi Asosiasi Jumlah & Simbol dan telah berhasil menyelesaikan Symbols Layout (Tata Letak Simbol)...
+      DirectAim: Anak mendapatkan impresi sensoris dan visual yang masif tentang pertumbuhan kuantitas dalam sistem desimal. Anak melihat...
+      Steps: 28 langkah
+      VideoURL: https://www.youtube.com/watch?v=4m_fhk-YrG0
+  5. K1: Tata Letak Simbol / Symbol Layout / Bird's Eye View [Grades: K1]
+      Tool: The Large Number Cards
+      Prerequisites: Anak sudah menguasai materi Pengenalan Kuantitas (Golden Beads 1, 10, 100, 1000) dan Pengenalan Simbol (Kartu Angka Besa...
+      DirectAim: Anak mampu melihat, menyusun, dan mengurutkan secara visual seluruh lambang bilangan dari 1 hingga 9000. Anak memahami k...
+      Steps: 31 langkah
+      VideoURL: https://www.youtube.com/watch?v=RknUwAnAKzY
+  6. K1-K2: Tata Letak Desimal Raksasa / The Large Decimal Layout (Bird's Eye View) [Grades: K1]
+      Tool: Golden Beads & Large Number Cards
+      Steps: 31 langkah
+      VideoURL: https://www.youtube.com/watch?v=VVZ-ke6FJxk
+  7. K1: Pembentukan Angka / Formation of Numbers (The Magic Slide) [Grades: K1]
+      Tool: Golden Beads & Number Cards
+      Prerequisites: Anak sudah menguasai materi Tata Letak Desimal Raksasa (The Forty-Five Layout) sehingga terbiasa melihat rentang angka y...
+      DirectAim: Anak mampu menggabungkan kuantitas fisik dan simbol angka dari berbagai nilai tempat menjadi satu kesatuan (misalnya men...
+      Steps: 31 langkah
+      VideoURL: https://www.youtube.com/watch?v=FFC9AChaVLg
+  8. K1-K2: Permainan Pertukaran / The Exchange Game [Grades: K1]
+      Tool: Golden Beads
+      Prerequisites: Anak sudah mengenal Kuantitas dan Simbol Sistem Desimal (1, 10, 100, 1000) dengan baik melalui aktivitas Asosiasi....
+      DirectAim: Anak mengalami secara fisik proses pertukaran desimal, yaitu 10 satuan ditukar 1 puluhan, 10 puluhan ditukar 1 ratusan, ...
+      Steps: 33 langkah
+      VideoURL: https://www.youtube.com/watch?v=zgcRTFXDJZ0
+  9. K1-K2: Penjumlahan Statis / Golden Beads - Static Addition [Grades: K1]
+      ToolDisplay: Golden Beads & Number Cards
+      Steps: 30 langkah
+  10. K1-K2: Penjumlahan Dinamis / Golden Beads - Dynamic Addition [Grades: K1]
+      ToolDisplay: Golden Beads & Number Cards
+      Steps: 32 langkah
+  11. K2: Permainan Bank Kolaboratif / The Cooperative Bank Game (Multi-Addend Addition) [Grades: K2]
+      ToolDisplay: Golden Beads, Small & Large Number Cards
+      Steps: 30 langkah
+  12. K1-K2: Pengurangan Statis / Golden Beads - Static Subtraction [Grades: K2]
+      ToolDisplay: Golden Beads & Number Cards
+      Steps: 33 langkah
+  13. K1-K2: Pengurangan Dinamis / Golden Beads - Dynamic Subtraction [Grades: K2]
+      ToolDisplay: Golden Beads & Number Cards
+      Steps: 36 langkah
+  14. K2: Perkalian Statis / Golden Beads - Static Multiplication [Grades: K2]
+      Tool: Golden Beads & Number Cards
+      Prerequisites: Anak sudah menguasai materi Pengurangan Statis dan Perkalian Statis. Pemahaman tentang hierarki nilai tempat harus sudah...
+      DirectAim: Anak memahami konsep dasar pembagian secara konkret, yaitu membagikan sebuah kuantitas yang besar secara adil dan merata...
+      Steps: 33 langkah
+  15. K2: Perkalian Dinamis / Golden Beads - Dynamic Multiplication [Grades: K2]
+      Tool: Golden Beads, Small & Large Number Cards
+      Prerequisites: Anak sudah menguasai materi Perkalian Statis dengan lancar. Anak juga harus sudah memiliki jam terbang yang tinggi pada ...
+      DirectAim: Anak memahami konsep perkalian dinamis, yaitu ketika penjumlahan berulang menghasilkan angka 10 atau lebih pada suatu ni...
+      Steps: 32 langkah
+  16. K3: Pembagian Statis / Golden Beads - Static Division [Grades: K3]
+      Tool: Golden Beads, Cards & Skittles
+      Prerequisites: Anak sudah menguasai materi Pengurangan Statis dan Perkalian Statis. Pemahaman tentang hierarki nilai tempat harus sudah...
+      DirectAim: Anak memahami konsep dasar pembagian secara konkret, yaitu membagikan sebuah kuantitas yang besar secara adil dan merata...
+      Steps: 33 langkah
+  17. K3: Pembagian Dinamis / Golden Beads - Dynamic Division [Grades: K3]
+      Tool: Golden Beads, Large & Small Number Cards, Skittles
+      Prerequisites: Anak sudah menguasai materi Pembagian Statis dengan sangat lancar dan mahir melakukan pertukaran di Bank Golden Bead (Th...
+      DirectAim: Anak memahami konsep pembagian dinamis secara konkret, yaitu keharusan menukar (exchanging) sisa pembagian dari nilai te...
+      Steps: 33 langkah
+
+================================================================================
+SUB-AREA 2: [math_stamp_game] Stamp Game / The Stamp Game
+Total Levels/Granul: 10
+================================================================================
+  1. K2: Pengenalan Stamp Game / Introduction To The Stamp Game [Grades: K2]
+      Tool: Stamp Game
+      Prerequisites: Anak telah menyelesaikan seluruh presentasi dasar dan operasi hitung (Statis & Dinamis) menggunakan Golden Beads. Anak s...
+      DirectAim: Anak memahami masa transisi dari material konkret ke semi-abstrak. Anak menyadari bahwa kepingan kayu dengan ukuran fisi...
+      Steps: 27 langkah
+  2. K2-K3: Penjumlahan Statis / Stamp Game - Static Addition [Grades: K2]
+      Tool: Stamp Game
+      Prerequisites: Anak sudah menguasai materi Pengenalan Material Stamp Game, pernah melakukan Penjumlahan Statis dengan Golden Beads, dan...
+      DirectAim: Anak mampu melakukan operasi penjumlahan (menggabungkan dua kuantitas) tanpa proses menyimpan pada tingkat semi-abstrak....
+      Steps: 31 langkah
+  3. K2-K3: Penjumlahan Dinamis / Stamp Game - Dynamic Addition [Grades: K2]
+      Tool: Stamp Game
+      Prerequisites: Anak sudah menguasai Penjumlahan Statis di Stamp Game dengan lancar, dan sudah terbiasa memisahkan angka dengan penggari...
+      DirectAim: Anak mampu melakukan operasi penjumlahan dengan teknik menyimpan atau menukar (carrying over) di tingkat semi-abstrak. A...
+      Steps: 31 langkah
+  4. K2-K3: Pengurangan Statis / Stamp Game - Static Subtraction [Grades: K2]
+      ToolDisplay: Stamp Game
+      Steps: 30 langkah
+  5. K2-K3: Pengurangan Dinamis / Stamp Game - Dynamic Subtraction [Grades: K2]
+      Tool: Stamp Game
+      Prerequisites: Anak sudah menguasai Pengurangan Statis di Stamp Game dengan lancar, dan sudah memahami cara menyusun hanya angka yang p...
+      DirectAim: Anak mampu melakukan operasi pengurangan dengan teknik meminjam atau menukar (borrowing / exchanging) di tingkat semi-ab...
+      Steps: 32 langkah
+  6. K2-K3: Perkalian Statis / Stamp Game - Static Multiplication [Grades: K2, K3]
+      Tool: Stamp Game
+      Prerequisites: Anak sudah menguasai Penjumlahan Dinamis di Stamp Game dan memahami konsep dasar perkalian dari aparatus Golden Beads (b...
+      DirectAim: Anak mampu melakukan operasi perkalian tanpa proses menukar (statis) di tingkat semi-abstrak. Anak berlatih menggunakan ...
+      Steps: 32 langkah
+  7. K2-K3: Perkalian Dinamis / Stamp Game - Dynamic Multiplication [Grades: K2, K3]
+      Prerequisites: Anak sudah menguasai Perkalian Statis dan Penjumlahan Dinamis di Stamp Game. Anak sudah sangat terbiasa dengan hukum per...
+      DirectAim: Anak mampu melakukan operasi perkalian dengan teknik menyimpan atau menukar (carrying over) di tingkat semi-abstrak. Ana...
+      Steps: 33 langkah
+  8. K2-K3: Pembagian Statis / Stamp Game - Static Division [Grades: K2, K3]
+      Prerequisites: Anak sudah menguasai Perkalian Dinamis di Stamp Game dan memahami konsep dasar pembagian dari aparatus Golden Beads (bah...
+      DirectAim: Anak mampu melakukan operasi pembagian tanpa sisa (statis) di tingkat semi-abstrak. Anak memahami aturan utama pembagian...
+      Steps: 30 langkah
+  9. K2-K3: Pembagian Dinamis / Stamp Game - Dynamic Division [Grades: K2, K3]
+      Prerequisites: Anak sudah menguasai Pembagian Statis di Stamp Game dengan sangat lancar. Anak sudah terbiasa dengan hukum pertukaran (m...
+      DirectAim: Anak mampu melakukan operasi pembagian dengan teknik meminjam atau menukar (exchanging) sisa bagi ke nilai tempat yang l...
+      Steps: 34 langkah
+  10. K2-K3: Pembagian Kelompok / Stamp Game - Group Division [Grades: K3, K4]
+      Tool: Stamp game
+      Prerequisites: Anak sudah sangat lancar melakukan Pembagian Dinamis dan telah memahami bahwa jawaban dari sebuah pembagian selalu meruj...
+      DirectAim: Anak mampu melakukan operasi pembagian dengan pembagi puluhan atau ratusan (banyak digit) menggunakan bantuan pion yang ...
+      Steps: 32 langkah
+
+================================================================================
+SUB-AREA 3: [math_dot_game] Dot Game / The Dot Game
+Total Levels/Granul: 3
+================================================================================
+  1. K2: Dot Game — Penjumlahan / The Dot Game — Addition [Grades: K2]
+      Tool: Dot Game Paper, Lead Pencil, Colored Pencil
+      Prerequisites: Anak telah memahami konsep desimal konkret dan mahir penjumlahan Stamp Game....
+      DirectAim: Menjumlahkan beberapa bilangan besar secara tertulis menggunakan kertas berkisi dengan cara mengelompokkan sepuluh....
+      Steps: 25 langkah
+  2. K2-K3: Dot Game — Pengurangan / The Dot Game — Subtraction [Grades: K2, K3]
+      Tool: Dot Game Paper, Lead Pencil, Colored Pencil, Eraser
+      Prerequisites: Anak memahami konsep pengurangan dinamis Stamp Game....
+      DirectAim: Melakukan pengurangan bilangan besar di kertas berkisi dengan teknik mencoret titik dan pertukaran nilai tempat....
+      Steps: 24 langkah
+  3. K3: Dot Game — Perkalian / The Dot Game — Multiplication [Grades: K3]
+      Tool: Dot Game Paper, Lead Pencil, Colored Pencil
+      Prerequisites: Anak memahami konsep perkalian sebagai penjumlahan berulang....
+      DirectAim: Mengalikan bilangan besar dengan melukiskan set titik berulang kali di kertas berkisi....
+      Steps: 24 langkah
+
+================================================================================
+SUB-AREA 4: [math_bead_frames] Bead Frames / Bead Frames
+Total Levels/Granul: 7
+================================================================================
+  1. K2: Penjumlahan Statis / Small Bead Frame - Static Addition [Grades: K2]
+      ToolDisplay: Small Bead Frame
+      Steps: 32 langkah
+  2. K2: Penjumlahan Dinamis / Small Bead Frame - Dynamic Addition [Grades: K2]
+      ToolDisplay: Small Bead Frame
+      Steps: 32 langkah
+  3. K2: Pengurangan Statis / Small Bead Frame - Static Subtraction [Grades: K2]
+      ToolDisplay: Small Bead Frame
+      Steps: 30 langkah
+  4. K2: Pengurangan Dinamis / Small Bead Frame - Dynamic Subtraction [Grades: K2]
+      ToolDisplay: Small Bead Frame
+      Steps: 31 langkah
+  5. K2-K3: Pengenalan Angka Besar / Large Bead Frame - Introduction [Grades: K2, K3]
+      ToolDisplay: Large Bead Frame
+      Steps: 31 langkah
+  6. K2-K3: Operasi Hitung / Large Bead Frame - Operations [Grades: K2, K3]
+      ToolDisplay: Large Bead Frame
+      Steps: 31 langkah
+  7. K3: Perkalian Banyak Digit / Bead Frames - Multi-digit Multiplication [Grades: K3, K4]
+      ToolDisplay: Large Bead Frame & Golden Bead Frame
+      Steps: 34 langkah
+
+================================================================================
+SUB-AREA 5: [math_memorization] Memorization of Facts / Memorization of Facts
+Total Levels/Granul: 14
+================================================================================
+  1. K1-K2: Ular Penjumlahan / Addition Snake Game [Grades: K1, K2]
+      ToolDisplay: Addition Snake Game
+      Steps: 32 langkah
+  2. K1-K2: Ular Pengurangan / Subtraction Snake Game [Grades: K1, K2]
+      ToolDisplay: Subtraction Snake Game
+      Steps: 31 langkah
+  3. K1-K2: Papan Lajur Penjumlahan / Addition Strip Board [Grades: K1, K2]
+      ToolDisplay: Addition Strip Board
+      Steps: 31 langkah
+  4. K1-K2: Papan Lajur Pengurangan / Subtraction Strip Board [Grades: K1, K2]
+      ToolDisplay: Subtraction Strip Board
+      Steps: 31 langkah
+  5. K2-K3: Tata Letak Multiplication Bead Bars / Multiplication Bead Bar Layout [Grades: K2]
+      ToolDisplay: Multiplication Bead Bars
+      Steps: 31 langkah
+  6. K2-K3: Papan Pembagian Satuan / Unit Division Board [Grades: K2]
+      ToolDisplay: Unit Division Board
+      Steps: 31 langkah
+  7. K2-K3: Addition Finger Charts (Charts 1-6) [Grades: K2, K3]
+      Tool: Addition Finger Charts (Chart 1 to 6), Equation Cards
+      Prerequisites: Anak telah menguasai Addition Snake Game dan Addition Strip Board....
+      DirectAim: Membantu anak menghafal kombinasi penjumlahan dasar secara semi-abstrak....
+      Steps: 23 langkah
+  8. K2-K3: Subtraction Finger Charts [Grades: K2, K3]
+      Tool: Subtraction Finger Charts, Subtraction Equation Cards
+      Prerequisites: Anak telah menguasai Subtraction Strip Board dan fakta pengurangan dasar....
+      DirectAim: Membantu anak menghafal kombinasi pengurangan dasar secara terstruktur....
+      Steps: 23 langkah
+  9. K3-K4: Multiplication Finger Charts (Charts 1-6) [Grades: K3, K4]
+      Tool: Multiplication Finger Charts, Multiplication Cards
+      Prerequisites: Anak telah menguasai Multiplication Bead Bar Layout dan konsep penjumlahan berulang....
+      DirectAim: Membantu anak menghafal tabel perkalian 1 s.d 10 secara terstruktur....
+      Steps: 23 langkah
+  10. K3-K4: Division Finger Charts [Grades: K3, K4]
+      Tool: Division Finger Charts, Division Equation Cards
+      Prerequisites: Anak telah menguasai Unit Division Board dan perkalian dasar....
+      DirectAim: Membantu menghafal fakta pembagian dasar (invers perkalian)....
+      Steps: 23 langkah
+  11. K2-K3: Addition Strip Board & Control Charts (Working Charts) [Grades: K2, K3]
+      Tool: Addition Working Charts (Blind Charts), Control Charts, Pen & Paper
+      Prerequisites: Anak sudah mengenal Finger Chart 1 dan 2....
+      DirectAim: Mencatat hasil penjumlahan secara mandiri menggunakan bantuan chart kontrol....
+      Steps: 23 langkah
+  12. K2-K3: Subtraction Working Charts & Control Charts [Grades: K2, K3]
+      Tool: Subtraction Working Charts, Control Charts, Buku Tulis
+      Prerequisites: Anak telah memahami Subtraction Finger Charts....
+      DirectAim: Melatih anak menuliskan dan memverifikasi hasil pengurangan secara mandiri....
+      Steps: 23 langkah
+  13. K3-K4: Multiplication Working Charts & Control Charts [Grades: K3, K4]
+      Tool: Multiplication Blind Chart, Control Chart, Lembar Kerja
+      Prerequisites: Anak telah mahir menggunakan Multiplication Finger Charts....
+      DirectAim: Menuliskan dan mengoreksi hasil perkalian 1 s.d 10 secara mandiri....
+      Steps: 23 langkah
+  14. K3-K4: Tabel Decanomial (Table of Pythagoras) [Grades: K3, K4]
+      Tool: Decanomial Bead Bar Box, Decanomial Paper Chart
+      Prerequisites: Anak memahami konsep perkalian dan luas geometris secara konkret....
+      DirectAim: Melihat pola geometri dari perkalian (Tabel Pythagoras) secara masif....
+      Steps: 23 langkah
+
+================================================================================
+SUB-AREA 6: [math_bead_cabinet] Bead Cabinet (Chains) / Bead Cabinet (Chains)
+Total Levels/Granul: 7
+================================================================================
+  1. K1-K2: Rantai Pendek (Skip Counting & Kuadrat) / Short Chains (Skip Counting & Squaring) [Grades: K1, K2]
+      ToolDisplay: Short Bead Chains (1²–10²), Arrow Labels, Control Chart
+      Steps: 32 langkah
+  2. K1-K2: Rantai Panjang (Skip Counting & Kubik) / Long Chains (Skip Counting & Cubing) [Grades: K1, K2]
+      ToolDisplay: Long Bead Chains (1³–10³), Arrow Labels, Control Chart
+      Steps: 33 langkah
+  3. K3-K4: Notasi Kuadrat & Kubik (n², n³) [Grades: K3, K4]
+      Tool: Bead Cabinet Chains, Label Arrows, Papan Tulis
+      Prerequisites: Anak telah menyelesaikan skip counting Rantai Pendek dan Panjang....
+      DirectAim: Mengenal lambang notasi pangkat dua (kuadrat) dan pangkat tiga (kubik) secara tertulis....
+      Steps: 23 langkah
+  4. K3-K4: Eksplorasi Manik Kuadrat & Manik Kubik [Grades: K3, K4]
+      Tool: Bead Cabinet (Squares & Cubes), Neraca Timbangan
+      Prerequisites: Anak mengerti arti notasi kuadrat dan kubik....
+      DirectAim: Memparingkan volume dan kuantitas antara manik kuadrat (2D) dan kubik (3D)....
+      Steps: 23 langkah
+  5. K5-K6: Pencarian Akar Kuadrat dengan Papan Pasak (Square Root Extraction - Peg Board) [Grades: K5, K6]
+      Tool: Peg Board, Colorful Pegs, Cups
+      Prerequisites: Anak memahami konsep perkalian dan luas kuadrat....
+      DirectAim: Mencari akar kuadrat dari suatu bilangan secara geometris menggunakan pasak....
+      Steps: 23 langkah
+  6. K6: Pencarian Akar Pangkat Tiga (Cube Root Extraction) [Grades: K6]
+      Tool: Peg Board atau Wooden Cubing Material
+      Prerequisites: Anak telah menguasai akar kuadrat dengan Peg Board....
+      DirectAim: Mencari akar pangkat tiga dari bilangan besar secara konkret/tiga dimensi....
+      Steps: 23 langkah
+  7. K5-K6: Eksplorasi Formula Aljabar Binomial & Trinomial (Binomial & Trinomial Cubes) [Grades: K5, K6]
+      Tool: Binomial Cube, Trinomial Cube, Papan Tulis
+      Prerequisites: Anak menguasai notasi kuadrat & kubik serta konsep pencarian akar....
+      DirectAim: Membuktikan rumus aljabar $(a+b)^3$ dan $(a+b+c)^3$ secara geometris....
+      Steps: 23 langkah
+
+================================================================================
+SUB-AREA 7: [math_hierarchical] Hierarchical Material / The Hierarchical Material
+Total Levels/Granul: 2
+================================================================================
+  1. K2-K3: Pengenalan Kubus Jutaan / Introduction to Million Cube [Grades: K2, K3]
+      ToolDisplay: Million Cube
+      Steps: 32 langkah
+  2. K3-K4: Operasi Hitung dengan Material Hierarki (Angka Jutaan) [Grades: K3, K4]
+      Tool: Hierarchical Decimal Material, Large Number Cards (Jutaan)
+      Prerequisites: Anak mengenal kubus jutaan dan mahir penjumlahan/pengurangan Golden Beads....
+      DirectAim: Melakukan operasi penjumlahan dan pengurangan angka bernilai jutaan secara fisik....
+      Steps: 23 langkah
+
+================================================================================
+SUB-AREA 8: [math_advanced_calculations] Advanced Multiplication & Division
+Total Levels/Granul: 2
+================================================================================
+  1. K3: Perkalian Lanjut / Advanced Multiplication - The Checkerboard [Grades: K3, K4]
+      ToolDisplay: Checkerboard
+      Steps: 31 langkah
+  2. K3: Pembagian Lanjut / Advanced Division - Racks and Tubes [Grades: K3, K4]
+      ToolDisplay: Racks and Tubes
+      Steps: 31 langkah
+
+================================================================================
+SUB-AREA 9: [math_fractions] Fractions (Common & Decimals)
+Total Levels/Granul: 13
+================================================================================
+  1. K2-K3: Pengenalan Pecahan / Introduction to Fraction Insets [Grades: K2]
+      ToolDisplay: Fraction Insets
+      Steps: 31 langkah
+  2. K2-K3: Asosiasi Pecahan & Desimal / Fractions & Decimals Association [Grades: K3]
+      ToolDisplay: Fraction Insets & Decimal Board
+      Steps: 31 langkah
+  3. K2-K3: Pecahan Ekuivalen / Equivalent Fractions [Grades: K2, K3]
+      ToolDisplay: Fraction Insets, Equivalence Charts
+      Steps: 32 langkah
+  4. K2-K3: Penjumlahan Pecahan (Penyebut Sama) / Fraction Addition (Like Denominators) [Grades: K2, K3]
+      ToolDisplay: Fraction Insets, Fraction Equation Cards
+      Steps: 32 langkah
+  5. K2-K3: Pengurangan Pecahan (Penyebut Sama) / Fraction Subtraction (Like Denominators) [Grades: K2, K3]
+      ToolDisplay: Fraction Insets, Fraction Equation Cards
+      Steps: 32 langkah
+  6. K2: Penamaan Pecahan (Numerator & Denominator) [Grades: K2]
+      Tool: Fraction Insets, Label Cards (Pembilang & Penyebut), Buku Tulis
+      Prerequisites: Anak mengenal konsep pecahan dasar....
+      DirectAim: Mengenal istilah pembilang (numerator) dan penyebut (denominator) secara tertulis....
+      Steps: 23 langkah
+  7. K3-K4: Penjumlahan Pecahan Penyebut Berbeda (Unlike Denominators) [Grades: K3, K4]
+      Tool: Fraction Insets, Equivalence Paper, Buku Tulis
+      Prerequisites: Anak menguasai ekuivalensi pecahan dan penjumlahan pecahan penyebut sama....
+      DirectAim: Menjumlahkan pecahan yang memiliki penyebut berbeda menggunakan konsep ekuivalen....
+      Steps: 23 langkah
+  8. K3-K4: Pengurangan Pecahan Penyebut Berbeda (Unlike Denominators) [Grades: K3, K4]
+      Tool: Fraction Insets, Equivalence Board, Lembar Kerja
+      Prerequisites: Anak memahami konsep pengurangan pecahan penyebut sama dan ekuivalensi pecahan....
+      DirectAim: Melakukan operasi pengurangan pecahan berpenyebut beda secara konkret....
+      Steps: 23 langkah
+  9. K4-K5: Perkalian Pecahan (Fraction Multiplication) [Grades: K4, K5]
+      Tool: Fraction Insets (beberapa set), Buku Tulis
+      Prerequisites: Anak menguasai konsep perkalian bilangan bulat dan pecahan....
+      DirectAim: Mengalikan pecahan dengan bilangan bulat dan pecahan dengan pecahan secara visual....
+      Steps: 23 langkah
+  10. K4-K5: Pembagian Pecahan (Fraction Division) [Grades: K4, K5]
+      Tool: Fraction Insets, Skittles (Pion Pembagi), Buku Tulis
+      Prerequisites: Anak memahami konsep dasar pembagian menggunakan skittles di Golden Beads/Stamp Game....
+      DirectAim: Membagi pecahan dengan bilangan bulat secara konkret menggunakan pion pembagi....
+      Steps: 23 langkah
+  11. K3-K4: Pecahan Campuran & Tidak Biasa (Mixed & Improper Fractions) [Grades: K3, K4]
+      Tool: Fraction Insets (Multiple sets), Lembar Kerja
+      Prerequisites: Anak lancar mengidentifikasi pecahan biasa....
+      DirectAim: Mengenal bentuk pecahan campuran (seperti 1 1/2) dan pecahan tidak biasa (3/2)....
+      Steps: 23 langkah
+  12. K5-K6: Pecahan Desimal & Operasinya (Decimal Fractions) [Grades: K5, K6]
+      Tool: Decimal Board, Decimal Bead Bars, Lembar Kerja
+      Prerequisites: Anak memahami konsep nilai tempat persepuluhan, perseratusan....
+      DirectAim: Melakukan operasi penjumlahan, pengurangan, perkalian desimal secara konkret....
+      Steps: 23 langkah
+  13. K5-K6: Konversi Pecahan, Desimal, Persen (FDP Conversion) [Grades: K5, K6]
+      Tool: Fraction Insets, Decimal Board, Grid 100 Paper
+      Prerequisites: Anak menguasai pecahan desimal dan pecahan biasa....
+      DirectAim: Mengonversi nilai antara pecahan biasa, desimal, dan persen secara visual....
+      Steps: 23 langkah
+
+================================================================================
+SUB-AREA 10: [math_geometry] Montessori Geometry
+Total Levels/Granul: 13
+================================================================================
+  1. K1-K3: Bangun Ruang / Geometric Solids [Grades: K1, K2]
+      ToolDisplay: Geometric Solids
+      Steps: 31 langkah
+  2. K1-K3: Kabinet Geometri / Geometric Cabinet [Grades: K1, K2]
+      ToolDisplay: Geometric Cabinet
+      Steps: 31 langkah
+  3. K2-K3: Segitiga Konstruktif / Constructive Triangles [Grades: K2]
+      ToolDisplay: Constructive Triangles
+      Steps: 31 langkah
+  4. K3: Batang Geometri / Geometric Sticks [Grades: K3]
+      ToolDisplay: Geometric Sticks Board
+      Steps: 31 langkah
+  5. K2: Studi Garis (Types, Positions, Relations of Lines) [Grades: K2]
+      Tool: Geometric Sticks Board, Colored Sticks, Push Pins
+      Prerequisites: Anak mengenal Geometric Cabinet (kabinet geometri)....
+      DirectAim: Mengidentifikasi garis lurus, sinar garis, segmen garis, posisi garis (horizontal, vertikal, diagonal), dan hubungan ant...
+      Steps: 23 langkah
+  6. K2-K3: Studi Sudut (Types, Measurement, Protractor) [Grades: K2, K3]
+      Tool: Geometric Sticks, Protractor (Busur Derajat)
+      Prerequisites: Anak memahami konsep garis....
+      DirectAim: Mengidentifikasi sudut siku-siku, lancip, tumpul, lurus, dan mengukur besar sudut dengan busur derajat....
+      Steps: 23 langkah
+  7. K3: Studi Segitiga Mendalam (7 Types of Triangles) [Grades: K3]
+      Tool: Constructive Triangles (Triangle Boxes), Stick Board
+      Prerequisites: Anak menguasai klasifikasi sudut dan garis....
+      DirectAim: Mengklasifikasikan 7 jenis segitiga berdasarkan sisi dan sudut....
+      Steps: 23 langkah
+  8. K3-K4: Studi Segiempat (Quadrilaterals Nomenclature) [Grades: K3, K4]
+      Tool: Geometric Cabinet, Stick Board, Classified Nomenclature Cards
+      Prerequisites: Anak mengenal bentuk segiempat dasar....
+      DirectAim: Mengidentifikasi sifat-sifat khusus persegi, persegi panjang, jajar genjang, trapesium, belah ketupat, dan layang-layang...
+      Steps: 23 langkah
+  9. K3-K4: Studi Poligon (Pentagon s.d Decagon Nomenclature) [Grades: K3, K4]
+      Tool: Geometric Cabinet (Polygon drawer), Stick Board, Label Cards
+      Prerequisites: Anak memahami konsep sudut dan sisi bangun datar....
+      DirectAim: Mengenal nama poligon beraturan dari segi lima (pentagon) hingga segi sepuluh (decagon)....
+      Steps: 23 langkah
+  10. K4: Studi Lingkaran (Parts & Properties of Circle) [Grades: K4]
+      Tool: Metal Insets of Circle, Jangka, Colored Pencils
+      Prerequisites: Anak mengenal bentuk lingkaran....
+      DirectAim: Mengidentifikasi bagian lingkaran: pusat, radius, diameter, busur, tali busur, juring, dan tembereng....
+      Steps: 23 langkah
+  11. K4-K5: Keliling & Luas (Perimeter & Area) [Grades: K4, K5]
+      Tool: Yellow Area Triangles, Grid Paper, Penggaris
+      Prerequisites: Anak mahir perkalian dan pembagian dasar....
+      DirectAim: Menemukan rumus keliling dan luas persegi, persegi panjang, dan segitiga secara eksperimental....
+      Steps: 22 langkah
+  12. K5-K6: Kekongruenan, Kesebangunan, Kesetaraan (Congruence, Similarity, Equivalence) [Grades: K5, K6]
+      Tool: Constructive Triangles, Red Insets of Equivalence
+      Prerequisites: Anak menguasai studi segitiga mendalam dan keliling/luas....
+      DirectAim: Membedakan bangun yang kongruen, sebangun, dan setara/ekuivalen....
+      Steps: 22 langkah
+  13. K5-K6: Volume Bangun Ruang (Volume of Solids) [Grades: K5, K6]
+      Tool: Geometric Solids (Hollow/berongga), Air atau Pasir, Gelas Ukur
+      Prerequisites: Anak menguasai keliling & luas bidang datar....
+      DirectAim: Menghitung kapasitas/volume kubus, balok, prisma, dan tabung secara eksperimental....
+      Steps: 23 langkah
+
+================================================================================
+SUB-AREA 11: [math_passage_abstraction] Menuju Abstraksi / Passage to Abstraction
+Total Levels/Granul: 4
+================================================================================
+  1. K2-K3: Penjumlahan Abstrak Bersusun [Grades: K2, K3]
+      Tool: Buku Kotak Matematika, Pensil dua warna
+      Prerequisites: Anak telah mahir melakukan penjumlahan dinamis dengan Stamp Game....
+      DirectAim: Melakukan penjumlahan angka besar (ribuan) secara tertulis tanpa bantuan material konkret....
+      Steps: 23 langkah
+  2. K2-K3: Pengurangan Abstrak Bersusun [Grades: K2, K3]
+      Tool: Buku Kotak, Pensil, Penghapus
+      Prerequisites: Anak mahir pengurangan dinamis menggunakan Stamp Game....
+      DirectAim: Melakukan operasi pengurangan angka besar secara tertulis mandiri tanpa alat....
+      Steps: 23 langkah
+  3. K3-K4: Perkalian Abstrak Bersusun [Grades: K3, K4]
+      Tool: Buku Tulis Kotak, Pensil
+      Prerequisites: Anak menghafal fakta perkalian 1 s.d 10 and memahami Checkerboard....
+      DirectAim: Melakukan perkalian bersusun dua digit atau lebih secara abstrak tertulis....
+      Steps: 23 langkah
+  4. K4-K5: Pembagian Bersusun Panjang (Abstract Long Division) [Grades: K4, K5]
+      Tool: Buku Tulis, Pensil, Penghapus
+      Prerequisites: Anak menguasai pembagian Racks and Tubes....
+      DirectAim: Menyelesaikan pembagian bilangan multi-digit bersusun (porogapit) secara abstrak penuh....
+      Steps: 23 langkah
+
+================================================================================
+SUB-AREA 12: [math_word_problems] Soal Cerita / Word Problems & Application
+Total Levels/Granul: 4
+================================================================================
+  1. K1-K2: Soal Cerita Penjumlahan & Pengurangan [Grades: K1, K2]
+      Tool: Kartu Soal Bergambar Contextual, Counters
+      Prerequisites: Anak lancar membaca kalimat pendek....
+      DirectAim: Menerjemahkan cerita kehidupan sehari-hari ke dalam kalimat matematika (+ dan -)....
+      Steps: 23 langkah
+  2. K2-K3: Soal Cerita Perkalian & Pembagian [Grades: K2, K3]
+      Tool: Kartu Soal Cerita Kontekstual, Buku Kotak
+      Prerequisites: Anak memahami konsep perkalian and pembagian....
+      DirectAim: Memecahkan soal cerita perkalian dan pembagian menggunakan nalar kontekstual....
+      Steps: 23 langkah
+  3. K4-K5: Soal Cerita Pecahan [Grades: K4, K5]
+      Tool: Lembar Soal Cerita Pecahan, Gambar Diagram Lingkaran
+      Prerequisites: Anak menguasai operasi pecahan dasar....
+      DirectAim: Menyelesaikan soal cerita yang melibatkan bagian pecahan dari suatu objek....
+      Steps: 23 langkah
+  4. K5-K6: Soal Cerita Campuran & Multi-step [Grades: K5, K6]
+      Tool: Lembar Kerja Soal Cerita Kompleks, Pensil
+      Prerequisites: Anak menguasai keempat operasi matematika dasar....
+      DirectAim: Menyelesaikan soal cerita kompleks yang membutuhkan lebih dari satu langkah pengerjaan....
+      Steps: 23 langkah
+
+================================================================================
+SUB-AREA 13: [math_measurement] Pengukuran & Data / Measurement & Data
+Total Levels/Granul: 8
+================================================================================
+  1. K1-K2: Pengukuran Panjang (Satuan Tak Baku & Baku) [Grades: K1, K2]
+      Tool: Penggaris, Meteran Pita, Pita Warna, Counters
+      Prerequisites: Anak mengenal konsep panjang-pendek....
+      DirectAim: Mengukur panjang objek menggunakan jengkal/langkah and centimeter/meter....
+      Steps: 23 langkah
+  2. K2-K3: Pengukuran Berat & Volume [Grades: K2, K3]
+      Tool: Timbangan Dapur Digital, Gelas Ukur Berisi Air
+      Prerequisites: Anak mengenal sensoris berat-ringan....
+      DirectAim: Mengukur berat benda dalam gram/kilogram dan volume cairan dalam mililiter/liter....
+      Steps: 23 langkah
+  3. K1-K2: Pengenalan Uang (Koin & Kertas Rupiah) [Grades: K1, K2]
+      Tool: Uang Mainan Rupiah (Koin dan Kertas)
+      Prerequisites: Anak dapat menghitung angka s.d 1000....
+      DirectAim: Mengenali nilai pecahan mata uang Rupiah dari Rp 100 s.d Rp 10.000....
+      Steps: 23 langkah
+  4. K2-K3: Operasi Uang (Kembalian) [Grades: K2, K3]
+      Tool: Uang Mainan Rupiah, Barang-barang Kelas dengan Label Harga
+      Prerequisites: Anak menguasai penjumlahan/pengurangan abstrak....
+      DirectAim: Melakukan transaksi jual beli sederhana dan menghitung uang kembalian....
+      Steps: 23 langkah
+  5. K1-K2: Membaca Jam Analog (Analog Clock, AM/PM) [Grades: K1, K2]
+      Tool: Montessori Clock (Jam Mainan dengan Jarum Bergerak)
+      Prerequisites: Anak dapat menghitung lompat lima....
+      DirectAim: Membaca waktu tepat, setengah jam, dan persepuluhan menit pada jam analog....
+      Steps: 23 langkah
+  6. K2-K3: Kalender & Durasi Waktu [Grades: K2, K3]
+      Tool: Kalender Dinding, Jam Meja, Kartu Nama Bulan
+      Prerequisites: Anak mengenal konsep membaca jam dasar....
+      DirectAim: Membaca tanggal pada kalender, menghitung selisih hari, dan durasi jam....
+      Steps: 23 langkah
+  7. K3-K4: Survey, Tally, Grafik (Pengumpulan & Grafik Data) [Grades: K3, K4]
+      Tool: Lembar Survey Kelas, Papan Tulis, Spidol Warna
+      Prerequisites: Anak mahir menghitung counters....
+      DirectAim: Mengumpulkan data sederhana di kelas, mencatat dengan garis tally, dan menyajikannya dalam grafik batang....
+      Steps: 23 langkah
+  8. K3-K4: Pembulatan & Estimasi (Rounding & Estimation) [Grades: K3, K4]
+      Tool: Garis Bilangan (Number Line), Kartu Angka Puluhan
+      Prerequisites: Anak memahami nilai tempat satuan dan puluhan....
+      DirectAim: Membulatkan angka ke puluhan terdekat berdasarkan posisinya pada garis bilangan....
+      Steps: 23 langkah
+
+================================================================================
+SUB-AREA 14: [math_number_theory] Teori Bilangan / Number Theory
+Total Levels/Granul: 4
+================================================================================
+  1. K3: Kelipatan & Faktor (Multiples & Factors) [Grades: K3]
+      Tool: Peg Board, Colorful Pegs, Multiplication Bead Bars
+      Prerequisites: Anak menguasai konsep perkalian dasar....
+      DirectAim: Menemukan kelipatan suatu bilangan dan membagi bilangan menjadi faktor-faktor....
+      Steps: 23 langkah
+  2. K4-K5: KPK & FPB (LCM & GCF) [Grades: K4, K5]
+      Tool: Peg Board, Pasak warna Hijau dan Biru, Lembar Kerja
+      Prerequisites: Anak menguasai kelipatan dan faktor....
+      DirectAim: Menemukan Kelipatan Persekutuan Terkecil (KPK) dan Faktor Persekutuan Terbesar (FPB) dari dua bilangan secara visual....
+      Steps: 23 langkah
+  3. K4-K5: Bilangan Prima (Sieve of Eratosthenes) [Grades: K4, K5]
+      Tool: Chart 100 (Papan Ratusan), Pensil Warna, Kertas Cetak
+      Prerequisites: Anak memahami konsep faktor....
+      DirectAim: Mengidentifikasi bilangan prima dari angka 1 s.d 100 dengan metode Sieve (saringan) Eratosthenes....
+      Steps: 23 langkah
+  4. K4-K5: Urutan Operasi (BODMAS/PEMDAS) [Grades: K4, K5]
+      Tool: Lembar Kerja Urutan Operasi, Papan Tulis, Spidol
+      Prerequisites: Anak mahir keempat operasi matematika dasar secara abstrak....
+      DirectAim: Menyelesaikan persamaan matematika campuran dengan urutan yang benar....
+      Steps: 23 langkah

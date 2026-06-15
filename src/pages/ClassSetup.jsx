@@ -427,7 +427,7 @@ export default function ClassSetup() {
                 </span>
             </div>
             <div style={{ backgroundColor: '#F1F5F9', padding: '2px', borderRadius: '100px', display: 'flex', gap: '2px', border: '1px solid #E2E8F0', width: 'fit-content', margin: '4px auto 0' }}>
-              {['All', 'K1', 'K2', 'K3'].map(g => (
+              {['All', 'K1', 'K2', 'K3', 'K4', 'K5', 'K6'].map(g => (
                 <button key={g} onClick={() => setMapFocusGrade(g)} style={{ padding: '4px 12px', borderRadius: '100px', border: 'none', backgroundColor: mapFocusGrade === g ? activeArea.color : 'transparent', color: mapFocusGrade === g ? 'white' : '#64748B', fontWeight: 900, cursor: 'pointer', transition: 'all 0.2s', fontSize: '0.6rem' }}>
                   {g === 'All' ? 'SEMUA' : `K${g.slice(1)}`}
                 </button>

@@ -313,7 +313,7 @@ export default function InventoryModal({ curriculum, onClose }) {
           </div>
 
           <div style={{ display: 'flex', backgroundColor: '#F1F5F9', padding: '4px', borderRadius: '14px', gap: '2px' }}>
-            {['Semua', 'K1', 'K2', 'K3', '3Y'].map(g => (
+            {['Semua', 'K1', 'K2', 'K3', 'K4', 'K5', 'K6', '3Y'].map(g => (
               <button key={g} onClick={() => setGradeTab(g)}
                 style={{ padding: '8px 18px', borderRadius: '10px', border: 'none', cursor: 'pointer', backgroundColor: gradeTab === g ? 'white' : 'transparent', color: gradeTab === g ? '#0F172A' : '#64748B', fontWeight: 800, fontSize: '0.82rem', transition: 'all 0.2s', boxShadow: gradeTab === g ? '0 2px 8px rgba(0,0,0,0.08)' : 'none' }}>
                 {g === 'Semua' ? '🌐 Semua' : g === '3Y' ? '🔄 3Y' : `K${g[1]}`}

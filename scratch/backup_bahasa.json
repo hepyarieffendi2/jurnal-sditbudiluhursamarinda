@@ -1,0 +1,1962 @@
+{
+  "shortName": "bahasa",
+  "color": "#FF9500",
+  "subAreas": [
+    {
+      "name": "Sejarah Bahasa / History of Language",
+      "id": "lang_great_lessons",
+      "bgColor": "#EFF6FF",
+      "icon": "BookOpen",
+      "color": "#3B82F6",
+      "shortName": "History of Language",
+      "levels": [
+        {
+          "grades": [
+            "K1",
+            "K2",
+            "K3",
+            "K4",
+            "K5",
+            "K6"
+          ],
+          "presentation": {
+            "toolDisplay": "Gambar garis waktu (timeline), kartu piktogram, contoh media tulis papirus/batu lempung imitasi.",
+            "error": "Diskusi logis dan refleksi sejarah bersama guru.",
+            "videoUrl": "",
+            "toolsList": [
+              "Gambar garis waktu (timeline), kartu piktogram, contoh media tulis papirus/batu lempung imitasi."
+            ],
+            "directAim": "Memahami asal-usul tulisan sebagai salah satu pencapaian terbesar peradaban manusia.",
+            "prerequisites": "Kesiapan mendengarkan cerita panjang, ketertarikan pada sejarah manusia.",
+            "tool": "Gambar garis waktu (timeline), kartu piktogram, contoh media tulis papirus/batu lempung imitasi.",
+            "indirectAim": "Mengembangkan rasa syukur kepada generasi terdahulu, menumbuhkan minat belajar bahasa.",
+            "steps": []
+          },
+          "label": "Cerita Agung Keempat: Sejarah Tulisan (The Fourth Great Lesson: The Story of Writing)"
+        },
+        {
+          "grades": [
+            "K1",
+            "K2",
+            "K3",
+            "K4",
+            "K5",
+            "K6"
+          ],
+          "label": "Eksplorasi Piktogram Prasejarah",
+          "presentation": {
+            "prerequisites": "Mendengarkan Cerita Agung Keempat: Sejarah Tulisan.",
+            "toolsList": [
+              "Kartu gambar piktogram kuno, batu arang atau tanah liat untuk menggambar bebas."
+            ],
+            "videoUrl": "",
+            "directAim": "Mengenali gambar piktogram sebagai bentuk awal komunikasi tertulis manusia prasejarah.",
+            "toolDisplay": "Kartu gambar piktogram kuno, batu arang atau tanah liat untuk menggambar bebas.",
+            "error": "Pembandingan gambar piktogram buatan sendiri dengan kartu kunci deskripsi gambar.",
+            "indirectAim": "Mengembangkan ekspresi seni visual, memahami komunikasi simbolik sederhana.",
+            "steps": [],
+            "tool": "Kartu gambar piktogram kuno, batu arang atau tanah liat untuk menggambar bebas."
+          }
+        },
+        {
+          "presentation": {
+            "prerequisites": "Eksplorasi Piktogram Prasejarah.",
+            "toolsList": [
+              "Kartu alfabet hieroglif, lempengan tanah liat datar, stilus kayu untuk meniru tulisan cuneiform."
+            ],
+            "videoUrl": "",
+            "directAim": "Mengenali huruf hieroglif Mesir kuno dan huruf cuneiform Mesopotamia.",
+            "toolDisplay": "Kartu alfabet hieroglif, lempengan tanah liat datar, stilus kayu untuk meniru tulisan cuneiform.",
+            "error": "Tabel pencocokan simbol hieroglif dengan abjad modern (kartu kontrol).",
+            "indirectAim": "Memahami evolusi simbol konkret menuju simbol fonetis dan abstrak.",
+            "steps": [],
+            "tool": "Kartu alfabet hieroglif, lempengan tanah liat datar, stilus kayu untuk meniru tulisan cuneiform."
+          },
+          "label": "Eksplorasi Huruf Hieroglif dan Cuneiform",
+          "grades": [
+            "K1",
+            "K2",
+            "K3",
+            "K4",
+            "K5",
+            "K6"
+          ]
+        },
+        {
+          "label": "Sejarah Penemuan Alfabet",
+          "presentation": {
+            "prerequisites": "Eksplorasi Huruf Hieroglif dan Cuneiform.",
+            "toolDisplay": "Peta persebaran bangsa Fenisia, bagan silsilah huruf (Hieroglif -> Fenisia -> Yunani -> Latin).",
+            "error": "Bagan silsilah alfabet kontrol mandiri.",
+            "videoUrl": "",
+            "toolsList": [
+              "Peta persebaran bangsa Fenisia, bagan silsilah huruf (Hieroglif -> Fenisia -> Yunani -> Latin)."
+            ],
+            "directAim": "Memahami peran bangsa Fenisia dalam menyederhanakan simbol tulisan menjadi bunyi (alfabet).",
+            "tool": "Peta persebaran bangsa Fenisia, bagan silsilah huruf (Hieroglif -> Fenisia -> Yunani -> Latin).",
+            "indirectAim": "Menghubungkan sejarah penemuan abjad Fenisia dengan abjad modern bahasa Indonesia.",
+            "steps": []
+          },
+          "grades": [
+            "K1",
+            "K2",
+            "K3",
+            "K4",
+            "K5",
+            "K6"
+          ]
+        }
+      ]
+    },
+    {
+      "icon": "Compass",
+      "color": "#10B981",
+      "levels": [
+        {
+          "grades": [
+            "K1",
+            "K2"
+          ],
+          "label": "Pengenalan Bunyi Huruf (Sandpaper Letters)",
+          "presentation": {
+            "prerequisites": "Permainan bunyi lisan (I Spy game), kesadaran fonemis bunyi awal kata.",
+            "directAim": "Mengasosiasikan bunyi fonetis huruf dengan simbol visualnya (huruf raba).",
+            "toolsList": [
+              "Huruf Raba (Sandpaper Letters) tegak bersambung, baki pasir untuk latihan meniru bentuk."
+            ],
+            "videoUrl": "",
+            "error": "Kontrol raba (tekstur kasar kertas pasir memandu jari anak agar tidak keluar dari bentuk huruf).",
+            "toolDisplay": "Huruf Raba (Sandpaper Letters) tegak bersambung, baki pasir untuk latihan meniru bentuk.",
+            "steps": [],
+            "indirectAim": "Mempersiapkan memori otot tangan untuk menulis huruf (arah menulis tegak bersambung).",
+            "tool": "Huruf Raba (Sandpaper Letters) tegak bersambung, baki pasir untuk latihan meniru bentuk."
+          }
+        },
+        {
+          "grades": [
+            "K1"
+          ],
+          "presentation": {
+            "indirectAim": "Persiapan membaca mandiri, melatih kemampuan mengeja kata secara fonetis.",
+            "steps": [],
+            "tool": "Kotak Papan Alfabet Bergerak (Movable Alphabet), objek mini atau kartu gambar merah muda/biru.",
+            "prerequisites": "Mengenal bunyi huruf raba (Sandpaper Letters) minimal 15-20 huruf.",
+            "toolsList": [
+              "Kotak Papan Alfabet Bergerak (Movable Alphabet), objek mini atau kartu gambar merah muda/biru."
+            ],
+            "videoUrl": "",
+            "directAim": "Meningkatkan kemampuan menganalisis bunyi dalam kata dan menyusun simbolnya untuk mengekspresikan gagasan secara tertulis.",
+            "toolDisplay": "Kotak Papan Alfabet Bergerak (Movable Alphabet), objek mini atau kartu gambar merah muda/biru.",
+            "error": "Kesadaran fonetis anak atau koreksi mandiri saat membandingkan kata dengan kartu kontrol ejaan."
+          },
+          "label": "Menyusun Kata Bersama Papan Alfabet Bergerak (Movable Alphabet)"
+        },
+        {
+          "presentation": {
+            "indirectAim": "Membangun kepercayaan diri awal membaca kata, memperkaya kosakata dasar.",
+            "steps": [],
+            "tool": "Kartu objek Pink, kartu gambar dan kata Pink, buklet kata Pink, daftar kata Pink.",
+            "prerequisites": "Mampu menyusun kata fonetik sederhana menggunakan Movable Alphabet.",
+            "videoUrl": "",
+            "toolsList": [
+              "Kartu objek Pink, kartu gambar dan kata Pink, buklet kata Pink, daftar kata Pink."
+            ],
+            "directAim": "Membaca kata-kata fonetis pendek berpola suku kata terbuka (misal: 'buku', 'mata', 'sapi').",
+            "toolDisplay": "Kartu objek Pink, kartu gambar dan kata Pink, buklet kata Pink, daftar kata Pink.",
+            "error": "Kartu kontrol bergambar (pencocokan kata dengan gambar yang sesuai)."
+          },
+          "label": "Seri Merah Muda / Pink Series (Membaca Fonetik Dasar / Suku Kata Terbuka)",
+          "grades": [
+            "K1"
+          ]
+        },
+        {
+          "presentation": {
+            "directAim": "Membaca kata fonetis dengan suku kata tertutup atau konsonan ganda (misal: 'pintu', 'kertas', 'rumput').",
+            "toolsList": [
+              "Kotak objek Blue, kartu gambar dan kata Blue, buklet kata Blue, daftar kata Blue."
+            ],
+            "videoUrl": "",
+            "error": "Kartu kontrol bergambar (pencocokan kata dengan gambar yang sesuai).",
+            "toolDisplay": "Kotak objek Blue, kartu gambar dan kata Blue, buklet kata Blue, daftar kata Blue.",
+            "prerequisites": "Tuntas Seri Merah Muda (Pink Series) secara lancar.",
+            "steps": [],
+            "indirectAim": "Menguasai variasi bunyi konsonan tertutup bahasa Indonesia secara mandiri.",
+            "tool": "Kotak objek Blue, kartu gambar dan kata Blue, buklet kata Blue, daftar kata Blue."
+          },
+          "label": "Seri Biru / Blue Series (Membaca Konsonan Ganda / Suku Kata Tertutup)",
+          "grades": [
+            "K1"
+          ]
+        },
+        {
+          "presentation": {
+            "steps": [],
+            "indirectAim": "Mencapai kemahiran membaca seluruh struktur kata bahasa Indonesia secara utuh.",
+            "tool": "Kartu kata fonogram Green, buklet fonogram Green, laci fonogram Green bergambar.",
+            "directAim": "Membaca kata dengan fonogram khusus bahasa Indonesia seperti 'ng', 'ny', 'kh', 'sy', dan diftong.",
+            "videoUrl": "",
+            "toolsList": [
+              "Kartu kata fonogram Green, buklet fonogram Green, laci fonogram Green bergambar."
+            ],
+            "error": "Kartu kontrol bergambar (pencocokan kata dengan gambar yang sesuai).",
+            "toolDisplay": "Kartu kata fonogram Green, buklet fonogram Green, laci fonogram Green bergambar.",
+            "prerequisites": "Tuntas Seri Biru (Blue Series) secara lancar."
+          },
+          "label": "Seri Hijau / Green Series (Membaca Fonogram / Bunyi Khusus dan Pengecualian)",
+          "grades": [
+            "K1"
+          ]
+        }
+      ],
+      "shortName": "Reading Foundation",
+      "name": "Fondasi Membaca Dasar (Transisi Casa) / Reading Foundation",
+      "id": "lang_reading_foundation",
+      "bgColor": "#ECFDF5"
+    },
+    {
+      "name": "Bahasa Lisan / Spoken Language",
+      "id": "lang_spoken",
+      "bgColor": "#F5EBFA",
+      "icon": "MessageSquare",
+      "color": "#AF52DE",
+      "levels": [
+        {
+          "grades": [
+            "K4",
+            "K5"
+          ],
+          "label": "Diskusi Kelompok (Discussion)",
+          "presentation": {
+            "indirectAim": "Membangun rasa percaya diri sosial, melatih etika berbicara dan berargumen secara sopan.",
+            "steps": [],
+            "tool": "Kartu topik diskusi tematik, bola bicara (talking stick) untuk bergantian bicara.",
+            "prerequisites": "Kemampuan berbicara lancar dan kesiapan bersosialisasi dalam kelompok.",
+            "toolsList": [
+              "Kartu topik diskusi tematik, bola bicara (talking stick) untuk bergantian bicara."
+            ],
+            "videoUrl": "",
+            "directAim": "Mengekspresikan ide secara runtut dan mendengarkan gagasan orang lain secara aktif.",
+            "toolDisplay": "Kartu topik diskusi tematik, bola bicara (talking stick) untuk bergantian bicara.",
+            "error": "Umpan balik langsung dari guru dan teman sejawat di dalam lingkaran diskusi."
+          }
+        },
+        {
+          "presentation": {
+            "prerequisites": "Telah melakukan riset kecil atau menyelesaikan sebuah proyek mandiri.",
+            "toolsList": [
+              "Peta pikiran (mind map) hasil proyek, kartu catatan poin penting presentasi."
+            ],
+            "videoUrl": "",
+            "directAim": "Mempresentasikan hasil temuan proyek secara lisan di depan kelompok kelas.",
+            "toolDisplay": "Peta pikiran (mind map) hasil proyek, kartu catatan poin penting presentasi.",
+            "error": "Lembar penilaian mandiri (self-assessment rubric) atau umpan balik tanya jawab audiens.",
+            "indirectAim": "Melatih artikulasi bicara, penggunaan struktur kalimat formal, serta kesiapan gestur presentasi.",
+            "steps": [],
+            "tool": "Peta pikiran (mind map) hasil proyek, kartu catatan poin penting presentasi."
+          },
+          "label": "Laporan Lisan (Oral Reports)",
+          "grades": [
+            "K3"
+          ]
+        },
+        {
+          "grades": [
+            "K5",
+            "K6"
+          ],
+          "label": "Pidato (Speeches / Oratory)",
+          "presentation": {
+            "prerequisites": "Pengalaman membawakan laporan lisan, penguasaan tata bahasa dasar.",
+            "directAim": "Menyampaikan gagasan terstruktur secara persuasif atau informatif di hadapan audiens besar.",
+            "toolsList": [
+              "Podium pidato kelas, draf teks pidato orisinal buatan sendiri."
+            ],
+            "videoUrl": "",
+            "error": "Rekaman video pidato pribadi untuk dievaluasi mandiri bersama guru.",
+            "toolDisplay": "Podium pidato kelas, draf teks pidato orisinal buatan sendiri.",
+            "steps": [],
+            "indirectAim": "Mengatasi kecemasan berbicara di depan umum, melatih intonasi dan proyeksi suara.",
+            "tool": "Podium pidato kelas, draf teks pidato orisinal buatan sendiri."
+          }
+        },
+        {
+          "presentation": {
+            "tool": "Kartu mosi debat, timer/stopwatch pengukur waktu bicara.",
+            "indirectAim": "Mengembangkan penalaran kritis analitis, menumbuhkan toleransi terhadap perbedaan pandangan.",
+            "steps": [],
+            "toolDisplay": "Kartu mosi debat, timer/stopwatch pengukur waktu bicara.",
+            "error": "Rubrik penilaian debat formal oleh juri dan tanggapan dari tim lawan.",
+            "videoUrl": "",
+            "toolsList": [
+              "Kartu mosi debat, timer/stopwatch pengukur waktu bicara."
+            ],
+            "directAim": "Menyusun argumen pro atau kontra berdasarkan data ilmiah serta mempertahankannya secara lisan.",
+            "prerequisites": "Kemampuan pidato dasar, kemampuan berpikir kritis dan logis."
+          },
+          "label": "Debat (Debates)",
+          "grades": [
+            "K4",
+            "K5"
+          ]
+        },
+        {
+          "grades": [
+            "K2",
+            "K3"
+          ],
+          "presentation": {
+            "steps": [],
+            "indirectAim": "Menghargai keindahan estetika bahasa sastra Indonesia, melatih kepekaan rasa dan empati.",
+            "tool": "Kumpulan buku antologi puisi anak, panggung kecil atau ruang berekspresi kelas.",
+            "directAim": "Membacakan puisi dengan penekanan ritme, rima, intonasi, dan ekspresi wajah yang sesuai.",
+            "videoUrl": "",
+            "toolsList": [
+              "Kumpulan buku antologi puisi anak, panggung kecil atau ruang berekspresi kelas."
+            ],
+            "error": "Kessesuaian ekspresi suara dengan makna kata pada lembar puisi kontrol.",
+            "toolDisplay": "Kumpulan buku antologi puisi anak, panggung kecil atau ruang berekspresi kelas.",
+            "prerequisites": "Pemahaman makna kata secara ekspresif."
+          },
+          "label": "Pembacaan Puisi & Deklamasi (Poetry Reading)"
+        },
+        {
+          "grades": [
+            "K2",
+            "K3"
+          ],
+          "presentation": {
+            "toolDisplay": "Kartu skenario peran bersosialisasi (misal: bertamu, meminta tolong, belanja di pasar).",
+            "error": "Reaksi alami dan respons verbal langsung dari teman bermain peran.",
+            "videoUrl": "",
+            "toolsList": [
+              "Kartu skenario peran bersosialisasi (misal: bertamu, meminta tolong, belanja di pasar)."
+            ],
+            "directAim": "Melakukan dialog bermain peran (roleplay) dengan skenario sosial tertentu di masyarakat.",
+            "prerequisites": "Penguasaan kosakata percakapan dasar sehari-hari.",
+            "tool": "Kartu skenario peran bersosialisasi (misal: bertamu, meminta tolong, belanja di pasar).",
+            "indirectAim": "Melatih empati sosial, sopan santun berbahasa (undak-usuk), dan kesigapan merespons lawan bicara.",
+            "steps": []
+          },
+          "label": "Dialog & Percakapan (Dialogue)"
+        },
+        {
+          "grades": [
+            "K3",
+            "K4"
+          ],
+          "presentation": {
+            "tool": "Lembar daftar pertanyaan, mikrofon mainan, alat perekam suara.",
+            "steps": [],
+            "indirectAim": "Mengembangkan keterampilan sosial interpersonal, melatih penulisan transkrip wawancara.",
+            "error": "Kesesuaian jawaban narasumber dengan fokus pertanyaan pada lembar rencana wawancara.",
+            "toolDisplay": "Lembar daftar pertanyaan, mikrofon mainan, alat perekam suara.",
+            "directAim": "Menggali informasi penting dari narasumber melalui tanya jawab terstruktur secara aktif.",
+            "toolsList": [
+              "Lembar daftar pertanyaan, mikrofon mainan, alat perekam suara."
+            ],
+            "videoUrl": "",
+            "prerequisites": "Mampu menyusun daftar pertanyaan terstruktur menggunakan kata tanya 5W+1H."
+          },
+          "label": "Wawancara (Interviews)"
+        }
+      ],
+      "shortName": "Spoken Language"
+    },
+    {
+      "icon": "Layers",
+      "levels": [
+        {
+          "label": "Pengenalan Kata Majemuk (Compound Words)",
+          "presentation": {
+            "prerequisites": "Tuntas membaca kata bersuku kata tertutup (Seri Biru).",
+            "toolDisplay": "Kartu teka-teki kata majemuk (puzzle cards), kotak klasifikasi kata majemuk.",
+            "error": "Bentuk potongan pola kartu teka-teki (puzzle) yang hanya bisa berpasangan dengan kata yang tepat.",
+            "videoUrl": "",
+            "toolsList": [
+              "Kartu teka-teki kata majemuk (puzzle cards), kotak klasifikasi kata majemuk."
+            ],
+            "directAim": "Memahami konsep penggabungan dua kata dasar yang menghasilkan makna baru (misal: 'rumah sakit').",
+            "tool": "Kartu teka-teki kata majemuk (puzzle cards), kotak klasifikasi kata majemuk.",
+            "indirectAim": "Memperkaya kosakata fungsional, melatih pemikiran semantik asosiatif.",
+            "steps": []
+          },
+          "grades": [
+            "K2",
+            "K3"
+          ]
+        },
+        {
+          "grades": [
+            "K1",
+            "K2"
+          ],
+          "label": "Rumpun Kata (Word Families)",
+          "presentation": {
+            "indirectAim": "Mempermudah kelancaran mengeja dan kecepatan membaca kata ritmis.",
+            "steps": [],
+            "tool": "Folder rumpun kata (word families folder), kartu akhiran kata fonetik.",
+            "prerequisites": "Mampu membaca kata fonetis dasar secara mandiri.",
+            "videoUrl": "",
+            "toolsList": [
+              "Folder rumpun kata (word families folder), kartu akhiran kata fonetik."
+            ],
+            "directAim": "Mengelompokkan kata-kata yang memiliki kesamaan pola fonetik akhir/rima (misal: 'main', 'kain', 'lain').",
+            "toolDisplay": "Folder rumpun kata (word families folder), kartu akhiran kata fonetik.",
+            "error": "Daftar kontrol kata (control list) yang memiliki rima serupa untuk dicocokkan."
+          }
+        },
+        {
+          "presentation": {
+            "prerequisites": "Pengenalan kosakata dasar fungsional.",
+            "videoUrl": "",
+            "toolsList": [
+              "Papan pasak awalan kata, kartu awalan dan kata dasar berwarna kontras."
+            ],
+            "directAim": "Mengidentifikasi imbuhan awalan (me-, ber-, di-, dsb.) dan memahami pengaruhnya pada arti kata dasar.",
+            "toolDisplay": "Papan pasak awalan kata, kartu awalan dan kata dasar berwarna kontras.",
+            "error": "Lembar kontrol kartu kunci pasak awalan bahasa Indonesia.",
+            "indirectAim": "Mempersiapkan pembentukan tata bahasa tertulis yang baku dan formal.",
+            "steps": [],
+            "tool": "Papan pasak awalan kata, kartu awalan dan kata dasar berwarna kontras."
+          },
+          "label": "Pengenalan Awalan (Prefixes)",
+          "grades": [
+            "K2",
+            "K3"
+          ]
+        },
+        {
+          "label": "Pengenalan Akhiran (Suffixes)",
+          "presentation": {
+            "toolDisplay": "Kotak pasang akhiran kata, kartu akhiran berwarna kontras.",
+            "error": "Lembar kontrol kartu kunci pasak akhiran bahasa Indonesia.",
+            "toolsList": [
+              "Kotak pasang akhiran kata, kartu akhiran berwarna kontras."
+            ],
+            "videoUrl": "",
+            "directAim": "Mengidentifikasi imbuhan akhiran (-kan, -an, -i, dsb.) dan memahami pengaruh perubahan arti kata dasarnya.",
+            "prerequisites": "Pengenalan kosakata dasar fungsional.",
+            "tool": "Kotak pasang akhiran kata, kartu akhiran berwarna kontras.",
+            "indirectAim": "Mengembangkan kekayaan struktur kata turunan bahasa Indonesia.",
+            "steps": []
+          },
+          "grades": [
+            "K2",
+            "K3"
+          ]
+        },
+        {
+          "grades": [
+            "K1",
+            "K2"
+          ],
+          "label": "Pengenalan Tunggal dan Jamak (Singular & Plural)",
+          "presentation": {
+            "prerequisites": "Membaca lancar Seri Biru.",
+            "error": "Jumlah fisik objek miniatur harus cocok dengan kartu simbol kata tunggal/jamak.",
+            "toolDisplay": "Miniatur objek tunggal/jamak, kartu nama kata tunggal/jamak pendamping.",
+            "directAim": "Memahami konsep perbedaan kuantitas benda tunggal (satu) dan jamak (banyak) melalui tata bahasa reduplikasi.",
+            "toolsList": [
+              "Miniatur objek tunggal/jamak, kartu nama kata tunggal/jamak pendamping."
+            ],
+            "videoUrl": "",
+            "tool": "Miniatur objek tunggal/jamak, kartu nama kata tunggal/jamak pendamping.",
+            "steps": [],
+            "indirectAim": "Persiapan berpikir logis kuantitatif dalam struktur bahasa."
+          }
+        },
+        {
+          "label": "Pengenalan Sinonim (Synonyms)",
+          "presentation": {
+            "error": "Pola garis warna-warni di belakang kartu jodoh sinonim (control back pattern).",
+            "toolDisplay": "Kartu jodoh sinonim, kamus sinonim anak.",
+            "directAim": "Menemukan pasangan kata yang memiliki makna sama atau sangat mirip (misal: 'pintar' = 'cerdas').",
+            "toolsList": [
+              "Kartu jodoh sinonim, kamus sinonim anak."
+            ],
+            "videoUrl": "",
+            "prerequisites": "Kelancaran membaca wacana pendek secara mandiri.",
+            "tool": "Kartu jodoh sinonim, kamus sinonim anak.",
+            "steps": [],
+            "indirectAim": "Menghindari pengulangan kata yang monoton dalam menulis karangan atau pidato."
+          },
+          "grades": [
+            "K2",
+            "K3"
+          ]
+        },
+        {
+          "grades": [
+            "K2",
+            "K3"
+          ],
+          "presentation": {
+            "tool": "Kartu jodoh antonim bergambar, kartu kata antonim.",
+            "steps": [],
+            "indirectAim": "Memahami dualitas sifat benda, melatih penalaran deskripsi komparatif.",
+            "prerequisites": "Kelancaran membaca wacana pendek secara mandiri.",
+            "error": "Pola garis warna-warni di belakang kartu jodoh antonim (control back pattern).",
+            "toolDisplay": "Kartu jodoh antonim bergambar, kartu kata antonim.",
+            "directAim": "Menemukan pasangan kata yang memiliki makna berlawanan (misal: 'tinggi' x 'rendah').",
+            "videoUrl": "",
+            "toolsList": [
+              "Kartu jodoh antonim bergambar, kartu kata antonim."
+            ]
+          },
+          "label": "Pengenalan Antonim (Antonyms)"
+        },
+        {
+          "grades": [
+            "K3"
+          ],
+          "label": "Pengenalan Homonim dan Homograf (Homonyms & Homographs)",
+          "presentation": {
+            "error": "Kunci kontrol berupa lembar kalimat ilustrasi bergambar lengkap.",
+            "toolDisplay": "Kotak kalimat konteks homonim, kartu jodoh kalimat homonim.",
+            "directAim": "Membedakan kata yang ejaannya sama tetapi maknanya berbeda berdasarkan konteks kalimat (misal: 'bisa' = dapat/racun).",
+            "videoUrl": "",
+            "toolsList": [
+              "Kotak kalimat konteks homonim, kartu jodoh kalimat homonim."
+            ],
+            "prerequisites": "Kemampuan membaca mandiri secara lancar dengan pemahaman konteks.",
+            "tool": "Kotak kalimat konteks homonim, kartu jodoh kalimat homonim.",
+            "steps": [],
+            "indirectAim": "Mengembangkan ketelitian pemahaman konteks kalimat membaca, kepekaan semantik lanjut."
+          }
+        },
+        {
+          "label": "Eksplorasi Etimologi dan Asal-usul Kata (Etymology)",
+          "presentation": {
+            "prerequisites": "Telah mendengarkan Cerita Agung Keempat.",
+            "toolsList": [
+              "Peta dunia interaktif asal kata, kamus etimologi dasar anak."
+            ],
+            "videoUrl": "",
+            "directAim": "Menelusuri sejarah asal-usul kata serapan asing dalam Bahasa Indonesia (Belanda, Portugis, Arab, Sanskerta).",
+            "toolDisplay": "Peta dunia interaktif asal kata, kamus etimologi dasar anak.",
+            "error": "Kartu kontrol asal kata dengan lembar kunci jawaban negara asal serapan.",
+            "indirectAim": "Menyadari interaksi budaya bangsa lewat bahasa, menumbuhkan kecintaan terhadap asal-usul sejarah.",
+            "steps": [],
+            "tool": "Peta dunia interaktif asal kata, kamus etimologi dasar anak."
+          },
+          "grades": [
+            "K4",
+            "K5"
+          ]
+        }
+      ],
+      "shortName": "Word Study",
+      "color": "#F59E0B",
+      "id": "lang_word_study",
+      "name": "Studi Kata / Word Study",
+      "bgColor": "#FEF3C7"
+    },
+    {
+      "color": "#EF4444",
+      "shortName": "Functional Grammar",
+      "levels": [
+        {
+          "grades": [
+            "K1",
+            "K2"
+          ],
+          "presentation": {
+            "steps": [],
+            "indirectAim": "Dasar analisis fungsi sintaksis kalimat di tingkat sekolah dasar.",
+            "tool": "Simbol tata bahasa Montessori (Piramida hitam kayu), kartu kata benda.",
+            "directAim": "Memahami bahwa nama benda, orang, dan tempat disebut kata benda (Noun), diwakili simbol piramida hitam.",
+            "toolsList": [
+              "Simbol tata bahasa Montessori (Piramida hitam kayu), kartu kata benda."
+            ],
+            "videoUrl": "",
+            "error": "Pencocokan warna kartu kata benda dengan benda fisik nyata di kelas.",
+            "toolDisplay": "Simbol tata bahasa Montessori (Piramida hitam kayu), kartu kata benda.",
+            "prerequisites": "Kelancaran membaca tingkat dasar."
+          },
+          "label": "Pengenalan Kata Benda (Noun)"
+        },
+        {
+          "presentation": {
+            "steps": [],
+            "indirectAim": "Memahami pembatasan kuantitas dan kekhasan kata benda.",
+            "tool": "Simbol segitiga biru muda kecil, kartu kata sandang/artikel.",
+            "prerequisites": "Pengenalan Kata Benda.",
+            "directAim": "Memahami kata sandang pembatas kata benda (misal: 'sang', 'si', 'para'), diwakili segitiga biru muda kecil.",
+            "toolsList": [
+              "Simbol segitiga biru muda kecil, kartu kata sandang/artikel."
+            ],
+            "videoUrl": "",
+            "error": "Kunci kontrol kartu urutan kalimat tata bahasa.",
+            "toolDisplay": "Simbol segitiga biru muda kecil, kartu kata sandang/artikel."
+          },
+          "label": "Pengenalan Artikel (Article)",
+          "grades": [
+            "K1",
+            "K2"
+          ]
+        },
+        {
+          "presentation": {
+            "indirectAim": "Mengembangkan ketelitian deskripsi visual, memperkaya ekspresi sastra tulis.",
+            "steps": [],
+            "tool": "Segitiga biru tua sedang, kartu kata sifat.",
+            "toolsList": [
+              "Segitiga biru tua sedang, kartu kata sifat."
+            ],
+            "videoUrl": "",
+            "directAim": "Menemukan kata penjelas kualitas kata benda (misal: 'buku merah', 'meja kayu'), diwakili segitiga biru tua sedang.",
+            "toolDisplay": "Segitiga biru tua sedang, kartu kata sifat.",
+            "error": "Perbedaan bentuk fisik benda asli di kelas saat diberikan kartu kata sifat acak.",
+            "prerequisites": "Pengenalan Kata Benda."
+          },
+          "label": "Pengenalan Kata Sifat (Adjective)",
+          "grades": [
+            "K2",
+            "K3"
+          ]
+        },
+        {
+          "grades": [
+            "K1",
+            "K2"
+          ],
+          "label": "Pengenalan Kata Kerja (Verb)",
+          "presentation": {
+            "prerequisites": "Pengenalan Kata Benda.",
+            "directAim": "Memahami kata yang menunjukkan aktivitas gerakan/tindakan (Verb), diwakili lingkaran merah besar.",
+            "toolsList": [
+              "Simbol lingkaran merah besar (bola merah kayu), kartu kata kerja gerakan."
+            ],
+            "videoUrl": "",
+            "error": "Gerakan fisik langsung yang diperagakan oleh anak sendiri.",
+            "toolDisplay": "Simbol lingkaran merah besar (bola merah kayu), kartu kata kerja gerakan.",
+            "steps": [],
+            "indirectAim": "Memahami inti dari aktivitas kehidupan kalimat, penentu dinamika bahasa.",
+            "tool": "Simbol lingkaran merah besar (bola merah kayu), kartu kata kerja gerakan."
+          }
+        },
+        {
+          "presentation": {
+            "prerequisites": "Pengenalan Kata Benda dan Kata Kerja.",
+            "directAim": "Memahami kata depan penunjuk hubungan letak ruang dan waktu antara kata benda (misal: 'di', 'ke', 'dari'), diwakili jembatan hijau.",
+            "videoUrl": "",
+            "toolsList": [
+              "Jembatan hijau tata bahasa, miniatur kotak dan hewan mainan."
+            ],
+            "error": "Posisi fisik miniatur hewan harus persis sama dengan kata depan di kartu instruksi.",
+            "toolDisplay": "Jembatan hijau tata bahasa, miniatur kotak dan hewan mainan.",
+            "steps": [],
+            "indirectAim": "Memahami orientasi spasial kalimat deskriptif.",
+            "tool": "Jembatan hijau tata bahasa, miniatur kotak dan hewan mainan."
+          },
+          "label": "Pengenalan Preposisi (Preposition)",
+          "grades": [
+            "K3"
+          ]
+        },
+        {
+          "grades": [
+            "K2",
+            "K3"
+          ],
+          "label": "Pengenalan Kata Keterangan (Adverb)",
+          "presentation": {
+            "prerequisites": "Pengenalan Kata Kerja dan Kata Sifat.",
+            "toolDisplay": "Lingkaran oranye kecil, kartu keterangan cara/waktu.",
+            "error": "Lembar kontrol kalimat aksi cara berjalan/melakukan aksi di kelas.",
+            "videoUrl": "",
+            "toolsList": [
+              "Lingkaran oranye kecil, kartu keterangan cara/waktu."
+            ],
+            "directAim": "Memahami kata penjelas bagaimana/kapan suatu tindakan dilakukan (misal: 'berlari cepat'), diwakili lingkaran oranye kecil.",
+            "tool": "Lingkaran oranye kecil, kartu keterangan cara/waktu.",
+            "indirectAim": "Menambah ketelitian narasi tindakan/gerakan.",
+            "steps": []
+          }
+        },
+        {
+          "grades": [
+            "K3"
+          ],
+          "presentation": {
+            "indirectAim": "Mengurangi pengulangan kata benda secara monoton dalam wacana.",
+            "steps": [],
+            "tool": "Segitiga ungu besar, kartu kata ganti.",
+            "toolsList": [
+              "Segitiga ungu besar, kartu kata ganti."
+            ],
+            "videoUrl": "",
+            "directAim": "Memahami kata pengganti nama orang/benda agar kalimat lebih efektif (misal: 'saya', 'dia', 'mereka'), diwakili segitiga ungu besar.",
+            "toolDisplay": "Segitiga ungu besar, kartu kata ganti.",
+            "error": "Kunci kontrol kartu kalimat berpasangan nama orang dengan kata gantinya.",
+            "prerequisites": "Pengenalan Kata Benda."
+          },
+          "label": "Pengenalan Kata Ganti (Pronoun)"
+        },
+        {
+          "grades": [
+            "K3"
+          ],
+          "presentation": {
+            "prerequisites": "Pengenalan struktur kalimat dasar.",
+            "directAim": "Memahami kata hubung antarkata atau antarkalimat (misal: 'dan', 'tetapi', 'karena'), diwakili pita merah muda panjang.",
+            "videoUrl": "",
+            "toolsList": [
+              "Pita merah muda kayu, kartu kalimat potong penghubung."
+            ],
+            "error": "Struktur logis kalimat gabungan (jika salah pasang konjungsi, kalimat tidak bermakna logis).",
+            "toolDisplay": "Pita merah muda kayu, kartu kalimat potong penghubung.",
+            "steps": [],
+            "indirectAim": "Dasar penyusunan kalimat majemuk logis.",
+            "tool": "Pita merah muda kayu, kartu kalimat potong penghubung."
+          },
+          "label": "Pengenalan Konjungsi (Conjunction)"
+        },
+        {
+          "presentation": {
+            "indirectAim": "Persiapan menulis ekspresif dan tanda baca seru dalam naskah.",
+            "steps": [],
+            "tool": "Simbol tanda seru emas, kartu kalimat emosional.",
+            "prerequisites": "Membaca ekspresif.",
+            "videoUrl": "",
+            "toolsList": [
+              "Simbol tanda seru emas, kartu kalimat emosional."
+            ],
+            "directAim": "Memahami kata seru pengungkap emosi tiba-tiba (misal: 'wah!', 'aduh!', 'hore!'), diwakili simbol tanda seru emas.",
+            "toolDisplay": "Simbol tanda seru emas, kartu kalimat emosional.",
+            "error": "Kartu kontrol ekspresi wajah emosi yang dicocokkan dengan jenis interjeksi."
+          },
+          "label": "Pengenalan Interjeksi (Interjection)",
+          "grades": [
+            "K3"
+          ]
+        },
+        {
+          "grades": [
+            "K1",
+            "K2"
+          ],
+          "presentation": {
+            "directAim": "Menggabungkan artikel dan kata benda dalam satu kotak kompartemen untuk mempelajari hubungan kedekatan sintaksisnya.",
+            "toolsList": [
+              "Laci kayu Kotak Tata Bahasa II, kartu kata berkode warna (biru muda untuk artikel, hitam untuk kata benda)."
+            ],
+            "videoUrl": "",
+            "error": "Skema warna laci kompartemen kotak tata bahasa II sebagai pemandu posisi.",
+            "toolDisplay": "Laci kayu Kotak Tata Bahasa II, kartu kata berkode warna (biru muda untuk artikel, hitam untuk kata benda).",
+            "prerequisites": "Pengenalan Kata Benda dan Artikel.",
+            "steps": [],
+            "indirectAim": "Melatih struktur frasa nominal dasar secara berulang.",
+            "tool": "Laci kayu Kotak Tata Bahasa II, kartu kata berkode warna (biru muda untuk artikel, hitam untuk kata benda)."
+          },
+          "label": "Kotak Tata Bahasa 2: Kata Benda dan Artikel (Grammar Box II)"
+        },
+        {
+          "presentation": {
+            "indirectAim": "Melatih struktur frasa nominal dasar secara berulang.",
+            "steps": [],
+            "tool": "Laci kayu Kotak Tata Bahasa II, kartu kata berkode warna (biru muda untuk artikel, hitam untuk kata benda).",
+            "prerequisites": "Pengenalan Kata Benda dan Artikel.",
+            "videoUrl": "",
+            "toolsList": [
+              "Laci kayu Kotak Tata Bahasa II, kartu kata berkode warna (biru muda untuk artikel, hitam untuk kata benda)."
+            ],
+            "directAim": "Menggabungkan artikel dan kata benda dalam satu kotak kompartemen untuk mempelajari hubungan kedekatan sintaksisnya.",
+            "toolDisplay": "Laci kayu Kotak Tata Bahasa II, kartu kata berkode warna (biru muda untuk artikel, hitam untuk kata benda).",
+            "error": "Skema warna laci kompartemen kotak tata bahasa II sebagai pemandu posisi."
+          },
+          "label": "Kotak Tata Bahasa 3: Kata Sifat (Grammar Box III)",
+          "grades": [
+            "K2",
+            "K3"
+          ]
+        },
+        {
+          "label": "Kotak Tata Bahasa 4: Kata Kerja (Grammar Box IV)",
+          "presentation": {
+            "error": "Kartu kunci kontrol kalimat aksi tata bahasa IV.",
+            "toolDisplay": "Laci kayu Kotak Tata Bahasa IV, kartu kata merah, hitam, biru muda, biru tua.",
+            "directAim": "Menggabungkan tindakan (kata kerja) ke dalam frasa nominal untuk melihat interaksi subjek dan aksi.",
+            "toolsList": [
+              "Laci kayu Kotak Tata Bahasa IV, kartu kata merah, hitam, biru muda, biru tua."
+            ],
+            "videoUrl": "",
+            "prerequisites": "Pengenalan Kata Benda, Artikel, Kata Sifat, dan Kata Kerja.",
+            "tool": "Laci kayu Kotak Tata Bahasa IV, kartu kata merah, hitam, biru muda, biru tua.",
+            "steps": [],
+            "indirectAim": "Dasar pembuatan kalimat aktif paling sederhana."
+          },
+          "grades": [
+            "K1",
+            "K2"
+          ]
+        },
+        {
+          "label": "Kotak Tata Bahasa 5: Preposisi (Grammar Box V)",
+          "presentation": {
+            "prerequisites": "Kotak Tata Bahasa IV dan Pengenalan Preposisi.",
+            "toolsList": [
+              "Laci kayu Kotak Tata Bahasa V dan miniatur benda kelas."
+            ],
+            "videoUrl": "",
+            "directAim": "Menyusun hubungan posisi objek menggunakan preposisi di dalam kotak tata bahasa.",
+            "toolDisplay": "Laci kayu Kotak Tata Bahasa V dan miniatur benda kelas.",
+            "error": "Tata letak fisik benda nyata berdasarkan urutan kartu kalimat.",
+            "indirectAim": "Memahami struktur frasa preposisional penunjuk letak.",
+            "steps": [],
+            "tool": "Laci kayu Kotak Tata Bahasa V dan miniatur benda kelas."
+          },
+          "grades": [
+            "K3"
+          ]
+        },
+        {
+          "grades": [
+            "K2",
+            "K3"
+          ],
+          "presentation": {
+            "prerequisites": "Kotak Tata Bahasa IV dan Pengenalan Preposisi.",
+            "directAim": "Menyusun hubungan posisi objek menggunakan preposisi di dalam kotak tata bahasa.",
+            "videoUrl": "",
+            "toolsList": [
+              "Laci kayu Kotak Tata Bahasa V dan miniatur benda kelas."
+            ],
+            "error": "Tata letak fisik benda nyata berdasarkan urutan kartu kalimat.",
+            "toolDisplay": "Laci kayu Kotak Tata Bahasa V dan miniatur benda kelas.",
+            "steps": [],
+            "indirectAim": "Memahami struktur frasa preposisional penunjuk letak.",
+            "tool": "Laci kayu Kotak Tata Bahasa V dan miniatur benda kelas."
+          },
+          "label": "Kotak Tata Bahasa 6: Kata Keterangan (Grammar Box VI)"
+        },
+        {
+          "grades": [
+            "K3"
+          ],
+          "presentation": {
+            "tool": "Laci kayu Kotak Tata Bahasa V dan miniatur benda kelas.",
+            "steps": [],
+            "indirectAim": "Memahami struktur frasa preposisional penunjuk letak.",
+            "error": "Tata letak fisik benda nyata berdasarkan urutan kartu kalimat.",
+            "toolDisplay": "Laci kayu Kotak Tata Bahasa V dan miniatur benda kelas.",
+            "directAim": "Menyusun hubungan posisi objek menggunakan preposisi di dalam kotak tata bahasa.",
+            "videoUrl": "",
+            "toolsList": [
+              "Laci kayu Kotak Tata Bahasa V dan miniatur benda kelas."
+            ],
+            "prerequisites": "Kotak Tata Bahasa IV dan Pengenalan Preposisi."
+          },
+          "label": "Kotak Tata Bahasa 7: Kata Ganti (Grammar Box VII)"
+        },
+        {
+          "grades": [
+            "K3"
+          ],
+          "presentation": {
+            "indirectAim": "Memahami struktur frasa preposisional penunjuk letak.",
+            "steps": [],
+            "tool": "Laci kayu Kotak Tata Bahasa V dan miniatur benda kelas.",
+            "videoUrl": "",
+            "toolsList": [
+              "Laci kayu Kotak Tata Bahasa V dan miniatur benda kelas."
+            ],
+            "directAim": "Menyusun hubungan posisi objek menggunakan preposisi di dalam kotak tata bahasa.",
+            "toolDisplay": "Laci kayu Kotak Tata Bahasa V dan miniatur benda kelas.",
+            "error": "Tata letak fisik benda nyata berdasarkan urutan kartu kalimat.",
+            "prerequisites": "Kotak Tata Bahasa IV dan Pengenalan Preposisi."
+          },
+          "label": "Kotak Tata Bahasa 8: Konjungsi (Grammar Box VIII)"
+        },
+        {
+          "grades": [
+            "K3"
+          ],
+          "presentation": {
+            "videoUrl": "",
+            "toolsList": [
+              "Laci kayu Kotak Tata Bahasa IX, kartu tanda seru emas."
+            ],
+            "directAim": "Menaruh kata seru di depan kalimat pernyataan untuk memberi warna perasaan emosional.",
+            "toolDisplay": "Laci kayu Kotak Tata Bahasa IX, kartu tanda seru emas.",
+            "error": "Lembar skenario drama singkat kelas kontrol.",
+            "prerequisites": "Kotak Tata Bahasa VIII dan Pengenalan Interjeksi.",
+            "indirectAim": "Memahami gaya intonasi kalimat seruan.",
+            "steps": [],
+            "tool": "Laci kayu Kotak Tata Bahasa IX, kartu tanda seru emas."
+          },
+          "label": "Kotak Tata Bahasa 9: Interjeksi (Grammar Box IX)"
+        },
+        {
+          "grades": [
+            "K1",
+            "K2"
+          ],
+          "label": "Eksplorasi Waktu Kata Kerja / Lini Masa (Verb Tenses / Timeline of Verb)",
+          "presentation": {
+            "indirectAim": "Memahami alur sejarah waktu linier dalam narasi kehidupan manusia.",
+            "steps": [],
+            "tool": "Pita lini masa kata kerja panjang, kartu kalimat berpenanda waktu berbeda.",
+            "prerequisites": "Pengenalan Kata Kerja, konsep waktu dasar.",
+            "videoUrl": "",
+            "toolsList": [
+              "Pita lini masa kata kerja panjang, kartu kalimat berpenanda waktu berbeda."
+            ],
+            "directAim": "Mengidentifikasi perubahan waktu tindakan (lampau, sekarang, mendatang) lewat kata bantu waktu (telah, sedang, akan).",
+            "toolDisplay": "Pita lini masa kata kerja panjang, kartu kalimat berpenanda waktu berbeda.",
+            "error": "Penempatan kartu peristiwa di atas pita lini masa (lampau, kini, esok) yang sesuai kode warna."
+          }
+        }
+      ],
+      "icon": "Hash",
+      "bgColor": "#FEF2F2",
+      "name": "Tata Bahasa / Functional Grammar",
+      "id": "lang_grammar"
+    },
+    {
+      "name": "Analisis Kalimat / Sentence Analysis",
+      "id": "lang_analysis",
+      "bgColor": "#EEF2FF",
+      "icon": "GitBranch",
+      "color": "#6366F1",
+      "shortName": "Sentence Analysis",
+      "levels": [
+        {
+          "grades": [
+            "K2",
+            "K3"
+          ],
+          "presentation": {
+            "tool": "Papan Analisis Kalimat (Sentence Analysis Chart), panah panduan 'Siapa?' dan 'Melakukan apa?'.",
+            "steps": [],
+            "indirectAim": "Dasar penalaran struktur kalimat logis sekolah dasar.",
+            "prerequisites": "Kelancaran membaca lanjut, tata bahasa dasar.",
+            "error": "Warna panah penghubung analisis yang berbeda untuk subjek dan predikat.",
+            "toolDisplay": "Papan Analisis Kalimat (Sentence Analysis Chart), panah panduan 'Siapa?' dan 'Melakukan apa?'.",
+            "directAim": "Mengurai kalimat menjadi siapa yang melakukan aksi (Subjek) dan apa aksinya (Predikat), ditandai piringan merah besar dan hitam sedang.",
+            "videoUrl": "",
+            "toolsList": [
+              "Papan Analisis Kalimat (Sentence Analysis Chart), panah panduan 'Siapa?' dan 'Melakukan apa?'."
+            ]
+          },
+          "label": "Pengenalan Predikat dan Subjek (Predicate and Subject)"
+        },
+        {
+          "presentation": {
+            "videoUrl": "",
+            "toolsList": [
+              "Kartu klasifikasi kata kerja transitif/intransitif, kotak sortir."
+            ],
+            "directAim": "Membedakan kata kerja yang memerlukan pelengkap objek langsung (transitif) dengan yang tidak perlu (intransitif).",
+            "toolDisplay": "Kartu klasifikasi kata kerja transitif/intransitif, kotak sortir.",
+            "error": "Kartu kunci kontrol klasifikasi tata bahasa.",
+            "prerequisites": "Pengenalan Predikat dan Subjek.",
+            "indirectAim": "Ketepatan struktur penulisan kalimat efektif dan efisien.",
+            "steps": [],
+            "tool": "Kartu klasifikasi kata kerja transitif/intransitif, kotak sortir."
+          },
+          "label": "Klasifikasi Kata Kerja Transitif dan Intransitif",
+          "grades": [
+            "K1",
+            "K2"
+          ]
+        },
+        {
+          "presentation": {
+            "steps": [],
+            "indirectAim": "Memahami kalimat aktif transitif secara logis.",
+            "tool": "Piringan analisis objek hitam sedang, panah penunjuk objek langsung.",
+            "prerequisites": "Pengenalan Predikat dan Subjek.",
+            "directAim": "Mengidentifikasi benda/sasaran langsung dari aksi Predikat (Objek), ditandai piringan hitam sedang dengan panah penghubung 'Apa/Siapa?'.",
+            "toolsList": [
+              "Piringan analisis objek hitam sedang, panah penunjuk objek langsung."
+            ],
+            "videoUrl": "",
+            "error": "Pencocokan warna dan arah panah pertanyaan pada papan analisis.",
+            "toolDisplay": "Piringan analisis objek hitam sedang, panah penunjuk objek langsung."
+          },
+          "label": "Pengenalan Objek Langsung (Direct Object)",
+          "grades": [
+            "K2",
+            "K3"
+          ]
+        },
+        {
+          "grades": [
+            "K3",
+            "K4"
+          ],
+          "presentation": {
+            "prerequisites": "Pengenalan Predikat dan Subjek.",
+            "videoUrl": "",
+            "toolsList": [
+              "Piringan analisis objek hitam sedang, panah penunjuk objek langsung."
+            ],
+            "directAim": "Mengidentifikasi benda/sasaran langsung dari aksi Predikat (Objek), ditandai piringan hitam sedang dengan panah penghubung 'Apa/Siapa?'.",
+            "toolDisplay": "Piringan analisis objek hitam sedang, panah penunjuk objek langsung.",
+            "error": "Pencocokan warna dan arah panah pertanyaan pada papan analisis.",
+            "indirectAim": "Memahami kalimat aktif transitif secara logis.",
+            "steps": [],
+            "tool": "Piringan analisis objek hitam sedang, panah penunjuk objek langsung."
+          },
+          "label": "Pengenalan Objek Tidak Langsung (Indirect Object)"
+        },
+        {
+          "grades": [
+            "K3"
+          ],
+          "presentation": {
+            "error": "Kessesuaian jenis pertanyaan pada panah dengan isi frasa keterangan di lembar kontrol.",
+            "toolDisplay": "Piringan analisis warna biru kecil, kumpulan panah pertanyaan keterangan (Di mana? Kapan? Dengan apa?).",
+            "directAim": "Menganalisis perluasan keterangan kalimat (keterangan tempat, waktu, alat, alasan), ditandai piringan biru kecil dengan panah pertanyaan terkait.",
+            "toolsList": [
+              "Piringan analisis warna biru kecil, kumpulan panah pertanyaan keterangan (Di mana? Kapan? Dengan apa?)."
+            ],
+            "videoUrl": "",
+            "prerequisites": "Pengenalan Predikat, Subjek, dan Objek.",
+            "tool": "Piringan analisis warna biru kecil, kumpulan panah pertanyaan keterangan (Di mana? Kapan? Dengan apa?).",
+            "steps": [],
+            "indirectAim": "Memperkaya detail kedalaman informasi dalam kalimat tertulis."
+          },
+          "label": "Pengenalan Keterangan / Adverbial (Adverbial Modifiers)"
+        },
+        {
+          "grades": [
+            "K3"
+          ],
+          "presentation": {
+            "error": "Bagan kontrol perubahan awalan kata kerja aktif-pasif.",
+            "toolDisplay": "Piringan bolak-balik aktif-pasif tata bahasa, kartu konversi kalimat.",
+            "directAim": "Memahami perpindahan peran subjek menjadi sasaran aksi (pasif) dan sebaliknya (aktif) melalui perubahan awalan kata kerja (me- vs di-).",
+            "toolsList": [
+              "Piringan bolak-balik aktif-pasif tata bahasa, kartu konversi kalimat."
+            ],
+            "videoUrl": "",
+            "prerequisites": "Pengenalan Subjek, Predikat, Objek.",
+            "tool": "Piringan bolak-balik aktif-pasif tata bahasa, kartu konversi kalimat.",
+            "steps": [],
+            "indirectAim": "Melatih fleksibilitas cara penyampaian pesan tertulis dalam penulisan ilmiah/sastra."
+          },
+          "label": "Analisis Kalimat Aktif dan Pasif (Active and Passive Voice)"
+        },
+        {
+          "label": "Analisis Kalimat Majemuk (Compound Sentences)",
+          "presentation": {
+            "tool": "Papan analisis kalimat majemuk berjenjang, konektor pita konjungsi.",
+            "indirectAim": "Memahami cara kerja sintaksis kalimat kompleks secara visual.",
+            "steps": [],
+            "prerequisites": "Kalimat tunggal dasar, Pengenalan Konjungsi.",
+            "toolDisplay": "Papan analisis kalimat majemuk berjenjang, konektor pita konjungsi.",
+            "error": "Diagram kontrol kalimat majemuk terstruktur.",
+            "videoUrl": "",
+            "toolsList": [
+              "Papan analisis kalimat majemuk berjenjang, konektor pita konjungsi."
+            ],
+            "directAim": "Menggabungkan dan mengurai dua kalimat tunggal yang setara atau bertingkat menggunakan struktur bagan analisis bertingkat."
+          },
+          "grades": [
+            "K5",
+            "K6"
+          ]
+        },
+        {
+          "presentation": {
+            "prerequisites": "Analisis Kalimat Majemuk.",
+            "directAim": "Mengidentifikasi induk kalimat (klausa utama yang bisa berdiri sendiri) dan anak kalimat (klausa bawahan yang bergantung pada induk).",
+            "videoUrl": "",
+            "toolsList": [
+              "Kotak analisis klausa berwarna kontras (merah untuk induk, kuning untuk anak)."
+            ],
+            "error": "Lembar kontrol diagram struktur logika klausa.",
+            "toolDisplay": "Kotak analisis klausa berwarna kontras (merah untuk induk, kuning untuk anak).",
+            "steps": [],
+            "indirectAim": "Menghindari pembuatan kalimat rancu (run-on sentences) dalam penulisan esai formal.",
+            "tool": "Kotak analisis klausa berwarna kontras (merah untuk induk, kuning untuk anak)."
+          },
+          "label": "Analisis Klausa Utama dan Klausa Bawahan (Main and Subordinate Clauses)",
+          "grades": [
+            "K4",
+            "K5"
+          ]
+        }
+      ]
+    },
+    {
+      "color": "#EC4899",
+      "shortName": "Reading & Literature",
+      "levels": [
+        {
+          "label": "Aturan Penggunaan Tanda Baca (Punctuation)",
+          "presentation": {
+            "directAim": "Menggunakan tanda baca utama (titik, koma, tanya, seru, petik dua) secara tepat dalam penulisan kalimat.",
+            "toolsList": [
+              "Stempel tanda baca kayu, kartu kalimat tanpa tanda baca untuk latihan koreksi."
+            ],
+            "videoUrl": "",
+            "error": "Lembar kunci kontrol kartu kalimat dengan tanda baca lengkap (merah).",
+            "toolDisplay": "Stempel tanda baca kayu, kartu kalimat tanpa tanda baca untuk latihan koreksi.",
+            "prerequisites": "Kelancaran membaca mandiri.",
+            "steps": [],
+            "indirectAim": "Menjamin kelancaran pemahaman pembaca lain terhadap tulisan kita.",
+            "tool": "Stempel tanda baca kayu, kartu kalimat tanpa tanda baca untuk latihan koreksi."
+          },
+          "grades": [
+            "K2",
+            "K3"
+          ]
+        },
+        {
+          "presentation": {
+            "prerequisites": "Kelancaran menulis kata.",
+            "directAim": "Menerapkan penggunaan huruf kapital untuk awal kalimat, nama orang, hari, bulan, agama, dan nama geografis.",
+            "videoUrl": "",
+            "toolsList": [
+              "Papan koreksi huruf kapital, kartu kalimat berlubang."
+            ],
+            "error": "Lembar kontrol penulisan kalimat EYD yang benar.",
+            "toolDisplay": "Papan koreksi huruf kapital, kartu kalimat berlubang.",
+            "steps": [],
+            "indirectAim": "Kepatuhan pada standar ejaan baku bahasa Indonesia (EYD).",
+            "tool": "Papan koreksi huruf kapital, kartu kalimat berlubang."
+          },
+          "label": "Aturan Penggunaan Huruf Kapital (Capitalization)",
+          "grades": [
+            "K1",
+            "K2"
+          ]
+        },
+        {
+          "grades": [
+            "K1",
+            "K2"
+          ],
+          "label": "Permainan Perintah Membaca (Reading Command Cards)",
+          "presentation": {
+            "tool": "Kotak kartu perintah membaca rahasia (Command Cards).",
+            "indirectAim": "Memahami bahwa membaca adalah proses mengekstrak makna untuk tindakan nyata, melatih kepatuhan instruksi tertulis.",
+            "steps": [],
+            "toolDisplay": "Kotak kartu perintah membaca rahasia (Command Cards).",
+            "error": "Tindakan fisik yang dilakukan anak harus tepat sesuai perintah tertulis pada kartu kontrol yang dipegang guru.",
+            "toolsList": [
+              "Kotak kartu perintah membaca rahasia (Command Cards)."
+            ],
+            "videoUrl": "",
+            "directAim": "Membaca perintah tertulis di kartu secara diam-diam dan melakukan tindakan tersebut (misal: 'ambil sapu lalu bersihkan lantai teras').",
+            "prerequisites": "Tuntas membaca kata fonetis dasar secara lancar."
+          }
+        },
+        {
+          "presentation": {
+            "steps": [],
+            "indirectAim": "Fondasi kemampuan membaca kritis, apresiasi karya sastra tulis.",
+            "tool": "Kotak laci analisis cerita, kartu grafik plot gunung klimaks.",
+            "prerequisites": "Kelancaran membaca cerita pendek secara mandiri.",
+            "directAim": "Mengidentifikasi bagian cerita: siapa pelakunya (tokoh), di mana terjadinya (latar), jalannya cerita (alur), dan pesan utama (tema).",
+            "videoUrl": "",
+            "toolsList": [
+              "Kotak laci analisis cerita, kartu grafik plot gunung klimaks."
+            ],
+            "error": "Lembar kontrol bagan analisis unsur intrinsik buku pilihan.",
+            "toolDisplay": "Kotak laci analisis cerita, kartu grafik plot gunung klimaks."
+          },
+          "label": "Analisis Unsur Intrinsik Cerita (Tokoh, Latar, Alur, Tema)",
+          "grades": [
+            "K3"
+          ]
+        },
+        {
+          "presentation": {
+            "toolDisplay": "Kartu klasifikasi majas bergambar, lembar bacaan sastra komparatif.",
+            "error": "Kunci kontrol kartu klasifikasi majas.",
+            "videoUrl": "",
+            "toolsList": [
+              "Kartu klasifikasi majas bergambar, lembar bacaan sastra komparatif."
+            ],
+            "directAim": "Mengenali perumpamaan, personifikasi, dan metafora dalam teks cerita atau puisi sederhana.",
+            "prerequisites": "Kelancaran membaca sastra anak.",
+            "tool": "Kartu klasifikasi majas bergambar, lembar bacaan sastra komparatif.",
+            "indirectAim": "Memperkaya imajinasi sastra, mempersiapkan penulisan kreatif bergaya bahasa tinggi.",
+            "steps": []
+          },
+          "label": "Pengenalan Majas Dasar / Gaya Bahasa (Figures of Speech)",
+          "grades": [
+            "K3"
+          ]
+        }
+      ],
+      "icon": "Feather",
+      "bgColor": "#FDF2F8",
+      "name": "Keterampilan Membaca & Sastra / Reading & Literature",
+      "id": "lang_literature"
+    },
+    {
+      "bgColor": "#F0FDFA",
+      "name": "Komposisi & Ekspresi Tulisan / Written Expression",
+      "id": "lang_write",
+      "color": "#14B8A6",
+      "levels": [
+        {
+          "presentation": {
+            "tool": "Papan struktur paragraf (Gagasan Utama + Gagasan Penjelas), jurnal garis bantu menulis.",
+            "steps": [],
+            "indirectAim": "Logika berpikir terstruktur, kemampuan menuangkan ide abstrak ke dalam bentuk fisik tulisan.",
+            "error": "Jumlah ide pokok dalam satu paragraf (hanya boleh satu ide pokok utama per paragraf).",
+            "toolDisplay": "Papan struktur paragraf (Gagasan Utama + Gagasan Penjelas), jurnal garis bantu menulis.",
+            "directAim": "Menyusun gagasan pikiran menjadi kalimat utuh dan merangkainya menjadi satu paragraf bertema tunggal secara teratur.",
+            "videoUrl": "",
+            "toolsList": [
+              "Papan struktur paragraf (Gagasan Utama + Gagasan Penjelas), jurnal garis bantu menulis."
+            ],
+            "prerequisites": "Pengenalan tanda baca dasar dan kapitalisasi."
+          },
+          "label": "Menulis Kalimat dan Paragraf Sederhana (Writing a Paragraph)",
+          "grades": [
+            "K2",
+            "K3"
+          ]
+        },
+        {
+          "label": "Menulis Jurnal Harian (Journaling)",
+          "presentation": {
+            "tool": "Buku jurnal harian anak berpita penanda, stiker suasana hati.",
+            "indirectAim": "Kestabilan emosional anak, pembiasaan menulis sebagai terapi pikiran logis.",
+            "steps": [],
+            "toolDisplay": "Buku jurnal harian anak berpita penanda, stiker suasana hati.",
+            "error": "Keberadaan draf ejaan pembimbing mandiri di kelas (kamus saku buatan anak sendiri).",
+            "toolsList": [
+              "Buku jurnal harian anak berpita penanda, stiker suasana hati."
+            ],
+            "videoUrl": "",
+            "directAim": "Mengekspresikan ingatan peristiwa harian, perasaan, dan refleksi diri ke dalam buku catatan harian secara mandiri.",
+            "prerequisites": "Menulis kalimat sederhana."
+          },
+          "grades": [
+            "K3"
+          ]
+        },
+        {
+          "grades": [
+            "K2",
+            "K3"
+          ],
+          "presentation": {
+            "prerequisites": "Struktur paragraf teratur.",
+            "error": "Lembar bagan kontrol format surat resmi (tanggal, perihal, alamat tujuan, tanda tangan).",
+            "toolDisplay": "Kertas surat bermotif, amplop surat nyata, perangko contoh, kotak pos tiruan kelas.",
+            "directAim": "Menyusun surat dengan struktur baku untuk lembaga (formal) atau surat bebas untuk sahabat/orang tua (informal).",
+            "videoUrl": "",
+            "toolsList": [
+              "Kertas surat bermotif, amplop surat nyata, perangko contoh, kotak pos tiruan kelas."
+            ],
+            "tool": "Kertas surat bermotif, amplop surat nyata, perangko contoh, kotak pos tiruan kelas.",
+            "steps": [],
+            "indirectAim": "Memahami tata krama komunikasi jarak jauh, tata cara pengiriman pos."
+          },
+          "label": "Menulis Surat Formal dan Informal (Writing a Letter)"
+        },
+        {
+          "presentation": {
+            "steps": [],
+            "indirectAim": "Cara berpikir ilmiah terstruktur, melatih kejujuran data eksperimen.",
+            "tool": "Template draf laporan penelitian anak, map portofolio proyek.",
+            "directAim": "Menyusun tulisan ilmiah sederhana berisi tujuan, alat bahan, cara kerja, hasil, dan simpulan dari pengamatan lapangan.",
+            "videoUrl": "",
+            "toolsList": [
+              "Template draf laporan penelitian anak, map portofolio proyek."
+            ],
+            "error": "Rubrik evaluasi kelengkapan metode laporan kontrol mandiri.",
+            "toolDisplay": "Template draf laporan penelitian anak, map portofolio proyek.",
+            "prerequisites": "Melakukan eksperimen sains kelas atau observasi geografi."
+          },
+          "label": "Menulis Laporan Proyek atau Penelitian (Writing a Research Report)",
+          "grades": [
+            "K3"
+          ]
+        },
+        {
+          "label": "Penulisan Kreatif / Mengarang Cerita Fiksi (Creative Writing)",
+          "presentation": {
+            "prerequisites": "Menguasai kosakata studi kata dan tata bahasa luas.",
+            "directAim": "Membuat cerita fiksi karangan sendiri dengan merancang plot klimaks, karakter tokoh, dan pesan moral orisinal secara bebas.",
+            "toolsList": [
+              "Kartu dadu perangsang ide cerita (Story Dice), buklet kosong untuk menjilid buku karangan anak."
+            ],
+            "videoUrl": "",
+            "error": "Kelayakan alur narasi yang dibacakan kembali di depan kelas kontrol audiens.",
+            "toolDisplay": "Kartu dadu perangsang ide cerita (Story Dice), buklet kosong untuk menjilid buku karangan anak.",
+            "steps": [],
+            "indirectAim": "Penyaluran daya imajinasi anak secara konstruktif dan produktif.",
+            "tool": "Kartu dadu perangsang ide cerita (Story Dice), buklet kosong untuk menjilid buku karangan anak."
+          },
+          "grades": [
+            "K2",
+            "K3"
+          ]
+        }
+      ],
+      "shortName": "Written Expression",
+      "icon": "PenTool"
+    },
+    {
+      "id": "lang_eng_word_study",
+      "name": "Mekanika & Studi Kata (EN) / English Word Study",
+      "levels": [
+        {
+          "grades": [
+            "K1"
+          ],
+          "label": "K1: English Phonics (Short/Long Vowels & CVC)",
+          "presentation": {
+            "steps": [
+              "I. PIJAKAN AWAL & PERSIAPAN (Pijakan Sebelum Main)",
+              "1. Mulai kegiatan dengan mengucap bersama anak: 'Bismillahirrahmanirrahim.' [Berkesadaran]",
+              "2. Undang anak ke area karpet kerja dan katakan: 'Nak, mari kita mengeksplorasi English Phonics (Short/Long Vowels & CVC) menggunakan English Movable Alphabet, Object Boxes. Mari kita merenungi kekuasaan Allah.' [Berkesadaran]",
+              "3. Siapkan karpet kerja yang bersih dan rapi di lantai.",
+              "4. Guru membawa material English Movable Alphabet, Object Boxes ke atas karpet bersama anak dengan penuh rasa hormat. [Berkesadaran]",
+              "II. PRESENTASI INTI (Langkah Eksplorasi)",
+              "5. Guru meletakkan material di tengah karpet dan meminta anak mengamatinya secara visual.",
+              "6. Guru: 'Today, we will learn how letters make different sounds in English.'",
+              "7. Kenalkan CVC words (Consonant-Vowel-Consonant) dasar seperti cat, dog, bed.",
+              "8. Gunakan Object Box (kotak berisi miniatur benda kecil) untuk mencocokkan kata dengan benda nyata.",
+              "9. Perkenalkan konsep Short Vowels ('a' in cat) vs Long Vowels ('a' in cake plus Magic E).",
+              "10. Guru: 'Huruf hidup dalam bahasa Inggris bisa berubah bunyi tergantung temannya. Seperti kita yang beradaptasi di lingkungan baru.'",
+              "11. Latih penyebutan bunyi fonetis dasar dengan akurat.",
+              "12. Minta anak mengeja CVC words menggunakan English Movable Alphabet.",
+              "13. Bermain \"I Spy\" dengan objek-objek miniatur bahasa Inggris.",
+              "14. Membaca Pink Series Cards (kartu bacaan fonetis CVC pendek) secara mandiri.",
+              "15. Memberikan apresiasi atas keberanian mengucapkan kosakata baru.",
+              "16. Mengajak anak mensyukuri lisan yang Allah anugerahkan.",
+              "III. KERJA MANDIRI (Pijakan Saat Main)",
+              "17. Undang anak untuk mencoba secara mandiri: 'Apakah kamu ingin mencobanya sendiri atau bekerja bersama temanmu?' [Menyenangkan]",
+              "18. Biarkan anak melakukan eksplorasi berulang kali secara mandiri dengan material tersebut untuk membangun konsentrasi. Guru mengobservasi tanpa menginterupsi. [Menyenangkan - Kerja Mandiri]",
+              "19. Setelah selesai, bimbing anak merapikan material dan mengembalikannya ke rak: 'Yuk, kita kembalikan ke rak secara rapi. Kebersihan dan keteraturan adalah bagian dari rasa syukur kita.' [Berkesadaran]",
+              "IV. REFLEKSI & PENUTUP (Pijakan Setelah Main / Recalling)",
+              "20. Berkumpul kembali dengan anak untuk melakukan refleksi singkat setelah beres-beres selesai. [Berkesadaran - Merefleksikan]",
+              "21. Berikan apresiasi spesifik atas usaha anak: 'Masya Allah, hari ini kalian menunjukkan ketekunan dan kerja sama yang luar biasa saat menggunakan alat ini.' [Berkesadaran - Merefleksikan]",
+              "22. Recalling Pengalaman: Tanyakan kepada anak: 'Bagian mana dari kegiatan tadi yang paling menarik atau menantang bagi kalian?' Biarkan anak bercerita. [Berkesadaran - Merefleksikan]",
+              "23. Internalisasi Nilai Islam (QS. Ar-Rum: 22): Guru menjelaskan: 'Perbedaan bahasa di dunia adalah tanda kebesaran Allah. Mempelajari bunyi bahasa lain meluaskan silaturahim.' [Berkesadaran - Merefleksikan]",
+              "24. Ajak anak berkomitmen melakukan satu kebaikan nyata hari ini sebagai wujud syukur atas akal dan kemampuan yang Allah berikan. [Berkesadaran - Mengaplikasikan]",
+              "25. Mengucap hamdalah bersama-sama untuk menutup sesi kerja: 'Alhamdulillahi rabbil ’alamin.' [Berkesadaran]",
+              "26. Guru mengucapkan kalimat penutup kepada anak: 'Alhamdulillahi jaza kumullohu khoiro.' [Berkesadaran]"
+            ],
+            "indirectAim": "Build English pronunciation accuracy and early spelling skills.",
+            "tool": "English Movable Alphabet",
+            "prerequisites": "Mengenal bunyi alfabet fonetis dasar.",
+            "directAim": "Identify short and long vowel sounds and compose CVC words in English.",
+            "videoUrl": "",
+            "toolsList": [
+              "English Movable Alphabet",
+              "Object Boxes"
+            ],
+            "error": "Mengucapkan bunyi huruf sesuai Bahasa Indonesia, bukan fonem bahasa Inggris yang tepat.",
+            "toolDisplay": "English Movable Alphabet, Object Boxes"
+          }
+        },
+        {
+          "grades": [
+            "K1",
+            "K2"
+          ],
+          "presentation": {
+            "steps": [
+              "I. PIJAKAN AWAL & PERSIAPAN (Pijakan Sebelum Main)",
+              "1. Mulai kegiatan dengan mengucap bersama anak: 'Bismillahirrahmanirrahim.' [Berkesadaran]",
+              "2. Undang anak ke area karpet kerja dan katakan: 'Nak, mari kita mengeksplorasi English Spelling Patterns (Digraphs, Vowel Teams) menggunakan Green Series Reading Cards, Digraph Folders. Mari kita merenungi kekuasaan Allah.' [Berkesadaran]",
+              "3. Siapkan karpet kerja yang bersih dan rapi di lantai.",
+              "4. Guru membawa material Green Series Reading Cards, Digraph Folders ke atas karpet bersama anak dengan penuh rasa hormat. [Berkesadaran]",
+              "II. PRESENTASI INTI (Langkah Eksplorasi)",
+              "5. Guru meletakkan material di tengah karpet dan meminta anak mengamatinya secara visual.",
+              "6. Guru: 'When two letters hold hands, they can make a completely new sound!'",
+              "7. Kenalkan digraphs dasar seperti “sh”, “ch”, “th”, “wh”.",
+              "8. Perkenalkan Vowel Teams seperti “ee”, “ea”, “oa”, “ai”.",
+              "9. Saat kedua huruf diletakkan bersama, keduanya menghasilkan satu bunyi baru.",
+              "10. Gunakan Folder Bacaan (Reading Folders) dengan warna hijau (Green Series).",
+              "11. Bantu anak meletakkan kartu gambar dan mencocokkannya dengan label kata yang mengandung digraph.",
+              "12. Anak membaca daftar kata dengan vowel team yang dituju secara mandiri.",
+              "13. Minta anak menyalin dua pasang kata favorit ke dalam buku tulisan bahasa Inggrisnya.",
+              "14. Memberikan apresiasi atas ketelitian visual anak.",
+              "15. Kembalikan semua kartu ke dalam foldernya.",
+              "III. KERJA MANDIRI (Pijakan Saat Main)",
+              "16. Undang anak untuk mencoba secara mandiri: 'Apakah kamu ingin mencobanya sendiri atau bekerja bersama temanmu?' [Menyenangkan]",
+              "17. Biarkan anak melakukan eksplorasi berulang kali secara mandiri dengan material tersebut untuk membangun konsentrasi. Guru mengobservasi tanpa menginterupsi. [Menyenangkan - Kerja Mandiri]",
+              "18. Setelah selesai, bimbing anak merapikan material dan mengembalikannya ke rak: 'Yuk, kita kembalikan ke rak secara rapi. Kebersihan dan keteraturan adalah bagian dari rasa syukur kita.' [Berkesadaran]",
+              "IV. REFLEKSI & PENUTUP (Pijakan Setelah Main / Recalling)",
+              "19. Berkumpul kembali dengan anak untuk melakukan refleksi singkat setelah beres-beres selesai. [Berkesadaran - Merefleksikan]",
+              "20. Berikan apresiasi spesifik atas usaha anak: 'Masya Allah, hari ini kalian menunjukkan ketekunan dan kerja sama yang luar biasa saat menggunakan alat ini.' [Berkesadaran - Merefleksikan]",
+              "21. Recalling Pengalaman: Tanyakan kepada anak: 'Bagian mana dari kegiatan tadi yang paling menarik atau menantang bagi kalian?' Biarkan anak bercerita. [Berkesadaran - Merefleksikan]",
+              "22. Internalisasi Nilai Islam (QS. Ar-Rahman: 4): Guru menjelaskan: 'Allah memberikan kemampuan manusia berbicara dengan fasih. Mengeja dengan baik membantu komunikasi yang jelas.' [Berkesadaran - Merefleksikan]",
+              "23. Ajak anak berkomitmen melakukan satu kebaikan nyata hari ini sebagai wujud syukur atas akal dan kemampuan yang Allah berikan. [Berkesadaran - Mengaplikasikan]",
+              "24. Mengucap hamdalah bersama-sama untuk menutup sesi kerja: 'Alhamdulillahi rabbil ’alamin.' [Berkesadaran]",
+              "25. Guru mengucapkan kalimat penutup kepada anak: 'Alhamdulillahi jaza kumullohu khoiro.' [Berkesadaran]"
+            ],
+            "indirectAim": "Advance English reading stamina and vocabulary phonetics.",
+            "tool": "Green Series Reading Cards",
+            "prerequisites": "Memahami kata fonetik CVC dasar.",
+            "directAim": "Read and spell English words with digraphs (sh, ch, th) and vowel teams (ee, ea, oa).",
+            "videoUrl": "",
+            "toolsList": [
+              "Green Series Reading Cards",
+              "Digraph Folders"
+            ],
+            "error": "Membaca digraph sebagai dua huruf terpisah (contoh sh dibaca s-h).",
+            "toolDisplay": "Green Series Reading Cards, Digraph Folders"
+          },
+          "label": "K1-K2: English Spelling Patterns (Digraphs, Vowel Teams)"
+        },
+        {
+          "label": "K3-K4: English Word Families & Affixes (Prefixes & Suffixes)",
+          "presentation": {
+            "prerequisites": "Anak memahami kosa kata dasar bahasa Inggris.",
+            "error": "Creating non-existent English words (e.g., unactive instead of inactive).",
+            "toolDisplay": "English Prefix Cards (Blue), Base Word Cards (Red), Suffix Cards (Green)",
+            "directAim": "Identify and form new English words using prefixes (un-, re-, dis-) and suffixes (-ful, -less, -ness).",
+            "videoUrl": "",
+            "toolsList": [
+              "Prefix Cards",
+              "Base Word Cards",
+              "Suffix Cards"
+            ],
+            "tool": "English Prefix Cards (Blue)",
+            "steps": [
+              "I. PIJAKAN AWAL & PERSIAPAN (Pijakan Sebelum Main)",
+              "1. Mulai kegiatan dengan mengucap bersama anak: 'Bismillahirrahmanirrahim.' [Berkesadaran]",
+              "2. Undang anak ke area karpet kerja dan katakan: 'Nak, mari kita mengeksplorasi English Word Families & Affixes (Prefixes & Suffixes) menggunakan English Prefix Cards (Blue), Base Word Cards (Red), Suffix Cards (Green). Mari kita merenungi kekuasaan Allah.' [Berkesadaran]",
+              "3. Siapkan karpet kerja yang bersih dan rapi di lantai.",
+              "4. Guru membawa material English Prefix Cards (Blue), Base Word Cards (Red), Suffix Cards (Green) ke atas karpet bersama anak dengan penuh rasa hormat. [Berkesadaran]",
+              "II. PRESENTASI INTI (Langkah Eksplorasi)",
+              "5. Guru meletakkan material di tengah karpet dan meminta anak mengamatinya secara visual.",
+              "6. Guru menunjukkan kata “happy” dan berkata: 'If we add “un” in front of “happy”, it becomes “unhappy”, which means not happy.'",
+              "7. Guru menjelaskan fungsi awalan (prefix) yang mengubah makna kata menjadi berlawanan (un-, dis-) atau berulang (re-).",
+              "8. Guru menjelaskan fungsi akhiran (suffix) yang dapat mengubah jenis kata (misal: kata sifat “kind” menjadi benda “kindness” dengan akhiran “-ness”).",
+              "9. Guru menyusun kata di atas karpet: “un” + “happy” = “unhappy”, “use” + “ful” = “useful”.",
+              "10. Anak menyusun kata-kata baru menggunakan kartu awalan, kata dasar, dan akhiran.",
+              "11. Anak menuliskan arti kata baru tersebut di buku latihan.",
+              "12. Jelaskan bagaimana penambahan awalan atau akhiran mengubah arti kata dasar.",
+              "III. KERJA MANDIRI (Pijakan Saat Main)",
+              "13. Undang anak untuk mencoba secara mandiri: 'Apakah kamu ingin mencobanya sendiri atau bekerja bersama temanmu?' [Menyenangkan]",
+              "14. Biarkan anak melakukan eksplorasi berulang kali secara mandiri dengan material tersebut untuk membangun konsentrasi. Guru mengobservasi tanpa menginterupsi. [Menyenangkan - Kerja Mandiri]",
+              "15. Setelah selesai, bimbing anak merapikan material dan mengembalikannya ke rak: 'Yuk, kita kembalikan ke rak secara rapi. Kebersihan dan keteraturan adalah bagian dari rasa syukur kita.' [Berkesadaran]",
+              "IV. REFLEKSI & PENUTUP (Pijakan Setelah Main / Recalling)",
+              "16. Berkumpul kembali dengan anak untuk melakukan refleksi singkat setelah beres-beres selesai. [Berkesadaran - Merefleksikan]",
+              "17. Berikan apresiasi spesifik atas usaha anak: 'Masya Allah, hari ini kalian menunjukkan ketekunan dan kerja sama yang luar biasa saat menggunakan alat ini.' [Berkesadaran - Merefleksikan]",
+              "18. Recalling Pengalaman: Tanyakan kepada anak: 'Bagian mana dari kegiatan tadi yang paling menarik atau menantang bagi kalian?' Biarkan anak bercerita. [Berkesadaran - Merefleksikan]",
+              "19. Internalisasi Nilai Islam (QS. Al-Alaq: 1): Guru menjelaskan: 'Allah mengajarkan ilmu kepada manusia.' [Berkesadaran - Merefleksikan]",
+              "20. Ajak anak berkomitmen melakukan satu kebaikan nyata hari ini sebagai wujud syukur atas akal dan kemampuan yang Allah berikan. [Berkesadaran - Mengaplikasikan]",
+              "21. Mengucap hamdalah bersama-sama untuk menutup sesi kerja: 'Alhamdulillahi rabbil ’alamin.' [Berkesadaran]",
+              "22. Guru mengucapkan kalimat penutup kepada anak: 'Alhamdulillahi jaza kumullohu khoiro.' [Berkesadaran]"
+            ],
+            "indirectAim": "Expand English vocabulary and understand word structures."
+          },
+          "grades": [
+            "K3",
+            "K4"
+          ]
+        },
+        {
+          "label": "K4-K5: English Synonyms, Antonyms & Homophones",
+          "presentation": {
+            "prerequisites": "Anak mengenal kosakata bahasa Inggris menengah.",
+            "error": "Confusing homophones in writing (e.g., writing “their” instead of “there” or “allowed” instead of “aloud”).",
+            "toolDisplay": "Homophone Matching Cards, Synonym-Antonym Sorting Mats",
+            "directAim": "Differentiate English words that sound the same but have different spellings and meanings (homophones), and group words by similar (synonyms) or opposite (antonyms) meanings.",
+            "videoUrl": "",
+            "toolsList": [
+              "Homophone Cards",
+              "Sorting Mats"
+            ],
+            "tool": "Homophone Matching Cards",
+            "steps": [
+              "I. PIJAKAN AWAL & PERSIAPAN (Pijakan Sebelum Main)",
+              "1. Mulai kegiatan dengan mengucap bersama anak: 'Bismillahirrahmanirrahim.' [Berkesadaran]",
+              "2. Undang anak ke area karpet kerja dan katakan: 'Nak, mari kita mengeksplorasi English Synonyms, Antonyms & Homophones menggunakan Homophone Matching Cards, Synonym-Antonym Sorting Mats. Mari kita merenungi kekuasaan Allah.' [Berkesadaran]",
+              "3. Siapkan karpet kerja yang bersih dan rapi di lantai.",
+              "4. Guru membawa material Homophone Matching Cards, Synonym-Antonym Sorting Mats ke atas karpet bersama anak dengan penuh rasa hormat. [Berkesadaran]",
+              "II. PRESENTASI INTI (Langkah Eksplorasi)",
+              "5. Guru meletakkan material di tengah karpet dan meminta anak mengamatinya secara visual.",
+              "6. Guru mengucapkan kata “write” dan “right” secara lisan, lalu bertanya: 'Do these words sound the same? Yes, but they are written differently!'",
+              "7. Guru menjelaskan konsep Homofon (same sound, different spelling/meaning) dengan menaruh kartu “there” dan “their”.",
+              "8. Guru menjelaskan konsep Sinonim (similar meaning, e.g., large-huge) dan Antonim (opposite meaning, e.g., hot-cold) menggunakan papan pengelompokan.",
+              "9. Guru membacakan kalimat pendek dan meminta anak memilih homofon yang benar untuk melengkapinya.",
+              "10. Anak mencocokkan pasangan kartu homofon di atas karpet.",
+              "11. Anak mengelompokkan kartu sinonim dan antonim pada kolom yang disediakan.",
+              "12. Internalisasi Nilai Islam (QS. Fatir: 28): Guru menjelaskan: 'Allah menciptakan ciptaan-Nya beraneka ragam warna dan jenis. Sinonim dan antonim menggambarkan kekayaan variasi ciptaan-Nya dalam ranah bahasa.'",
+              "III. KERJA MANDIRI (Pijakan Saat Main)",
+              "13. Undang anak untuk mencoba secara mandiri: 'Apakah kamu ingin mencobanya sendiri atau bekerja bersama temanmu?' [Menyenangkan]",
+              "14. Biarkan anak melakukan eksplorasi berulang kali secara mandiri dengan material tersebut untuk membangun konsentrasi. Guru mengobservasi tanpa menginterupsi. [Menyenangkan - Kerja Mandiri]",
+              "15. Setelah selesai, bimbing anak merapikan material dan mengembalikannya ke rak: 'Yuk, kita kembalikan ke rak secara rapi. Kebersihan dan keteraturan adalah bagian dari rasa syukur kita.' [Berkesadaran]",
+              "IV. REFLEKSI & PENUTUP (Pijakan Setelah Main / Recalling)",
+              "16. Berkumpul kembali dengan anak untuk melakukan refleksi singkat setelah beres-beres selesai. [Berkesadaran - Merefleksikan]",
+              "17. Berikan apresiasi spesifik atas usaha anak: 'Masya Allah, hari ini kalian menunjukkan ketekunan dan kerja sama yang luar biasa saat menggunakan alat ini.' [Berkesadaran - Merefleksikan]",
+              "18. Recalling Pengalaman: Tanyakan kepada anak: 'Bagian mana dari kegiatan tadi yang paling menarik atau menantang bagi kalian?' Biarkan anak bercerita. [Berkesadaran - Merefleksikan]",
+              "19. Internalisasi Nilai Islam (QS. Al-Alaq: 1): Guru menjelaskan: 'Allah mengajarkan ilmu kepada manusia.' [Berkesadaran - Merefleksikan]",
+              "20. Ajak anak berkomitmen melakukan satu kebaikan nyata hari ini sebagai wujud syukur atas akal dan kemampuan yang Allah berikan. [Berkesadaran - Mengaplikasikan]",
+              "21. Mengucap hamdalah bersama-sama untuk menutup sesi kerja: 'Alhamdulillahi rabbil ’alamin.' [Berkesadaran]",
+              "22. Guru mengucapkan kalimat penutup kepada anak: 'Alhamdulillahi jaza kumullohu khoiro.' [Berkesadaran]"
+            ],
+            "indirectAim": "Improve reading comprehension, spelling accuracy, and context clues analysis in English."
+          },
+          "grades": [
+            "K4",
+            "K5"
+          ]
+        },
+        {
+          "grades": [
+            "K5",
+            "K6"
+          ],
+          "label": "K5-K6: English Etymology & Root Words (Latin & Greek Roots)",
+          "presentation": {
+            "tool": "Root Word Trees (Greek roots in Green",
+            "indirectAim": "Develop advanced vocabulary skills, analytical thinking, and preparation for scientific terminology.",
+            "steps": [
+              "I. PIJAKAN AWAL & PERSIAPAN (Pijakan Sebelum Main)",
+              "1. Mulai kegiatan dengan mengucap bersama anak: 'Bismillahirrahmanirrahim.' [Berkesadaran]",
+              "2. Undang anak ke area karpet kerja dan katakan: 'Nak, mari kita mengeksplorasi English Etymology & Root Words (Latin & Greek Roots) menggunakan Root Word Trees (Greek roots in Green, Latin roots in Blue). Mari kita merenungi kekuasaan Allah.' [Berkesadaran]",
+              "3. Siapkan karpet kerja yang bersih dan rapi di lantai.",
+              "4. Guru membawa material Root Word Trees (Greek roots in Green, Latin roots in Blue) ke atas karpet bersama anak dengan penuh rasa hormat. [Berkesadaran]",
+              "II. PRESENTASI INTI (Langkah Eksplorasi)",
+              "5. Guru meletakkan material di tengah karpet dan meminta anak mengamatinya secara visual.",
+              "6. Guru menunjukkan kata “telephone” dan menjelaskan: 'In Greek, “tele” means far, and “phone” means sound. So it means far sound!'",
+              "7. Guru memaparkan akar kata Yunani (Greek) dan Latin yang banyak digunakan dalam bahasa Inggris ilmiah.",
+              "8. Guru menyusun pohon akar kata (Root Word Tree), misalnya akar kata Latin “port” (to carry) yang membentuk kata “import”, “export”, “portable”.",
+              "9. Guru mendiskusikan bagaimana ilmu pengetahuan berkembang melalui penggabungan konsep-konsep dasar ini.",
+              "10. Anak mencocokkan akar kata dengan definisi aslinya.",
+              "11. Anak mencari kata-kata lain yang menggunakan akar kata yang sama di dalam kamus.",
+              "12. Internalisasi Nilai Islam (QS. Al-Hujurat: 13): Guru menjelaskan: 'Segala ilmu berasal dari Allah. Mempelajari akar kata sejarah bahasa membantu kita memetakan peradaban ilmiah demi kemaslahatan umat.'",
+              "III. KERJA MANDIRI (Pijakan Saat Main)",
+              "13. Undang anak untuk mencoba secara mandiri: 'Apakah kamu ingin mencobanya sendiri atau bekerja bersama temanmu?' [Menyenangkan]",
+              "14. Biarkan anak melakukan eksplorasi berulang kali secara mandiri dengan material tersebut untuk membangun konsentrasi. Guru mengobservasi tanpa menginterupsi. [Menyenangkan - Kerja Mandiri]",
+              "15. Setelah selesai, bimbing anak merapikan material dan mengembalikannya ke rak: 'Yuk, kita kembalikan ke rak secara rapi. Kebersihan dan keteraturan adalah bagian dari rasa syukur kita.' [Berkesadaran]",
+              "IV. REFLEKSI & PENUTUP (Pijakan Setelah Main / Recalling)",
+              "16. Berkumpul kembali dengan anak untuk melakukan refleksi singkat setelah beres-beres selesai. [Berkesadaran - Merefleksikan]",
+              "17. Berikan apresiasi spesifik atas usaha anak: 'Masya Allah, hari ini kalian menunjukkan ketekunan dan kerja sama yang luar biasa saat menggunakan alat ini.' [Berkesadaran - Merefleksikan]",
+              "18. Recalling Pengalaman: Tanyakan kepada anak: 'Bagian mana dari kegiatan tadi yang paling menarik atau menantang bagi kalian?' Biarkan anak bercerita. [Berkesadaran - Merefleksikan]",
+              "19. Internalisasi Nilai Islam (QS. Al-Alaq: 1): Guru menjelaskan: 'Allah mengajarkan ilmu kepada manusia.' [Berkesadaran - Merefleksikan]",
+              "20. Ajak anak berkomitmen melakukan satu kebaikan nyata hari ini sebagai wujud syukur atas akal dan kemampuan yang Allah berikan. [Berkesadaran - Mengaplikasikan]",
+              "21. Mengucap hamdalah bersama-sama untuk menutup sesi kerja: 'Alhamdulillahi rabbil ’alamin.' [Berkesadaran]",
+              "22. Guru mengucapkan kalimat penutup kepada anak: 'Alhamdulillahi jaza kumullohu khoiro.' [Berkesadaran]"
+            ],
+            "toolDisplay": "Root Word Trees (Greek roots in Green, Latin roots in Blue)",
+            "error": "Incorrectly guessing a word’s meaning by ignoring the root’s historical definition.",
+            "toolsList": [
+              "Root Word Trees",
+              "Meaning Labels"
+            ],
+            "videoUrl": "",
+            "directAim": "Recognize common Latin and Greek root words (e.g., port, scrib/script, geo, bio, photo) and use them to decipher the meanings of unfamiliar words.",
+            "prerequisites": "Anak memahami konsep prefiks dan sufiks dalam bahasa Inggris."
+          }
+        }
+      ]
+    },
+    {
+      "id": "lang_eng_write",
+      "name": "Ekspresi & Menulis (EN) / English Writing",
+      "levels": [
+        {
+          "label": "K2-K3: Kosakata Visual Berulang / High Frequency Words & English Journaling",
+          "presentation": {
+            "error": "Menangis frustrasi memaksa merangkai ejaan Sight Words yang kebal dengan aturan fonetik alfabet universal.",
+            "toolDisplay": "Sight Words Flashcards, English Journal Notebook",
+            "directAim": "Write daily short sentences in English using high-frequency sight words (the, of, and, a, to, in).",
+            "videoUrl": "",
+            "toolsList": [
+              "Sight Words Flashcards",
+              "English Journal Notebook"
+            ],
+            "prerequisites": "English Phonics dasar.",
+            "tool": "Sight Words Flashcards",
+            "steps": [
+              "I. PIJAKAN AWAL & PERSIAPAN (Pijakan Sebelum Main)",
+              "1. Mulai kegiatan dengan mengucap bersama anak: 'Bismillahirrahmanirrahim.' [Berkesadaran]",
+              "2. Undang anak ke area karpet kerja dan katakan: 'Nak, mari kita mengeksplorasi Kosakata Visual Berulang menggunakan Sight Words Flashcards, English Journal Notebook. Mari kita merenungi kekuasaan Allah.' [Berkesadaran]",
+              "3. Siapkan karpet kerja yang bersih dan rapi di lantai.",
+              "4. Guru membawa material Sight Words Flashcards, English Journal Notebook ke atas karpet bersama anak dengan penuh rasa hormat. [Berkesadaran]",
+              "II. PRESENTASI INTI (Langkah Eksplorasi)",
+              "5. Guru meletakkan material di tengah karpet dan meminta anak mengamatinya secara visual.",
+              "6. Guru: 'Some English words are rule-breakers! We just have to capture them directly with our eyes and save them in our hearts.'",
+              "7. Tebar dan kenalkan kawanan monster Sight Words (the, are, come, was, etc) menggunakan satu paket kartu berjalur.",
+              "8. Guru: 'Ini adalah perkecualian ejaan. Sama miripnya seperti rukhsoh kemudahan dalam syariat beragama, tata bahasa punya seninya.'",
+              "9. Latihan fotografis: Minta anak membaca flashcard, menutup mata murni untuk memvisualisakan kerangka katanya, lalu mengeksekusi tulisan kapur cepat di papan.",
+              "10. Susun kata-kata ganjil tersebut dirajut membentuk kalimat dasar di baris jurnal internasionalnya.",
+              "11. Tantangan Story Starters: Anak menambal lanjutan bebas suatu karangan pendek dari pancingan satu kalimat pembuka asing.",
+              "12. Mendorong kebiasaan menabung jurnal reflektif singkat per akhir bulan (My Monthly Diary) menggunakan tatanan bahasa Inggris.",
+              "13. Memberikan aplaus dan usapan penghargaan atas supernya keberanian anak menuang jejak pikir dalam ranah linguistik asing.",
+              "14. Guru: 'Kuasailah tata bahasa dunia, maka lapang terbukalah arena dakwah rahmatan lil alamin.'",
+              "15. Bersihkan sisa salju kapur and tumpuk jurnal rapi terawat.",
+              "III. KERJA MANDIRI (Pijakan Saat Main)",
+              "16. Undang anak untuk mencoba secara mandiri: 'Apakah kamu ingin mencobanya sendiri atau bekerja bersama temanmu?' [Menyenangkan]",
+              "17. Biarkan anak melakukan eksplorasi berulang kali secara mandiri dengan material tersebut untuk membangun konsentrasi. Guru mengobservasi tanpa menginterupsi. [Menyenangkan - Kerja Mandiri]",
+              "18. Setelah selesai, bimbing anak merapikan material dan mengembalikannya ke rak: 'Yuk, kita kembalikan ke rak secara rapi. Kebersihan dan keteraturan adalah bagian dari rasa syukur kita.' [Berkesadaran]",
+              "IV. REFLEKSI & PENUTUP (Pijakan Setelah Main / Recalling)",
+              "19. Berkumpul kembali dengan anak untuk melakukan refleksi singkat setelah beres-beres selesai. [Berkesadaran - Merefleksikan]",
+              "20. Berikan apresiasi spesifik atas usaha anak: 'Masya Allah, hari ini kalian menunjukkan ketekunan dan kerja sama yang luar biasa saat menggunakan alat ini.' [Berkesadaran - Merefleksikan]",
+              "21. Recalling Pengalaman: Tanyakan kepada anak: 'Bagian mana dari kegiatan tadi yang paling menarik atau menantang bagi kalian?' Biarkan anak bercerita. [Berkesadaran - Merefleksikan]",
+              "22. Internalisasi Nilai Islam (QS. Al-Baqarah: 269): Guru menjelaskan: 'Barangsiapa dianugerahi hikmah, ia telah mendapat kebaikan yang banyak. Menulis jurnal bahasa asing memperluas jangkauan hikmah.' [Berkesadaran - Merefleksikan]",
+              "23. Ajak anak berkomitmen melakukan satu kebaikan nyata hari ini sebagai wujud syukur atas akal dan kemampuan yang Allah berikan. [Berkesadaran - Mengaplikasikan]",
+              "24. Mengucap hamdalah bersama-sama untuk menutup sesi kerja: 'Alhamdulillahi rabbil ’alamin.' [Berkesadaran]",
+              "25. Guru mengucapkan kalimat penutup kepada anak: 'Alhamdulillahi jaza kumullohu khoiro.' [Berkesadaran]"
+            ],
+            "indirectAim": "Build comfort in daily English written journaling."
+          },
+          "grades": [
+            "K2",
+            "K3"
+          ]
+        },
+        {
+          "grades": [
+            "K3",
+            "K4"
+          ],
+          "presentation": {
+            "error": "Writing disconnected sentences without a clear main topic or logical flow.",
+            "toolDisplay": "Paragraph Hamburger Organizer (Visual model: Bun, Meat, Veggies, Bun), Narrative Planner",
+            "directAim": "Construct a structured English paragraph with a topic sentence, supporting details, and a concluding sentence; and write a simple narrative story.",
+            "toolsList": [
+              "Paragraph Graphic Organizer",
+              "Narrative Planner"
+            ],
+            "videoUrl": "",
+            "prerequisites": "Anak memahami pembentukan kalimat bahasa Inggris sederhana.",
+            "tool": "Paragraph Hamburger Organizer (Visual model: Bun",
+            "steps": [
+              "I. PIJAKAN AWAL & PERSIAPAN (Pijakan Sebelum Main)",
+              "1. Mulai kegiatan dengan mengucap bersama anak: 'Bismillahirrahmanirrahim.' [Berkesadaran]",
+              "2. Undang anak ke area karpet kerja dan katakan: 'Nak, mari kita mengeksplorasi Paragraph Structure & Narrative Writing in English menggunakan Paragraph Hamburger Organizer (Visual model: Bun, Meat, Veggies, Bun), Narrative Planner. Mari kita merenungi kekuasaan Allah.' [Berkesadaran]",
+              "3. Siapkan karpet kerja yang bersih dan rapi di lantai.",
+              "4. Guru membawa material Paragraph Hamburger Organizer (Visual model: Bun, Meat, Veggies, Bun), Narrative Planner ke atas karpet bersama anak dengan penuh rasa hormat. [Berkesadaran]",
+              "II. PRESENTASI INTI (Langkah Eksplorasi)",
+              "5. Guru meletakkan material di tengah karpet dan meminta anak mengamatinya secara visual.",
+              "6. Guru berkata: 'Today, let’s build a paragraph together like a hamburger! The top bun is the main idea, the fillings are details, and the bottom bun holds it together.'",
+              "7. Guru menerangkan fungsi Topic Sentence (kalimat pembuka), Supporting Sentences (kalimat penjelas), dan Concluding Sentence (kalimat penutup).",
+              "8. Guru menyusun kalimat-kalimat teracak di atas karpet dan meminta anak mengurutkannya menjadi paragraf yang baik.",
+              "9. Guru membimbing anak menuliskan awal cerita narasi: “Once upon a time...”",
+              "10. Anak menulis satu paragraf tentang kegiatan kesukaan mereka menggunakan Hamburger Organizer.",
+              "11. Anak menggambar ilustrasi kecil untuk melengkapi cerita narasi mereka.",
+              "12. Internalisasi Nilai Islam (QS. Al-Hujurat: 13): Guru menjelaskan: 'Menulis narasi dalam bahasa Inggris melatih kita menyebarkan kisah-kisah penuh hikmah kepada umat manusia di belahan dunia lain.'",
+              "III. KERJA MANDIRI (Pijakan Saat Main)",
+              "13. Undang anak untuk mencoba secara mandiri: 'Apakah kamu ingin mencobanya sendiri atau bekerja bersama temanmu?' [Menyenangkan]",
+              "14. Biarkan anak melakukan eksplorasi berulang kali secara mandiri dengan material tersebut untuk membangun konsentrasi. Guru mengobservasi tanpa menginterupsi. [Menyenangkan - Kerja Mandiri]",
+              "15. Setelah selesai, bimbing anak merapikan material dan mengembalikannya ke rak: 'Yuk, kita kembalikan ke rak secara rapi. Kebersihan dan keteraturan adalah bagian dari rasa syukur kita.' [Berkesadaran]",
+              "IV. REFLEKSI & PENUTUP (Pijakan Setelah Main / Recalling)",
+              "16. Berkumpul kembali dengan anak untuk melakukan refleksi singkat setelah beres-beres selesai. [Berkesadaran - Merefleksikan]",
+              "17. Berikan apresiasi spesifik atas usaha anak: 'Masya Allah, hari ini kalian menunjukkan ketekunan dan kerja sama yang luar biasa saat menggunakan alat ini.' [Berkesadaran - Merefleksikan]",
+              "18. Recalling Pengalaman: Tanyakan kepada anak: 'Bagian mana dari kegiatan tadi yang paling menarik atau menantang bagi kalian?' Biarkan anak bercerita. [Berkesadaran - Merefleksikan]",
+              "19. Internalisasi Nilai Islam (QS. Al-Alaq: 1): Guru menjelaskan: 'Allah mengajarkan ilmu kepada manusia.' [Berkesadaran - Merefleksikan]",
+              "20. Ajak anak berkomitmen melakukan satu kebaikan nyata hari ini sebagai wujud syukur atas akal dan kemampuan yang Allah berikan. [Berkesadaran - Mengaplikasikan]",
+              "21. Mengucap hamdalah bersama-sama untuk menutup sesi kerja: 'Alhamdulillahi rabbil ’alamin.' [Berkesadaran]",
+              "22. Guru mengucapkan kalimat penutup kepada anak: 'Alhamdulillahi jaza kumullohu khoiro.' [Berkesadaran]"
+            ],
+            "indirectAim": "Foster creative thinking and enhance coherence in writing in a foreign language."
+          },
+          "label": "K3-K4: Paragraph Structure & Narrative Writing in English"
+        },
+        {
+          "grades": [
+            "K4",
+            "K5"
+          ],
+          "label": "K4-K5: English Letter Writing & E-mail Etiquette",
+          "presentation": {
+            "tool": "Letter Writing Templates",
+            "indirectAim": "Develop professional communication skills, courtesy, and digital literacy.",
+            "steps": [
+              "I. PIJAKAN AWAL & PERSIAPAN (Pijakan Sebelum Main)",
+              "1. Mulai kegiatan dengan mengucap bersama anak: 'Bismillahirrahmanirrahim.' [Berkesadaran]",
+              "2. Undang anak ke area karpet kerja dan katakan: 'Nak, mari kita mengeksplorasi English Letter Writing & E-mail Etiquette menggunakan Letter Writing Templates, Envelopes, Stamps, Sample E-mails. Mari kita merenungi kekuasaan Allah.' [Berkesadaran]",
+              "3. Siapkan karpet kerja yang bersih dan rapi di lantai.",
+              "4. Guru membawa material Letter Writing Templates, Envelopes, Stamps, Sample E-mails ke atas karpet bersama anak dengan penuh rasa hormat. [Berkesadaran]",
+              "II. PRESENTASI INTI (Langkah Eksplorasi)",
+              "5. Guru meletakkan material di tengah karpet dan meminta anak mengamatinya secara visual.",
+              "6. Guru bertanya: 'How do we write a polite message to someone who is far away?'",
+              "7. Guru menunjukkan perbedaan struktur surat tidak resmi (untuk teman) dan surat resmi (untuk sekolah/kantor) dalam bahasa Inggris.",
+              "8. Guru menjelaskan bagian-bagian surat: Salutation (Dear...), Body of Letter, dan Sign-off (Sincerely yours, Warm regards).",
+              "9. Guru menerangkan adab mengirim surel (e-mail etiquette): mengisi baris subjek dengan jelas, serta menyapa penerima dengan sopan.",
+              "10. Anak menulis surat bahasa Inggris kepada sahabat mereka dan melipatnya ke dalam amplop.",
+              "11. Anak menyimulasikan penulisan surel formal kepada kepala sekolah di lembar kerja.",
+              "12. Internalisasi Nilai Islam (QS. An-Naml: 29-30): Guru menjelaskan: 'Rasulullah mengajarkan kita bertutur kata sopan. Menulis surat atau email dengan adab yang baik mencerminkan keluhuran akhlak mulia.'",
+              "III. KERJA MANDIRI (Pijakan Saat Main)",
+              "13. Undang anak untuk mencoba secara mandiri: 'Apakah kamu ingin mencobanya sendiri atau bekerja bersama temanmu?' [Menyenangkan]",
+              "14. Biarkan anak melakukan eksplorasi berulang kali secara mandiri dengan material tersebut untuk membangun konsentrasi. Guru mengobservasi tanpa menginterupsi. [Menyenangkan - Kerja Mandiri]",
+              "15. Setelah selesai, bimbing anak merapikan material dan mengembalikannya ke rak: 'Yuk, kita kembalikan ke rak secara rapi. Kebersihan dan keteraturan adalah bagian dari rasa syukur kita.' [Berkesadaran]",
+              "IV. REFLEKSI & PENUTUP (Pijakan Setelah Main / Recalling)",
+              "16. Berkumpul kembali dengan anak untuk melakukan refleksi singkat setelah beres-beres selesai. [Berkesadaran - Merefleksikan]",
+              "17. Berikan apresiasi spesifik atas usaha anak: 'Masya Allah, hari ini kalian menunjukkan ketekunan dan kerja sama yang luar biasa saat menggunakan alat ini.' [Berkesadaran - Merefleksikan]",
+              "18. Recalling Pengalaman: Tanyakan kepada anak: 'Bagian mana dari kegiatan tadi yang paling menarik atau menantang bagi kalian?' Biarkan anak bercerita. [Berkesadaran - Merefleksikan]",
+              "19. Internalisasi Nilai Islam (QS. Al-Alaq: 1): Guru menjelaskan: 'Allah mengajarkan ilmu kepada manusia.' [Berkesadaran - Merefleksikan]",
+              "20. Ajak anak berkomitmen melakukan satu kebaikan nyata hari ini sebagai wujud syukur atas akal dan kemampuan yang Allah berikan. [Berkesadaran - Mengaplikasikan]",
+              "21. Mengucap hamdalah bersama-sama untuk menutup sesi kerja: 'Alhamdulillahi rabbil ’alamin.' [Berkesadaran]",
+              "22. Guru mengucapkan kalimat penutup kepada anak: 'Alhamdulillahi jaza kumullohu khoiro.' [Berkesadaran]"
+            ],
+            "prerequisites": "Anak dapat menulis paragraf bahasa Inggris terstruktur.",
+            "toolDisplay": "Letter Writing Templates, Envelopes, Stamps, Sample E-mails",
+            "error": "Using overly informal language (slang) in a formal letter or omitting key address/greeting fields.",
+            "videoUrl": "",
+            "toolsList": [
+              "Writing Templates",
+              "Sample E-mails"
+            ],
+            "directAim": "Write formal and informal letters in English using correct formatting (heading, greeting, body, closing, signature) and understand basic polite e-mail etiquette."
+          }
+        },
+        {
+          "label": "K5-K6: English Expository Writing & Mini Research Presentation",
+          "presentation": {
+            "prerequisites": "Anak terbiasa menulis cerita pendek dan memahami konsep surat dalam bahasa Inggris.",
+            "error": "Copying sentences directly from sources (plagiarism) without understanding or putting them in their own words.",
+            "toolDisplay": "English Research Cards, Presentation Poster Boards, Markers",
+            "directAim": "Research a factual topic (e.g., an animal or a country) and write a short expository report in English, then present the findings to the class.",
+            "videoUrl": "",
+            "toolsList": [
+              "Research Cards",
+              "Poster Boards"
+            ],
+            "tool": "English Research Cards",
+            "steps": [
+              "I. PIJAKAN AWAL & PERSIAPAN (Pijakan Sebelum Main)",
+              "1. Mulai kegiatan dengan mengucap bersama anak: 'Bismillahirrahmanirrahim.' [Berkesadaran]",
+              "2. Undang anak ke area karpet kerja dan katakan: 'Nak, mari kita mengeksplorasi English Expository Writing & Mini Research Presentation menggunakan English Research Cards, Presentation Poster Boards, Markers. Mari kita merenungi kekuasaan Allah.' [Berkesadaran]",
+              "3. Siapkan karpet kerja yang bersih dan rapi di lantai.",
+              "4. Guru membawa material English Research Cards, Presentation Poster Boards, Markers ke atas karpet bersama anak dengan penuh rasa hormat. [Berkesadaran]",
+              "II. PRESENTASI INTI (Langkah Eksplorasi)",
+              "5. Guru meletakkan material di tengah karpet dan meminta anak mengamatinya secara visual.",
+              "6. Guru berkata: 'Today, you are going to be researchers! We will discover facts about a topic and share it in English.'",
+              "7. Guru menjelaskan konsep Menulis Ekspositori (menjelaskan fakta secara objektif tanpa opini).",
+              "8. Guru menunjukkan cara mengumpulkan informasi dari kartu ensiklopedia anak.",
+              "9. Guru mengajarkan cara menyusun fakta ke dalam poin-poin utama di papan poster.",
+              "10. Anak menulis laporan mini bertema kebudayaan atau sains dalam bahasa Inggris.",
+              "11. Anak mempresentasikan poster laporan mereka di hadapan teman sekelas dengan suara percaya diri.",
+              "12. Internalisasi Nilai Islam (QS. Al-An’am: 11): Guru menjelaskan: 'Mengeksplorasi bumi dan mencatat fakta sains (expository) melatih sikap jujur dalam mendokumentasikan kebenaran.'",
+              "III. KERJA MANDIRI (Pijakan Saat Main)",
+              "13. Undang anak untuk mencoba secara mandiri: 'Apakah kamu ingin mencobanya sendiri atau bekerja bersama temanmu?' [Menyenangkan]",
+              "14. Biarkan anak melakukan eksplorasi berulang kali secara mandiri dengan material tersebut untuk membangun konsentrasi. Guru mengobservasi tanpa menginterupsi. [Menyenangkan - Kerja Mandiri]",
+              "15. Setelah selesai, bimbing anak merapikan material dan mengembalikannya ke rak: 'Yuk, kita kembalikan ke rak secara rapi. Kebersihan dan keteraturan adalah bagian dari rasa syukur kita.' [Berkesadaran]",
+              "IV. REFLEKSI & PENUTUP (Pijakan Setelah Main / Recalling)",
+              "16. Berkumpul kembali dengan anak untuk melakukan refleksi singkat setelah beres-beres selesai. [Berkesadaran - Merefleksikan]",
+              "17. Berikan apresiasi spesifik atas usaha anak: 'Masya Allah, hari ini kalian menunjukkan ketekunan dan kerja sama yang luar biasa saat menggunakan alat ini.' [Berkesadaran - Merefleksikan]",
+              "18. Recalling Pengalaman: Tanyakan kepada anak: 'Bagian mana dari kegiatan tadi yang paling menarik atau menantang bagi kalian?' Biarkan anak bercerita. [Berkesadaran - Merefleksikan]",
+              "19. Internalisasi Nilai Islam (QS. Al-Alaq: 1): Guru menjelaskan: 'Allah mengajarkan ilmu kepada manusia.' [Berkesadaran - Merefleksikan]",
+              "20. Ajak anak berkomitmen melakukan satu kebaikan nyata hari ini sebagai wujud syukur atas akal dan kemampuan yang Allah berikan. [Berkesadaran - Mengaplikasikan]",
+              "21. Mengucap hamdalah bersama-sama untuk menutup sesi kerja: 'Alhamdulillahi rabbil ’alamin.' [Berkesadaran]",
+              "22. Guru mengucapkan kalimat penutup kepada anak: 'Alhamdulillahi jaza kumullohu khoiro.' [Berkesadaran]"
+            ],
+            "indirectAim": "Foster independent inquiry, presentation confidence, and synthesis of information in a second language."
+          },
+          "grades": [
+            "K5",
+            "K6"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Sastra & Pemahaman (EN) / English Literature",
+      "id": "lang_eng_literature",
+      "levels": [
+        {
+          "grades": [
+            "K2",
+            "K3"
+          ],
+          "label": "K2-K3: Kisah Sastra Global & Percakapan Dasar / English Tales & Conversations",
+          "presentation": {
+            "prerequisites": "English Phonics dan kosa kata dasar.",
+            "error": "Mengigau membeo sekadar melafalkan bait asing tetapi gelap perihal rona maknanya.",
+            "toolDisplay": "English Tale Books (Illustrated), Dialogue Cards",
+            "directAim": "Read short English moral stories and engage in basic conversational question-and-answer.",
+            "videoUrl": "",
+            "toolsList": [
+              "English Tale Books (Illustrated)",
+              "Dialogue Cards"
+            ],
+            "tool": "English Tale Books (Illustrated)",
+            "steps": [
+              "I. PIJAKAN AWAL & PERSIAPAN (Pijakan Sebelum Main)",
+              "1. Mulai kegiatan dengan mengucap bersama anak: 'Bismillahirrahmanirrahim.' [Berkesadaran]",
+              "2. Undang anak ke area karpet kerja dan katakan: 'Nak, mari kita mengeksplorasi Kisah Sastra Global & Percakapan Dasar menggunakan English Tale Books (Illustrated), Dialogue Cards. Mari kita merenungi kekuasaan Allah.' [Berkesadaran]",
+              "3. Siapkan karpet kerja yang bersih dan rapi di lantai.",
+              "4. Guru membawa material English Tale Books (Illustrated), Dialogue Cards ke atas karpet bersama anak dengan penuh rasa hormat. [Berkesadaran]",
+              "II. PRESENTASI INTI (Langkah Eksplorasi)",
+              "5. Guru meletakkan material di tengah karpet dan meminta anak mengamatinya secara visual.",
+              "6. Undang anak duduk bersanding ke singgasana sudut baca sastra: 'Let’s teleport and step into a different hemisphere of the world today.'",
+              "7. Guru melantunkan bacaan lantang nyaring atas buku fable (The Boy Who Cried Wolf) atau moral literature asing.",
+              "8. Pompa performa intonasi pantomim dan gairah ekspresi demi mengail tebakan anak-anak atas arti kata-kata tanpa harus menyodorkan makna mentah.",
+              "9. Rem mendadak di tebing pucuk cerita: 'Predicting the future... What on earth do you think will happen next?'",
+              "10. Filter Pelindung Aqidah: Bila terdapat fragmen karya asing yang membentur etika tauhid/adab nubuwah, bongkar dan jadikan tameng diskusi kritis (Critical Thinking).",
+              "11. Bedah kerangka fondasi tulang punggung novel: Characters (Tokoh), Setting (Latar), Conflict (Huru-hara), Resolution (Solusi).",
+              "12. Pentas Tater Kelas (Role-Play): Pasukan anak terjun berekspresi memperagakan secuplik adegan puncak yang menyulut emosi.",
+              "13. Ping-pong cepat Tanya Jawab Conversation Cards harian: 'What is your favorite dish? What dream profession do you want to achieve?'",
+              "14. Merangsang simpati anak agar toleran menghargai ragam budaya literatur melintas benua, paralel diiringi keteguhan identitas benderang syariat Islam miliknya.",
+              "15. Menanyakan sari pati hikmah inti (I’tibar) yang sah bisa dipetik dan diboyong tertanam ke relung kehidupan aslinya.",
+              "16. Parkir kembali buku cerita tebal ke markas utama perpustakaan internasional dengan presisi.",
+              "III. KERJA MANDIRI (Pijakan Saat Main)",
+              "17. Undang anak untuk mencoba secara mandiri: 'Apakah kamu ingin mencobanya sendiri atau bekerja bersama temanmu?' [Menyenangkan]",
+              "18. Biarkan anak melakukan eksplorasi berulang kali secara mandiri dengan material tersebut untuk membangun konsentrasi. Guru mengobservasi tanpa menginterupsi. [Menyenangkan - Kerja Mandiri]",
+              "19. Setelah selesai, bimbing anak merapikan material dan mengembalikannya ke rak: 'Yuk, kita kembalikan ke rak secara rapi. Kebersihan dan keteraturan adalah bagian dari rasa syukur kita.' [Berkesadaran]",
+              "IV. REFLEKSI & PENUTUP (Pijakan Setelah Main / Recalling)",
+              "20. Berkumpul kembali dengan anak untuk melakukan refleksi singkat setelah beres-beres selesai. [Berkesadaran - Merefleksikan]",
+              "21. Berikan apresiasi spesifik atas usaha anak: 'Masya Allah, hari ini kalian menunjukkan ketekunan dan kerja sama yang luar biasa saat menggunakan alat ini.' [Berkesadaran - Merefleksikan]",
+              "22. Recalling Pengalaman: Tanyakan kepada anak: 'Bagian mana dari kegiatan tadi yang paling menarik atau menantang bagi kalian?' Biarkan anak bercerita. [Berkesadaran - Merefleksikan]",
+              "23. Internalisasi Nilai Islam (QS. Ar-Rum: 22): Guru menjelaskan: 'Keragaman bahasa adalah tanda kebesaran Allah. Membaca sastra global meluaskan pandangan kita tentang dunia ciptaan Allah.' [Berkesadaran - Merefleksikan]",
+              "24. Ajak anak berkomitmen melakukan satu kebaikan nyata hari ini sebagai wujud syukur atas akal dan kemampuan yang Allah berikan. [Berkesadaran - Mengaplikasikan]",
+              "25. Mengucap hamdalah bersama-sama untuk menutup sesi kerja: 'Alhamdulillahi rabbil ’alamin.' [Berkesadaran]",
+              "26. Guru mengucapkan kalimat penutup kepada anak: 'Alhamdulillahi jaza kumullohu khoiro.' [Berkesadaran]"
+            ],
+            "indirectAim": "Foster confidence in speaking and understanding stories in English."
+          }
+        },
+        {
+          "label": "K3-K4: Reading English Fables & Moral Stories",
+          "presentation": {
+            "prerequisites": "Anak mengenal kosakata bahasa Inggris dasar.",
+            "toolsList": [
+              "Fable Books",
+              "Moral Cards"
+            ],
+            "videoUrl": "",
+            "directAim": "Read and comprehend simple English fables (e.g., Aesop’s fables) and identify the moral lesson of the story.",
+            "toolDisplay": "Illustrated English Fable Books, Moral Value Cardboards",
+            "error": "Understanding the literal text but failing to extract the hidden moral lesson.",
+            "indirectAim": "Build English vocabulary, improve reading comprehension, and reflect on ethical values.",
+            "steps": [
+              "I. PIJAKAN AWAL & PERSIAPAN (Pijakan Sebelum Main)",
+              "1. Mulai kegiatan dengan mengucap bersama anak: 'Bismillahirrahmanirrahim.' [Berkesadaran]",
+              "2. Undang anak ke area karpet kerja dan katakan: 'Nak, mari kita mengeksplorasi Reading English Fables & Moral Stories menggunakan Illustrated English Fable Books, Moral Value Cardboards. Mari kita merenungi kekuasaan Allah.' [Berkesadaran]",
+              "3. Siapkan karpet kerja yang bersih dan rapi di lantai.",
+              "4. Guru membawa material Illustrated English Fable Books, Moral Value Cardboards ke atas karpet bersama anak dengan penuh rasa hormat. [Berkesadaran]",
+              "II. PRESENTASI INTI (Langkah Eksplorasi)",
+              "5. Guru meletakkan material di tengah karpet dan meminta anak mengamatinya secara visual.",
+              "6. Guru menunjukkan gambar kura-kura dan kelinci: 'Do you know the story of the tortoise and the hare? Let’s read it in English!'",
+              "7. Guru membacakan fabel bahasa Inggris secara perlahan dengan ekspresi wajah yang mendramatisasi cerita.",
+              "8. Guru mengajak anak menebak arti kata-kata sulit dari konteks kalimat (context clues).",
+              "9. Guru mendiskusikan pelajaran moral di akhir cerita: 'Why did the hare lose? Because he was boasting.'",
+              "10. Anak mencocokkan potongan gambar cerita fabel dengan kalimat deskripsi bahasa Inggris yang sesuai.",
+              "11. Anak menulis ulang pesan moral fabel tersebut di buku gambar.",
+              "12. Internalisasi Nilai Islam (QS. Luqman: 19): Guru menjelaskan: 'Berjalanlah dengan sederhana dan lunakkanlah suaramu. Fabel kura-kura melatih sikap tawadhu (rendah hati) menghindari sifat sombong.'",
+              "III. KERJA MANDIRI (Pijakan Saat Main)",
+              "13. Undang anak untuk mencoba secara mandiri: 'Apakah kamu ingin mencobanya sendiri atau bekerja bersama temanmu?' [Menyenangkan]",
+              "14. Biarkan anak melakukan eksplorasi berulang kali secara mandiri dengan material tersebut untuk membangun konsentrasi. Guru mengobservasi tanpa menginterupsi. [Menyenangkan - Kerja Mandiri]",
+              "15. Setelah selesai, bimbing anak merapikan material dan mengembalikannya ke rak: 'Yuk, kita kembalikan ke rak secara rapi. Kebersihan dan keteraturan adalah bagian dari rasa syukur kita.' [Berkesadaran]",
+              "IV. REFLEKSI & PENUTUP (Pijakan Setelah Main / Recalling)",
+              "16. Berkumpul kembali dengan anak untuk melakukan refleksi singkat setelah beres-beres selesai. [Berkesadaran - Merefleksikan]",
+              "17. Berikan apresiasi spesifik atas usaha anak: 'Masya Allah, hari ini kalian menunjukkan ketekunan dan kerja sama yang luar biasa saat menggunakan alat ini.' [Berkesadaran - Merefleksikan]",
+              "18. Recalling Pengalaman: Tanyakan kepada anak: 'Bagian mana dari kegiatan tadi yang paling menarik atau menantang bagi kalian?' Biarkan anak bercerita. [Berkesadaran - Merefleksikan]",
+              "19. Internalisasi Nilai Islam (QS. Al-Alaq: 1): Guru menjelaskan: 'Allah mengajarkan ilmu kepada manusia.' [Berkesadaran - Merefleksikan]",
+              "20. Ajak anak berkomitmen melakukan satu kebaikan nyata hari ini sebagai wujud syukur atas akal dan kemampuan yang Allah berikan. [Berkesadaran - Mengaplikasikan]",
+              "21. Mengucap hamdalah bersama-sama untuk menutup sesi kerja: 'Alhamdulillahi rabbil ’alamin.' [Berkesadaran]",
+              "22. Guru mengucapkan kalimat penutup kepada anak: 'Alhamdulillahi jaza kumullohu khoiro.' [Berkesadaran]"
+            ],
+            "tool": "Illustrated English Fable Books"
+          },
+          "grades": [
+            "K3",
+            "K4"
+          ]
+        },
+        {
+          "grades": [
+            "K4",
+            "K5"
+          ],
+          "presentation": {
+            "tool": "English Poetry Anthology",
+            "indirectAim": "Enhance phonological awareness, express feelings creatively, and build aesthetic sensitivity in English.",
+            "steps": [
+              "I. PIJAKAN AWAL & PERSIAPAN (Pijakan Sebelum Main)",
+              "1. Mulai kegiatan dengan mengucap bersama anak: 'Bismillahirrahmanirrahim.' [Berkesadaran]",
+              "2. Undang anak ke area karpet kerja dan katakan: 'Nak, mari kita mengeksplorasi English Poetry & Creative Wordplay menggunakan English Poetry Anthology, Acrostic Worksheets, Colored Pens. Mari kita merenungi kekuasaan Allah.' [Berkesadaran]",
+              "3. Siapkan karpet kerja yang bersih dan rapi di lantai.",
+              "4. Guru membawa material English Poetry Anthology, Acrostic Worksheets, Colored Pens ke atas karpet bersama anak dengan penuh rasa hormat. [Berkesadaran]",
+              "II. PRESENTASI INTI (Langkah Eksplorasi)",
+              "5. Guru meletakkan material di tengah karpet dan meminta anak mengamatinya secara visual.",
+              "6. Guru membacakan satu puisi rima bahasa Inggris: 'Twinkle, twinkle, little star, how I wonder what you are...'",
+              "7. Guru menjelaskan konsep Rima (rhyming words, e.g., star-are) dalam puisi bahasa Inggris.",
+              "8. Guru mendemonstrasikan cara menyusun Acrostic Poem (puisi yang huruf awal barisnya membentuk kata tertentu, misal: S-T-A-R).",
+              "9. Guru mencontohkan pelafalan puisi dengan nada suara naik-turun yang dramatis.",
+              "10. Anak menulis sebuah acrostic poem bahasa Inggris menggunakan nama mereka sendiri.",
+              "11. Anak menghias puisi mereka dengan gambar bertema syukur.",
+              "12. Internalisasi Nilai Islam (QS. Ar-Rahman: 1-4): Guru menjelaskan: 'Keindahan susunan sajak dalam puisi mengekspresikan kekaguman kita kepada ciptaan Allah dan rasa syukur di lisan.'",
+              "III. KERJA MANDIRI (Pijakan Saat Main)",
+              "13. Undang anak untuk mencoba secara mandiri: 'Apakah kamu ingin mencobanya sendiri atau bekerja bersama temanmu?' [Menyenangkan]",
+              "14. Biarkan anak melakukan eksplorasi berulang kali secara mandiri dengan material tersebut untuk membangun konsentrasi. Guru mengobservasi tanpa menginterupsi. [Menyenangkan - Kerja Mandiri]",
+              "15. Setelah selesai, bimbing anak merapikan material dan mengembalikannya ke rak: 'Yuk, kita kembalikan ke rak secara rapi. Kebersihan dan keteraturan adalah bagian dari rasa syukur kita.' [Berkesadaran]",
+              "IV. REFLEKSI & PENUTUP (Pijakan Setelah Main / Recalling)",
+              "16. Berkumpul kembali dengan anak untuk melakukan refleksi singkat setelah beres-beres selesai. [Berkesadaran - Merefleksikan]",
+              "17. Berikan apresiasi spesifik atas usaha anak: 'Masya Allah, hari ini kalian menunjukkan ketekunan dan kerja sama yang luar biasa saat menggunakan alat ini.' [Berkesadaran - Merefleksikan]",
+              "18. Recalling Pengalaman: Tanyakan kepada anak: 'Bagian mana dari kegiatan tadi yang paling menarik atau menantang bagi kalian?' Biarkan anak bercerita. [Berkesadaran - Merefleksikan]",
+              "19. Internalisasi Nilai Islam (QS. Al-Alaq: 1): Guru menjelaskan: 'Allah mengajarkan ilmu kepada manusia.' [Berkesadaran - Merefleksikan]",
+              "20. Ajak anak berkomitmen melakukan satu kebaikan nyata hari ini sebagai wujud syukur atas akal dan kemampuan yang Allah berikan. [Berkesadaran - Mengaplikasikan]",
+              "21. Mengucap hamdalah bersama-sama untuk menutup sesi kerja: 'Alhamdulillahi rabbil ’alamin.' [Berkesadaran]",
+              "22. Guru mengucapkan kalimat penutup kepada anak: 'Alhamdulillahi jaza kumullohu khoiro.' [Berkesadaran]"
+            ],
+            "toolDisplay": "English Poetry Anthology, Acrostic Worksheets, Colored Pens",
+            "error": "Writing lines that do not follow the rhythmic structure or acrostic rule selected.",
+            "videoUrl": "",
+            "toolsList": [
+              "Poetry Anthology",
+              "Acrostic Worksheets"
+            ],
+            "directAim": "Read, write, and appreciate simple English poems (rhymes, acrostic poems, haiku) and experiment with wordplay.",
+            "prerequisites": "Anak memahami sajak sederhana dan memiliki kosakata bahasa Inggris menengah."
+          },
+          "label": "K4-K5: English Poetry & Creative Wordplay"
+        },
+        {
+          "grades": [
+            "K5",
+            "K6"
+          ],
+          "presentation": {
+            "tool": "English Chapter Books (e.g.",
+            "steps": [
+              "I. PIJAKAN AWAL & PERSIAPAN (Pijakan Sebelum Main)",
+              "1. Mulai kegiatan dengan mengucap bersama anak: 'Bismillahirrahmanirrahim.' [Berkesadaran]",
+              "2. Undang anak ke area karpet kerja dan katakan: 'Nak, mari kita mengeksplorasi Reading English Chapter Books & Literary Analysis menggunakan English Chapter Books (e.g., Charlotte’s Web), Literary Analysis Charts. Mari kita merenungi kekuasaan Allah.' [Berkesadaran]",
+              "3. Siapkan karpet kerja yang bersih dan rapi di lantai.",
+              "4. Guru membawa material English Chapter Books (e.g., Charlotte’s Web), Literary Analysis Charts ke atas karpet bersama anak dengan penuh rasa hormat. [Berkesadaran]",
+              "II. PRESENTASI INTI (Langkah Eksplorasi)",
+              "5. Guru meletakkan material di tengah karpet dan meminta anak mengamatinya secara visual.",
+              "6. Guru memperlihatkan buku bab bahasa Inggris: 'This book has chapters, and we will follow a long journey of the characters.'",
+              "7. Guru menjelaskan konsep Unsur Intrinsik Sastra: Theme (tema), Setting (latar tempat/waktu), dan Plot Conflict (konflik utama).",
+              "8. Guru mengajak anak membaca satu bab mandiri, lalu berdiskusi: 'What is the main problem of the character in this chapter?'",
+              "9. Guru mendemonstrasikan cara mengisi diagram analisis sastra di papan tulis.",
+              "10. Anak membaca bab lanjutan secara mandiri di kelas.",
+              "11. Anak mengisi lembar analisis karakter (Character Profile) bahasa Inggris secara tertulis.",
+              "12. Internalisasi Nilai Islam (QS. Yusuf: 111): Guru menjelaskan: 'Membaca kisah perjalanan hidup tokoh melatih empati diri dan mengambil ibrah (pelajaran moral) dari pemecahan masalah kehidupan.'",
+              "III. KERJA MANDIRI (Pijakan Saat Main)",
+              "13. Undang anak untuk mencoba secara mandiri: 'Apakah kamu ingin mencobanya sendiri atau bekerja bersama temanmu?' [Menyenangkan]",
+              "14. Biarkan anak melakukan eksplorasi berulang kali secara mandiri dengan material tersebut untuk membangun konsentrasi. Guru mengobservasi tanpa menginterupsi. [Menyenangkan - Kerja Mandiri]",
+              "15. Setelah selesai, bimbing anak merapikan material dan mengembalikannya ke rak: 'Yuk, kita kembalikan ke rak secara rapi. Kebersihan dan keteraturan adalah bagian dari rasa syukur kita.' [Berkesadaran]",
+              "IV. REFLEKSI & PENUTUP (Pijakan Setelah Main / Recalling)",
+              "16. Berkumpul kembali dengan anak untuk melakukan refleksi singkat setelah beres-beres selesai. [Berkesadaran - Merefleksikan]",
+              "17. Berikan apresiasi spesifik atas usaha anak: 'Masya Allah, hari ini kalian menunjukkan ketekunan dan kerja sama yang luar biasa saat menggunakan alat ini.' [Berkesadaran - Merefleksikan]",
+              "18. Recalling Pengalaman: Tanyakan kepada anak: 'Bagian mana dari kegiatan tadi yang paling menarik atau menantang bagi kalian?' Biarkan anak bercerita. [Berkesadaran - Merefleksikan]",
+              "19. Internalisasi Nilai Islam (QS. Al-Alaq: 1): Guru menjelaskan: 'Allah mengajarkan ilmu kepada manusia.' [Berkesadaran - Merefleksikan]",
+              "20. Ajak anak berkomitmen melakukan satu kebaikan nyata hari ini sebagai wujud syukur atas akal dan kemampuan yang Allah berikan. [Berkesadaran - Mengaplikasikan]",
+              "21. Mengucap hamdalah bersama-sama untuk menutup sesi kerja: 'Alhamdulillahi rabbil ’alamin.' [Berkesadaran]",
+              "22. Guru mengucapkan kalimat penutup kepada anak: 'Alhamdulillahi jaza kumullohu khoiro.' [Berkesadaran]"
+            ],
+            "indirectAim": "Develop stamina in reading, analytical reading habits, and advanced text interpretation.",
+            "error": "Struggling to follow complex character subplots or failing to identify the main conflict.",
+            "toolDisplay": "English Chapter Books (e.g., Charlotte’s Web), Literary Analysis Charts",
+            "directAim": "Read longer English chapter books independently and perform basic literary analysis (theme, setting, character traits, conflict).",
+            "videoUrl": "",
+            "toolsList": [
+              "Chapter Books",
+              "Analysis Charts"
+            ],
+            "prerequisites": "Anak lancar membaca buku fabel dan teks bahasa Inggris panjang."
+          },
+          "label": "K5-K6: Reading English Chapter Books & Literary Analysis"
+        }
+      ]
+    }
+  ],
+  "icon": "BookOpen",
+  "bgColor": "#FFF7EB",
+  "id": "bahasa",
+  "name": "Bahasa / Language"
+}

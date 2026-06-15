@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { KeyRound, Mail, AlertCircle, ArrowRight } from 'lucide-react';
+import { KeyRound, Mail, AlertCircle, ArrowRight, Eye, EyeOff } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
 
 export default function LoginPage() {
@@ -8,6 +8,7 @@ export default function LoginPage() {
   const { login } = useAuth();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState('');
 
   const handleLogin = async (e) => {
@@ -73,12 +74,19 @@ export default function LoginPage() {
             <div className="card-soft card-inset" style={{ position: 'relative', padding: '0', borderRadius: '18px', background: 'white' }}>
               <KeyRound size={18} style={{ position: 'absolute', left: '18px', top: '50%', transform: 'translateY(-50%)', color: '#B2BEC3' }} />
               <input 
-                type="password" 
+                type={showPassword ? "text" : "password"} 
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 placeholder="••••••••"
-                style={{ width: '100%', padding: '16px 16px 16px 52px', borderRadius: '18px', border: 'none', background: 'transparent', outline: 'none', fontSize: '0.95rem', fontWeight: 600 }} 
+                style={{ width: '100%', padding: '16px 52px 16px 52px', borderRadius: '18px', border: 'none', background: 'transparent', outline: 'none', fontSize: '0.95rem', fontWeight: 600 }} 
               />
+              <button 
+                type="button"
+                onClick={() => setShowPassword(!showPassword)}
+                style={{ position: 'absolute', right: '18px', top: '50%', transform: 'translateY(-50%)', background: 'none', border: 'none', cursor: 'pointer', color: '#B2BEC3', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
+              >
+                {showPassword ? <EyeOff size={18} /> : <Eye size={18} />}
+              </button>
             </div>
           </div>
 

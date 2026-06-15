@@ -3,8 +3,9 @@ import { useAuth, ROLES, getRoleLabel, getRoleColor, canManageAccounts } from '.
 import { useNavigate } from 'react-router-dom';
 import { UserCog, Search, Shield, ChevronLeft, Loader2, CheckCircle2, AlertTriangle, User, Mail, MapPin, Edit3, Save, X, Plus, Eye, EyeOff } from 'lucide-react';
 import { db, auth } from '../firebase-config';
-import { collection, getDocs, doc, setDoc, updateDoc, query, where } from 'firebase/firestore';
-import { createUserWithEmailAndPassword, getAuth } from 'firebase/auth';
+import { collection, getDocs, doc, setDoc, updateDoc, query, where, deleteDoc } from 'firebase/firestore';
+import { createUserWithEmailAndPassword, getAuth, signOut } from 'firebase/auth';
+import { initializeApp } from 'firebase/app';
 
 export default function UserManagement() {
   const { user, getAllUsers, updateUserRole, updateUserProfile } = useAuth();
@@ -34,7 +35,18 @@ export default function UserManagement() {
     setLoading(true);
     try {
       const allUsers = await getAllUsers();
-      setUsers(allUsers.sort((a, b) => {
+      
+      // Ambil juga user pending dari koleksi pending_users
+      let pendingUsers = [];
+      try {
+        const pendingSnap = await getDocs(collection(db, 'pending_users'));
+        pendingUsers = pendingSnap.docs.map(d => ({ uid: d.id, ...d.data(), isPending: true }));
+      } catch (pe) {
+        console.error("Error loading pending users:", pe);
+      }
+
+      const combinedUsers = [...allUsers, ...pendingUsers];
+      setUsers(combinedUsers.sort((a, b) => {
         const roleOrder = { kepsek: 0, kurikulum: 1, guru: 2 };
         if ((roleOrder[a.role] || 2) !== (roleOrder[b.role] || 2)) return (roleOrder[a.role] || 2) - (roleOrder[b.role] || 2);
         return (a.displayName || '').localeCompare(b.displayName || '');
@@ -113,19 +125,19 @@ export default function UserManagement() {
     }
 
     setAddingAccount(true);
+    let tempApp = null;
     try {
-      // We need to use Firebase Admin or a Cloud Function to create users
-      // For client-side, we use a workaround: create temp auth, store profile, then restore current session
-      // NOTE: This will sign in as the new user temporarily - not ideal but works for MVP
+      // 1. Inisialisasi Firebase App sementara untuk mendaftarkan user baru di Auth tanpa men-sign out admin
+      tempApp = initializeApp(auth.app.options, 'TempApp');
+      const tempAuth = getAuth(tempApp);
       
-      // Save current user state
-      const currentUser = auth.currentUser;
+      // 2. Daftarkan di Firebase Authentication
+      const userCredential = await createUserWithEmailAndPassword(tempAuth, newAccount.email, newAccount.password);
+      const newUid = userCredential.user.uid;
       
-      // Create the new user in Firestore directly (profile only)
-      // The actual Firebase Auth account creation should ideally be done via Cloud Functions
-      // For now, we'll store the profile and the user can be created via Firebase Console
-      
+      // 3. Simpan data user langsung ke koleksi utama 'users'
       const newUserDoc = {
+        uid: newUid,
         email: newAccount.email,
         displayName: newAccount.displayName,
         role: newAccount.role,
@@ -133,25 +145,49 @@ export default function UserManagement() {
         kelasId: null,
         status: 'active',
         createdAt: new Date().toISOString(),
-        createdBy: user.uid,
-        pendingAuth: true // Flag: needs Firebase Auth account creation
+        createdBy: user.uid
       };
 
-      // Use email as doc ID (replacing special chars)
-      const docId = newAccount.email.replace(/[^a-zA-Z0-9]/g, '_');
-      await setDoc(doc(db, 'pending_users', docId), newUserDoc);
+      await setDoc(doc(db, 'users', newUid), newUserDoc);
       
-      triggerSuccess(`Profil "${newAccount.displayName}" berhasil didaftarkan. Akun Firebase Auth perlu dibuat di Firebase Console.`);
+      // 4. Bersihkan session auth temp
+      await signOut(tempAuth);
+      
+      triggerSuccess(`Akun "${newAccount.displayName}" berhasil didaftarkan dan langsung aktif!`);
       setShowAddForm(false);
       setNewAccount({ email: '', password: '', displayName: '', role: ROLES.GURU, kelasName: '' });
       
-      // Add to local state for immediate display
-      setUsers(prev => [...prev, { ...newUserDoc, uid: docId, isPending: true }]);
+      // Refresh daftar user agar list terupdate
+      fetchData();
     } catch (error) {
       console.error("Error creating account:", error);
-      alert('Gagal membuat akun: ' + error.message);
+      let errMsg = error.message;
+      if (error.code === 'auth/email-already-in-use') {
+        errMsg = 'Email tersebut sudah terdaftar di Firebase Auth.';
+      }
+      alert('Gagal membuat akun: ' + errMsg);
     } finally {
+      if (tempApp) {
+        try {
+          await tempApp.delete();
+        } catch (e) {
+          console.error("Error deleting temp app:", e);
+        }
+      }
       setAddingAccount(false);
+    }
+  };
+
+  const handleDeletePending = async (docId) => {
+    if (window.confirm('Hapus pendaftaran pending ini? Anda harus mendaftarkannya kembali secara utuh.')) {
+      try {
+        await deleteDoc(doc(db, 'pending_users', docId));
+        setUsers(prev => prev.filter(u => u.uid !== docId));
+        triggerSuccess('Pendaftaran pending berhasil dihapus.');
+      } catch (error) {
+        console.error(error);
+        alert('Gagal menghapus: ' + error.message);
+      }
     }
   };
 
@@ -283,9 +319,9 @@ export default function UserManagement() {
               {addingAccount ? <Loader2 size={18} className="animate-spin" /> : <Save size={18} />} {addingAccount ? 'Mendaftarkan...' : 'Daftarkan Akun'}
             </button>
           </div>
-          <div style={{ marginTop: '16px', padding: '12px 16px', background: '#FEF3C7', borderRadius: '12px', border: '1px solid #FDE68A', fontSize: '0.8rem', color: '#92400E', fontWeight: 600, display: 'flex', alignItems: 'center', gap: '8px' }}>
-            <AlertTriangle size={16} />
-            Setelah mendaftarkan, akun Firebase Auth perlu dibuat secara manual di Firebase Console dengan email dan kata sandi yang sama.
+          <div style={{ marginTop: '16px', padding: '12px 16px', background: '#ECFDF5', borderRadius: '12px', border: '1px solid #A7F3D0', fontSize: '0.8rem', color: '#065F46', fontWeight: 600, display: 'flex', alignItems: 'center', gap: '8px' }}>
+            <CheckCircle2 size={16} color="#10B981" />
+            Sistem otomatis mendaftarkan email & password ke sistem autentikasi dan mengaktifkan akun secara langsung.
           </div>
         </div>
       )}
@@ -376,14 +412,23 @@ export default function UserManagement() {
                       <>
                         {!isCurrentUser && (
                           <>
-                            <button onClick={() => { setEditingUserId(u.uid); setEditForm({ displayName: u.displayName, kelasName: u.kelasName || '' }); }}
-                              style={{ padding: '8px', borderRadius: '10px', border: '1px solid #E2E8F0', background: 'white', color: '#64748B', cursor: 'pointer' }}>
-                              <Edit3 size={16} />
-                            </button>
-                            <button onClick={() => handleToggleStatus(u.uid, u.status)}
-                              style={{ padding: '8px 14px', borderRadius: '10px', border: '1px solid #E2E8F0', background: isInactive ? '#ECFDF5' : '#FEF2F2', color: isInactive ? '#10B981' : '#EF4444', fontWeight: 800, cursor: 'pointer', fontSize: '0.75rem' }}>
-                              {isInactive ? 'Aktifkan' : 'Nonaktifkan'}
-                            </button>
+                            {u.isPending ? (
+                              <button onClick={() => handleDeletePending(u.uid)}
+                                style={{ padding: '8px 14px', borderRadius: '10px', border: '1px solid #FEE2E2', background: '#FEF2F2', color: '#EF4444', fontWeight: 800, cursor: 'pointer', fontSize: '0.75rem', display: 'flex', alignItems: 'center', gap: '4px' }}>
+                                <X size={14} /> Hapus Pending
+                              </button>
+                            ) : (
+                              <>
+                                <button onClick={() => { setEditingUserId(u.uid); setEditForm({ displayName: u.displayName, kelasName: u.kelasName || '' }); }}
+                                  style={{ padding: '8px', borderRadius: '10px', border: '1px solid #E2E8F0', background: 'white', color: '#64748B', cursor: 'pointer' }}>
+                                  <Edit3 size={16} />
+                                </button>
+                                <button onClick={() => handleToggleStatus(u.uid, u.status)}
+                                  style={{ padding: '8px 14px', borderRadius: '10px', border: '1px solid #E2E8F0', background: isInactive ? '#ECFDF5' : '#FEF2F2', color: isInactive ? '#10B981' : '#EF4444', fontWeight: 800, cursor: 'pointer', fontSize: '0.75rem' }}>
+                                  {isInactive ? 'Aktifkan' : 'Nonaktifkan'}
+                                </button>
+                              </>
+                            )}
                           </>
                         )}
                       </>

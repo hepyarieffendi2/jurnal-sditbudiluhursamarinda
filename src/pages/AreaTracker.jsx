@@ -570,7 +570,7 @@ export default function AreaTracker() {
         {viewMode === 'kelola' ? (
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: 8 }}>
                 <div style={{ display: 'flex', gap: 6 }}>
-                    {['All', 'K1', 'K2', 'K3'].map(g => (
+                    {['All', 'K1', 'K2', 'K3', 'K4', 'K5', 'K6'].map(g => (
                         <button key={g} onClick={() => setMapFocusGrade(g)} style={{ padding: '5px 10px', borderRadius: '8px', border: 'none', background: mapFocusGrade === g ? activeArea.color : '#F1F5F9', color: mapFocusGrade === g ? 'white' : '#64748B', fontWeight: 900, fontSize: '0.6rem' }}>{g}</button>
                     ))}
                 </div>
@@ -588,7 +588,7 @@ export default function AreaTracker() {
                     <input type="date" value={selectedDate} onChange={e => setSelectedDate(e.target.value)} style={{ border: 'none', background: 'transparent', fontWeight: 950, fontSize: '0.75rem', color: '#1E293B', outline: 'none' }} />
                 </div>
                 <div style={{ display: 'flex', gap: 6 }}>
-                    {['All', 'K1', 'K2', 'K3'].map(g => (
+                    {['All', 'K1', 'K2', 'K3', 'K4', 'K5', 'K6'].map(g => (
                         <button key={g} onClick={() => setMapFocusGrade(g)} style={{ padding: '5px 10px', borderRadius: '8px', border: 'none', background: mapFocusGrade === g ? activeArea.color : '#F1F5F9', color: mapFocusGrade === g ? 'white' : '#64748B', fontWeight: 900, fontSize: '0.6rem' }}>{g}</button>
                     ))}
                 </div>

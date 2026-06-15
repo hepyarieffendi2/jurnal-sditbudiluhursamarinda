@@ -113,6 +113,111 @@ const renderTextWithTags = (text) => {
   });
 };
 
+const getGreatLessonMedia = (labelOrTitle) => {
+  const text = String(labelOrTitle).toLowerCase();
+  if (text.includes("cerita besar 4") || text.includes("sejarah tulisan") || text.includes("story of writing")) {
+    return [
+      {
+        id: "cave_painting",
+        title: "Bagan AMI: Lukisan Gua Prasejarah (Cave Painting Chart)",
+        url: "/story_of_writing_cave_painting.png",
+        stepNum: 5
+      }
+    ];
+  }
+  if (text.includes("cerita besar 5") || text.includes("sejarah angka") || text.includes("story of numbers")) {
+    return [
+      {
+        id: "shepherd",
+        title: "Bagan AMI: Gembala & Kerikil Hitung (Shepherd & Pebbles Chart)",
+        url: "/story_of_numbers_shepherd.png",
+        stepNum: 5
+      },
+      {
+        id: "al_khwarizmi",
+        title: "Bagan AMI: Al-Khawarizmi & Penemuan Angka Nol (Al-Khwarizmi & Zero Chart)",
+        url: "/al_khwarizmi_zero.png",
+        stepNum: 8
+      }
+    ];
+  }
+  return [];
+};
+
+const STORY_NARRATIVE_4 = {
+    title: "Cerita Besar 4: Sejarah Tulisan (The Story of Writing)",
+    alatPeraga: "Gambar lukisan gua kuno, kertas pasir, nampan berisi pasir halus, gambar huruf Hieroglif Mesir, sampel tulisan kaligrafi Arab.",
+    paragraphs: [
+        {
+            section: "Bagian 1: Keajaiban Berbicara Lintas Waktu",
+            stageDirection: "(Guru meminta anak melingkar dengan tenang di atas karpet kerja. Mulailah dengan suara yang lambat dan penuh teka-teki.)",
+            text: "\"Anak-anakku sekalian... mari kita mulai dengan mengucap bersama: Bismillahirrahmanirrahim.\"\n\n(Guru diam sejenak, menatap anak-anak satu per satu.)\n\n\"Pernahkah kalian berpikir... bagaimana jadinya jika kita bisa berbicara dengan orang yang sudah meninggal ribuan tahun yang lalu? Bagaimana jika pikiran seseorang yang hidup di negeri yang sangat jauh, menyeberangi samudra luas, bisa tiba-tiba masuk ke dalam kepala kita sekarang?\"\n\n(Guru menunjukkan sebuah buku atau selembar kertas bertuliskan huruf.)\n\n\"Ini bukan sihir. Ini adalah keajaiban nyata yang kita lakukan setiap hari. Di atas kertas ini, ada garis-garis hitam kecil yang melengkung dan lurus. Garis-garis ini diam, tidak bersuara. Tetapi ketika mata kita melihatnya, garis-garis diam ini mulai berbicara di dalam pikiran kita. Mereka menceritakan kisah pertempuran, penemuan obat, hingga pesan cinta dari masa lalu.\n\nAllah Subhanahu wa Ta'ala berfirman dalam Surah Al-Alaq ayat 4: 'Lalladzi 'allama bil-qalam'. Dia yang mengajarkan manusia dengan perantara pena. Pena dan tulisan adalah penjaga ilmu di bumi ini. Hari ini, kita akan mendengarkan kisah bagaimana keajaiban garis-garis ini dimulai...\""
+        },
+        {
+            section: "Bagian 2: Tanda di Dinding Gua (Prasejarah)",
+            stageDirection: "(Guru meletakkan gambar lukisan gua prasejarah di atas karpet.)",
+            text: "\"Dahulu kala, puluhan ribu tahun yang lalu, manusia belum memiliki huruf seperti kita. Jika mereka ingin menceritakan tentang seekor banteng besar yang mereka lihat di hutan, mereka tidak bisa menulis kata 'B-A-N-T-E-N-G'.\n\nTetapi, manusia memiliki keinginan yang sangat kuat untuk meninggalkan jejak. Mereka ingin berkata kepada dunia: 'Aku ada di sini. Aku melihat ini.'\n\nMaka, mereka menggunakan jemari mereka, tanah berwarna merah, dan arang hitam. Di dinding gua yang gelap dan sunyi, mereka mulai melukis. Mereka melukis banteng, rusa, dan cap tangan mereka sendiri. Lukisan gua ini adalah surat pertama manusia kepada masa depan. Mereka berbicara lewat gambar.\""
+        },
+        {
+            section: "Bagian 3: Gambar Menjadi Simbol (Sumeria & Mesir Kuno)",
+            stageDirection: "(Guru meletakkan gambar Hieroglif Mesir atau tablet tanah liat Sumeria.)",
+            text: "\"Waktu terus berjalan. Manusia mulai tinggal bersama di kota-kota besar. Mereka mulai berdagang gandum, minyak, dan domba. Gambar-gambar di dinding gua tidak lagi cukup untuk mencatat perdagangan yang begitu banyak. Sangat melelahkan jika setiap kali ingin menulis 'gandum', kita harus melukis sebatang pohon gandum yang indah secara detail.\n\nMaka, bangsa Sumeria di dekat Sungai Eufrat mulai menekan stik kayu berbentuk baji ke atas tanah liat basah. Mereka menyederhanakan gambar gandum menjadi beberapa garis tajam yang mirip baji. Ini disebut tulisan cuneiform.\n\nDi tempat lain, di Mesir, bangsa Mesir Kuno menciptakan Hieroglif. Mereka menggunakan gambar burung untuk mewakili kata 'burung', gambar matahari untuk mewakili 'matahari' atau 'hari'. Namun, ada masalah besar... Jika kita harus menggambar satu gambar khusus untuk setiap kata di dunia, bayangkan berapa ribu gambar yang harus dihafalkan oleh seorang anak sekolah? Itu sangat menyulitkan!\""
+        },
+        {
+            section: "Bagian 4: Penemuan Terbesar: Suara yang Memiliki Bentuk (Fenisia)",
+            stageDirection: "(Guru mengambil nampan pasir dan menulis satu huruf, misalnya 'A'.)",
+            text: "\"Lalu datanglah bangsa Fenisia. Mereka adalah pelaut-pelaut hebat yang menjelajahi Samudra Mediterania untuk berdagang. Karena perdagangan mereka sangat cepat, mereka membutuhkan sistem mencatat yang sangat praktis.\n\nTiba-tiba, salah satu dari mereka menyadari sesuatu yang sangat cerdas: 'Kita tidak perlu membuat gambar untuk setiap benda di dunia. Kita hanya perlu membuat simbol untuk setiap SUARA yang keluar dari mulut kita!'\n\nCoba letakkan tanganmu di lehermu dan bersuara: 'Ah... Bah... Cah...'\n\nMulut manusia hanya menghasilkan sekitar 20 hingga 30 suara dasar. Bangsa Fenisia kemudian membuat 22 simbol sederhana untuk mewakili suara-suara tersebut. Inilah alfabet pertama di dunia! Ketika mereka menggabungkan simbol suara 'B' dan suara 'I', jadilah kata yang bermakna. Suara manusia kini memiliki bentuk tertulis!\""
+        },
+        {
+            section: "Bagian 5: Penyempurnaan Yunani, Romawi, dan Kecintaan Islam pada Pena",
+            stageDirection: "(Guru meletakkan sampel kaligrafi Arab yang indah.)",
+            text: "\"Bangsa Yunani mengambil alfabet Fenisia dan menambahkan huruf vokal (seperti A, E, I, O, U) agar lebih mudah diucapkan. Bangsa Romawi kemudian menyempurnakan bentuk huruf-huruf itu menjadi huruf Latin tegak yang kita baca di buku-buku kita hari ini.\n\nDan ketika wahyu Allah diturunkan kepada Nabi Muhammad Shallallahu 'Alaihi Wasallam, Islam membawa kecintaan yang luar biasa pada tulisan. Sejak zaman Rasulullah, para sahabat dengan penuh amanah dan ketelitian mencatat setiap ayat wahyu di atas pelepah kurma, batu, dan kulit hewan agar tidak ada satu huruf pun yang hilang (Fathonah & Amanah).\n\nUmat Islam kemudian mengembangkan seni menulis yang sangat indah yang disebut Kaligrafi. Mereka mengukir huruf-huruf suci dengan tinta emas di kubah masjid dan lembaran mushaf, menjadikan menulis sebagai ibadah terindah untuk memuliakan kalam Allah.\""
+        },
+        {
+            section: "Bagian 6: Penutup & Komitmen Refleksi",
+            stageDirection: "(Guru mengakhiri cerita dengan nada tenang dan penuh syukur.)",
+            text: "\"Anak-anakku... hari ini kita bisa membaca sejarah, belajar sains, dan membaca Al-Qur'an karena perjuangan puluhan ribu tahun manusia yang belajar menulis. Pena yang ada di genggaman kalian hari ini adalah warisan peradaban yang suci.\n\nMari kita tutup sesi cerita ini dengan mengucap Hamdalah bersama: Alhamdulillahi rabbil 'alamin. Semoga Allah memberkati jemari kita untuk selalu menuliskan kebaikan.\"\n\n(Guru mengarahkan aktivitas Kerja Mandiri berdasarkan tingkatan kelas.)"
+        }
+    ]
+};
+
+const STORY_NARRATIVE_5 = {
+    title: "Cerita Besar 5: Sejarah Angka (The Story of Numbers)",
+    alatPeraga: "Kantong kulit berisi batu kerikil, tali temali dengan beberapa simpul, gambar angka Babilonia/Mesir kuno, gambar simbol angka modern dan potret Al-Khawarizmi.",
+    paragraphs: [
+        {
+            section: "Bagian 1: Dunia Tanpa Angka",
+            stageDirection: "(Guru menatap anak-anak dengan pandangan misterius.)",
+            text: "\"Anak-anakku... mari duduk melingkar dengan tertib. Tarik napas perlahan... dan mari kita buka sesi belajar ini dengan mengucap: Bismillahirrahmanirrahim.\"\n\n\"Bayangkan... besok pagi kalian terbangun, dan semua angka di dunia ini tiba-tiba hilang. Tidak ada angka di jam dinding, tidak ada harga di toko, tidak ada nomor rumah, tidak ada ukuran di penggaris, dan tidak ada nomor telepon di gawai ibu kalian.\n\nBagaimana kalian memberi tahu teman seberapa tinggi kalian? Bagaimana cara kalian membeli sebungkus roti jika penjual tidak tahu berapa harga rotinya?\n\nDunia akan menjadi sangat sunyi dan membingungkan. Hari ini, kita akan mendengarkan kisah bagaimana manusia berjuang keluar dari kegelapan itu dengan menciptakan bahasa universal alam semesta: Angka.\""
+        },
+        {
+            section: "Bagian 2: Domba dan Batu Kerikil (Zaman Purba)",
+            stageDirection: "(Guru mengeluarkan kantong kulit berisi beberapa batu kerikil.)",
+            text: "\"Dahulu sekali, ada seorang gembala domba. Dia memiliki banyak sekali domba di kandangnya. Si gembala tidak tahu cara menghitung 'satu, dua, tiga, empat...' karena kata-kata itu belum diciptakan.\n\nNamun, gembala itu harus memastikan tidak ada dombanya yang hilang di padang rumput. Bagaimana caranya?\n\nDia menggunakan kerikil-kerikil kecil ini. Setiap kali satu domba keluar melewati pintu kandang di pagi hari, gembala itu akan mengambil SATU batu kerikil dan memasukkannya ke dalam kantong kulit ini. Domba kedua keluar, satu kerikil lagi masuk. Domba ketiga, satu kerikil lagi.\n\nDi sore hari, ketika domba-domba pulang, gembala melakukan hal yang sebaliknya. Satu domba masuk kandang, satu kerikil dikeluarkan dari kantong. Domba kedua masuk, satu kerikil keluar.\n\nJika semua domba sudah masuk kandang, dan kantong kulitnya KOSONG, gembala itu tersenyum. Artinya, seluruh dombanya aman. Tetapi jika masih ada satu kerikil tersisa di kantongnya... gembala itu tahu, ada satu domba yang tertinggal di hutan. Kerikil itu mewakili domba.\""
+        },
+        {
+            section: "Bagian 3: Guratan di Tanah Liat dan Tali Simpul",
+            stageDirection: "(Guru memperlihatkan tali bersimpul.)",
+            text: "\"Manusia kemudian mulai mengikat simpul pada tali atau menggoreskan garis pada tulang hewan untuk mencatat jumlah panen mereka.\n\nLalu, bangsa Mesir Kuno membangun piramida yang megah. Mereka membutuhkan angka yang sangat besar untuk menghitung jumlah batu batu raksasa. Mereka membuat simbol gambar: garis lurus untuk angka 1, gambar tulang tumit untuk angka 10, gulungan tali untuk angka 100, dan bunga teratai untuk angka 1.000.\n\nNamun, jika mereka ingin menuliskan angka 9.999... bayangkan, mereka harus menggambar 9 teratai, 9 gulungan tali, 9 tulang tumit, dan 9 garis lurus! Menulis satu angka saja membutuhkan waktu setengah jam! Sangat tidak praktis.\""
+        },
+        {
+            section: "Bagian 4: Angka Romawi dan Keterbatasannya",
+            stageDirection: "(Guru menulis angka Romawi di papan atau kertas.)",
+            text: "\"Kemudian bangsa Romawi datang dengan sistem angka huruf mereka yang terkenal: I, V, X, L, C, D, M. Kalian pasti sering melihatnya di jam dinding.\n\nSimbol Romawi ini sangat indah jika diukir di monumen batu. Tetapi, coba kalian bayangkan jika kalian harus melakukan perkalian matematika:\n\nMDCCXCVIII dikali XLIV\n\nBagaimana cara menyusun perkalian ke bawahnya? Itu hampir mustahil dilakukan tanpa membuat kepala pusing! Bangsa Romawi harus menggunakan alat bantu sempoa khusus karena angka mereka tidak bisa dihitung langsung di atas kertas.\""
+        },
+        {
+            section: "Bagian 5: Revolusi Baghdad dan Penemuan Angka Nol (Sifr)",
+            stageDirection: "(Guru meletakkan gambar potret Al-Khawarizmi atau menulis angka 0.)",
+            text: "\"Hingga akhirnya, terjadilah sebuah keajaiban ilmiah di kota Baghdad, pusat peradaban Islam. Seorang ilmuwan muslim jenius bernama Muhammad bin Musa Al-Khawarizmi mempelajari sistem angka dari India yang menggunakan 9 simbol sederhana.\n\nTetapi Al-Khawarizmi menyadari ada satu hal besar yang hilang. Bagaimana cara menuliskan 'tidak ada apa-apa' atau 'kosong' agar posisi angka puluhan dan ratusan tidak tertukar?\n\nMaka, Al-Khawarizmi memperkenalkan simbol lingkaran kecil yang disebut 'Sifr' (artinya kosong). Bangsa barat menyebutnya 'Zero' atau 'Nol'.\n\nNol adalah penemuan terbesar dalam matematika. Dengan adanya angka Nol, kita bisa membedakan angka 1, 10, 100, dan 1.000 hanya dengan menambahkan lingkaran kosong di belakangnya! Angka desimal Hindu-Arab ini sangat mudah dihitung di atas kertas sehingga menyebar ke seluruh dunia dan digunakan oleh semua manusia hingga hari ini.\""
+        },
+        {
+            section: "Bagian 6: Penutup & Hikmah Spiritual",
+            stageDirection: "(Guru mengakhiri cerita dengan nada tenang dan penuh syukur.)",
+            text: "\"Anak-anakku, Allah menata alam semesta ini dengan perhitungan matematika yang sangat rapi. Allah berfirman dalam Surah Yasin ayat 12: 'Wa kulla syai'in ahshainahu fi imamim mubin'. Dan segala sesuatu telah Kami kumpulkan (catat dan perhitungkan) dalam Kitab Induk yang nyata.\n\nAllah adalah Al-Hasib, Zat yang Maha Membuat Perhitungan. Setiap amal kebaikan kita, sekecil debu sekalipun, dihitung dengan sangat presisi oleh-Nya dan akan dilipatgandakan pahalanya.\n\nMari kita syukuri karunia akal berhitung ini dengan mengucapkan Hamdalah bersama: Alhamdulillahi rabbil 'alamin.\"\n\n(Guru mengarahkan aktivitas Kerja Mandiri berdasarkan tingkatan kelas.)"
+        }
+    ]
+};
+
 export default function FormJurnal() {
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
@@ -141,8 +246,13 @@ export default function FormJurnal() {
   const [loading, setLoading] = useState(false);
   const [saved, setSaved] = useState(false);
   const [showGuide, setShowGuide] = useState(false);
+  const [showFullStory, setShowFullStory] = useState(false);
   const [expandedGroup, setExpandedGroup] = useState(null);
   const contentRef = useRef(null);
+
+  useEffect(() => {
+    setShowFullStory(false);
+  }, [selectedLevel]);
 
   // Load Data
   useEffect(() => {
@@ -545,6 +655,85 @@ export default function FormJurnal() {
                       <div style={styles.guideSectionLabel}>🧰 Alat Peraga</div>
                       <div style={styles.guideSectionText}>{selectedLevel.presentation.tool}</div>
                     </div>
+
+                    {/* Gambar Peraga Album AMI (Cerita Besar) */}
+                    {(() => {
+                      const media = getGreatLessonMedia(selectedLevel.label);
+                      if (media.length === 0) return null;
+                      return (
+                        <div style={{ ...styles.guideSection, borderTop: '1px solid #E2E8F0', paddingTop: '12px' }}>
+                          <div style={styles.guideSectionLabel}>🎨 Gambar Peraga Album AMI</div>
+                          <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', marginTop: '8px' }}>
+                            {media.map((item) => (
+                              <div key={item.id} style={{ display: 'flex', flexDirection: 'column', gap: '6px', background: 'white', padding: '10px', borderRadius: '12px', border: '1px solid #E2E8F0' }}>
+                                <img 
+                                  src={item.url} 
+                                  alt={item.title} 
+                                  style={{ width: '100%', height: 'auto', borderRadius: '8px', objectFit: 'contain', maxHeight: '160px' }} 
+                                />
+                                <div style={{ fontSize: '0.7rem', fontWeight: 750, color: '#475569', textAlign: 'center', fontStyle: 'italic' }}>
+                                  {item.title}
+                                </div>
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+                      );
+                    })()}
+
+                    {/* Naskah Cerita Lengkap Accordion */}
+                    {(() => {
+                      const isWriting = selectedLevel.label.includes("Cerita Besar 4") || selectedLevel.label.includes("Sejarah Tulisan");
+                      const isNumbers = selectedLevel.label.includes("Cerita Besar 5") || selectedLevel.label.includes("Sejarah Angka");
+                      if (!isWriting && !isNumbers) return null;
+                      
+                      const story = isWriting ? STORY_NARRATIVE_4 : STORY_NARRATIVE_5;
+                      const areaColor = selectedArea?.color || '#3B82F6';
+                      return (
+                        <div style={{ margin: '14px 0', border: '1.5px solid #E2E8F0', borderRadius: '16px', overflow: 'hidden', backgroundColor: 'white' }}>
+                          <button
+                            type="button"
+                            onClick={() => setShowFullStory(!showFullStory)}
+                            style={{
+                              width: '100%', padding: '12px 16px', display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+                              backgroundColor: `${areaColor}08`, border: 'none', cursor: 'pointer', outline: 'none'
+                            }}
+                          >
+                            <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: areaColor, fontWeight: 900, fontSize: '0.78rem', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
+                              <BookOpen size={14} /> Naskah Dongeng Lengkap
+                            </div>
+                            <ChevronDown size={16} style={{ color: areaColor, transform: showFullStory ? 'rotate(180deg)' : 'rotate(0)', transition: 'transform 0.2s' }} />
+                          </button>
+                          {showFullStory && (
+                            <div style={{ padding: '16px', display: 'flex', flexDirection: 'column', gap: '16px', borderTop: '1px solid #F1F5F9', maxHeight: '400px', overflowY: 'auto', backgroundColor: '#FAFBFC' }}>
+                              {story.paragraphs.map((p, idx) => (
+                                <div key={idx} style={{ display: 'flex', flexDirection: 'column', gap: '5px', paddingBottom: '12px', borderBottom: idx < story.paragraphs.length - 1 ? '1px dashed #E2E8F0' : 'none' }}>
+                                  <div style={{ fontSize: '0.65rem', fontWeight: 900, color: areaColor, textTransform: 'uppercase', letterSpacing: '0.5px' }}>
+                                    {p.section}
+                                  </div>
+                                  {p.stageDirection && (
+                                    <div style={{ fontSize: '0.72rem', color: '#94A3B8', fontStyle: 'italic', fontWeight: 600, lineHeight: '1.4', padding: '5px 10px', background: '#F1F5F9', borderRadius: '6px', borderLeft: `3px solid ${areaColor}40` }}>
+                                      {p.stageDirection}
+                                    </div>
+                                  )}
+                                  <div style={{ margin: 0, fontSize: '0.8rem', color: '#334155', lineHeight: '1.6', fontWeight: 600 }}>
+                                    {p.text.split('\n').map((line, li) => {
+                                      const trimmed = line.trim();
+                                      if (!trimmed) return <br key={li} />;
+                                      if (trimmed.startsWith('(') && trimmed.endsWith(')')) {
+                                        return <div key={li} style={{ fontStyle: 'italic', color: '#94A3B8', fontSize: '0.75rem', margin: '3px 0' }}>{trimmed}</div>;
+                                      }
+                                      return <p key={li} style={{ margin: '2px 0' }}>{trimmed}</p>;
+                                    })}
+                                  </div>
+                                </div>
+                              ))}
+                            </div>
+                          )}
+                        </div>
+                      );
+                    })()}
+
                     <div style={styles.guideSection}>
                       <div style={styles.guideSectionLabel}>📋 Langkah Presentasi</div>
                       {(() => {
@@ -574,6 +763,9 @@ export default function FormJurnal() {
 
                           stepCounter++;
                           const stepText = s.replace(/^\d+\.\s*/, '');
+                          const mediaItems = getGreatLessonMedia(selectedLevel.label);
+                          const matchingMedia = mediaItems.find(m => m.stepNum === stepCounter);
+
                           return (
                             <div key={i} style={styles.guideStep}>
                               <div style={styles.guideStepNum}>{stepCounter}</div>
@@ -590,6 +782,18 @@ export default function FormJurnal() {
                                     </div>
                                   ) : renderTextWithTags(part)
                                 ) : stepText}
+                                {matchingMedia && (
+                                  <div style={{ marginTop: '12px', borderRadius: '12px', overflow: 'hidden', border: '1.5px solid #E2E8F0', background: 'white', padding: '8px', maxWidth: '100%' }}>
+                                    <img 
+                                      src={matchingMedia.url} 
+                                      alt={matchingMedia.title} 
+                                      style={{ width: '100%', height: 'auto', borderRadius: '8px', display: 'block' }} 
+                                    />
+                                    <div style={{ fontSize: '0.68rem', fontWeight: 800, color: '#64748B', marginTop: '6px', textAlign: 'center', fontStyle: 'italic' }}>
+                                      {matchingMedia.title}
+                                    </div>
+                                  </div>
+                                )}
                               </div>
                             </div>
                           );

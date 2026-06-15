@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Save, UserCheck, UserX, Clock, Search, CheckCircle2, ListChecks, RotateCcw } from 'lucide-react';
+import { Save, Search, CheckCircle2, ListChecks, RotateCcw, Check, X, Clock, Minus } from 'lucide-react';
 import { db } from '../firebase-config';
 import { collection, getDocs, query, where } from 'firebase/firestore';
 
@@ -14,7 +14,7 @@ export default function PresensiPage() {
   const [students, setStudents] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  React.useEffect(() => {
+  useEffect(() => {
     const fetchStudents = async () => {
       setLoading(true);
       try {
@@ -26,7 +26,7 @@ export default function PresensiPage() {
         const studData = snapshot.docs.map(doc => ({
           id: doc.id,
           ...doc.data(),
-          status: 'hadir' // Default to hadir for UI initialization
+          status: 'belum_diisi' // Default to neutral on fetch
         }));
         studData.sort((a, b) => a.name.localeCompare(b.name));
         setStudents(studData);
@@ -39,8 +39,14 @@ export default function PresensiPage() {
     fetchStudents();
   }, []);
 
-  const updateStatus = (id, newStatus) => {
-    setStudents(prev => prev.map(s => s.id === id ? { ...s, status: newStatus } : s));
+  const cycleStatus = (id) => {
+    setStudents(prev => prev.map(s => {
+      if (s.id === id) {
+        const nextStatus = s.status === 'belum_diisi' ? 'hadir' : (s.status === 'hadir' ? 'sakit' : (s.status === 'sakit' ? 'alpa' : 'hadir'));
+        return { ...s, status: nextStatus };
+      }
+      return s;
+    }));
   };
 
   const handleBulkUpdate = (newStatus) => {
@@ -63,69 +69,160 @@ export default function PresensiPage() {
 
   const uniqueRombels = ['Semua Kelas', ...new Set(students.map(s => s.rombel).filter(Boolean))];
 
+  // Calculate real-time stats
+  const stats = students.reduce((acc, curr) => {
+    acc.total++;
+    if (curr.status === 'hadir') acc.hadir++;
+    else if (curr.status === 'sakit') acc.sakit++;
+    else if (curr.status === 'alpa') acc.alpa++;
+    else acc.belumDiisi++;
+    return acc;
+  }, { total: 0, hadir: 0, sakit: 0, alpa: 0, belumDiisi: 0 });
+
+  const getStatusConfig = (status) => {
+    switch (status) {
+      case 'hadir':
+        return {
+          label: 'Hadir',
+          bg: '#ECFDF5',
+          color: '#10B981',
+          border: '#A7F3D0',
+          icon: Check
+        };
+      case 'sakit':
+        return {
+          label: 'Sakit/Izin',
+          bg: '#FFFBEB',
+          color: '#F59E0B',
+          border: '#FDE68A',
+          icon: Clock
+        };
+      case 'alpa':
+        return {
+          label: 'Alpa',
+          bg: '#FEF2F2',
+          color: '#EF4444',
+          border: '#FEE2E2',
+          icon: X
+        };
+      case 'belum_diisi':
+      default:
+        return {
+          label: 'Belum Diisi',
+          bg: '#F1F5F9',
+          color: '#64748B',
+          border: '#E2E8F0',
+          icon: Minus
+        };
+    }
+  };
+
   return (
-    <div className="page-container">
-      {/* 👑 GLOBAL HEADER & SCOPE FITLERS */}
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '32px', flexWrap: 'wrap', gap: '16px' }}>
-          <div style={{ padding: '0 8px' }}>
-              <h1 style={{ fontSize: '2.2rem', fontWeight: 900, marginBottom: '8px', color: '#2D3436', marginTop: 0 }}>Presensi Harian</h1>
-              <p style={{ color: 'var(--text-muted)', fontWeight: 600, fontSize: '1.1rem', margin: 0 }}>Pencatatan otomatis kehadiran siswa.</p>
-          </div>
-          <div style={{ display: 'flex', gap: '16px', alignItems: 'center', backgroundColor: 'white', padding: '12px 20px', borderRadius: '16px', boxShadow: 'var(--shadow-sm)', border: '1px solid var(--border-color)' }}>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
-                  <label style={{ fontSize: '0.65rem', fontWeight: 800, color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.5px' }}>Tanggal Perekaman</label>
-                  <input 
-                      type="date" 
-                      value={selectedDate}
-                      onChange={(e) => setSelectedDate(e.target.value)}
-                      style={{ border: 'none', outline: 'none', fontWeight: 800, fontFamily: 'inherit', color: 'var(--primary)', padding: 0, fontSize: '0.9rem' }}
-                  />
-              </div>
-              <div style={{ width: '1px', height: '32px', backgroundColor: 'var(--border-color)' }} />
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
-                  <label style={{ fontSize: '0.65rem', fontWeight: 800, color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.5px' }}>Filter Kelas</label>
-                  <select 
-                     value={selectedRombel}
-                     onChange={e => setSelectedRombel(e.target.value)}
-                     style={{ border: 'none', outline: 'none', fontWeight: 800, fontFamily: 'inherit', color: 'var(--primary)', padding: 0, backgroundColor: 'transparent', fontSize: '0.9rem', cursor: 'pointer' }}
-                  >
-                     {uniqueRombels.map(r => <option key={r} value={r}>{r}</option>)}
-                  </select>
-              </div>
+    <div className="page-container" style={{ paddingBottom: '140px' }}>
+      {/* 👑 GLOBAL HEADER */}
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '24px', flexWrap: 'wrap', gap: '16px' }}>
+          <div>
+              <h1 style={{ fontSize: '2rem', fontWeight: 950, marginBottom: '4px', color: '#1E293B', marginTop: 0 }}>Presensi Harian</h1>
+              <p style={{ color: '#64748B', fontWeight: 600, fontSize: '0.95rem', margin: 0 }}>Pencatatan kehadiran siswa secara berkala.</p>
           </div>
       </div>
 
-      {/* TOOLS & BULK ACTIONS */}
-      <div style={{ display: 'flex', gap: '16px', marginBottom: '24px', alignItems: 'center', flexWrap: 'wrap' }}>
-          {/* Search Box */}
-          <div style={{ position: 'relative', flex: 1, minWidth: '220px' }}>
-              <Search size={18} style={{ position: 'absolute', left: '16px', top: '50%', transform: 'translateY(-50%)', color: 'var(--text-muted)' }} />
+      {/* 👑 PANEL KONTROL TERINTEGRASI */}
+      <div style={{ 
+          display: 'flex', gap: '16px', marginBottom: '24px', alignItems: 'center', 
+          flexWrap: 'wrap', backgroundColor: 'white', padding: '16px', 
+          borderRadius: '20px', border: '1px solid #E2E8F0', boxShadow: '0 4px 6px -1px rgba(0,0,0,0.02)'
+      }}>
+          {/* Kolom Pencarian */}
+          <div style={{ position: 'relative', flex: '2 1 280px' }}>
+              <Search size={18} style={{ position: 'absolute', left: '16px', top: '50%', transform: 'translateY(-50%)', color: '#94A3B8' }} />
               <input 
                   type="text" 
                   placeholder="Cari nama murid..." 
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
-                  style={{ width: '100%', padding: '14px 16px 14px 44px', borderRadius: '12px', border: '1px solid var(--border-color)', outline: 'none', backgroundColor: 'white', fontSize: '1rem', fontWeight: 600 }}
+                  style={{ width: '100%', padding: '12px 16px 12px 48px', borderRadius: '12px', border: '1px solid #E2E8F0', outline: 'none', backgroundColor: '#F8FAFC', fontSize: '0.95rem', fontWeight: 600, color: '#1E293B' }}
               />
           </div>
 
-          {/* Bulk Update Controls */}
-          <div style={{ display: 'flex', backgroundColor: 'white', padding: '6px', borderRadius: '12px', border: '1px solid var(--border-color)', gap: '4px' }}>
+          {/* Filter Tanggal & Kelas */}
+          <div style={{ display: 'flex', gap: '12px', alignItems: 'center', flexWrap: 'wrap', flex: '1 1 auto' }}>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '2px', backgroundColor: '#F8FAFC', padding: '6px 14px', borderRadius: '12px', border: '1px solid #E2E8F0' }}>
+                  <span style={{ fontSize: '0.6rem', fontWeight: 900, color: '#94A3B8', textTransform: 'uppercase', letterSpacing: '0.5px' }}>Tanggal</span>
+                  <input 
+                      type="date" 
+                      value={selectedDate}
+                      onChange={(e) => setSelectedDate(e.target.value)}
+                      style={{ border: 'none', outline: 'none', fontWeight: 800, fontFamily: 'inherit', color: 'var(--primary)', padding: 0, fontSize: '0.85rem', backgroundColor: 'transparent', cursor: 'pointer' }}
+                  />
+              </div>
+              
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '2px', backgroundColor: '#F8FAFC', padding: '6px 14px', borderRadius: '12px', border: '1px solid #E2E8F0' }}>
+                  <span style={{ fontSize: '0.6rem', fontWeight: 900, color: '#94A3B8', textTransform: 'uppercase', letterSpacing: '0.5px' }}>Filter Kelas</span>
+                  <select 
+                     value={selectedRombel}
+                     onChange={e => setSelectedRombel(e.target.value)}
+                     style={{ border: 'none', outline: 'none', fontWeight: 800, fontFamily: 'inherit', color: 'var(--primary)', padding: 0, backgroundColor: 'transparent', fontSize: '0.85rem', cursor: 'pointer' }}
+                  >
+                     {uniqueRombels.map(r => <option key={r} value={r}>{r}</option>)}
+                  </select>
+              </div>
+          </div>
+
+          {/* Tombol Aksi Massal (Bulk) */}
+          <div style={{ display: 'flex', gap: '6px', flexWrap: 'wrap' }}>
               <button 
                 onClick={() => handleBulkUpdate('hadir')}
-                style={{ border: 'none', background: 'none', padding: '8px 16px', borderRadius: '8px', cursor: 'pointer', color: 'var(--secondary)', fontWeight: 700, fontSize: '0.85rem', display: 'flex', alignItems: 'center', gap: '6px' }}
-                title="Tandai semua hadir"
+                style={{ 
+                    border: 'none', backgroundColor: '#ECFDF5', padding: '10px 16px', 
+                    borderRadius: '12px', cursor: 'pointer', color: '#10B981', 
+                    fontWeight: 800, fontSize: '0.8rem', display: 'flex', alignItems: 'center', gap: '6px',
+                    border: '1.5px solid #A7F3D0', transition: 'all 0.2s'
+                }}
               >
-                  <ListChecks size={18} /> Semua Hadir
+                  <ListChecks size={16} /> Semua Hadir
               </button>
-              <div style={{ width: '1px', backgroundColor: 'var(--border-color)', margin: '4px 0' }} />
               <button 
                 onClick={() => handleBulkUpdate('alpa')}
-                style={{ border: 'none', background: 'none', padding: '8px 16px', borderRadius: '8px', cursor: 'pointer', color: 'var(--danger)', fontWeight: 700, fontSize: '0.85rem', display: 'flex', alignItems: 'center', gap: '6px' }}
-                title="Reset semua alpa"
+                style={{ 
+                    border: 'none', backgroundColor: '#FEF2F2', padding: '10px 16px', 
+                    borderRadius: '12px', cursor: 'pointer', color: '#EF4444', 
+                    fontWeight: 800, fontSize: '0.8rem', display: 'flex', alignItems: 'center', gap: '6px',
+                    border: '1.5px solid #FEE2E2', transition: 'all 0.2s'
+                }}
               >
-                  <RotateCcw size={16} /> Reset Alpa
+                  <RotateCcw size={14} /> Reset Alpa
               </button>
+          </div>
+      </div>
+
+      {/* 📊 REAL-TIME SUMMARY STATS WIDGET */}
+      <div style={{ 
+          display: 'flex', gap: '12px', flexWrap: 'wrap', marginBottom: '24px', 
+          backgroundColor: '#F8FAFC', padding: '16px 20px', borderRadius: '18px', 
+          border: '1px solid #E2E8F0', alignItems: 'center'
+      }}>
+          <div style={{ fontSize: '0.8rem', fontWeight: 900, color: '#64748B', textTransform: 'uppercase', letterSpacing: '0.5px', marginRight: '8px' }}>
+              Ringkasan Kelas:
+          </div>
+          <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
+              {[
+                  { label: 'Total Siswa', value: stats.total, color: '#475569', bg: '#E2E8F0', border: '#CBD5E1' },
+                  { label: 'Belum Diisi', value: stats.belumDiisi, color: '#64748B', bg: '#F1F5F9', border: '#E2E8F0' },
+                  { label: 'Hadir', value: stats.hadir, color: '#10B981', bg: '#ECFDF5', border: '#A7F3D0' },
+                  { label: 'Sakit / Izin', value: stats.sakit, color: '#F59E0B', bg: '#FFFBEB', border: '#FDE68A' },
+                  { label: 'Alpa', value: stats.alpa, color: '#EF4444', bg: '#FEF2F2', border: '#FEE2E2' }
+              ].map((item, i) => (
+                  <div key={i} style={{ 
+                      display: 'flex', alignItems: 'center', gap: '8px', 
+                      backgroundColor: item.bg, border: `1.5px solid ${item.border}`, 
+                      color: item.color, padding: '6px 14px', borderRadius: '12px', 
+                      fontSize: '0.8rem', fontWeight: 800 
+                  }}>
+                      <span>{item.label}:</span>
+                      <strong style={{ fontSize: '0.9rem', fontWeight: 950 }}>{item.value}</strong>
+                  </div>
+              ))}
           </div>
       </div>
 
@@ -136,78 +233,69 @@ export default function PresensiPage() {
               <p style={{ fontWeight: 800 }}>Memuat Data Siswa Aktif...</p>
           </div>
       ) : (
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(360px, 1fr))', gap: '12px' }}>
-              {filteredStudents.map(student => (
-              <div key={student.id} style={{ 
-                display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between',
-                padding: '10px 14px', borderRadius: '16px', 
-                border: '1px solid',
-                borderColor: student.status === 'hadir' ? 'var(--border-color)' : (student.status === 'sakit' ? 'var(--warning)' : 'var(--danger)'),
-                backgroundColor: student.status === 'hadir' ? 'white' : (student.status === 'sakit' ? '#FFFBEB' : '#FEF2F2'),
-                boxShadow: student.status === 'hadir' ? '0 2px 4px rgba(0,0,0,0.02)' : 'none',
-                transition: 'all 0.2s ease'
-              }}>
-                  {/* Student Info Area */}
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '12px', flex: 1, minWidth: 0, paddingRight: '12px' }}>
-                      <div style={{ 
-                        width: '38px', height: '38px', borderRadius: '10px', flexShrink: 0,
-                        backgroundColor: student.status === 'hadir' ? '#F1F5F9' : (student.status === 'sakit' ? '#FEF3C7' : '#FEE2E2'), 
-                        color: student.status === 'hadir' ? '#64748B' : (student.status === 'sakit' ? '#D97706' : '#DC2626'), 
-                        display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1rem', fontWeight: 900 
-                      }}>
-                          {student.name.charAt(0)}
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(320px, 1fr))', gap: '16px' }}>
+              {filteredStudents.map(student => {
+                const conf = getStatusConfig(student.status);
+                const IconComponent = conf.icon;
+                
+                return (
+                  <div key={student.id} style={{ 
+                    display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between',
+                    padding: '16px 20px', borderRadius: '16px', 
+                    backgroundColor: 'white',
+                    border: '1px solid #E2E8F0',
+                    borderLeft: `5px solid ${conf.color}`,
+                    boxShadow: '0 4px 6px -1px rgba(0,0,0,0.02), 0 2px 4px -1px rgba(0,0,0,0.01)',
+                    transition: 'all 0.2s ease',
+                  }}>
+                      {/* Student Info Area */}
+                      <div style={{ display: 'flex', alignItems: 'center', gap: '14px', flex: 1, minWidth: 0, paddingRight: '12px' }}>
+                          <div style={{ 
+                            width: '42px', height: '42px', borderRadius: '12px', flexShrink: 0,
+                            backgroundColor: conf.bg, 
+                            color: conf.color, 
+                            display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.1rem', fontWeight: 900 
+                          }}>
+                              {student.name.charAt(0)}
+                          </div>
+                          <div style={{ display: 'flex', flexDirection: 'column', gap: '2px' }}>
+                            <h3 style={{ fontSize: '0.9rem', fontWeight: 800, color: '#1E293B', margin: 0, lineHeight: 1.3 }}>{student.name}</h3>
+                            <div style={{ display: 'flex', gap: '6px', alignItems: 'center' }}>
+                                {student.rombel && <span style={{ fontSize: '0.65rem', fontWeight: 800, color: '#64748B', backgroundColor: '#F1F5F9', padding: '2px 8px', borderRadius: '6px' }}>{student.rombel}</span>}
+                            </div>
+                          </div>
                       </div>
-                      <div style={{ display: 'flex', flexDirection: 'column', gap: '2px' }}>
-                        <h3 style={{ fontSize: '0.85rem', fontWeight: 800, color: 'var(--text-main)', margin: 0, lineHeight: 1.2 }}>{student.name}</h3>
-                        <div style={{ display: 'flex', gap: '6px', alignItems: 'center', flexWrap: 'wrap', marginTop: '2px' }}>
-                            {student.rombel && <span style={{ fontSize: '0.62rem', fontWeight: 800, color: '#64748B', backgroundColor: '#F1F5F9', padding: '2px 6px', borderRadius: '4px' }}>{student.rombel}</span>}
-                            {student.status !== 'hadir' && (
-                                <span style={{ fontSize: '0.65rem', fontWeight: 800, textTransform: 'uppercase', color: student.status === 'sakit' ? 'var(--warning)' : 'var(--danger)' }}>
-                                    {student.status === 'sakit' ? 'Sakit / Izin' : 'Tanpa Keterangan'}
-                                </span>
-                            )}
-                        </div>
-                      </div>
-                  </div>
 
-                  {/* Segmented Control Area */}
-                  <div style={{ display: 'flex', gap: '2px', backgroundColor: student.status === 'hadir' ? '#F1F5F9' : 'white', borderRadius: '12px', padding: '4px', flexShrink: 0 }}>
+                      {/* Click-to-Cycle Status Pill */}
                       <button 
-                          onClick={() => updateStatus(student.id, 'hadir')}
-                          style={{ 
-                            padding: '6px 16px', borderRadius: '8px', border: 'none', outline: 'none',
-                            backgroundColor: student.status === 'hadir' ? 'var(--secondary)' : 'transparent', 
-                            color: student.status === 'hadir' ? 'white' : '#64748B', 
-                            fontWeight: 800, fontSize: '0.75rem', cursor: 'pointer', transition: 'all 0.2s',
-                            boxShadow: student.status === 'hadir' ? '0 2px 4px rgba(0,0,0,0.1)' : 'none'
-                          }}
-                      >Hadir</button>
-                      <button 
-                          onClick={() => updateStatus(student.id, 'sakit')}
-                          style={{ 
-                            padding: '6px 16px', borderRadius: '8px', border: 'none', outline: 'none',
-                            backgroundColor: student.status === 'sakit' ? 'var(--warning)' : 'transparent', 
-                            color: student.status === 'sakit' ? 'white' : '#64748B', 
-                            fontWeight: 800, fontSize: '0.75rem', cursor: 'pointer', transition: 'all 0.2s',
-                            boxShadow: student.status === 'sakit' ? '0 2px 4px rgba(0,0,0,0.1)' : 'none'
-                          }}
-                      >Sakit</button>
-                      <button 
-                          onClick={() => updateStatus(student.id, 'alpa')}
-                          style={{ 
-                            padding: '6px 16px', borderRadius: '8px', border: 'none', outline: 'none',
-                            backgroundColor: student.status === 'alpa' ? 'var(--danger)' : 'transparent', 
-                            color: student.status === 'alpa' ? 'white' : '#64748B', 
-                            fontWeight: 800, fontSize: '0.75rem', cursor: 'pointer', transition: 'all 0.2s',
-                            boxShadow: student.status === 'alpa' ? '0 2px 4px rgba(0,0,0,0.1)' : 'none'
-                          }}
-                      >Alpa</button>
+                        onClick={() => cycleStatus(student.id)}
+                        style={{
+                          display: 'flex',
+                          alignItems: 'center',
+                          gap: '6px',
+                          padding: '8px 16px',
+                          borderRadius: '30px',
+                          border: `1.5px solid ${conf.border}`,
+                          backgroundColor: conf.bg,
+                          color: conf.color,
+                          fontWeight: 800,
+                          fontSize: '0.8rem',
+                          cursor: 'pointer',
+                          transition: 'all 0.2s ease',
+                          outline: 'none',
+                          boxShadow: '0 2px 4px rgba(0,0,0,0.02)'
+                        }}
+                      >
+                        <IconComponent size={14} />
+                        <span>{conf.label}</span>
+                      </button>
                   </div>
-              </div>
-              ))}
+                );
+              })}
           </div>
       )}
-      {/* 🚀 FLOATING PREMIUM SAVE (Standardized for all modules) */}
+
+      {/* 🚀 FLOATING PREMIUM SAVE */}
       <div className="premium-save-bar">
           <button onClick={handleSave} style={{ 
               color: 'white', border: 'none', padding: '14px 48px', 

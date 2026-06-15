@@ -1,0 +1,1537 @@
+
+========================================
+Sub-area: lang_spoken (Bahasa Lisan / Spoken Language)
+========================================
+
+Level 1: K1-K3: Cerita Besar 4: Sejarah Tulisan / The Story of Writing
+  - Tool Display: Gambar Lukisan Gua, Tablet Tanah Liat, Papirus, Perkamen
+  - Tools List: ["Historical Visuals","Clay/Papyrus Samples"]
+  - Error: Logika urutan waktu yang terbalik antara era gambar dan era alfabet.
+  - Steps:
+    * I. KEGIATAN AWAL: [Berkesadaran]
+    * 1. Memulai dengan membaca Basmalah.
+    * 2. Guru: 'Tahukah kamu, Allah mengajarkan manusia dengan perantara pena (Al-Alaq: 4)?'
+    * 3. Undang anak melingkar, tunjukkan gambar lukisan gua (Lascaux/Maros).
+    * II. KEGIATAN INTI: [Bermakna] - MEMAHAMI
+    * 4. Guru: 'Dulu sekali, manusia ingin meninggalkan jejak pikiran mereka melalui gambar di dinding gua.'
+    * 5. Ceritakan era Mesir Kuno (Hieroglyph): 'Mereka menggunakan gambar hewan dan benda untuk mewakili kata.'
+    * 6. Tunjukkan transisi ke Bangsa Fenisia: 'Inilah pertama kalinya suara manusia memiliki bentuk huruf (Alfabet).'
+    * 7. Ceritakan era Yunani & Romawi: 'Huruf mulai berbentuk tegas dan mengalir seperti yang kita kenal sekarang.'
+    * 8. Masuk ke era Keemasan Islam: 'Bagaimana kaum muslimin sangat mencintai tulisan (Kaligrafi) demi menjaga amanah Al-Quran.'
+    * 9. Jelaskan konsep Amanah dalam mencatat wahyu Allah sejak zaman Rasulullah.',
+    * 10. In English: 'Cave painting (Gua), Symbols (Simbol), Alphabet (Alfabet), and Manuscript (Naskah).'
+    * 11. Tunjukkan bagaimana alat tulis berubah: dari jari, bulu burung, hingga kalam bambu.
+    * 12. Guru: 'Tulisan adalah jembatan pikiran melintasi zaman.' (Fathonah).
+    * 13. Bahas tentang pentingnya mencatat ilmu (Iqra) agar tidak hilang dari ingatan.
+    * III. KEGIATAN INTI: [Bermakna] - MENGAPLIKASIKAN
+    * 14. Mencoba menulis simbol sederhana di atas nampan pasir (simulasi tablet kuno).
+    * 15. Membuat kartu ucapan menggunakan satu kata dalam gaya penulisan kuno.
+    * 16. Mengurutkan kartu gambar sejarah alat tulis dari masa ke masa.
+    * IV. KEGIATAN INTI: [Berkesadaran] - MEREFLEKSIKAN
+    * 17. Memberikan apresiasi atas usaha, ketelitian, dan kejujuran anak dalam belajar.
+    * 18. Mengajak anak bersyukur atas nikmat literasi yang Allah anugerahkan.
+    * 19. Menanyakan perasaan anak setelah mengetahui perjuangan para pendahulu dalam menulis.
+    * V. KEGIATAN PENUTUP: [Menyenangkan]
+    * 20. Simpan gambar-gambar sejarah ke dalam map khusus kebudayaan.
+    * 21. Bersihkan nampan pasir dan simpan ke rak.
+    * 22. Membaca Hamdalah.
+
+Level 2: K2-K3: Permainan Tanya Jawab & Logika / Question & Logic Games
+  - Tool Display: Mystery Cards, Mystery Bag
+  - Tools List: ["Mystery Bag","Logic Cards"]
+  - Error: Pertanyaan tidak relevan; melompat-lompat logika (Inkonsisten).
+  - Steps:
+    * I. KEGIATAN AWAL: [Berkesadaran]
+    * 1. Memulai dengan membaca Basmalah.
+    * 2. Undang anak: 'Mari kita asah pikiran kita dengan bertanya yang benar (Fathonah).'
+    * 3. Guru: 'Tahukah kamu, Nabi Muhammad SAW sering bertanya pada sahabat untuk memancing kecerdasan mereka?'
+    * II. KEGIATAN INTI: [Bermakna] - MEMAHAMI
+    * 4. Masukkan satu benda rahasia ke dalam Tas Misteri.
+    * 5. Berikan kesempatan anak untuk bertanya, tapi hanya dijawab 'Ya' atau 'Tidak'.
+    * 6. Contoh pertanyaan: 'Is it living? Is it made of wood? Is it useful for writing?'
+    * 7. Guru membimbing anak menyusun struktur kalimat tanya yang logis.
+    * 8. Jelaskan bahwa bertanya adalah kunci ilmu, namun harus sopan (Adab).
+    * 9. Perkenalkan permainan 'Jika... Maka...': 'Jika hujan turun, maka...?'
+    * 10. Ajarkan anak menghubungkan sebab-akibat sebagai tanda kekuasaan Allah.
+    * 11. Gunakan kosa kata Inggris: 'Why, How, What, Where'.
+    * 12. Berikan teka-teki logika sederhana (Riddles): 'I have wings but I'm not a bird. What am I?'
+    * III. KEGIATAN INTI: [Bermakna] - MENGAPLIKASIKAN
+    * 13. Minta anak membuat teka-teki untuk teman di kelasnya.
+    * 14. Permainan mengurutkan kejadian cerita secara lisan (Logical Sequencing).
+    * 15. Diskusi singkat: 'Kenapa kita harus jujur?' (Critical Thinking).
+    * IV. KEGIATAN INTI: [Berkesadaran] - MEREFLEKSIKAN
+    * 16. Memberikan apresiasi atas usaha, ketelitian, dan kejujuran anak dalam belajar.
+    * 17. Mengajak anak bersyukur atas ilmu baru dan kemampuan yang Allah anugerahkan.
+    * 18. Menanyakan perasaan anak setelah berhasil menyelesaikan tantangan ini.
+    * V. KEGIATAN PENUTUP: [Menyenangkan]
+    * 19. Simpan tas misteri and benda-benda peraga (Amanah).
+    * 20. Membaca Hamdalah.
+
+Level 3: K2-K3: Resitasi Puisi & Syiar / Poetry & Nashid
+  - Tool Display: Poetry Anthology, Percussion Instruments
+  - Tools List: ["Poetry Anthology","Instruments"]
+  - Error: Membaca datar; tidak menjiwai keindahan (Ihsan).
+  - Steps:
+    * I. KEGIATAN AWAL: [Berkesadaran]
+    * 1. Memulai dengan membaca Basmalah.
+    * 2. Undang anak: 'Mari kita sampaikan keindahan lewat bait-bait kata yang jujur.'
+    * 3. Guru: 'Keindahan kata bisa melunakkan hati manusia, seperti sabda Nabi yang lembut.'
+    * II. KEGIATAN INTI: [Bermakna] - MEMAHAMI
+    * 4. Guru membacakan satu puisi pendek tentang keagungan Allah.
+    * 5. Demonstrasikan intonasi, kecepatan, and ekspresi yang tepat.
+    * 6. Ajarkan anak cara bernapas and mengatur suara di depan teman.
+    * 7. Perkenalkan konsep Rima (bunyi akhir yang indah) dalam puisi.
+    * 8. Minta anak mengulang bait demi bait dengan penuh perasaan.
+    * 9. Gunakan bahasa Inggris (English Poem): 'All creation is a gift, beautiful and small...'
+    * 10. Jelaskan bahwa puisi atau nasyid adalah sarana Syiar (dakwah) yang lembut.
+    * 11. Ajarkan adab tampil: Berdiri tegak, menatap penonton dengan ramah.
+    * 12. Tekankan ketulusan (Shiddiq) dalam setiap kata yang diucapkan.
+    * III. KEGIATAN INTI: [Bermakna] - MENGAPLIKASIKAN
+    * 13. Menulis and membacakan 2 bait puisi buatannya sendiri.
+    * 14. Melakukan resitasi berpasangan (Duet) dengan tema syukur.
+    * IV. KEGIATAN INTI: [Berkesadaran] - MEREFLEKSIKAN
+    * 15. Memberikan apresiasi atas usaha, ketelitian, dan kejujuran anak dalam belajar.
+    * 16. Mengajak anak bersyukur atas ilmu baru dan kemampuan yang Allah anugerahkan.
+    * 17. Menanyakan perasaan anak setelah berhasil menyelesaikan tantangan ini.
+    * V. KEGIATAN PENUTUP: [Menyenangkan]
+    * 18. Rapikan buku and alat pendukung (Amanah).
+    * 19. Membaca Hamdalah.
+
+Level 4: K3: Presentasi Proyek Mandiri / Public Speaking
+  - Tool Display: Papan Display, Pointer, Karya Anak
+  - Tools List: ["Project Board","Pointer"]
+  - Error: Membaca teks secara kaku; membelakangi audiens.
+  - Steps:
+    * I. KEGIATAN AWAL: [Berkesadaran]
+    * 1. Memulai dengan mengucap 'Bismillah'.
+    * 2. Undang anak yang telah menyelesaikan sebuah proyek: 'Mari bagikan ilmumu kepada dunia (Tabligh).'
+    * 3. Guru: 'Sebaik-baik manusia adalah yang paling bermanfaat bagi orang lain.'
+    * II. KEGIATAN INTI: [Bermakna] - MEMAHAMI
+    * 4. Guru mendampingi anak menyusun urutan materi: Pembuka, Inti, Penutup.
+    * 5. Ajarkan kalimat pembuka: 'Assalamu'alaikum... Today I want to show you my project about...'
+    * 6. Demonstrasikan cara menunjuk gambar/objek menggunakan pointer dengan tenang.
+    * 7. Latih anak melakukan kontak mata dengan audiens (Menghargai sesama manusia).
+    * 8. Ajarkan cara menjawab pertanyaan teman dengan sabar and jujur (Shiddiq).
+    * 9. Tekankan penggunaan kosa kata yang baik (Kalimat Thoyyibah) saat presentasi.
+    * 10. Guru memberikan umpan balik yang membangun: 'Your voice is clear, Alhamdulillah.'
+    * 11. Jelaskan bahwa ilmu adalah amanah yang harus disampaikan dengan benar.
+    * III. KEGIATAN INTI: [Bermakna] - MENGAPLIKASIKAN
+    * 12. Presentasi di depan teman sekelas (Group Presentation).
+    * 13. Menjadi moderator (pemandu) untuk presentasi temannya.
+    * IV. KEGIATAN INTI: [Berkesadaran] - MEREFLEKSIKAN
+    * 14. Memberikan apresiasi atas usaha, ketelitian, dan kejujuran anak dalam belajar.
+    * 15. Mengajak anak bersyukur atas ilmu baru dan kemampuan yang Allah anugerahkan.
+    * 16. Menanyakan perasaan anak setelah berhasil menyelesaikan tantangan ini.
+    * V. KEGIATAN PENUTUP: [Menyenangkan]
+    * 17. Simpan kembali papan display and alat peraga (Amanah).
+    * 18. Membaca Hamdalah bersama-sama.
+
+========================================
+Sub-area: lang_word_study (Mekanika & Studi Kata (BI) / ID Word Study)
+========================================
+
+Level 1: K1: Studi Bunyi Gabungan (Phonograms) / Digraph Study
+  - Tool Display: Kartu Phonogram (ng, ny, sy, kh), Objek Miniatur, Label Kartu
+  - Tools List: ["Phonogram Cards","Miniature Objects"]
+  - Error: Anak mengeja huruf per huruf (n-g) alih-alih sebagai satu bunyi (ng).
+  - Steps:
+    * I. KEGIATAN AWAL: [Berkesadaran]
+    * 1. Memulai dengan membaca Basmalah.
+    * 2. Undang anak: 'Mari kita temukan bunyi kesatupaduan dua huruf menjadi satu suara baru.'
+    * 3. Guru: 'Seperti persaudaraan (Ukhuwah), dua huruf yang berbeda jika bersatu akan menghasilkan kekuatan suara yang indah.'
+    * II. KEGIATAN INTI: [Bermakna] - MEMAHAMI
+    * 4. Guru menunjukkan kartu 'ng'. Katakan bunyinya: 'ng...'.
+    * 5. Tunjukkan objek miniatur, misal: 'Pisang'. Guru: 'Dengarkan suara di akhirnya: ng.'
+    * 6. Siswa mengulang bunyi tersebut sambil meraba kartu sandpaper phonogram.
+    * 7. Lakukan hal yang sama untuk 'ny' (Nyanyi), 'sy' (Syukur), dan 'kh' (Khusus).
+    * 8. Jelaskan bahwa dalam Al-Quran, bunyi gabungan ini juga sangat penting (Tajwid).
+    * 9. Tunjukkan bunyi 'sy' yang juga ada dalam huruf Syin (ش).
+    * 10. In English: 'The combination of two letters is called a Phonogram.'
+    * 11. Lakukan Three Period Lesson (TPL) untuk keempat bunyi tersebut secara bergantian.
+    * 12. Guru: 'Huruf-huruf ini saling bekerjasama (Ta'awun) menciptakan makna baru.'
+    * 13. Tekankan ketelitian (Fathonah) dalam mendengar perbedaan bunyi 'ny' dan 'ng'.
+    * III. KEGIATAN INTI: [Bermakna] - MENGAPLIKASIKAN
+    * 14. Mencocokkan label kartu kata ke objek-objek miniatur yang mengandung phonogram.
+    * 15. Mencari kata-kata yang mengandung bunyi 'sy' di dalam surat-surat pendek Al-Quran.
+    * 16. Bermain 'I Spy' bunyi gabungan di dalam kelas.
+    * IV. KEGIATAN INTI: [Berkesadaran] - MEREFLEKSIKAN
+    * 17. Memberikan apresiasi atas usaha, ketelitian, dan kejujuran anak dalam belajar.
+    * 18. Mengajak anak bersyukur atas kemampuan lisan yang bisa membedakan bunyi yang halus.
+    * 19. Menanyakan perasaan anak saat berhasil menemukan 'saudara huruf' dalam kata.
+    * V. KEGIATAN PENUTUP: [Menyenangkan]
+    * 20. Susun kartu phonogram ke dalam kotak bahasa dengan rapi.
+    * 21. Simpan objek miniatur ke dalam kantong kainnya.
+    * 22. Membaca Hamdalah.
+
+Level 2: K1-K2: Menulis Tegak Bersambung (Sandpaper Cursive) / Cursive Writing
+  - Tool Display: Sandpaper Cursive, Salt Tray, Chalkboard
+  - Tools List: ["Sandpaper Cursive","Salt Tray"]
+  - Error: Aliran huruf terputus; ukuran huruf (Adil) tidak proporsional.
+  - Steps:
+    * I. KEGIATAN AWAL: [Berkesadaran]
+    * 1. Memulai dengan mengucap 'Bismillahirrrohmanirrohim'.
+    * 2. Undang anak: 'Mari kita belajar menulis dengan indah, seperti indahnya kaligrafi ayat Allah.'
+    * 3. Guru: 'Tanganmu adalah amanah, mari kita gerakkan untuk menulis kebaikan.'
+    * 4. Siapkan nampan berisi garam atau pasir halus.
+    * II. KEGIATAN INTI: [Bermakna] - MEMAHAMI
+    * 5. Guru mendemonstrasikan posisi duduk yang tegak (Adab Menulis).
+    * 6. Tunjukkan jari telunjuk and tengah sebagai Pensil Ajaib.
+    * 7. Ambil satu huruf Sandpaper Cursive (misal: a).
+    * 8. Raba huruf tersebut tanpa putus: 'Huruf ini selalu ingin menyambung dengan temannya.'
+    * 9. Guru: 'Hati yang bersambung dengan Allah akan berbuah keindahan (Ihsan).'
+    * 10. Lakukan gerakan di atas pasir: Ikuti lekukan dari bawah ke atas, melingkar, tarik ekornya.
+    * 11. Katakan: 'Ekor ini adalah tangan yang menjangkau huruf berikutnya.'
+    * 12. Latih huruf-huruf berukuran tinggi (l, k, h) and huruf berekor (j, g, y).
+    * 13. Guru: 'Tinggi rendahnya huruf harus adil (Al-Adl). Berikan hak setiap huruf.'
+    * 14. Berpindah ke papan tulis atau kertas bergaris luas.
+    * 15. Tunjukkan cara memegang pensil dengan teknik Tripod Grip yang benar.
+    * 16. Tuliskan satu kata pendek tanpa mengangkat pensil dari kertas.
+    * 17. Anak mencoba meniru gerakan mengalir guru di udara (Sky Writing).
+    * III. KEGIATAN INTI: [Bermakna] - MENGAPLIKASIKAN
+    * 18. Minta anak menulis namanya sendiri dalam bentuk tegak bersambung.
+    * 19. Berikan tantangan: 'Tuliskan satu kalimat Alhamdulillah dengan tulisan terindahmu.'
+    * 20. Minta anak membandingkan tulisannya dengan model huruf (Self-Correction).
+    * IV. KEGIATAN INTI: [Berkesadaran] - MEREFLEKSIKAN
+    * 21. Memberikan apresiasi atas usaha, ketelitian, dan kejujuran anak dalam belajar.
+    * 22. Mengajak anak bersyukur atas ilmu baru dan kemampuan yang Allah anugerahkan.
+    * 23. Menanyakan perasaan anak setelah berhasil menyelesaikan tantangan ini.
+    * V. KEGIATAN PENUTUP: [Menyenangkan]
+    * 24. Rapikan pasir ke wadahnya, simpan papan and pensil (Amanah Kerapian).
+    * 25. Menutup dengan Hamdalah and doa penutup majelis.
+
+Level 3: K2-K3: Studi Imbuhan / Prefix & Suffix
+  - Tool Display: Word Root Cards (Red) & Affix Cards (Blue)
+  - Tools List: ["Word Cards","Affix Cards"]
+  - Error: Logika: Menggabungkan imbuhan yang tidak sesuai (misal: Ter-tidurkan).
+  - Steps:
+    * I. KEGIATAN AWAL: [Berkesadaran]
+    * 1. Memulai dengan membaca Basmalah.
+    * 2. Undang anak: 'Mari kita lihat bagaimana kata bisa berubah tugasnya saat memakai pakaian berbeda.'
+    * 3. Siapkan kartu kata dasar merah (misal: BACA) and imbuhan biru.
+    * II. KEGIATAN INTI: [Bermakna] - MEMAHAMI
+    * 4. Letakkan kartu BACA di karpet. Guru: 'Apa artinya BACA?'
+    * 5. Ambil kartu awalan ME-. Letakkan di depan kata BACA.
+    * 6. Guru: 'Sekarang menjadi MEMBACA. Ada orang yang sedang beraksi (Iqra!).'
+    * 7. Ganti dengan awalan DI-. Menjadi DIBACA (Pasif).
+    * 8. Tambahkan akhiran -AN. Menjadi BACAAN (Benda).
+    * 9. Lakukan hal yang sama dalam Bahasa Inggris (Morphology).
+    * 10. Ambil kata dasar KIND (Baik). Tambahkan -NESS. Menjadi KINDNESS (Kebaikan).
+    * 11. Guru: 'Kindness is a gift from Allah to a pure heart.'
+    * 12. Bandingkan perubahannya: 'Akarnya tetap sama, tapi rasanya berbeda.'
+    * 13. Jelaskan bahwa seperti manusia, meskipun baju berbeda, aslinya tetap sama (Istiqomah).
+    * 14. Guru: 'Gunakan imbuhan yang tepat agar orang tidak salah paham (Tabligh).'
+    * III. KEGIATAN INTI: [Bermakna] - MENGAPLIKASIKAN
+    * 15. Berikan 5 kata dasar and minta anak memasangkan dengan imbuhan yang cocok.
+    * 16. Cari imbuhan pada ayat-ayat Al-Quran terjemahan (Scavenger Hunt).
+    * 17. Buatlah Pohon Kata dengan kata dasar di batang and imbuhan di dahan.
+    * IV. KEGIATAN INTI: [Berkesadaran] - MEREFLEKSIKAN
+    * 18. Memberikan apresiasi atas usaha, ketelitian, dan kejujuran anak dalam belajar.
+    * 19. Mengajak anak bersyukur atas ilmu baru dan kemampuan yang Allah anugerahkan.
+    * 20. Menanyakan perasaan anak setelah berhasil menyelesaikan tantangan ini.
+    * V. KEGIATAN PENUTUP: [Menyenangkan]
+    * 21. Susun kartu ke dalam klasifikasi yang benar dalam box (Tertib).
+    * 22. Gulung karpet and kembalikan ke rak.
+    * 23. Membaca Hamdalah bersama-sama.
+
+Level 4: K1-K2: Tunggal & Jamak / Singular & Plural
+  - Tool Display: Concrete Objects (singular/plural), Label Cards
+  - Tools List: ["Objects","Number Cards"]
+  - Error: Logika: Menambahkan akhiran jamak pada benda yang hanya satu.
+  - Steps:
+    * I. KEGIATAN AWAL: [Berkesadaran]
+    * 1. Memulai dengan mengucap 'Bismillahirrrohmanirrohim'.
+    * 2. Undang anak: 'Mari kita belajar cara menyebut benda yang sedikit and benda yang banyak.'
+    * 3. Guru: 'Allah menciptakan segala sesuatu berpasang-pasangan, ada yang sendiri ada yang berjamaah.'
+    * II. KEGIATAN INTI: [Bermakna] - MEMAHAMI
+    * 4. Letakkan 1 buah pensil. Guru: 'Ini PENSIL (Tunggal).'
+    * 5. Letakkan 5 buah pensil. Guru: 'Ini PENSIL-PENSIL (Jamak).'
+    * 6. In English: 'One PENCIL, two PENCILS.' Tunjukkan penambahan huruf -S.
+    * 7. Bantu anak menyusun kartu label di bawah benda-benda tersebut.
+    * 8. Jelaskan bahwa dalam Islam, berjamaah (banyak) memiliki pahala yang lebih besar.
+    * 9. Latih kata-kata lain: BOOK - BOOKS, CAR - CARS.
+    * 10. Berikan contoh pengecualian (Irregular) jika anak sudah siap: CHILD - CHILDREN.
+    * 11. Guru: 'Gunakan kata yang tepat agar jumlahnya jelas (Amanah dalam data).'
+    * 12. Tekankan bahwa setiap satuan adalah bagian dari kesatuan yang besar (Umat).
+    * III. KEGIATAN INTI: [Bermakna] - MENGAPLIKASIKAN
+    * 13. Mencari benda di kelas and menuliskan bentuk tunggal-jamaknya di buku.
+    * 14. Permainan 'Simon Says' dengan perintah tunggal atau jamak.
+    * IV. KEGIATAN INTI: [Berkesadaran] - MEREFLEKSIKAN
+    * 15. Memberikan apresiasi atas usaha, ketelitian, dan kejujuran anak dalam belajar.
+    * 16. Mengajak anak bersyukur atas ilmu baru dan kemampuan yang Allah anugerahkan.
+    * 17. Menanyakan perasaan anak setelah berhasil menyelesaikan tantangan ini.
+    * V. KEGIATAN PENUTUP: [Menyenangkan]
+    * 18. Rapikan seluruh benda and kartu ke dalam nampan (Tertib).
+    * 19. Membaca Hamdalah.
+
+Level 5: K2-K3: Sinonim & Antonim / Synonyms & Antonyms
+  - Tool Display: Word Pair Cards (Synonym & Antonym Symbols)
+  - Tools List: ["Synonym Cards","Antonym Cards"]
+  - Error: Mencampuradukkan kata yang maknanya mirip dengan yang berlawanan.
+  - Steps:
+    * I. KEGIATAN AWAL: [Berkesadaran]
+    * 1. Memulai dengan membaca Basmalah.
+    * 2. Undang anak: 'Mari kita temukan kata-kata yang bersahabat (Sinonim) and kata yang bertolak belakang (Antonim).'
+    * 3. Guru: 'Dunia ini penuh keberagaman, ada siang ada malam, ada kaya ada miskin.'
+    * II. KEGIATAN INTI: [Bermakna] - MEMAHAMI
+    * 4. Tunjukkan kartu sinonim: BESAR = LUAS. Guru: 'Maknanya hampir sama, seperti dua sahabat.'
+    * 5. Tunjukkan kartu antonim: BAIK >< BURUK. Guru: 'Ini adalah lawan kata, seperti air and api.'
+    * 6. In English: 'Happy and Sad are Antonyms. Big and Large are Synonyms.'
+    * 7. Lakukan permainan mencocokkan kartu di atas karpet.
+    * 8. Jelaskan bahwa Allah menciptakan lawan kata agar kita bisa bersyukur (Sabar di saat sempit, Syukur di saat lapang).
+    * 9. Bantu anak menemukan sinonim untuk kata-kata thoyyibah (misal: Subhanallah = Maha Suci Allah).
+    * 10. Tekankan bahwa pilihan kata yang baik (Ihsan) akan memperindah lisan.
+    * 11. Guru: 'Pilihlah kata yang paling tepat untuk menyampaikan maksudmu (Tabligh).'
+    * III. KEGIATAN INTI: [Bermakna] - MENGAPLIKASIKAN
+    * 12. Membuat rantai kata sinonim sepanjang mungkin.
+    * 13. Menuliskan daftar antonim dari sifat-sifat manusia (Jujur - Bohong, Berani - Takut).
+    * IV. KEGIATAN INTI: [Berkesadaran] - MEREFLEKSIKAN
+    * 14. Memberikan apresiasi atas usaha, ketelitian, dan kejujuran anak dalam belajar.
+    * 15. Mengajak anak bersyukur atas ilmu baru dan kemampuan yang Allah anugerahkan.
+    * 16. Menanyakan perasaan anak setelah berhasil menyelesaikan tantangan ini.
+    * V. KEGIATAN PENUTUP: [Menyenangkan]
+    * 17. Susun kembali kartu ke dalam kotaknya sesuai kategori (Amanah).
+    * 18. Membaca Hamdalah.
+
+Level 6: K2-K3: Kata Majemuk / Compound Words
+  - Tool Display: Compound Word Puzzles & Objects
+  - Tools List: ["Compound Word Cards"]
+  - Error: Menganggap dua kata yang digabung tidak memiliki makna baru.
+  - Steps:
+    * I. KEGIATAN AWAL: [Berkesadaran]
+    * 1. Memulai dengan mengucap 'Bismillah'.
+    * 2. Undang anak: 'Mari kita lihat dua kata yang bersatu membentuk kekuatan baru.'
+    * 3. Guru: 'Seperti kerjasama (Ta'awun), dua hal kecil jika bersatu menjadi hal besar yang bermanfaat.'
+    * II. KEGIATAN INTI: [Bermakna] - MEMAHAMI
+    * 4. Ambil kartu MATA and kartu HARI. Gabungkan: MATAHARI.
+    * 5. Guru: 'Mata itu satu benda, Hari itu waktu. Jika bersatu menjadi sumber cahaya dari Allah.'
+    * 6. In English: 'RAIN + BOW = RAINBOW. SUN + FLOWER = SUNFLOWER.'
+    * 7. Gunakan puzzle kata untuk menunjukkan penyatuan fisik kedua kata tersebut.
+    * 8. Jelaskan bahwa persatuan menghasilkan keberkahan (Jama'ah).
+    * 9. Berikan contoh lain: Rumah Sakit, Kereta Api, Orang Tua.
+    * 10. Tekankan bahwa makna baru ini harus dipahami secara utuh, tidak terpisah-pisah.
+    * 11. Guru: 'Dunia ini dibangun dari hal-hal yang saling melengkapi (Sinergi).'
+    * III. KEGIATAN INTI: [Bermakna] - MENGAPLIKASIKAN
+    * 12. Mencari 10 kata majemuk di dalam buku cerita.
+    * 13. Menggambar ilustrasi dari kata dasar and kata majemuk yang terbentuk.
+    * IV. KEGIATAN INTI: [Berkesadaran] - MEREFLEKSIKAN
+    * 14. Memberikan apresiasi atas usaha, ketelitian, dan kejujuran anak dalam belajar.
+    * 15. Mengajak anak bersyukur atas ilmu baru dan kemampuan yang Allah anugerahkan.
+    * 16. Menanyakan perasaan anak setelah berhasil menyelesaikan tantangan ini.
+    * V. KEGIATAN PENUTUP: [Menyenangkan]
+    * 17. Kumpulkan kepingan puzzle and masukkan ke dalam pouch (Amanah).
+    * 18. Membaca Hamdalah.
+
+Level 7: K3: Homonim, Homograf, Homofon / Homonyms & Homophones
+  - Tool Display: Homonym Cards & Image Labels
+  - Tools List: ["Homonym Cards"]
+  - Error: Salah mengartikan kata berdasarkan konteks kalimat.
+  - Steps:
+    * I. KEGIATAN AWAL: [Berkesadaran]
+    * 1. Memulai dengan membaca Basmalah.
+    * 2. Undang anak: 'Mari kita pecahkan rahasia kata-kata yang wajahnya sama tapi hatinya berbeda.'
+    * 3. Guru: 'Ketelitian (Fathonah) sangat diperlukan agar kita tidak salah paham.'
+    * II. KEGIATAN INTI: [Bermakna] - MEMAHAMI
+    * 4. Tunjukkan kata BISA (Dapat) and BISA (Racun Ular).
+    * 5. Guru: 'Tulisannya sama, bacanya sama, tapi artinya sangat jauh berbeda.'
+    * 6. In English: 'BAT (hewan) and BAT (alat pukul).'
+    * 7. Gunakan kartu gambar untuk membedakan kedua maknanya tersebut.
+    * 8. Jelaskan pentingnya melihat KONTEKS (lingkungan sekitar) untuk memahami kebenaran.
+    * 9. Guru: 'Begitu pula dalam hidup, jangan menilai sesuatu hanya dari luar, lihatlah maksudnya (Niat).'
+    * 10. Perkenalkan Homofon (bunyi sama, tulis beda): 'Massa' and 'Masa'.
+    * 11. Ajarkan anak untuk selalu tabayyun (verifikasi) saat menemukan kata yang membingungkan.
+    * III. KEGIATAN INTI: [Bermakna] - MENGAPLIKASIKAN
+    * 12. Membuat kalimat dari dua makna kata homonim yang sama.
+    * 13. Permainan tebak kata berdasarkan kalimat yang dibacakan Guru.
+    * IV. KEGIATAN INTI: [Berkesadaran] - MEREFLEKSIKAN
+    * 14. Memberikan apresiasi atas usaha, ketelitian, dan kejujuran anak dalam belajar.
+    * 15. Mengajak anak bersyukur atas ilmu baru dan kemampuan yang Allah anugerahkan.
+    * 16. Menanyakan perasaan anak setelah berhasil menyelesaikan tantangan ini.
+    * V. KEGIATAN PENUTUP: [Menyenangkan]
+    * 17. Susun kartu dengan rapi di dalam laci bahasa (Amanah).
+    * 18. Membaca Hamdalah.
+
+========================================
+Sub-area: lang_eng_word_study (Mekanika & Studi Kata (EN) / English Word Study)
+========================================
+
+Level 1: K1: English Phonics (Short/Long Vowels & CVC)
+  - Tool Display: English Movable Alphabet, Object Boxes, Phonetic Cards
+  - Tools List: ["Movable Alphabet","Object Boxes"]
+  - Error: Mengucapkan bunyi huruf sesuai Bahasa Indonesia, bukan fonem bahasa Inggris yang tepat.
+  - Steps:
+    * I. KEGIATAN AWAL: [Berkesadaran]
+    * 1. Memulai dengan membaca Basmalah.
+    * 2. Guru: 'Today, we will learn how letters make different sounds in English.'
+    * II. KEGIATAN INTI: [Bermakna] - MEMAHAMI
+    * 3. Kenalkan CVC words (Consonant-Vowel-Consonant) dasar seperti cat, dog, bed.
+    * 4. Gunakan Object Box (kotak berisi miniatur benda kecil) untuk mencocokkan kata dengan benda nyata.
+    * 5. Perkenalkan konsep Short Vowels ('a' in cat) vs Long Vowels ('a' in cake plus Magic E).
+    * 6. Guru: 'Huruf hidup dalam bahasa Inggris bisa berubah bunyi tergantung temannya. Seperti kita yang beradaptasi di lingkungan baru.'
+    * 7. Latih penyebutan bunyi fonetis dasar dengan akurat.
+    * 8. Minta anak mengeja CVC words menggunakan English Movable Alphabet.
+    * III. KEGIATAN INTI: [Bermakna] - MENGAPLIKASIKAN
+    * 9. Bermain "I Spy" dengan objek-objek miniatur bahasa Inggris.
+    * 10. Membaca Pink Series Cards (kartu bacaan fonetis CVC pendek) secara mandiri.
+    * IV. KEGIATAN INTI: [Berkesadaran] - MEREFLEKSIKAN
+    * 11. Memberikan apresiasi atas keberanian mengucapkan kosakata baru.
+    * 12. Mengajak anak mensyukuri lisan yang Allah anugerahkan.
+    * V. KEGIATAN PENUTUP: [Menyenangkan]
+    * 13. Bereskan huruf-huruf Movable Alphabet kembali ke kotaknya (Amanah).
+    * 14. Membaca Hamdalah.
+
+Level 2: K1-K2: English Spelling Patterns (Digraphs, Vowel Teams)
+  - Tool Display: Green Series Reading Cards, Diagraph Folders
+  - Tools List: ["Reading Folders"]
+  - Error: Membaca digraph sebagai dua huruf terpisah (contoh sh dibaca s-h).
+  - Steps:
+    * I. KEGIATAN AWAL: [Berkesadaran]
+    * 1. Memulai dengan membaca Basmalah.
+    * 2. Guru: 'When two letters hold hands, they can make a completely new sound!'
+    * II. KEGIATAN INTI: [Bermakna] - MEMAHAMI
+    * 3. Kenalkan digraphs dasar seperti 'sh', 'ch', 'th', 'wh'.
+    * 4. Perkenalkan Vowel Teams seperti 'ee', 'ea', 'oa', 'ai'.
+    * 5. Guru: 'Dua huruf ini bersahabat erat. Saat mereka bersama, mereka memiliki satu suara kesatuan yang baru (Ukhuwah).'
+    * 6. Gunakan Folder Bacaan (Reading Folders) dengan warna hijau (Green Series).
+    * 7. Bantu anak meletakkan kartu gambar dan mencocokkannya dengan label kata yang mengandung digraph.
+    * III. KEGIATAN INTI: [Bermakna] - MENGAPLIKASIKAN
+    * 8. Anak membaca daftar kata dengan vowel team yang dituju secara mandiri.
+    * 9. Minta anak menyalin dua pasang kata favorit ke dalam buku tulisan bahasa Inggrisnya.
+    * IV. KEGIATAN INTI: [Berkesadaran] - MEREFLEKSIKAN
+    * 10. Memberikan apresiasi atas ketelitian visual anak.
+    * V. KEGIATAN PENUTUP: [Menyenangkan]
+    * 11. Kembalikan semua kartu ke dalam foldernya.
+    * 12. Membaca Hamdalah.
+
+========================================
+Sub-area: lang_grammar (Tata Bahasa Fungsional / Functional Grammar)
+========================================
+
+Level 1: K1-K2: Kata Benda (The Noun - Black Pyramid) / The Noun
+  - Tool Display: Noun Symbol (Black Pyramid), Objects
+  - Tools List: ["Noun Symbol (Black Pyramid)","Objects"]
+  - Error: Menganggap kata kerja/sifat sebagai benda (Noun).
+  - Steps:
+    * I. KEGIATAN AWAL: [Berkesadaran]
+    * 1. Memulai dengan mengucap 'Bismillahirrrohmanirrohim'.
+    * 2. Undang dua anak: 'Mari kita belajar tentang rahasia nama yang Allah ajarkan kepada Nabi Adam.'
+    * 3. Siapkan nampan berisi benda-benda konkrit (buku, pensil, batu).
+    * II. KEGIATAN INTI: [Bermakna] - MEMAHAMI
+    * 4. Letakkan benda di karpet (kunci). 'Apa nama benda ini?' (Anak: 'Kunci').
+    * 5. Tulislah nama ini di kartu kecil. Letakkan kartu di samping benda.
+    * 6. Tunjukkan Noun Symbol (Black Pyramid): 'Ini adalah simbol untuk NOUN (Kata Benda).'
+    * 7. Guru: 'Warnanya hitam, kokoh seperti tanah. Bentuknya piramida, tidak mudah goyah.'
+    * 8. Letakkan Black Pyramid di atas kartu nama Kunci.
+    * 9. In English: 'The name of this is KEY. It is a NOUN.'
+    * 10. Tunjukkan bahwa meskipun benda dipindah, namanya tetap sama (Istiqomah).
+    * 11. Bahas bahwa Noun adalah pondasi kalimat, seperti bumi bagi bangunan.
+    * 12. Guru: 'Hormatilah setiap benda dengan memanggil namanya secara benar (Adab).'
+    * III. KEGIATAN INTI: [Bermakna] - MENGAPLIKASIKAN
+    * 13. Cari 5 Noun di taman sekolah and menaruh simbol di sampingnya.
+    * 14. Permainan Labeling Classroom: Menempelkan kartu nama di seluruh kelas.
+    * 15. Tantangan Inggris: 'Find a Noun inside your bag and say its name.'
+    * IV. KEGIATAN INTI: [Berkesadaran] - MEREFLEKSIKAN
+    * 16. Memberikan apresiasi atas usaha, ketelitian, dan kejujuran anak dalam belajar.
+    * 17. Mengajak anak bersyukur atas ilmu baru dan kemampuan yang Allah anugerahkan.
+    * 18. Menanyakan perasaan anak setelah berhasil menyelesaikan tantangan ini.
+    * V. KEGIATAN PENUTUP: [Menyenangkan]
+    * 19. Simpan kembali simbol piramida ke kotaknya (Amanah).
+    * 20. Rapikan benda konkrit ke tempat asalnya.
+    * 21. Membaca Hamdalah.
+
+Level 2: K1-K2: Kata Kerja (The Verb - Red Sphere) / The Verb
+  - Tool Display: Verb Symbol (Red Sphere), Action Cards (Kipit)
+  - Tools List: ["Verb Symbol (Red Sphere)","Action Cards"]
+  - Error: Hanya membaca kartu tanpa melakukan gerakan fisik.
+  - Steps:
+    * I. KEGIATAN AWAL: [Berkesadaran]
+    * 1. Memulai dengan membaca Basmalah.
+    * 2. Undang anak: 'Mari kita temukan energi kehidupan (Amal) dalam kata-kata kita.'
+    * 3. Guru: 'Hidup ini adalah tentang Aksi. Setiap kata kerja mencatat perbuatan kita.'
+    * II. KEGIATAN INTI: [Bermakna] - MEMAHAMI
+    * 4. Berikan kartu perintah tertulis pada anak (misal: LARI).
+    * 5. Anak melakukan aksi tersebut. Guru: 'LARI melambangkan aksi (Amal).'
+    * 6. Tunjukkan Verb Symbol (Red Sphere): 'Ini adalah simbol untuk VERB (Kata Kerja).'
+    * 7. Guru: 'Bentuknya bulat seperti bola, penuh energi. Merah seperti matahari (Power).'
+    * 8. Letakkan Red Sphere di samping kartu Lari.
+    * 9. In English: 'RUN is a VERB. It means you ARE DOING something.'
+    * 10. Guru: 'Setiap desah napas and gerakan kita adalah Verb yang dicatat malaikat (Muraqabah).'
+    * 11. Tunjukkan bahwa kalimat tanpa Verb akan terasa mati tanpa nyawa.
+    * III. KEGIATAN INTI: [Bermakna] - MENGAPLIKASIKAN
+    * 12. Acting Game: Satu anak beraksi, teman mencari kartu Verb yang cocok.
+    * 13. Tantangan Adab: 'Sebutkan 3 Verb (Amal Shalih) yang sudah kamu lakukan pagi ini.'
+    * 14. Cari kata kerja aktif dalam surat Al-Fatihah (misal: Nasta'in).
+    * IV. KEGIATAN INTI: [Berkesadaran] - MEREFLEKSIKAN
+    * 15. Memberikan apresiasi atas usaha, ketelitian, dan kejujuran anak dalam belajar.
+    * 16. Mengajak anak bersyukur atas ilmu baru dan kemampuan yang Allah anugerahkan.
+    * 17. Menanyakan perasaan anak setelah berhasil menyelesaikan tantangan ini.
+    * V. KEGIATAN PENUTUP: [Menyenangkan]
+    * 18. Rapikan benda konkrit ke tempat asalnya.
+    * 19. Membaca Hamdalah.
+
+Level 3: K1-K2: Kata Sandang (The Article - Small Light Blue Triangle) / The Article
+  - Tool Display: Article Symbol (Small Light Blue Triangle), Phrase Cards
+  - Tools List: ["Article Symbol (Small Light Blue Triangle)"]
+  - Error: Menggunakan artikel yang tidak tepat (misal: "Si" untuk benda mati yang umum).
+  - Steps:
+    * I. KEGIATAN AWAL: [Berkesadaran]
+    * 1. Memulai dengan membaca Basmalah.
+    * 2. Undang anak: 'Mari kita belajar kata kecil yang membantu kita menunjuk benda dengan sopan.'
+    * 3. Guru: 'Kata sandang membantu kita membedakan benda yang khusus (Ma'rifat) and umum (Nakirah).'
+    * II. KEGIATAN INTI: [Bermakna] - MEMAHAMI
+    * 4. Ambil kartu benda: BUKU. Letakkan simbol piramida hitam.
+    * 5. Ambil kartu: SEBUAH. Letakkan di depan kata BUKU.
+    * 6. Tunjukkan Article Symbol (Small Light Blue Triangle): 'Ini simbol Article.'
+    * 7. Guru: 'Dia kecil and selalu menemani Kata Benda, seperti seorang pelayan yang setia.'
+    * 8. In English: 'A book, THE sun.'
+    * 9. Jelaskan bahwa Allah menciptakan segala sesuatu dengan presisi (tepat).
+    * 10. Gunakan 'SI' untuk orang yang dihormati (misal: Si Kancil, Si Ahmad).
+    * 11. Ajarkan adab: Memanggil orang dengan sebutan yang baik (Article yang tepat).
+    * III. KEGIATAN INTI: [Bermakna] - MENGAPLIKASIKAN
+    * 12. Mencari artikel dalam majalah anak and menempelkan simbolnya.
+    * 13. Membuat frase 'A' or 'An' dalam bahasa Inggris untuk 5 benda.
+    * IV. KEGIATAN INTI: [Berkesadaran] - MEREFLEKSIKAN
+    * 14. Memberikan apresiasi atas usaha, ketelitian, dan kejujuran anak dalam belajar.
+    * 15. Mengajak anak bersyukur atas ilmu baru dan kemampuan yang Allah anugerahkan.
+    * 16. Menanyakan perasaan anak setelah berhasil menyelesaikan tantangan ini.
+    * V. KEGIATAN PENUTUP: [Menyenangkan]
+    * 17. Susun simbol ke wadah kayu (Amanah).
+    * 18. Membaca Hamdalah.
+
+Level 4: K2-K3: Kata Sifat (The Adjective - Medium Dark Blue Triangle) / The Adjective
+  - Tool Display: Adjective Symbol (Dark Blue Triangle), Grading Objects
+  - Tools List: ["Adjective Symbol (Dark Blue Triangle)"]
+  - Error: Bingung membedakan antara benda (Noun) and sifatnya (Adjective).
+  - Steps:
+    * I. KEGIATAN AWAL: [Berkesadaran]
+    * 1. Memulai dengan membaca Basmalah.
+    * 2. Ambil dua benda sejenis (misal: Pensil Merah and Pensil Biru).
+    * 3. Guru: 'Bagaimana kita tahu pensil mana yang Bunda minta?'
+    * II. KEGIATAN INTI: [Bermakna] - MEMAHAMI
+    * 4. Guru: 'Kita butuh KATA SIFAT untuk menjelaskan keindahan benda ini.'
+    * 5. Tunjukkan Adjective Symbol (Medium Dark Blue Triangle): 'Warnanya biru tua, melambangkan ilmu.'
+    * 6. Letakkan di antara Article and Noun: 'Sebuah (Biru Muda) Pensil (Hitam) MERAH (Biru Tua).'
+    * 7. In English: 'A RED pencil.' Catat perbedaan urutan kata Inggris vs Indonesia.
+    * 8. Jelaskan bahwa sifat adalah cara kita mengenal Asmaul Husna (Sifat-sifat Allah).
+    * 9. Lakukan permainan 'I Spy' menggunakan kata sifat: 'I spy something SOFT.'
+    * 10. Ajarkan anak untuk selalu menyematkan sifat yang baik (Ihsan) pada saudaranya.
+    * III. KEGIATAN INTI: [Bermakna] - MENGAPLIKASIKAN
+    * 11. Menuliskan 3 sifat baik untuk orang tua di rumah.
+    * 12. Menggambar benda and memberikan 3 label kata sifat di sekelilingnya.
+    * IV. KEGIATAN INTI: [Berkesadaran] - MEREFLEKSIKAN
+    * 13. Memberikan apresiasi atas usaha, ketelitian, dan kejujuran anak dalam belajar.
+    * 14. Mengajak anak bersyukur atas ilmu baru dan kemampuan yang Allah anugerahkan.
+    * 15. Menanyakan perasaan anak setelah berhasil menyelesaikan tantangan ini.
+    * V. KEGIATAN PENUTUP: [Menyenangkan]
+    * 16. Simpan simbol ke tempatnya (Amanah).
+    * 17. Membaca Hamdalah.
+
+Level 5: K2-K3: Kata Keterangan (The Adverb - Small Orange Circle) / The Adverb
+  - Tool Display: Adverb Symbol (Small Orange Circle), Action Cards
+  - Tools List: ["Adverb Symbol (Small Orange Circle)"]
+  - Error: Meletakkan simbol adverb di atas kata sifat.
+  - Steps:
+    * I. KEGIATAN AWAL: [Berkesadaran]
+    * 1. Memulai dengan membaca Basmalah.
+    * 2. Minta anak melakukan aksi (Verb): JALAN.
+    * 3. Guru: 'Sekarang jalannya DENGAN PELAN. Kata pelan ini adalah Adverb.'
+    * II. KEGIATAN INTI: [Bermakna] - MEMAHAMI
+    * 4. Tunjukkan Adverb Symbol (Small Orange Circle): 'Dia bulat seperti bola matahari, tapi kecil.'
+    * 5. Guru: 'Dia menghias Kata Kerja, memberi tahu kita BAGAIMANA amal dilakukan.'
+    * 6. In English: 'WALK SLOWLY.' Tunjukkan akhiran -LY.
+    * 7. Hubungkan dengan konsep Ihsan: Melakukan amal dengan cara yang terbaik.
+    * 8. Guru: 'Lakukan segala sesuatu dengan tenang (Sabar) and teliti (Fathonah).'
+    * 9. Cobalah: LARI CEPAT, BICARA LEMBUT, BERDOA KHUSYU.
+    * III. KEGIATAN INTI: [Bermakna] - MENGAPLIKASIKAN
+    * 10. Melakukan aksi sesuai kartu Adverb yang ditarik secara acak.
+    * 11. Menuliskan cara-cara Nabi Muhammad melakukan hal (misal: Makan dengan tangan kanan).
+    * IV. KEGIATAN INTI: [Berkesadaran] - MEREFLEKSIKAN
+    * 12. Memberikan apresiasi atas usaha, ketelitian, dan kejujuran anak dalam belajar.
+    * 13. Mengajak anak bersyukur atas ilmu baru dan kemampuan yang Allah anugerahkan.
+    * 14. Menanyakan perasaan anak setelah berhasil menyelesaikan tantangan ini.
+    * V. KEGIATAN PENUTUP: [Menyenangkan]
+    * 15. Simpan simbol ke wadahnya (Amanah).
+    * 16. Membaca Hamdalah.
+
+Level 6: K3: Preposisi (The Preposition - Green Bridge) / The Preposition
+  - Tool Display: Preposition Symbol (Green Bridge), Box & Small Doll
+  - Tools List: ["Preposition Symbol (Green Bridge)"]
+  - Error: Terbalik menentukan posisi antara "Di atas" and "Di bawah" secara lisan.
+  - Steps:
+    * I. KEGIATAN AWAL: [Berkesadaran]
+    * 1. Memulai dengan membaca Basmalah.
+    * 2. Undang anak: 'Mari kita lihat hubungan antara satu benda dengan benda lainnya.'
+    * II. KEGIATAN INTI: [Bermakna] - MEMAHAMI
+    * 3. Letakkan boneka DI ATAS kotak. Guru: 'Ini adalah Preposisi.'
+    * 4. Tunjukkan Preposition Symbol (Green Bridge/Ribbon): 'Hijau seperti rumput, dia adalah jembatan penghubung.'
+    * 5. Letakkan boneka DI DALAM kotak, DI SAMPING, DI BAWAH.
+    * 6. In English: 'ON, IN, UNDER, BESIDE.'
+    * 7. Jelaskan bahwa segala sesuatu di alam semesta memiliki tempat yang sudah Allah atur (Adil).
+    * 8. Guru: 'Hormatilah tempat and batasan (Preposisi) orang lain.'
+    * III. KEGIATAN INTI: [Bermakna] - MENGAPLIKASIKAN
+    * 9. Permainan 'Hide and Seek': Temukan benda berdasarkan instruksi preposisi.
+    * 10. Menggambar peta harta karun di kelas menggunakan kata depan.
+    * IV. KEGIATAN INTI: [Berkesadaran] - MEREFLEKSIKAN
+    * 11. Memberikan apresiasi atas usaha, ketelitian, dan kejujuran anak dalam belajar.
+    * 12. Mengajak anak bersyukur atas ilmu baru dan kemampuan yang Allah anugerahkan.
+    * 13. Menanyakan perasaan anak setelah berhasil menyelesaikan tantangan ini.
+    * V. KEGIATAN PENUTUP: [Menyenangkan]
+    * 14. Simpan simbol pita hijau ke kotaknya (Amanah).
+    * 15. Membaca Hamdalah.
+
+Level 7: K3: Kata Ganti (The Pronoun - Large Purple Isosceles Triangle) / The Pronoun
+  - Tool Display: Pronoun Symbol (Purple Triangle), Friend Name Cards
+  - Tools List: ["Pronoun Symbol (Large Purple Triangle)"]
+  - Error: Menggunakan kata ganti yang kurang sopan (misal: "Lu" alih-alih "Kamu/Anda").
+  - Steps:
+    * I. KEGIATAN AWAL: [Berkesadaran]
+    * 1. Memulai dengan membaca Basmalah.
+    * 2. Panggil nama anak: 'Fatih sedang duduk.'
+    * 3. Guru: 'Sekarang Bunda ganti: DIA sedang duduk. DIA adalah Pronoun.'
+    * II. KEGIATAN INTI: [Bermakna] - MEMAHAMI
+    * 4. Tunjukkan Pronoun Symbol (Large Purple Isosceles Triangle): 'Tinggi and mulia, menggantikan nama orang.'
+    * 5. Kenalkan: SAYA (Ana), KAMU (Anta/Anti), KITA (Nahnu).
+    * 6. In English: 'I, YOU, WE, THEY, HE, SHE, IT.'
+    * 7. Jelaskan adab: Menggunakan kata ganti yang paling sopan (Adab Islami).
+    * 8. Guru: 'Panggilan yang baik adalah hak setiap saudara kita.'
+    * III. KEGIATAN INTI: [Bermakna] - MENGAPLIKASIKAN
+    * 9. Menulis surat dengan mengganti semua nama orang menjadi kata ganti yang tepat.
+    * 10. Latihan subjek-verb agreement bahasa Inggris (I am, You are, He is).
+    * IV. KEGIATAN INTI: [Berkesadaran] - MEREFLEKSIKAN
+    * 11. Memberikan apresiasi atas usaha, ketelitian, dan kejujuran anak dalam belajar.
+    * 12. Mengajak anak bersyukur atas ilmu baru dan kemampuan yang Allah anugerahkan.
+    * 13. Menanyakan perasaan anak setelah berhasil menyelesaikan tantangan ini.
+    * V. KEGIATAN PENUTUP: [Menyenangkan]
+    * 14. Simpan simbol (Amanah).
+    * 15. Membaca Hamdalah.
+
+Level 8: K3: Kata Sambung (The Conjunction - Pink Bar) / The Conjunction
+  - Tool Display: Conjunction Symbol (Pink Bar), Word Chains
+  - Tools List: ["Conjunction Symbol (Pink Bar)"]
+  - Error: Kalimat terputus-putus; tidak tahu cara menyambung ide.
+  - Steps:
+    * I. KEGIATAN AWAL: [Berkesadaran]
+    * 1. Memulai dengan membaca Basmalah.
+    * 2. Siapkan dua kalimat: 'Budi makan roti.' 'Ani makan roti.'
+    * 3. Guru: 'Mari kita sambung agar lebih efisien: Budi DAN Ani makan roti.'
+    * II. KEGIATAN INTI: [Bermakna] - MEMAHAMI
+    * 4. Tunjukkan Conjunction Symbol (Pink Bar): 'Simbol ini mengikat dua kata atau kalimat.'
+    * 5. Kenalkan: DAN, ATAU, TETAPI, KARENA.
+    * 6. In English: 'AND, OR, BUT, BECAUSE.'
+    * 7. Jelaskan konsep Tali Persaudaraan (Ukhuwah) - kata sambung menyatukan ide.
+    * 8. Guru: 'Gunakan kata sambung yang jujur agar maksudmu sampai (Tabligh).'
+    * III. KEGIATAN INTI: [Bermakna] - MENGAPLIKASIKAN
+    * 9. Membuat rantai kalimat sangat panjang menggunakan kata 'and'.
+    * 10. Melengkapi kalimat sebab-akibat menggunakan 'karena'.
+    * IV. KEGIATAN INTI: [Berkesadaran] - MEREFLEKSIKAN
+    * 11. Memberikan apresiasi atas usaha, ketelitian, dan kejujuran anak dalam belajar.
+    * 12. Mengajak anak bersyukur atas ilmu baru dan kemampuan yang Allah anugerahkan.
+    * 13. Menanyakan perasaan anak setelah berhasil menyelesaikan tantangan ini.
+    * V. KEGIATAN PENUTUP: [Menyenangkan]
+    * 14. Simpan simbol (Amanah).
+    * 15. Membaca Hamdalah.
+
+Level 9: K3: Kata Seru (The Interjection - Gold Flower) / The Interjection
+  - Tool Display: Interjection Symbol (Gold Flower), Expression Cards
+  - Tools List: ["Interjection Symbol (Gold Flower)"]
+  - Error: Menggunakan kata seru yang kasar atau tidak sesuai syar'i.
+  - Steps:
+    * I. KEGIATAN AWAL: [Berkesadaran]
+    * 1. Memulai dengan membaca Basmalah.
+    * 2. Guru pura-pura terkejut: 'Subhanallah! Indah sekali bunganya.'
+    * 3. Guru: 'Kata Subhanallah adalah Interjection, ungkapan rasa di hati.'
+    * II. KEGIATAN INTI: [Bermakna] - MEMAHAMI
+    * 4. Tunjukkan Interjection Symbol (Gold Flower): 'Berkilau seperti emas, mengekspresikan perasaan.'
+    * 5. Kenalkan Kalimat Thoyyibah: Masya Allah, Allahu Akbar, Astagfirullah.
+    * 6. In English: 'WOW! HEY! OUCH!'
+    * 7. Jelaskan adab: Menggunakan lisan hanya untuk dzikir and kata yang baik.
+    * 8. Guru: 'Lidah adalah amanah, jangan sampai mengucap kata seru yang menyakiti.'
+    * III. KEGIATAN INTI: [Bermakna] - MENGAPLIKASIKAN
+    * 9. Membuat komik pendek dengan balon kata berisi Interjection Islami.
+    * 10. Bermain peran mengekspresikan rasa terkejut, senang, and sedih secara Islami.
+    * IV. KEGIATAN INTI: [Berkesadaran] - MEREFLEKSIKAN
+    * 11. Memberikan apresiasi atas usaha, ketelitian, dan kejujuran anak dalam belajar.
+    * 12. Mengajak anak bersyukur atas ilmu baru dan kemampuan yang Allah anugerahkan.
+    * 13. Menanyakan perasaan anak setelah berhasil menyelesaikan tantangan ini.
+    * V. KEGIATAN PENUTUP: [Menyenangkan]
+    * 14. Simpan simbol seru emas (Amanah).
+    * 15. Membaca Hamdalah.
+
+Level 10: K1-K2: Grammar Box II (Article & Noun)
+  - Tool Display: Grammar Box II, Colored Cards
+  - Tools List: ["Grammar Boxes"]
+  - Error: Ketidaksesuaian memasangkan artikel (a/an/the) dengan benda (khusus English).
+  - Steps:
+    * I. KEGIATAN AWAL: [Berkesadaran]
+    * 1. Memulai dengan membaca Basmalah.
+    * 2. Undang anak secara personal: 'Kita akan memasangkan benda dengan pendampingnya.'
+    * 3. Gelar alas kerja (rug) atau bersihkan meja khusus.
+    * II. KEGIATAN INTI: [Bermakna] - MEMAHAMI
+    * 4. Buka Laci Kotak II. Keluarkan semua isinya.
+    * 5. Ambil tumpukan tiket artikel (tan/biru muda) dan tiket noun (hitam).
+    * 6. Minta anak memisahkan kartu frasa besar sebagai panduan.
+    * 7. Susun barisan kartu artikel di sisi sebelah kiri anak.
+    * 8. Jelaskan perbedaan kata sandang tertentu (Definite / the) vs tak tentu (Indefinite / a, an).
+    * 9. Minta anak meletakkan simbol segitiga biru muda (Article) dengan presisi.
+    * 10. Minta anak melengkapi sisanya dengan piramida hitam (Noun).
+    * III. KEGIATAN INTI: [Bermakna] - MENGAPLIKASIKAN
+    * 11. Anak membaca lantang susunan hasil kerjanya (contoh: 'a cat', 'the sun').
+    * 12. Minta anak menyalin dua set yang disukainya ke dalam buku bahasa.
+    * 13. Menantang anak mengacak ulang dan menyusun tanpa error (kontrol mandiri).
+    * IV. KEGIATAN INTI: [Berkesadaran] - MEREFLEKSIKAN
+    * 14. Mengapresiasi ketepatan menyortir yang sangat teliti.
+    * 15. Guru: 'Sama seperti benda selalu punya nama, kita manusia punya nama dan tugas dari Allah.'
+    * V. KEGIATAN PENUTUP: [Menyenangkan]
+    * 16. Susun kartu dengan rapi menurut slot warnanya.
+    * 17. Membaca Hamdalah.
+
+Level 11: K1-K2: Grammar Box III (Adjective)
+  - Tool Display: Grammar Box III, Colored Cards
+  - Tools List: ["Grammar Boxes"]
+  - Error: Meletakkan kata sifat sesudah kata benda (grammar Inggris salah posisi) atau tidak sepakat logika.
+  - Steps:
+    * I. KEGIATAN AWAL: [Berkesadaran]
+    * 1. Memulai dengan membaca Basmalah.
+    * 2. Guru: 'Sekarang benda-benda milik kita akan memiliki sifat yang hidup.'
+    * 3. Pastikan kelengkapan Kotak III ada di atas meja kerja.
+    * II. KEGIATAN INTI: [Bermakna] - MEMAHAMI
+    * 4. Ambil dan baca frasa utuh induk dari dalam kotak pelan-pelan.
+    * 5. Letakkan tiket kata sifat terpisah (warna biru tua).
+    * 6. Sisipkan kata sifat di antara Artikel dan Noun (The beautiful flower).
+    * 7. Tunjukkan perubahan makna setelah disisipkan.
+    * 8. Ambil kotak kayu simbol Grammar. Letakkan dengan tangan dominan.
+    * 9. Letakkan segitiga biru muda (artikel) dan piramida hitam (benda).
+    * 10. Berikan hak tempat tinggi untuk segitiga biru tua sedang (kata sifat).
+    * 11. Guru: 'Sifat menghidupkan dan mempertajam gambaran benda di dunia nyata.'
+    * III. KEGIATAN INTI: [Bermakna] - MENGAPLIKASIKAN
+    * 12. Logical Adjective Game: Anak memisahkan kolokasi logis vs yang aneh.
+    * 13. Menulis karangan pendek memakai 3 adjektif baru di buku.
+    * IV. KEGIATAN INTI: [Berkesadaran] - MEREFLEKSIKAN
+    * 14. Membahas sifat-sifat baik manusia yang dicintai Allah SWT.
+    * 15. Menutup renungan dengan hadis tentang akhlak.
+    * V. KEGIATAN PENUTUP: [Menyenangkan]
+    * 16. Mengelompokkan tumpukan pita sesuai subdivisinya.
+    * 17. Kembalikan secara elegan ke laci penyimpan. Membaca Hamdalah.
+
+Level 12: K1-K2: Grammar Box IV (Verb)
+  - Tool Display: Grammar Box IV, Colored Cards
+  - Tools List: ["Grammar Boxes"]
+  - Error: Ketertukaran fungsi gerak dinamis dan fungsi diam nama benda.
+  - Steps:
+    * I. KEGIATAN AWAL: [Berkesadaran]
+    * 1. Memulai dengan membaca Basmalah dengan khusyuk.
+    * 2. Membawa nampan Grammar Box IV dan simbol kayunya ke alas.
+    * 3. Guru: 'Frasa diam yang kita punya sekarang akan mulai bergerak menjadi kalimat.'
+    * II. KEGIATAN INTI: [Bermakna] - MEMAHAMI
+    * 4. Buka Kotak IV. Ekstrak barisan tumpukan pita kalimat.
+    * 5. Keluarkan tumpukan khusus kartu Verb berwarna merah.
+    * 6. Susun formasi lengkap subjek: 'The small cat'.
+    * 7. Ambil satu Verb (contoh: jumps) lalu gabungkan agar kalimat itu hidup bergetar.
+    * 8. Ambil bola bundar solid merah dari kotak grammar.
+    * 9. Jatuhkan bola merah dengan posisi bermartabat persis di sentral laci (Verb).
+    * 10. Guru: 'Kata kerja adalah tenaga batin / mesin sebuah kalimat. Tanpanya semua tiada aksi.'
+    * III. KEGIATAN INTI: [Bermakna] - MENGAPLIKASIKAN
+    * 11. Mainkan 'Acting the Verb Game' secara interaktif. Berperan langsung secara jasmani.
+    * 12. Tantang teman di sekitar ikut memerankan aksi dari kartu verb yang diambil dari dalam slot misteri.
+    * 13. Menulis rumusan kalimat aksi hasil praktik tersebut dengan bolpoin / tinta presisi.
+    * IV. KEGIATAN INTI: [Berkesadaran] - MEREFLEKSIKAN
+    * 14. Renungan Islami: Mengaitkan hakikat verb dengan Amal Shalih. Perkataan mulia harus diwujudkan menjadi Amal nyata.
+    * 15. Mensyukuri kesehatan gerak rangka otot anugerah Ilahi.
+    * V. KEGIATAN PENUTUP: [Menyenangkan]
+    * 16. Menyelipkan kembali seluruh kumpulan kertas karton warna menuruti hierarkinya.
+    * 17. Membawa kembali rapi ke almari kelas terbuka. Membaca Hamdalah.
+
+Level 13: K2-K3: Grammar Box V (Preposition)
+  - Tool Display: Grammar Box V, Colored Cards
+  - Tools List: ["Grammar Boxes"]
+  - Error: Salah menempatkan posisi kartu preposisi sehingga merubah total arti tata ruang benda.
+  - Steps:
+    * I. KEGIATAN AWAL: [Berkesadaran]
+    * 1. Memulai dengan merutinkan Basmalah bersama.
+    * 2. Mengeluarkan Kotak V yang isinya lebih ramai dan mengundang anak untuk fokus ke arah alas hijau.
+    * 3. Guru: 'Mari belajar merangkai lokasi dan hukum alam tata ruang benda di alam maya ke alam nyata.'
+    * II. KEGIATAN INTI: [Bermakna] - MEMAHAMI
+    * 4. Guru menata dua sub-kelompok independen. Misal 'The red book' dengan 'the solid table'.
+    * 5. Analisis interaktif: Apakah objek ini ada kaitannya? Siapkan sebuah kartu jembatan misteri.
+    * 6. Masukkan slip hijau mungil yakni Preposisi (contoh: ON vs UNDER).
+    * 7. Ajak anak membaca bersamaan dan mendiskusikan tabrakan beda efek totalitas tata ruang jika ON ditukar menjadi UNDER.
+    * 8. Tandai menggunakan balok pahatan mirip jembatan lengkung landai berwarna hijau terang.
+    * 9. Guru: 'Preposisi membentangkan jembatan penjelas tata letak dari objek yang merenung hening.'
+    * III. KEGIATAN INTI: [Bermakna] - MENGAPLIKASIKAN
+    * 10. Dynamic Physical Game: Memerintahkan anak berpindah menyusuri instruksi tata ruang, merayap di bawah laci atau melenting di samping teman.
+    * 11. Merangkai kombinasi baru kartu-kartu preposition yang saling berseberangan (INTO vs OUT OF).
+    * 12. Mandiri menyalin struktur penemuan terbarik into log booknya berhias arsiran bingkai hijau.
+    * IV. KEGIATAN INTI: [Berkesadaran] - MEREFLEKSIKAN
+    * 13. Membahas dan refleksi tata susila tata posisi. Membasuh ego (Tawadhu) lewat renungan memposisikan diri "Di Bawah" orang sakti tak berdosa (misal Orang Tua tercinta).
+    * 14. Appresiasi antusias yang dikerahkan.
+    * V. KEGIATAN PENUTUP: [Menyenangkan]
+    * 15. Satukan blok-blok berserakan beserta tumpukan label.
+    * 16. Menutup tirai sesi dengan bacaan Hamdalah utuh.
+
+Level 14: K2-K3: Grammar Box VI (Adverb)
+  - Tool Display: Grammar Box VI, Action Cards
+  - Tools List: ["Grammar Boxes"]
+  - Error: Ketertukaran peletakan pemahaman Adverb (penghias verb) dengan Adjective (penghias Noun).
+  - Steps:
+    * I. KEGIATAN AWAL: [Berkesadaran]
+    * 1. Membuka layar presentasi seraya mengucap Bismillah.
+    * 2. Hadirkan Grammar Box VI persis berdampingan memeluk balok simbol oranye di tengah hamparan ruang.
+    * 3. Guru: 'Tahukah kalian bahwa energi tindakan pun masih bisa diwarnai dan dirias?'
+    * II. KEGIATAN INTI: [Bermakna] - MEMAHAMI
+    * 4. Sajikan parade kalimat aksi yang biasa melintas di hadapan kelas, misal: 'The student talks.'
+    * 5. Secara teatrikal, tambahkan kartu sisipan jingga (Adverb), sebut saja: LOUDLY. Baca: The student talks LOUDLY.
+    * 6. Demonstrasikan guncangan perbedaan sensasi saat LOUDLY dibakar ditukar mendadak dengan QUICKLY.
+    * 7. Pasang rakitan pin bola berwarna oranye terang yang berukuran sedikit lebih kecil persis menggelendong bernaung berdampingan di tubuh bola Verb raksasa merah.
+    * 8. Bereksperimen sintaksis kalimat: Minta murid mencoba memuntahkan Adverb tersebut ke ujung belahan depan rute frasa. 'Quickly, the boy runs.' Buktikan kejutannya logis.
+    * 9. Guru: 'Ini bukti kelenturan bahasa ciptaan Allah. Berbeda struktur beda rasa.'
+    * III. KEGIATAN INTI: [Bermakna] - MENGAPLIKASIKAN
+    * 10. Eksekusi pantomim bisu: Murid mengeksplor ragam instruksi aksi unik dipandu Adverb (contoh: Tertawa Hati-hati, Berjalan Anggun).
+    * 11. Mengeksekusi penugasan bebas berkarang mandiri dengan menyadap tiga lapis Adverb kesayangan di lembar kerjanya.
+    * 12. Mencentang dan mengkualifikasi pekerjaan murid dengan kontrol ketat pada letak letak arsir lingkaran jingganya.
+    * IV. KEGIATAN INTI: [Berkesadaran] - MEREFLEKSIKAN
+    * 14. Menarik konklusi bahwasanya seluruh manuver rutinitas duniawi ini akan terbingkai purna adab (Adverb) Islami bila dilaksanakan penuh ihsan (lembut dan tulus).
+    * 15. Apresiasi kekukuhan murid dalam menyorot tumpukan simbol pelik oranye.
+    * V. KEGIATAN PENUTUP: [Menyenangkan]
+    * 16. Sapu seisi elemen dan rakit menyatu menepi bersandar ke kotak pangkalannya.
+    * 17. Khatam bernafas merunduk syahdu dengan untaian senandung Hamdalah.
+
+Level 15: K2-K3: Grammar Box VII (Pronoun)
+  - Tool Display: Grammar Box VII, Substitution Cards
+  - Tools List: ["Grammar Boxes"]
+  - Error: Discrepancy (ketidakcocokan mutlak) gender Pronoun kepada subjek manusia aslinya.
+  - Steps:
+    * I. KEGIATAN AWAL: [Berkesadaran]
+    * 1. Mengucapkan kalimat spiritual Basmalah secara tenang dan padu.
+    * 2. Mensejahterakan pandangan ke laci Kotak VII berbahan balok mahoni di atas meja riset bundar.
+    * 3. Guru: 'Pernahkah lisanmu merasa tersita sekedar dari serutan menyebut rincian kepemilikan nama berulang-ulang tanpa usai?'
+    * II. KEGIATAN INTI: [Bermakna] - MEMAHAMI
+    * 4. Susun demonstrasi kalimat verbal yang dirancang monoton kaku mubazir tebal: 'Zaid mengangkat meja, Zaid menyeka debu, lantas Zaid rebah.'
+    * 5. Pertontonkan trik membuang porsi 'Zaid' dari dua kalimat buritan menggunakan label Substitution ungu memanjang.
+    * 6. Ganti secara telak sosok tersebut dengan tancapan kartu Pronoun sepadan subjek: 'Dia/He'.
+    * 7. Bebankan pin mahkota piramida raksasa tegak memanjang berbaju nuansa warna ungu elegan pada slip tersebut.
+    * 8. Bongkar rahasia mutlak bahwasanya peran Pronouns diutus terlahir agar narasi di muka bumi memendar licin lincah tak terengah.
+    * 9. Mendemonstrasikan inkonsistensi keliru jika He ditukar ke She menyalahi gender objek aslinya dan mengundang kerancuan global.
+    * III. KEGIATAN INTI: [Bermakna] - MENGAPLIKASIKAN
+    * 10. Anak merobohkan blok bangunan paragraf primitif yang kaku dan memperbaharuinya ke paragraf ringkas jenius nan efisien menggunakan porsi taburan Pronoun variatif.
+    * 11. Mengeksekusi rentetan kerja silang berpasangan, mengubah I am menjadi You are agar selaras harmoni verb agreement khusus grammar lingua franca (English).
+    * 12. Proses validasi otomatis dari guru bersama kartu kendali.
+    * IV. KEGIATAN INTI: [Berkesadaran] - MEREFLEKSIKAN
+    * 13. Menanamkan reflektif ganda betapa mengganti perspektif (aku jadi dia) adalah pintu sejati menuju tenggang rasa (Empati kemanusiaan).
+    * 14. Mengeksplorasi kebijaksanaan sang Khalik Yang Maha Tahu akan keterbatasan kemampuan makhluk memikul repetisi kaku lisan terus bergulir.
+    * V. KEGIATAN PENUTUP: [Menyenangkan]
+    * 15. Tenteram mengondisikan sebaran balok piramida dan kumpulan barisan ungu masuk bersarang tepat di palung sekat slot yang dijodohkan.
+    * 16. Menutup tirai simposium dengan gaung Hamdalah yang tulus lega.
+
+Level 16: K3: Grammar Box VIII (Conjunction)
+  - Tool Display: Grammar Box VIII, Pink Cards Strip
+  - Tools List: ["Grammar Boxes"]
+  - Error: Keliru serampangan mencomot konjungsi sehingga logika sebab-akibat alur terpelanting kebalik.
+  - Steps:
+    * I. KEGIATAN AWAL: [Berkesadaran]
+    * 1. Mencanangkan pondasi niat semata mengharap limpahan karunia Allah diiringi Basmalah murni.
+    * 2. Hadirkan Kotak VIII bercorak sentuhan pita merah muda yang manis nan mencolok.
+    * 3. Guru: 'Sambutan selamat datang, ayo persiapkan diri menjelma mekanik literatur agung yang merakit dua keping kereta kalimat usang.'
+    * II. KEGIATAN INTI: [Bermakna] - MEMAHAMI
+    * 4. Lepas bebas layangkan dua wujud rel kalimat tunggal setara yang enggan saling bersapa secara mandiri di alas polos.
+    * 5. Donasikan tiket batang padat bertuliskan Conjunction yang diikat pita silang merah muda merona.
+    * 6. Ajak anak turun lapangan mengekspos dan mengeksekusi gunting mental: buang untaian repetisi kosong secara sepihak dan lelehkan lem penyambung ('AND', 'OR', 'BUT').
+    * 7. Paku pondasi kesepakatan tersebut dengan simbol padat berupa balok kokoh solid berwarna senada pink jatuh pada ruas pertemuan tersebut.
+    * 8. Eksperimen logika sebab-akibat krusial: Apa yang kacau ketika kita bertaruh nasib menggusur Because diganti oleh Despite? Makna dunia berbalik riuh mutlak tak masuk diakal.
+    * 9. Menjabarkan bahwa sambungan sekecil mur ini mendikte laju putaran arus ide dari hulu ke hilir pemikiran manusia.
+    * III. KEGIATAN INTI: [Bermakna] - MENGAPLIKASIKAN
+    * 10. Turnamen Rantai Persahabatan Tersambung: Murid dikejar merakit rentetan kereta frasa subjek dari lima kolega yang amat berbeda menggunakan sumbu sakral perangkai AND menembus bentangan tepian alas kerja meja guru.
+    * 11. Mengejawantahkan formula ini ke skema penulisan padu seraya menghias grafis kubik pink kecil bersinar mengapit sambungan tersebut.
+    * 12. Mandiri memeriksa dan menggugat apakah ketersambungan itu secara harfiah rasional di hadapan logika nurani dan struktur kartu pengecek sang guru mentor.
+    * IV. KEGIATAN INTI: [Berkesadaran] - MEREFLEKSIKAN
+    * 13. Mentadabburi fenomena bahwasanya sulur silaturahmi yang sejati mampu menenun serabut tali kokoh baja Ukhuwah (Persatuan Umat) saling memeluk melindungi seumpama energi mekanika mutlak Konjungsi yang hakiki abadi.
+    * 14. Mengucapkan tasbih kekaguman atas kompleksitas rapi yang disediakan alam raya bahasa.
+    * V. KEGIATAN PENUTUP: [Menyenangkan]
+    * 15. Bersih rapi membereskan sisa ceceran pertempuran laci kotak dan mengembalikannya ke posisi habitat semula berdiri tegap rapi amanah telaten.
+    * 16. Melipat bibir penutup senyum dengan memanjatkan Hamdalah serempak ikhlas paripurna.
+
+Level 17: K3: Grammar Box IX (Interjection)
+  - Tool Display: Grammar Box IX, Dynamic Expression Cards
+  - Tools List: ["Grammar Boxes"]
+  - Error: Bocor menyisipkan simbol intonasi emas interjeksi liar di ujung pernyataan flat biasa.
+  - Steps:
+    * I. KEGIATAN AWAL: [Berkesadaran]
+    * 1. Menguntai awalan hening yang ditasbihkan oleh kemurnian ucapan Basmalah khusyuk sempurna.
+    * 2. Melabuhkan Kotak IX secara dramatis memikat daya nalar di tengah forum lingkaran kecil eksplorasi.
+    * 3. Guru dengan binar semringah menyapa cerah: 'Siapkan radar telinga, waspadai gelegar letupan luapan isi lubuk kalbu yang lama membeku bersiap terbebas tumpah ruah.'
+    * II. KEGIATAN INTI: [Bermakna] - MEMAHAMI
+    * 4. Menyeret laju keluar perabot andalan isi laci eksklusif Kotak IX. Di dalamnya terpendam letupan pita bertanda baca tajam radikal.
+    * 5. Minta anak sudi melangsungkan perjodohan badan tunggal kalimat gersang datar dengan asupan letupan Interjection mendadak (nuansa hibrid keemasan menyala bernuansa biru terong pucat ungu).
+    * 6. Menyuguhkan atraksi visual benturan tajam di benak mereka: 'It is huge...' versus 'Boom! Unbelievable, it is totally overwhelmingly humongous!!'
+    * 7. Guru mantap menancapkan sebuah tiang pin tongkat kecil bermahkota kubah emas (The Golden Pin) secara epik berdiri presisi menaungi lambang tersebut.
+    * 8. Mendorong investigasi aktif berdiskusi mengenai anomali fenomena pergeseran palet modulasi naik turunnya frekuensi pita getar suara tatkala anak mempublikasikannya bersuara tinggi tebal di hadapan massa audiens pendengar setia di ruang kelas.
+    * 9. Memberi sekat batas haram dan halal; mengungkap batasan adab perbendaharaan Interjection mana saja yang mulia diagungkan dan membuang yang diharamkan lisan syariat Islami.
+    * III. KEGIATAN INTI: [Bermakna] - MENGAPLIKASIKAN
+    * 10. Mewujudkan sesi ajang praktek sandiwara bebas, merekayasa insiden palsu guna mementaskan kericuhan akting teatrikal heboh naskah buatan penuh Interjections berlebihan yang terbilang asyik lebai namun disiplin bersetia di jalur adab akhlak yang membumi tanpa terkesan norak membahayakan.
+    * 11. Mengeksekusi tulisan jurnal emosional murni di buku masing-masing bersablon ragam rentetan simbol kejutan berlapis emas guna mengabadikan pemahaman mendalam hari itu secara permanen abadi di sanubari pikiran sang murid tangguh.
+    * 12. Secara independen memeriksa kesejajaran logika peletakan tata letak tanda seru mutlak tersebut menyandar akur bersama kumpulan perwira referensi lembar siluet grafik kendali milik sang pendamping materi cerdas.
+    * IV. KEGIATAN INTI: [Berkesadaran] - MEREFLEKSIKAN
+    * 13. Serap kuat-kuat pemahaman hakiki luhur yang menanamkan kesadaran murni bahwasanya lidah mulut basah seorang pelajar peradaban Tholib santri patutnya senantiasa memantulkan dan merefleksi dzikir kalimat Thayibah semata ketika disambar gemuruh ujian keterkejutan mendadak dan refleks emosional tak terkendali spontanitas.
+    * 14. Menghargai sumbangsih aktif serta kejernihan aura tanggapan ekspresi tanpa batas namun penuh saringan suci bersih cerminan kalbu yang mereka keluarkan sedari tadi berkat ilmu rahmat bimbinganNya.
+    * V. KEGIATAN PENUTUP: [Menyenangkan]
+    * 15. Meluncurkan verifikasi rekat menyusun pin-pin berharga dan lempengan kartu mungil emas yang telah beraksi heroik menyapu bersih wawasan kelas kembali terlelap nyaman damai aman membisu ke pelukan kerangka peti khusus milik laci sembilan andalannya.
+    * 16. Menutup gulungan waktu simposium berestetika linguistik hari itu dirajut jalinan epilog napas bersyukur memeluk kerendahan hati syahdu luruh di sela-sela untaian pamungkas doa paripurna Alhamdulillah.
+
+Level 18: K2-K3: Waktu Kata Kerja / Verb Tenses (Past, Present, Future)
+  - Tool Display: Timeline Tape, Tense Cards (Yesterday, Today, Tomorrow)
+  - Tools List: ["Verb Cards","Timeline"]
+  - Error: Memakai pola beraturan (regular verbs -ed) secara salah untuk irregular verbs pada saat bahasa Inggris.
+  - Steps:
+    * I. KEGIATAN AWAL: [Berkesadaran]
+    * 1. Memulai dengan membaca Basmalah.
+    * 2. Guru: 'Waktu yang sudah terlewat tidak bisa diulang. Mari kita hargai pergantian waktu melalui kata bahasa.'
+    * II. KEGIATAN INTI: [Bermakna] - MEMAHAMI
+    * 3. Kenalkan garis waktu merah besar (Timeline): Masa Lalu/Kemarin, Masa Kini, Masa Depan/Esok.
+    * 4. Letakkan potongan kartu Verb di tengah: 'Saya makan' (Hari Ini).
+    * 5. Analisis interaktif: Bagaimana bentuk bilangnya jika kejadiannya KEMARIN? (Sudah makan / ate).
+    * 6. Analisis lanjutan: Jika BESOK? (Akan makan / will eat).
+    * 7. Guru (Hikmah Islami): 'Masa lalu adalah kesempatan evaluasi taubat, masa kini ladang amal karya, masa depan tumpuan tawakkal dan cita.'
+    * 8. Sorting Cards: Mengelompokkan puluhan kartu peristiwa ke dalam tiang Past, Present, atau Future yang tepat.
+    * 9. Bahas sekilas perbedaan struktur Tenses BI (tambah kata sudah/akan) vs Bahasa Inggris (Perubahan bentuk kata).
+    * III. KEGIATAN INTI: [Bermakna] - MENGAPLIKASIKAN
+    * 10. Dynamic Game: Bermain keranjang pelompat waktu. Guru menyebut kalimat, anak melompat ke garis tense yang tepat di lantai.
+    * 11. Tulis jurnal berisi 3 perbuatan masa lalu dan 3 komitmen perbuatan esok hari.
+    * IV. KEGIATAN INTI: [Berkesadaran] - MEREFLEKSIKAN
+    * 12. Mensyukuri anugerah jatah umur dengan penguatan pembacaan renungan Surah Al-'Asr.
+    * V. KEGIATAN PENUTUP: [Menyenangkan]
+    * 13. Rapikan sabuk timeline dan klasifikasi kartu waktunya.
+    * 14. Membaca Hamdalah.
+
+========================================
+Sub-area: lang_analysis (Analisis Kalimat / Sentence Analysis)
+========================================
+
+Level 1: K2-K3: Dasar Analisis Kalimat / Sentence Analysis (Subject & Predicate)
+  - Tool Display: Sentence Analysis Chart (Primary)
+  - Tools List: ["Analysis Chart"]
+  - Error: Logika: Meletakkan kata kerja di lingkaran Subjek.
+  - Steps:
+    * I. KEGIATAN AWAL: [Berkesadaran]
+    * 1. Memulai dengan membaca Basmalah.
+    * 2. Undang anak: 'Mari kita lihat inti dari setiap gerakan hidup kita.'
+    * 3. Guru: 'Kalimat yang paling sederhana pun harus punya pelaku (Subjek) and perbuatan (Predikat).'
+    * II. KEGIATAN INTI: [Bermakna] - MEMAHAMI
+    * 4. Ambil kartu: BURUNG TERBANG.
+    * 5. Guru tanya: 'Apa perbuatannya?' (Anak: 'Terbang').
+    * 6. Letakkan 'Terbang' di Merah Besar.
+    * 7. Tanya: 'SIAPA yang terbang?' (Anak: 'Burung').
+    * 8. Letakkan 'Burung' di Hitam Kiri.
+    * 9. Jelaskan: 'Hanya butuh dua ini, kalimat sudah hidup.'
+    * 10. In English: 'WHO is doing it? (Subject), WHAT are they doing? (Predicate).'
+    * 11. Ajarkan bahwa semua perbuatan di dunia ini disaksikan oleh Allah.
+    * 12. Guru: 'Jadilah pelaku (Subjek) dari kebaikan (Predikat) yang terus menerus.'
+    * III. KEGIATAN INTI: [Bermakna] - MENGAPLIKASIKAN
+    * 13. Membuat 5 kalimat pendek (2 kata) and menganalisisnya.
+    * 14. Permainan kata lisan: 'Guru sebutkan aksi, anak sebutkan pelakunya.'
+    * IV. KEGIATAN INTI: [Berkesadaran] - MEREFLEKSIKAN
+    * 15. Memberikan apresiasi atas usaha, ketelitian, dan kejujuran anak dalam belajar.
+    * 16. Mengajak anak bersyukur atas ilmu baru dan kemampuan yang Allah anugerahkan.
+    * 17. Menanyakan perasaan anak setelah berhasil menyelesaikan tantangan ini.
+    * V. KEGIATAN PENUTUP: [Menyenangkan]
+    * 18. Simpan bagan (Amanah).
+    * 19. Membaca Hamdalah.
+
+Level 2: K2-K3: Struktur Kalimat S-P-O / Sentence Analysis (The Direct Object)
+  - Tool Display: Full Sentence Analysis Chart (S-P-O)
+  - Tools List: ["Analysis Chart"]
+  - Error: Logika: Bertanya Siapa? pada objek penderita.
+  - Steps:
+    * I. KEGIATAN AWAL: [Berkesadaran]
+    * 1. Memulai dengan membaca Basmalah.
+    * 2. Undang anak: 'Mari kita lihat pada SIAPA aksi itu dilakukan.'
+    * II. KEGIATAN INTI: [Bermakna] - MEMAHAMI
+    * 3. Ambil kartu: BUDI MEMBACA AL-QURAN.
+    * 4. Analisis S and P terlebih dahulu seperti granul sebelumnya.
+    * 5. Tanya: 'APA yang dibaca?' (Anak: 'Al-Quran').
+    * 6. Letakkan di Lingkaran Hitam Samping (Objek Direct).
+    * 7. Hubungkan panah dari Predikat ke Objek: 'APA?'.
+    * 8. In English: 'WHAT? (Direct Object).'
+    * 9. Jelaskan konsep Amanah: Objek adalah tanggung jawab dari Subjek.
+    * 10. Guru: 'Jika kita membaca (P), apa (O) yang paling bermanfaat? (Al-Quran).'
+    * III. KEGIATAN INTI: [Bermakna] - MENGAPLIKASIKAN
+    * 11. Menganalisis 5 kalimat aktivitas harian di sekolah.
+    * 12. Menuliskan kembali kalimat yang sudah dianalisis ke buku grammar.
+    * IV. KEGIATAN INTI: [Berkesadaran] - MEREFLEKSIKAN
+    * 13. Memberikan apresiasi atas usaha, ketelitian, dan kejujuran anak dalam belajar.
+    * 14. Mengajak anak bersyukur atas ilmu baru dan kemampuan yang Allah anugerahkan.
+    * 15. Menanyakan perasaan anak setelah berhasil menyelesaikan tantangan ini.
+    * V. KEGIATAN PENUTUP: [Menyenangkan]
+    * 16. Rapikan materi (Amanah).
+    * 17. Membaca Hamdalah.
+
+Level 3: K3: Kalimat Transitif & Intransitif / Transitive & Intransitive Verbs
+  - Tool Display: Transitive & Intransitive Comparison Charts
+  - Tools List: ["Analysis Chart"]
+  - Error: Membingungkan kata kerja yang mutlak butuh objek vs yang tidak.
+  - Steps:
+    * I. KEGIATAN AWAL: [Berkesadaran]
+    * 1. Memulai dengan membaca Basmalah.
+    * 2. Guru: 'Ada perbuatan yang butuh bantuan benda lain, ada yang bisa dilakukan sendiri.'
+    * II. KEGIATAN INTI: [Bermakna] - MEMAHAMI
+    * 3. Contoh A: 'Ibu memasak... (Anak bingung: Masak apa?)'. Ini TRANSITIF (Butuh Objek).
+    * 4. Contoh B: 'Budi tidur.' (Anak paham: Tidak butuh benda lain). Ini INTRANSITIF.
+    * 5. Jelaskan dengan simbol panah: Panah yang menembus ke objek vs panah yang berhenti.
+    * 6. In English: 'Transitive and Intransitive Verbs.'
+    * 7. Kaitkan dengan konsep kemandirian (Intransitif) and kerjasama (Transitif).
+    * 8. Guru: 'Pahamilah tugasmu, ada yang harus dikerjakan bersama, ada yang harus mandiri.'
+    * III. KEGIATAN INTI: [Bermakna] - MENGAPLIKASIKAN
+    * 9. Mengklasifikasikan 10 kata kerja ke kelompok T or I.
+    * 10. Membuat kalimat dari kata kerja 'Maka' (T) and 'Berlari' (I).
+    * IV. KEGIATAN INTI: [Berkesadaran] - MEREFLEKSIKAN
+    * 11. Memberikan apresiasi atas usaha, ketelitian, dan kejujuran anak dalam belajar.
+    * 12. Mengajak anak bersyukur atas ilmu baru dan kemampuan yang Allah anugerahkan.
+    * 13. Menanyakan perasaan anak setelah berhasil menyelesaikan tantangan ini.
+    * V. KEGIATAN PENUTUP: [Menyenangkan]
+    * 14. Simpan bagan (Amanah).
+    * 15. Membaca Hamdalah.
+
+Level 4: K3: Perluasan Keterangan / Sentence Analysis (Extensions)
+  - Tool Display: Sentence Analysis Chart (Extensions)
+  - Tools List: ["Extension Chart"]
+  - Error: Tertukar antara keterangan tempat (Dimana?) and keterangan cara (Bagaimana?).
+  - Steps:
+    * I. KEGIATAN AWAL: [Berkesadaran]
+    * 1. Memulai dengan membaca Basmalah.
+    * 2. Guru: 'Mari kita tambahkan detail waktu, tempat, and cara pada cerita kita.'
+    * II. KEGIATAN INTI: [Bermakna] - MEMAHAMI
+    * 3. Gunakan kalimat: 'Ibu (S) memasak (P) sayur (O) DI DAPUR (Ket. Tempat) DENGAN SENANG (Ket. Cara).'
+    * 4. Gunakan panah-panah kecil di sekeliling bagan: WHERE? WHEN? HOW? WHY?
+    * 5. Letakkan kartu keterangan di lingkaran yang sesuai.
+    * 6. Jelaskan bahwa Allah Maha Mengetahui SETIAP detail (Kapan, Dimana, and Bagaimana) kita beramal.
+    * 7. Tekankan ketelitian (Fathonah) dalam memberikan keterangan berita agar tidak fitnah.
+    * 8. Guru: 'Berilah keterangan yang benar (Tabligh) agar orang lain paham.'
+    * III. KEGIATAN INTI: [Bermakna] - MENGAPLIKASIKAN
+    * 9. Menganalisis kalimat panjang dari buku teks sains.
+    * 10. Membuat 'Story Map' lisan menggunakan 4 keterangan (W, W, H, W).
+    * IV. KEGIATAN INTI: [Berkesadaran] - MEREFLEKSIKAN
+    * 11. Memberikan apresiasi atas usaha, ketelitian, dan kejujuran anak dalam belajar.
+    * 12. Mengajak anak bersyukur atas ilmu baru dan kemampuan yang Allah anugerahkan.
+    * 13. Menanyakan perasaan anak setelah berhasil menyelesaikan tantangan ini.
+    * V. KEGIATAN PENUTUP: [Menyenangkan]
+    * 14. Simpan bagan (Amanah).
+    * 15. Membaca Hamdalah.
+
+Level 5: K3: Kalimat Aktif & Pasif / Active & Passive Voice
+  - Tool Display: Active-Passive Voice Chart
+  - Tools List: ["Active-Passive Chart"]
+  - Error: Bingung saat subjek berubah menjadi penderita (Pasif).
+  - Steps:
+    * I. KEGIATAN AWAL: [Berkesadaran]
+    * 1. Memulai dengan membaca Basmalah.
+    * 2. Guru: 'Kita bisa melihat kejadian dari dua sudut pandang: Pelaku atau yang Dikenai.'
+    * II. KEGIATAN INTI: [Bermakna] - MEMAHAMI
+    * 3. Aktif: 'Saya MENULIS buku.' (Pelaku bergerak).
+    * 4. Pasif: 'Buku DITULIS oleh saya.' (Fokus pada benda yang dikerjakan).
+    * 5. Gunakan panah yang arahnya berbalik.
+    * 6. In English: 'Active and Passive Voice.'
+    * 7. Jelaskan bahwa dalam Islam, kita harus aktif dalam kebaikan, and pasif (menahan diri) dari kemaksiatan.
+    * 8. Guru: 'Pilihlah kalimat yang paling menunjukkan adab and kerendahan hati (Tawadhu).'
+    * III. KEGIATAN INTI: [Bermakna] - MENGAPLIKASIKAN
+    * 9. Mengubah 5 kalimat aktif menjadi pasif di buku latihan.
+    * 10. Mencari contoh kalimat pasif di koran/majalah.
+    * IV. KEGIATAN INTI: [Berkesadaran] - MEREFLEKSIKAN
+    * 11. Memberikan apresiasi atas usaha, ketelitian, dan kejujuran anak dalam belajar.
+    * 12. Mengajak anak bersyukur atas ilmu baru dan kemampuan yang Allah anugerahkan.
+    * 13. Menanyakan perasaan anak setelah berhasil menyelesaikan tantangan ini.
+    * V. KEGIATAN PENUTUP: [Menyenangkan]
+    * 14. Simpan bagan (Amanah).
+    * 15. Membaca Hamdalah.
+
+Level 6: K3: Analisis Terjemah Al-Quran / Quranic Grammatical Analysis
+  - Tool Display: Quranic Translation & Analysis Chart
+  - Tools List: ["Quran Translation","Analysis Chart"]
+  - Error: Menganalisis tanpa memperhatikan kesantunan makna (Adab Tadabbur).
+  - Steps:
+    * I. KEGIATAN AWAL: [Berkesadaran]
+    * 1. Memulai dengan Ta'awudz and Basmalah.
+    * 2. Undang anak: 'Mari kita tadabburi susunan kata yang Allah pilih dalam firman-Nya.'
+    * 3. Guru: 'Setiap kata dalam Quran diletakkan oleh Allah dengan maksud yang sangat dalam.'
+    * II. KEGIATAN INTI: [Bermakna] - MEMAHAMI
+    * 4. Ambil ayat: 'Allah Penguasa Alam Semesta.'
+    * 5. Tanya: 'Siapa pemilik kalimat ini?' (Subjek: Allah).
+    * 6. Tanya: 'Apa peran-Nya?' (Predikat: Penguasa).
+    * 7. Tanya: 'Apa yang dikuasai?' (Objek: Alam Semesta).
+    * 8. Rasakan keagungan Allah melalui analisis struktur ini.
+    * 9. Jelaskan bahwa tidak ada 'Subjek' yang sesungguhnya di alam ini kecuali atas izin Allah.
+    * 10. Gunakan terminologi Arab sederhana jika anak siap: Ism, Fi'il, Harf.
+    * 11. Guru: 'Bacalah Al-Quran dengan teliti agar hatimu tenang.'
+    * III. KEGIATAN INTI: [Bermakna] - MENGAPLIKASIKAN
+    * 12. Menganalisis terjemahan Surat Al-Ikhlas ayat 1.
+    * 13. Menghafal urutan kata dalam bahasa Arab and Indonesia secara sinkron.
+    * IV. KEGIATAN INTI: [Berkesadaran] - MEREFLEKSIKAN
+    * 14. Memberikan apresiasi atas usaha, ketelitian, dan kejujuran anak dalam belajar.
+    * 15. Mengajak anak bersyukur atas ilmu baru dan kemampuan yang Allah anugerahkan.
+    * 16. Menanyakan perasaan anak setelah berhasil menyelesaikan tantangan ini.
+    * V. KEGIATAN PENUTUP: [Menyenangkan]
+    * 17. Menutup Mushaf dengan hormat (Adab).
+    * 18. Simpan alat (Amanah).
+    * 19. Membaca Hamdalah.
+
+========================================
+Sub-area: lang_write (Ekspresi & Menulis (BI) / ID Writing)
+========================================
+
+Level 1: K1: Persiapan Otot & Desain (Metal Insets) / The Metal Insets
+  - Tool Display: Metal Insets (Square, Circle, Triangle), Kertas, Pensil Warna, Papan Arsir
+  - Tools List: ["Metal Insets","Colored Pencils"]
+  - Error: Garis arsir keluar dari batas bingkai; tekanan pensil tidak rata.
+  - Steps:
+    * I. KEGIATAN AWAL: [Berkesadaran]
+    * 1. Memulai dengan mengucap Bismillah.
+    * 2. Undang anak: 'Mari kita latih jari-jari kita agar bisa menggambar dan menulis seindah kaligrafi (Ihsan).'
+    * 3. Guru: 'Tanganmu adalah amanah, mari kita didik ia agar patuh pada pikiranmu.'
+    * II. KEGIATAN INTI: [Bermakna] - MEMAHAMI
+    * 4. Ambil satu Inset (misal: Lingkaran) dan bingkainya.
+    * 5. Letakkan bingkai di atas kertas. Tahan dengan tangan kiri (Amanah).
+    * 6. Gunakan pensil untuk menjiplak bagian dalam bingkai dengan gerakan mengalir.
+    * 7. Angkat bingkai, letakkan inset (isi) tepat di atas gambar tersebut.
+    * 8. Guru: 'Gunakan warna yang berbeda untuk membedakan bingkai dan isinya.'
+    * 9. Mulailah mengarsir bagian dalam bentuk dengan garis-garis sejajar dari kiri ke kanan.
+    * 10. Guru: 'Bekerjalah dengan sabar, seperti menyusun barisan sholat yang rapi.'
+    * 11. Tunjukkan teknik tekanan pensil: Lembut di awal, mantap di tengah.
+    * 12. In English: 'Frame (Bingkai), Insert (Isi), and Shading (Arsir).'
+    * 13. Berikan penekanan pada ketelitian garis agar tidak keluar dari batas (Self-Discipline).
+    * 14. Cobalah menggabungkan dua bentuk berbeda untuk menciptakan desain baru (Creativity).
+    * III. KEGIATAN INTI: [Bermakna] - MENGAPLIKASIKAN
+    * 15. Membuat 'Desain Sajadah' menggunakan kombinasi Inset Segitiga dan Persegi.
+    * 16. Membuat pola warna gradasi (Ombre) pada hasil arsiran.
+    * 17. Menghias pinggiran kertas dengan pola hiasan (Ornamen).
+    * IV. KEGIATAN INTI: [Berkesadaran] - MEREFLEKSIKAN
+    * 18. Memberikan apresiasi atas ketekunan dan konsentrasi anak.
+    * 19. Mengajak anak bersyukur atas koordinasi mata dan tangan yang sempurna.
+    * 20. Menanyakan perasaan anak setelah melihat keindahan bentuk yang ia buat sendiri.
+    * V. KEGIATAN PENUTUP: [Menyenangkan]
+    * 21. Simpan kembali pensil warna ke kotaknya sesuai gradasi warna (Tertib).
+    * 22. Kembalikan inset logam ke raknya dengan dua tangan.
+    * 23. Membaca Hamdalah.
+
+Level 2: K1: Menulis Tanpa Pensil (Alphabet Bergerak) / The Movable Alphabet
+  - Tool Display: Kotak Alphabet Bergerak (Vokal Biru, Konsonan Merah), Karpet Kerja
+  - Tools List: ["Movable Alphabet Box"]
+  - Error: Menyusun huruf terbalik (Mirroring); urutan bunyi tidak sesuai ucapan.
+  - Steps:
+    * I. KEGIATAN AWAL: [Berkesadaran]
+    * 1. Memulai dengan membaca Basmalah.
+    * 2. Undang anak: 'Pikiranmu penuh dengan ide, mari kita wujudkan menjadi kata tanpa perlu lelah memegang pensil.'
+    * 3. Guru: 'Sampaikan kebenaran (Tabligh) meskipun hanya lewat satu kata.'
+    * II. KEGIATAN INTI: [Bermakna] - MEMAHAMI
+    * 4. Bentangkan karpet kecil. Bawa kotak Alphabet Bergerak dengan amanah.
+    * 5. Guru: 'Pikirkan satu benda, misal: BUKU.'
+    * 6. 'Bunyi apa yang pertama kamu dengar? /b/.' Cari huruf 'b', letakkan di karpet.
+    * 7. 'Setelah /b/, bunyi apa? /u/.' Cari huruf 'u', letakkan di samping 'b'.
+    * 8. Lanjutkan hingga kata 'B-U-K-U' terbentuk utuh.
+    * 9. Guru: 'Lihatlah, pikiranmu sekarang bisa dibaca oleh matamu.'
+    * 10. In English: 'Blue letters are Vowels, Red letters are Consonants.'
+    * 11. Guru: 'Setiap huruf punya tempatnya masing-masing, jangan sampai tertukar.' (Adil).
+    * 12. Biarkan anak bebas menyusun kata-kata yang ia sukai tanpa dikoreksi ejaannya di awal (Freedom within limits).
+    * 13. Berikan kartu gambar untuk memancing inspirasi kata (misal: Masjid, Pohon).
+    * III. KEGIATAN INTI: [Bermakna] - MENGAPLIKASIKAN
+    * 14. Menuliskan daftar belanjaan atau daftar nama sahabat dengan Alphabet Bergerak.
+    * 15. Mencoba menyusun kalimat pendek: 'Saya sayang Ibu'.
+    * 16. Membuat rima kata sederhana (misal: Buka, Luka, Suka).
+    * IV. KEGIATAN INTI: [Berkesadaran] - MEREFLEKSIKAN
+    * 17. Memberikan apresiasi atas kemandirian dan kejujuran anak dalam menyusun kata.
+    * 18. Mengajak anak bersyukur atas kemampuan berpikir yang sistematis.
+    * 19. Menanyakan perasaan anak saat melihat kata-katanya berbaris di atas karpet.
+    * V. KEGIATAN PENUTUP: [Menyenangkan]
+    * 20. Kembalikan huruf ke kompartemennya yang tepat (Amanah Kerapian).
+    * 21. Pastikan tidak ada huruf yang tertinggal di bawah karpet.
+    * 22. Gulung karpet dan simpan ke rak.
+    * 23. Membaca Hamdalah.
+
+Level 3: K2-K3: Menulis Kreatif / Creative Writing
+  - Tool Display: Lined Paper, Picture Prompts
+  - Tools List: ["Writing Paper","Picture Prompts"]
+  - Error: Hanya menyalin (Copying); tidak mengekspresikan pikiran sendiri.
+  - Steps:
+    * I. KEGIATAN AWAL: [Berkesadaran]
+    * 1. Memulai dengan membaca Basmalah.
+    * 2. Undang anak: 'Mari kita tuliskan cerita yang ada di dalam pikiran and hatimu.'
+    * 3. Guru: 'Pikiranmu adalah karunia Allah, bagikanlah kebaikannya melalui tulisan.'
+    * II. KEGIATAN INTI: [Bermakna] - MEMAHAMI
+    * 4. Tunjukkan sebuah kartu gambar (misal: Seseorang membantu kucing).
+    * 5. Guru: 'Apa yang kamu lihat? Siapa dia? Sedang apa dia?'
+    * 6. Ajarkan cara membuat 'Mind Map' sederhana untuk ide cerita.
+    * 7. Bantu anak menemukan kata kerja and kata sifat yang tepat untuk ceritanya.
+    * 8. Jelaskan adab menulis: Aliran ide tidak boleh diputus oleh koreksi ejaan di awal.
+    * 9. Guru: 'Tumpahkan dulu semua kebaikan di hatimu ke atas kertas.'
+    * 10. In English: 'Who is in your story? Where is the place?'
+    * 11. Ajarkan penggunaan huruf kapital di awal kalimat (Penghormatan pada Awal).
+    * 12. Tekankan kejujuran (Shiddiq) dalam bercerita, tidak perlu berlebihan.
+    * III. KEGIATAN INTI: [Bermakna] - MENGAPLIKASIKAN
+    * 13. Menulis 1 paragraf tentang perjalanan liburan yang paling disyukuri.
+    * 14. Tantangan: Membuat puisi pendek tentang alam ciptaan Allah.
+    * IV. KEGIATAN INTI: [Berkesadaran] - MEREFLEKSIKAN
+    * 15. Memberikan apresiasi atas usaha, ketelitian, dan kejujuran anak dalam belajar.
+    * 16. Mengajak anak bersyukur atas ilmu baru dan kemampuan yang Allah anugerahkan.
+    * 17. Menanyakan perasaan anak setelah berhasil menyelesaikan tantangan ini.
+    * V. KEGIATAN PENUTUP: [Menyenangkan]
+    * 18. Simpan kertas sisa ke folder arsip (Amanah).
+    * 19. Mencuci tangan and merapikan alat tulis.
+    * 20. Membaca Hamdalah.
+
+Level 4: K2-K3: Deskripsi Objek / Scientific Description
+  - Tool Display: Nature Objects (Leaf, Shell), Magnifying Glass
+  - Tools List: ["Magnifying Glass","Nature Objects"]
+  - Error: Deskripsi terlalu umum; tidak menggunakan observasi panca indera.
+  - Steps:
+    * I. KEGIATAN AWAL: [Berkesadaran]
+    * 1. Memulai dengan membaca Basmalah.
+    * 2. Ambil sebuah objek alam (misal: Daun Jati).
+    * 3. Guru: 'Mari kita amati detail ciptaan Allah ini and tuliskan apa yang kita lihat.'
+    * II. KEGIATAN INTI: [Bermakna] - MEMAHAMI
+    * 4. Gunakan kaca pembesar untuk melihat serat-serat daun.
+    * 5. Minta anak menyebutkan: Warna, Tekstur, Bau, Ukuran, and Bentuk.
+    * 6. Ajarkan kosa kata spesifik (misal: Kasar, Tulang Daun, Hijau Tua).
+    * 7. Tuliskan poin-poin observasi tersebut ke dalam tabel deskripsi.
+    * 8. Gabungkan poin-poin tersebut menjadi sebuah teks deskripsi yang utuh.
+    * 9. In English: 'Describe the object. Is it smooth? Is it round?'
+    * 10. Jelaskan bahwa ketelitian (Fathonah) dalam mengamati adalah awal dari ilmu pengetahuan.
+    * 11. Tekankan rasa kagum pada keindahan desain Allah (Ihsan).
+    * III. KEGIATAN INTI: [Bermakna] - MENGAPLIKASIKAN
+    * 12. Mendeskripsikan salah satu hewan peliharaan atau tanaman di taman sekolah.
+    * 13. Membuat kartu deskripsi untuk dipasang di rak materi.
+    * IV. KEGIATAN INTI: [Berkesadaran] - MEREFLEKSIKAN
+    * 14. Memberikan apresiasi atas usaha, ketelitian, dan kejujuran anak dalam belajar.
+    * 15. Mengajak anak bersyukur atas ilmu baru dan kemampuan yang Allah anugerahkan.
+    * 16. Menanyakan perasaan anak setelah berhasil menyelesaikan tantangan ini.
+    * V. KEGIATAN PENUTUP: [Menyenangkan]
+    * 17. Kembalikan objek ke alam atau ke tempat semula (Amanah).
+    * 18. Rapikan kaca pembesar (Tertib).
+    * 19. Membaca Hamdalah.
+
+Level 5: K2-K3: Menulis Surat / Letter Writing
+  - Tool Display: Stationery, Envelopes, Stamps
+  - Tools List: ["Stationery","Envelopes"]
+  - Error: Adab: Tidak menggunakan salam pembuka and penutup yang benar.
+  - Steps:
+    * I. KEGIATAN AWAL: [Berkesadaran]
+    * 1. Memulai dengan membaca Basmalah.
+    * 2. Guru: 'Menulis surat adalah cara kita menjalin silaturahmi (Ukhuwah).'
+    * II. KEGIATAN INTI: [Bermakna] - MEMAHAMI
+    * 3. Bedakan antara Surat untuk Teman (Informal) and Surat untuk Guru/Lembaga (Formal).
+    * 4. Struktur Surat: Tempat & Tanggal, Salam (Assalamu'alaikum), Isi, Penutup, Nama Pengirim.
+    * 5. Ajarkan cara melipat surat and memasukkannya ke amplop dengan rapi.
+    * 6. In English: 'Dear Friend... Sincerely...'
+    * 7. Tuliskan alamat tujuan di bagian depan amplop.
+    * 8. Jelaskan pentingnya menjaga rahasia surat orang lain (Amanah).
+    * 9. Guru: 'Sampaikan kabar yang baik (Tabligh) and menyejukkan hati.'
+    * 10. Masukkan ke kotak pos kelas.
+    * III. KEGIATAN INTI: [Bermakna] - MENGAPLIKASIKAN
+    * 11. Menulis surat ucapan terima kasih untuk cleaning service sekolah.
+    * 12. Menulis surat rindu untuk Kakek/Nenek.
+    * IV. KEGIATAN INTI: [Berkesadaran] - MEREFLEKSIKAN
+    * 13. Memberikan apresiasi atas usaha, ketelitian, dan kejujuran anak dalam belajar.
+    * 14. Mengajak anak bersyukur atas ilmu baru dan kemampuan yang Allah anugerahkan.
+    * 15. Menanyakan perasaan anak setelah berhasil menyelesaikan tantangan ini.
+    * V. KEGIATAN PENUTUP: [Menyenangkan]
+    * 16. Bereskan sisa kertas and lem (Tertib).
+    * 17. Membaca Hamdalah.
+
+Level 6: K3: Laporan Penelitian / Research Reports
+  - Tool Display: Reference Books, Index Cards
+  - Tools List: ["Reference Books","Notebook"]
+  - Error: Plagiarisme: Menyalin mentah-mentah tanpa merangkum dengan kata-kata sendiri.
+  - Steps:
+    * I. KEGIATAN AWAL: [Berkesadaran]
+    * 1. Memulai dengan membaca Basmalah.
+    * 2. Guru: 'Ilmu Allah sangat luas, mari kita teliti satu hal and bagikan hasilnya.'
+    * II. KEGIATAN INTI: [Bermakna] - MEMAHAMI
+    * 3. Pilih satu topik (misal: Planet di Tata Surya).
+    * 4. Cari informasi dari buku atau ensiklopedia.
+    * 5. Ajarkan cara mencatat poin penting (Key Words) di kartu catatan.
+    * 6. Ajarkan cara merangkum (Paraphrasing): Mengubah kalimat buku menjadi kalimat sendiri.
+    * 7. Tekankan kejujuran intelektual (Shiddiq): Tidak mencuri tulisan orang lain.
+    * 8. Susun laporan: Judul, Pendahuluan, Isi, Kesimpulan, Sumber Buku.
+    * 9. In English: 'Title, Introduction, Body, Conclusion.'
+    * 10. Jelaskan bahwa mencatat ilmu adalah cara menjaganya agar tidak hilang.
+    * III. KEGIATAN INTI: [Bermakna] - MENGAPLIKASIKAN
+    * 11. Membuat laporan 1 lembar tentang sejarah hidup Nabi Muhammad SAW.
+    * 12. Presentasi singkat hasil penelitian di depan kelompok kecil.
+    * IV. KEGIATAN INTI: [Berkesadaran] - MEREFLEKSIKAN
+    * 13. Memberikan apresiasi atas usaha, ketelitian, dan kejujuran anak dalam belajar.
+    * 14. Mengajak anak bersyukur atas ilmu baru dan kemampuan yang Allah anugerahkan.
+    * 15. Menanyakan perasaan anak setelah berhasil menyelesaikan tantangan ini.
+    * V. KEGIATAN PENUTUP: [Menyenangkan]
+    * 16. Simpan buku referensi ke perpustakaan kelas (Amanah).
+    * 17. Membaca Hamdalah.
+
+Level 7: K3: Gaya Bahasa / Style of Language (Fables, Myths & Legends)
+  - Tool Display: Buku-buku Cerita Rakyat, Chart Perbandingan
+  - Tools List: ["Story Books"]
+  - Error: Membingungkan antara Mitos yang tidak logis dengan fakta sejarah Islam.
+  - Steps:
+    * I. KEGIATAN AWAL: [Berkesadaran]
+    * 1. Memulai dengan membaca Basmalah.
+    * 2. Guru: 'Cerita memiliki banyak jenis, ada yang fiksi (khayalan) and ada yang fakta.'
+    * II. KEGIATAN INTI: [Bermakna] - MEMAHAMI
+    * 3. Fabel: Cerita hewan yang punya pesan moral (misal: Kisah Burung Hud-hud).
+    * 4. Legenda: Cerita asal-usul tempat yang bercampur imajinasi.
+    * 5. Mitos: Cerita kuno tentang dewa-dewi (Jelaskan ini sebagai budaya, bukan aqidah).
+    * 6. Bandingkan dengan Kisah-kisah dalam Al-Quran (Fakta Sejarah).
+    * 7. Ajarkan anak untuk bisa membedakan mana yang menghibur vs mana yang diyakini.
+    * 8. In English: 'Fable, Myth, and Legend.'
+    * 9. Tekankan nilai hikmah (lesson learned) dari setiap cerita fiksi.
+    * 10. Guru: 'Ambili hikmahnya (Fathonah), tapi tetap jaga akidahmu.'
+    * III. KEGIATAN INTI: [Bermakna] - MENGAPLIKASIKAN
+    * 11. Membuat fabel sederhana tentang semut yang suka berbagi.
+    * 12. Menentukan pesan moral dari legenda setempat.
+    * IV. KEGIATAN INTI: [Berkesadaran] - MEREFLEKSIKAN
+    * 13. Memberikan apresiasi atas usaha, ketelitian, dan kejujuran anak dalam belajar.
+    * 14. Mengajak anak bersyukur atas ilmu baru dan kemampuan yang Allah anugerahkan.
+    * 15. Menanyakan perasaan anak setelah berhasil menyelesaikan tantangan ini.
+    * V. KEGIATAN PENUTUP: [Menyenangkan]
+    * 16. Simpan buku cerita (Amanah).
+    * 17. Membaca Hamdalah.
+
+Level 8: K3: Jurnal Refleksi & Kebaikan (Reflective Journaling)
+  - Tool Display: Buku Diary Eksklusif, Stiker Kebaikan
+  - Tools List: ["Journal Book"]
+  - Error: Menulis tanpa perasaan; hanya formalitas tugas sekolah.
+  - Steps:
+    * I. KEGIATAN AWAL: [Berkesadaran]
+    * 1. Memulai dengan membaca Basmalah.
+    * 2. Guru: 'Hati kita perlu diajak bicara, mari kita tulis apa yang kita rasakan hari ini.'
+    * II. KEGIATAN INTI: [Bermakna] - MEMAHAMI
+    * 3. Ajarkan konsep Muhasabah (Evaluasi diri sebelum tidur).
+    * 4. Tuliskan: 'Apa kebaikan yang aku lakukan hari ini?' (Amanah amal).
+    * 5. Tuliskan: 'Apa hal yang membuatku sedih and apa solusinya?' (Sabar).
+    * 6. Ajarkan cara menulis doa and harapan kepada Allah di dalam jurnal.
+    * 7. Jelaskan bahwa jurnal ini bersifat pribadi (Privasi Adab).
+    * 8. Guru: 'Jadikan tulisanmu saksi kebaikanmu di hadapan Allah.'
+    * 9. In English: 'Gratitude Journal. What am I thankful for today?'
+    * 10. Berikan kebebasan berekspresi: Boleh digambar, dihias, atau dipuisikan.
+    * III. KEGIATAN INTI: [Bermakna] - MENGAPLIKASIKAN
+    * 11. Mengisi jurnal setiap sore selama 7 hari berturut-turut.
+    * 12. Mengulang bacaan jurnal bulan lalu untuk melihat perkembangan diri.
+    * IV. KEGIATAN INTI: [Berkesadaran] - MEREFLEKSIKAN
+    * 13. Memberikan apresiasi atas usaha, ketelitian, dan kejujuran anak dalam belajar.
+    * 14. Mengajak anak bersyukur atas ilmu baru dan kemampuan yang Allah anugerahkan.
+    * 15. Menanyakan perasaan anak setelah berhasil menyelesaikan tantangan ini.
+    * V. KEGIATAN PENUTUP: [Menyenangkan]
+    * 16. Simpan jurnal di tempat rahasia masing-masing (Amanah).
+    * 17. Membaca Hamdalah.
+
+Level 9: K1-K2: Dikte Fonetik Dasar / Phonetic Dictation
+  - Tool Display: Buku Jurnal Dikte Harian, Pensil HB, Penghapus
+  - Tools List: ["Notebook","Pencil"]
+  - Error: Kecepatan otot motorik tertinggal jauh dari suara, bingung membedakan huruf hibrid yang mirip (p-b, t-d, c-j).
+  - Steps:
+    * I. KEGIATAN AWAL: [Berkesadaran]
+    * 1. Memulai dengan membaca Basmalah.
+    * 2. Guru: 'Mari tajamkan telinga dan fokus kita, menangkap embusan bunyi tak terlihat dan menguncinya menjadi barisan tinta bermakna.'
+    * II. KEGIATAN INTI: [Bermakna] - MEMAHAMI
+    * 3. Guru mendiktekan 5 pasang kata fonetis beraturan atau bersuku kata terbuka murni (contoh: ba-tu, bu-ku, ma-ta).
+    * 4. Gunakan lontaran lantunan artikulasi yang sangat jelas, lambat dan ritmis.
+    * 5. Guru: 'Islam sangat mengapresiasi tinggi kecermatan tulisan (Q.S. Al-Qalam). Dengarkan kuat-kuat agar amanah tidak keliru.'
+    * 6. Instruksikan anak mengeja dan memecah setiap bunyi huruf di kepalanya sendiri dulu sebelum jari mulai bermanuver.
+    * 7. Aturan Dikte: Guru tidak mengulang satu kata lebih dari 3 kali (Tujuan: Latihan menajamkan memori auditori jangka pendek).
+    * III. KEGIATAN INTI: [Bermakna] - MENGAPLIKASIKAN
+    * 8. Jika 5 kata mulus, tingkatkan level tantangan dikte ke satu frasa bersuara biner / kalimat utuh pendek (Ibu beli duku).
+    * 9. Anak dituntut memeriksa dan mengkoreksi sendiri ejaannya bersama tumpukan Kartu Kendali Dikte guru (Self-Correction).
+    * IV. KEGIATAN INTI: [Berkesadaran] - MEREFLEKSIKAN
+    * 10. Menyematkan apresiasi luar biasa atas daya kosentrasi sunyi telinga anak tersebut.
+    * V. KEGIATAN PENUTUP: [Menyenangkan]
+    * 11. Serap sisa debu penghapus. Tutup buku sakti dikte dengan tertib santun.
+    * 12. Membaca Hamdalah.
+
+========================================
+Sub-area: lang_eng_write (Ekspresi & Menulis (EN) / English Writing)
+========================================
+
+Level 1: K2-K3: Kosakata Visual Berulang / High Frequency Words & English Journaling
+  - Tool Display: Sight Word Flashcards Ring, Mini Chalkboard, English Journal
+  - Tools List: ["Flashcards","Journal"]
+  - Error: Menangis frustrasi memaksa merangkai ejaan Sight Words yang kebal dengan aturan fonetik alfabet universal.
+  - Steps:
+    * I. KEGIATAN AWAL: [Berkesadaran]
+    * 1. Memulai dengan membaca Basmalah bersuara mantap.
+    * 2. Guru: 'Some English words are rule-breakers! We just have to capture them directly with our eyes and save them in our hearts.'
+    * II. KEGIATAN INTI: [Bermakna] - MEMAHAMI
+    * 3. Tebar dan kenalkan kawanan monster Sight Words (the, are, come, was, etc) menggunakan satu paket kartu berjalur.
+    * 4. Guru: 'Ini adalah perkecualian ejaan. Sama miripnya seperti rukhsoh kemudahan dalam syariat beragama, tata bahasa punya seninya.'
+    * 5. Latihan fotografis: Minta anak membaca flashcard, menutup mata murni untuk memvisualisakan kerangka katanya, lalu mengeksekusi tulisan kapur cepat di papan.
+    * 6. Susun kata-kata ganjil tersebut dirajut membentuk kalimat dasar di baris jurnal internasionalnya.
+    * III. KEGIATAN INTI: [Bermakna] - MENGAPLIKASIKAN
+    * 7. Tantangan Story Starters: Anak menambal lanjutan bebas suatu karangan pendek dari pancingan satu kalimat pembuka asing.
+    * 8. Mendorong kebiasaan menabung jurnal reflektif singkat per akhir bulan (My Monthly Diary) menggunakan tatanan bahasa Inggris.
+    * IV. KEGIATAN INTI: [Berkesadaran] - MEREFLEKSIKAN
+    * 9. Memberikan aplaus dan usapan penghargaan atas supernya keberanian anak menuang jejak pikir dalam ranah linguistik asing.
+    * 10. Guru: 'Kuasailah tata bahasa dunia, maka lapang terbukalah arena dakwah rahmatan lil alamin.'
+    * V. KEGIATAN PENUTUP: [Menyenangkan]
+    * 11. Bersihkan sisa salju kapur and tumpuk jurnal rapi terawat.
+    * 12. Membaca Hamdalah penutup sesi.
+
+========================================
+Sub-area: lang_literature (Sastra & Pemahaman (BI) / ID Literature)
+========================================
+
+Level 1: K2-K3: Apresiasi Sastra & Puisi (Literature Appreciation)
+  - Tool Display: Buku Cerita Bergambar, Antologi Puisi Anak
+  - Tools List: ["Story Books","Poetry Books"]
+  - Error: Membaca tanpa intonasi; tidak memahami pesan moral (Hikmah).
+  - Steps:
+    * I. KEGIATAN AWAL: [Berkesadaran]
+    * 1. Memulai dengan mengucap 'Bismillahirrrohmanirrohim'.
+    * 2. Undang kelompok kecil anak ke sudut baca yang tenang.
+    * 3. Guru: 'Mari kita menyelami hikmah dari kisah-kisah orang terdahulu.'
+    * II. KEGIATAN INTI: [Bermakna] - MEMAHAMI
+    * 4. Guru membacakan sebuah cerita atau puisi dengan intonasi yang indah (Ihsan).
+    * 5. Gunakan ekspresi wajah and suara yang berbeda untuk setiap karakter.
+    * 6. Berhenti di tengah cerita: 'Menurutmu, apa yang dirasakan tokoh ini?'
+    * 7. Guru: 'Kemampuan berempati adalah tanda hati yang hidup.'
+    * 8. Ajarkan kosa kata sastra (metafora sederhana, rima).
+    * 9. In English: 'What is the moral of the story? (Apa hikmahnya?)'
+    * 10. Bahas nilai-nilai karakter (Fathonah, Amanah) yang muncul dalam cerita.
+    * 11. Tunjukkan perbedaan antara fiksi (imajinasi) and non-fiksi (kenyataan/sejarah).
+    * 12. Guru: 'Jadilah pembaca yang cerdas, ambil yang baik and buang yang buruk.'
+    * III. KEGIATAN INTI: [Bermakna] - MENGAPLIKASIKAN
+    * 13. Menceritakan kembali isi buku yang dibaca di depan teman-teman.
+    * 14. Membuat ilustrasi (gambar) dari bagian cerita yang paling berkesan.
+    * 15. Membaca satu hadits pendek and mendiskusikan penerapannya.
+    * IV. KEGIATAN INTI: [Berkesadaran] - MEREFLEKSIKAN
+    * 16. Memberikan apresiasi atas usaha, ketelitian, dan kejujuran anak dalam belajar.
+    * 17. Mengajak anak bersyukur atas ilmu baru dan kemampuan yang Allah anugerahkan.
+    * 18. Menanyakan perasaan anak setelah berhasil menyelesaikan tantangan ini.
+    * V. KEGIATAN PENUTUP: [Menyenangkan]
+    * 19. Mengembalikan buku ke rak dengan posisi tegak (Amanah).
+    * 20. Memastikan sudut baca tetap bersih and nyaman.
+    * 21. Menutup dengan Hamdalah.
+
+Level 2: K2-K3: Membaca Interpretatif & Intonasi / Interpretive Reading & Intonation
+  - Tool Display: Teks Naskah Dialog, Kartu Ekspresi
+  - Tools List: ["Script","Expression Cards"]
+  - Error: Membaca terlalu cepat sehingga tanda baca terabaikan.
+  - Steps:
+    * I. KEGIATAN AWAL: [Berkesadaran]
+    * 1. Memulai dengan membaca Basmalah.
+    * 2. Guru: 'Membaca nyaring adalah cara kita menghidupkan sebuah tulisan.'
+    * II. KEGIATAN INTI: [Bermakna] - MEMAHAMI
+    * 3. Berikan satu paragraf teks dialog.
+    * 4. Guru mencontohkan cara berhenti di tanda titik (.), bernafas di koma (,), and nada naik di tanya (?).
+    * 5. Ajarkan cara menekankan kata-kata kunci (Emphasis).
+    * 6. In English: 'Read with expression! (Membaca dengan ekspresi).'
+    * 7. Perkenalkan konsep 'Reading Theater' (Membaca tanpa akting fisik).
+    * 8. Jelaskan bahwa lisan kita harus digunakan untuk menyampaikan kebenaran (Tabligh).
+    * 9. Guru: 'Berilah hak pada setiap huruf and tanda baca (Ihsan).'
+    * III. KEGIATAN INTI: [Bermakna] - MENGAPLIKASIKAN
+    * 10. Rekam suara sendiri saat membaca puisi and dengarkan kembali.
+    * 11. Membacakan satu halaman buku untuk adik atau teman yang lebih kecil.
+    * IV. KEGIATAN INTI: [Berkesadaran] - MEREFLEKSIKAN
+    * 12. Memberikan apresiasi atas usaha, ketelitian, dan kejujuran anak dalam belajar.
+    * 13. Mengajak anak bersyukur atas ilmu baru dan kemampuan yang Allah anugerahkan.
+    * 14. Menanyakan perasaan anak setelah berhasil menyelesaikan tantangan ini.
+    * V. KEGIATAN PENUTUP: [Menyenangkan]
+    * 15. Simpan naskah teks ke folder (Amanah).
+    * 16. Membaca Hamdalah.
+
+Level 3: K3: Analisis Karakter & Plot Cerita / Character & Plot Analysis
+  - Tool Display: Chart Garis Waktu Cerita, Kartu Karakter
+  - Tools List: ["Character Map"]
+  - Error: Hanya fokus pada kejadian; gagal menangkap perubahan sikap tokoh.
+  - Steps:
+    * I. KEGIATAN AWAL: [Berkesadaran]
+    * 1. Memulai dengan membaca Basmalah.
+    * 2. Guru: 'Tokoh dalam cerita adalah cermin bagi kita, mari kita pelajari sifat mereka.'
+    * II. KEGIATAN INTI: [Bermakna] - MEMAHAMI
+    * 3. Pilih satu buku yang sudah dibaca anak.
+    * 4. Petakan alur cerita: Awal (Niat), Tengah (Ujian/Masalah), Akhir (Hasil).
+    * 5. Bedakan Protagonis (Tokoh Baik/Siddiq) and Antagonis (Tokoh Jahat).
+    * 6. Tanya: 'Kenapa tokoh ini berubah pikirannya?'
+    * 7. In English: 'Who is the main character? What was the solution?'
+    * 8. Jelaskan bahwa Allah menguji setiap manusia dengan peristiwa yang berbeda-beda.
+    * 9. Guru: 'Ambillah teladan dari sifat-sifat mulia yang kamu temukan (Fathonah).'
+    * III. KEGIATAN INTI: [Bermakna] - MENGAPLIKASIKAN
+    * 10. Membuat poster 'Wanted' atau 'Reward' untuk karakter utama.
+    * 11. Menuliskan akhir cerita yang berbeda (Alternative Ending).
+    * IV. KEGIATAN INTI: [Berkesadaran] - MEREFLEKSIKAN
+    * 12. Memberikan apresiasi atas usaha, ketelitian, dan kejujuran anak dalam belajar.
+    * 13. Mengajak anak bersyukur atas ilmu baru dan kemampuan yang Allah anugerahkan.
+    * 14. Menanyakan perasaan anak setelah berhasil menyelesaikan tantangan ini.
+    * V. KEGIATAN PENUTUP: [Menyenangkan]
+    * 15. Simpan materi (Amanah).
+    * 16. Membaca Hamdalah.
+
+Level 4: K3: Log & Jurnal Membaca Mandiri / Independent Reading Log & Journal
+  - Tool Display: Booklet Reading Log, Stiker Target
+  - Tools List: ["Reading Log Booklet"]
+  - Error: Amanah: Mengakui sudah membaca padahal hanya melihat gambar.
+  - Steps:
+    * I. KEGIATAN AWAL: [Berkesadaran]
+    * 1. Memulai dengan membaca Basmalah.
+    * 2. Guru: 'Membaca adalah perintah pertama Allah (Iqra), mari kita catat perjalanan ilmu kita.'
+    * II. KEGIATAN INTI: [Bermakna] - MEMAHAMI
+    * 3. Tunjukkan buku log: Judul, Penulis, Jumlah Halaman, and Tanggal Selesai.
+    * 4. Ajarkan cara memberikan Rating (Bintang 1-5) berdasarkan manfaat buku.
+    * 5. Berikan target mingguan yang realistis (Kedisiplinan).
+    * 6. In English: 'Title, Author, Genre.'
+    * 7. Jelaskan bahwa setiap ilmu yang dibaca akan dimintai pertanggungjawaban (Amanah).
+    * 8. Guru: 'Jadikan buku sebagai teman terbaikmu di waktu luang.'
+    * III. KEGIATAN INTI: [Bermakna] - MENGAPLIKASIKAN
+    * 9. Menuntaskan 1 buku sejarah Islam dalam seminggu.
+    * 10. Berbagi ringkasan buku dalam acara silaturahmi kelas (Book Sharing).
+    * IV. KEGIATAN INTI: [Berkesadaran] - MEREFLEKSIKAN
+    * 11. Memberikan apresiasi atas usaha, ketelitian, dan kejujuran anak dalam belajar.
+    * 12. Mengajak anak bersyukur atas ilmu baru dan kemampuan yang Allah anugerahkan.
+    * 13. Menanyakan perasaan anak setelah berhasil menyelesaikan tantangan ini.
+    * V. KEGIATAN PENUTUP: [Menyenangkan]
+    * 14. Simpan buku log di folder masing-masing (Amanah).
+    * 15. Membaca Hamdalah.
+
+Level 5: K3: Membaca Hikmah (I'tibar) & Pesan Moral / Reading for Reflection (I'tibar) & Moral Values
+  - Tool Display: Kartu Pesan Hikmah, Buku Sirah Nabawiyah
+  - Tools List: ["Inspiring Books"]
+  - Error: Hanya hafal jalan cerita; gagal menarik korelasi ke kehidupan nyata.
+  - Steps:
+    * I. KEGIATAN AWAL: [Berkesadaran]
+    * 1. Memulai dengan membaca Basmalah/Doa sebelum belajar.
+    * 2. Guru: 'Buku bukan sekadar kertas, tapi pesan rahasia dari Allah melalui penulisnya.'
+    * II. KEGIATAN INTI: [Bermakna] - MEMAHAMI
+    * 3. Bacalah satu bab dari Sirah Nabawiyah atau Kisah Sahabat.
+    * 4. Tanya: 'Hikmah apa yang bisa kita bawa pulang untuk diri kita sendiri?' (I'tibar).
+    * 5. Tuliskan satu 'Action Plan' dari bacaan tersebut (misal: 'Aku mau sabar seperti Nabi').
+    * 6. In English: 'What is the moral of the story? (Apa hikmahnya?)'
+    * 7. Hubungkan pelajaran buku dengan kejadian di sekolah atau rumah.
+    * 8. Guru: 'Ilmu yang bermanfaat adalah ilmu yang mengubah sikap kita (Amal Shalih).'
+    * 9. Tekankan bahwa Al-Quran adalah sumber hikmah tertinggi bagi manusia.
+    * III. KEGIATAN INTI: [Bermakna] - MENGAPLIKASIKAN
+    * 10. Menulis 1 nasihat pendek dari buku untuk diri sendiri (Self-Reminder).
+    * 11. Mendiskusikan hikmah kejujuran dalam satu cerita rakyat bersama teman.
+    * IV. KEGIATAN INTI: [Berkesadaran] - MEREFLEKSIKAN
+    * 12. Memberikan apresiasi atas usaha, ketelitian, dan kejujuran anak dalam belajar.
+    * 13. Mengajak anak bersyukur atas ilmu baru dan kemampuan yang Allah anugerahkan.
+    * 14. Menanyakan perasaan anak setelah berhasil menyelesaikan tantangan ini.
+    * V. KEGIATAN PENUTUP: [Menyenangkan]
+    * 15. Kembalikan buku dengan rapi (Amanah).
+    * 16. Membaca Hamdalah.
+
+========================================
+Sub-area: lang_eng_literature (Sastra & Pemahaman (EN) / English Literature)
+========================================
+
+Level 1: K2-K3: Kisah Sastra Global & Percakapan Dasar / English Tales & Conversations
+  - Tool Display: English International Storybooks Collection, Conversation Action Cards
+  - Tools List: ["Storybooks","Conversation Cards"]
+  - Error: Mengigau membeo sekadar melafalkan bait asing tetapi gelap perihal rona maknanya.
+  - Steps:
+    * I. KEGIATAN AWAL: [Berkesadaran]
+    * 1. Memulai dengan meresapi basmalah.
+    * 2. Undang anak duduk bersanding ke singgasana sudut baca sastra: 'Let\'s teleport and step into a different hemisphere of the world today.'
+    * II. KEGIATAN INTI: [Bermakna] - MEMAHAMI
+    * 3. Guru melantunkan bacaan lantang nyaring atas buku fable (The Boy Who Cried Wolf) atau moral literature asing.
+    * 4. Pompa performa intonasi pantomim dan gairah ekspresi demi mengail tebakan anak-anak atas arti kata-kata tanpa harus menyodorkan makna mentah.
+    * 5. Rem mendadak di tebing pucuk cerita: 'Predicting the future... What on earth do you think will happen next?'
+    * 6. Filter Pelindung Aqidah: Bila terdapat fragmen karya asing yang membentur etika tauhid/adab nubuwah, bongkar dan jadikan tameng diskusi kritis (Critical Thinking).
+    * 7. Bedah kerangka fondasi tulang punggung novel: Characters (Tokoh), Setting (Latar), Conflict (Huru-hara), Resolution (Solusi).
+    * III. KEGIATAN INTI: [Bermakna] - MENGAPLIKASIKAN
+    * 8. Pentas Tater Kelas (Role-Play): Pasukan anak terjun berekspresi memperagakan secuplik adegan puncak yang menyulut emosi.
+    * 9. Ping-pong cepat Tanya Jawab Conversation Cards harian: 'What is your favorite dish? What dream profession do you want to achieve?'
+    * IV. KEGIATAN INTI: [Berkesadaran] - MEREFLEKSIKAN
+    * 10. Merangsang simpati anak agar toleran menghargai ragam budaya literatur melintas benua, paralel diiringi keteguhan identitas benderang syariat Islam miliknya.
+    * 11. Menanyakan sari pati hikmah inti (I'tibar) yang sah bisa dipetik dan diboyong tertanam ke relung kehidupan aslinya.
+    * V. KEGIATAN PENUTUP: [Menyenangkan]
+    * 12. Parkir kembali buku cerita tebal ke markas utama perpustakaan internasional dengan presisi.
+    * 13. Menutup epilog dengan riungan Hamdalah.

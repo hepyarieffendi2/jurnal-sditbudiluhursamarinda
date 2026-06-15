@@ -1,0 +1,293 @@
+=== MAPPED PROPOSED LEVELS ===
+
+Proposed Sub-area: Fondasi Membaca Dasar (Transisi Casa)
+Proposed Level:    Pengenalan Bunyi Huruf (Sandpaper Letters)
+Database Match:    [Mekanika & Studi Kata (BI) / ID Word Study] K1-K2: Menulis Tegak Bersambung (Sandpaper Cursive) / Cursive Writing
+Status:            Matched / Reorganized
+------------------------------------------------------------
+Proposed Sub-area: Fondasi Membaca Dasar (Transisi Casa)
+Proposed Level:    Menyusun Kata Bersama Papan Alfabet Bergerak (Movable Alphabet)
+Database Match:    [Ekspresi & Menulis (BI) / ID Writing] K1: Menulis Tanpa Pensil (Alphabet Bergerak) / The Movable Alphabet
+Status:            Matched / Reorganized
+------------------------------------------------------------
+Proposed Sub-area: Fondasi Membaca Dasar (Transisi Casa)
+Proposed Level:    Seri Merah Muda / Pink Series (Membaca Fonetik Dasar / Suku Kata Terbuka)
+Database Match:    [-] -
+Status:            New Level
+------------------------------------------------------------
+Proposed Sub-area: Fondasi Membaca Dasar (Transisi Casa)
+Proposed Level:    Seri Biru / Blue Series (Membaca Konsonan Ganda / Suku Kata Tertutup)
+Database Match:    [-] -
+Status:            New Level
+------------------------------------------------------------
+Proposed Sub-area: Fondasi Membaca Dasar (Transisi Casa)
+Proposed Level:    Seri Hijau / Green Series (Membaca Fonogram / Bunyi Khusus dan Pengecualian)
+Database Match:    [-] -
+Status:            New Level
+------------------------------------------------------------
+Proposed Sub-area: Sejarah Bahasa (History of Language)
+Proposed Level:    Cerita Agung Keempat: Sejarah Tulisan (The Fourth Great Lesson: The Story of Writing)
+Database Match:    [Cerita Besar / The Great Lessons] K1-K2-K3-K4-K5-K6: Cerita Besar 4: Sejarah Tulisan / The Story of Writing
+Status:            Matched / Reorganized
+------------------------------------------------------------
+Proposed Sub-area: Sejarah Bahasa (History of Language)
+Proposed Level:    Eksplorasi Piktogram Prasejarah
+Database Match:    [-] -
+Status:            New Level
+------------------------------------------------------------
+Proposed Sub-area: Sejarah Bahasa (History of Language)
+Proposed Level:    Eksplorasi Huruf Hieroglif dan Cuneiform
+Database Match:    [-] -
+Status:            New Level
+------------------------------------------------------------
+Proposed Sub-area: Sejarah Bahasa (History of Language)
+Proposed Level:    Sejarah Penemuan Alfabet
+Database Match:    [-] -
+Status:            New Level
+------------------------------------------------------------
+Proposed Sub-area: Studi Kata (Word Study)
+Proposed Level:    Pengenalan Kata Majemuk (Compound Words)
+Database Match:    [Mekanika & Studi Kata (BI) / ID Word Study] K2-K3: Kata Majemuk / Compound Words
+Status:            Matched / Reorganized
+------------------------------------------------------------
+Proposed Sub-area: Studi Kata (Word Study)
+Proposed Level:    Rumpun Kata (Word Families)
+Database Match:    [-] -
+Status:            New Level
+------------------------------------------------------------
+Proposed Sub-area: Studi Kata (Word Study)
+Proposed Level:    Pengenalan Awalan (Prefixes)
+Database Match:    [Mekanika & Studi Kata (BI) / ID Word Study] K2-K3: Studi Imbuhan / Prefix & Suffix
+Status:            Matched / Reorganized
+------------------------------------------------------------
+Proposed Sub-area: Studi Kata (Word Study)
+Proposed Level:    Pengenalan Akhiran (Suffixes)
+Database Match:    [Mekanika & Studi Kata (BI) / ID Word Study] K2-K3: Studi Imbuhan / Prefix & Suffix
+Status:            Matched / Reorganized
+------------------------------------------------------------
+Proposed Sub-area: Studi Kata (Word Study)
+Proposed Level:    Pengenalan Sinonim (Synonyms)
+Database Match:    [Mekanika & Studi Kata (BI) / ID Word Study] K2-K3: Sinonim & Antonim / Synonyms & Antonyms
+Status:            Matched / Reorganized
+------------------------------------------------------------
+Proposed Sub-area: Studi Kata (Word Study)
+Proposed Level:    Pengenalan Antonim (Antonyms)
+Database Match:    [Mekanika & Studi Kata (BI) / ID Word Study] K2-K3: Sinonim & Antonim / Synonyms & Antonyms
+Status:            Matched / Reorganized
+------------------------------------------------------------
+Proposed Sub-area: Studi Kata (Word Study)
+Proposed Level:    Pengenalan Homonim dan Homograf (Homonyms & Homographs)
+Database Match:    [Mekanika & Studi Kata (BI) / ID Word Study] K3: Homonim, Homograf, Homofon / Homonyms & Homophones
+Status:            Matched / Reorganized
+------------------------------------------------------------
+Proposed Sub-area: Tata Bahasa (Grammar / Parts of Speech)
+Proposed Level:    Pengenalan Kata Benda (Noun)
+Database Match:    [Tata Bahasa Fungsional / Functional Grammar] K1-K2: Kata Benda (The Noun - Black Pyramid) / The Noun
+Status:            Matched / Reorganized
+------------------------------------------------------------
+Proposed Sub-area: Tata Bahasa (Grammar / Parts of Speech)
+Proposed Level:    Pengenalan Artikel (Article)
+Database Match:    [Tata Bahasa Fungsional / Functional Grammar] K1-K2: Kata Sandang (The Article - Small Light Blue Triangle) / The Article
+Status:            Matched / Reorganized
+------------------------------------------------------------
+Proposed Sub-area: Tata Bahasa (Grammar / Parts of Speech)
+Proposed Level:    Pengenalan Kata Sifat (Adjective)
+Database Match:    [Tata Bahasa Fungsional / Functional Grammar] K2-K3: Kata Sifat (The Adjective - Medium Dark Blue Triangle) / The Adjective
+Status:            Matched / Reorganized
+------------------------------------------------------------
+Proposed Sub-area: Tata Bahasa (Grammar / Parts of Speech)
+Proposed Level:    Pengenalan Kata Kerja (Verb)
+Database Match:    [Tata Bahasa Fungsional / Functional Grammar] K1-K2: Kata Kerja (The Verb - Red Sphere) / The Verb
+Status:            Matched / Reorganized
+------------------------------------------------------------
+Proposed Sub-area: Tata Bahasa (Grammar / Parts of Speech)
+Proposed Level:    Pengenalan Preposisi (Preposition)
+Database Match:    [Tata Bahasa Fungsional / Functional Grammar] K3: Preposisi (The Preposition - Green Bridge) / The Preposition
+Status:            Matched / Reorganized
+------------------------------------------------------------
+Proposed Sub-area: Tata Bahasa (Grammar / Parts of Speech)
+Proposed Level:    Pengenalan Kata Keterangan (Adverb)
+Database Match:    [Tata Bahasa Fungsional / Functional Grammar] K2-K3: Kata Keterangan (The Adverb - Small Orange Circle) / The Adverb
+Status:            Matched / Reorganized
+------------------------------------------------------------
+Proposed Sub-area: Tata Bahasa (Grammar / Parts of Speech)
+Proposed Level:    Pengenalan Kata Ganti (Pronoun)
+Database Match:    [Tata Bahasa Fungsional / Functional Grammar] K3: Kata Ganti (The Pronoun - Large Purple Isosceles Triangle) / The Pronoun
+Status:            Matched / Reorganized
+------------------------------------------------------------
+Proposed Sub-area: Tata Bahasa (Grammar / Parts of Speech)
+Proposed Level:    Pengenalan Konjungsi (Conjunction)
+Database Match:    [Tata Bahasa Fungsional / Functional Grammar] K3: Kata Sambung (The Conjunction - Pink Bar) / The Conjunction
+Status:            Matched / Reorganized
+------------------------------------------------------------
+Proposed Sub-area: Tata Bahasa (Grammar / Parts of Speech)
+Proposed Level:    Pengenalan Interjeksi (Interjection)
+Database Match:    [Tata Bahasa Fungsional / Functional Grammar] K3: Kata Seru (The Interjection - Gold Flower) / The Interjection
+Status:            Matched / Reorganized
+------------------------------------------------------------
+Proposed Sub-area: Tata Bahasa (Grammar / Parts of Speech)
+Proposed Level:    Kotak Tata Bahasa 2: Kata Benda dan Artikel
+Database Match:    [Tata Bahasa Fungsional / Functional Grammar] K1-K2: Kata Benda (The Noun - Black Pyramid) / The Noun
+Status:            Matched / Reorganized
+------------------------------------------------------------
+Proposed Sub-area: Tata Bahasa (Grammar / Parts of Speech)
+Proposed Level:    Kotak Tata Bahasa 3: Kata Sifat
+Database Match:    [Tata Bahasa Fungsional / Functional Grammar] K2-K3: Kata Sifat (The Adjective - Medium Dark Blue Triangle) / The Adjective
+Status:            Matched / Reorganized
+------------------------------------------------------------
+Proposed Sub-area: Tata Bahasa (Grammar / Parts of Speech)
+Proposed Level:    Kotak Tata Bahasa 4: Kata Kerja
+Database Match:    [Tata Bahasa Fungsional / Functional Grammar] K1-K2: Kata Kerja (The Verb - Red Sphere) / The Verb
+Status:            Matched / Reorganized
+------------------------------------------------------------
+Proposed Sub-area: Tata Bahasa (Grammar / Parts of Speech)
+Proposed Level:    Kotak Tata Bahasa 5: Preposisi
+Database Match:    [Tata Bahasa Fungsional / Functional Grammar] K3: Preposisi (The Preposition - Green Bridge) / The Preposition
+Status:            Matched / Reorganized
+------------------------------------------------------------
+Proposed Sub-area: Tata Bahasa (Grammar / Parts of Speech)
+Proposed Level:    Kotak Tata Bahasa 6: Kata Keterangan
+Database Match:    [Tata Bahasa Fungsional / Functional Grammar] K2-K3: Kata Keterangan (The Adverb - Small Orange Circle) / The Adverb
+Status:            Matched / Reorganized
+------------------------------------------------------------
+Proposed Sub-area: Tata Bahasa (Grammar / Parts of Speech)
+Proposed Level:    Kotak Tata Bahasa 7: Kata Ganti
+Database Match:    [Tata Bahasa Fungsional / Functional Grammar] K3: Kata Ganti (The Pronoun - Large Purple Isosceles Triangle) / The Pronoun
+Status:            Matched / Reorganized
+------------------------------------------------------------
+Proposed Sub-area: Tata Bahasa (Grammar / Parts of Speech)
+Proposed Level:    Kotak Tata Bahasa 8: Konjungsi
+Database Match:    [Tata Bahasa Fungsional / Functional Grammar] K3: Kata Sambung (The Conjunction - Pink Bar) / The Conjunction
+Status:            Matched / Reorganized
+------------------------------------------------------------
+Proposed Sub-area: Tata Bahasa (Grammar / Parts of Speech)
+Proposed Level:    Kotak Tata Bahasa 9: Interjeksi
+Database Match:    [Tata Bahasa Fungsional / Functional Grammar] K3: Kata Seru (The Interjection - Gold Flower) / The Interjection
+Status:            Matched / Reorganized
+------------------------------------------------------------
+Proposed Sub-area: Analisis Kalimat (Sentence Analysis / Logical Analysis)
+Proposed Level:    Pengenalan Predikat dan Subjek (Predicate and Subject)
+Database Match:    [Analisis Kalimat / Sentence Analysis] K2-K3: Dasar Analisis Kalimat / Sentence Analysis (Subject & Predicate)
+Status:            Matched / Reorganized
+------------------------------------------------------------
+Proposed Sub-area: Analisis Kalimat (Sentence Analysis / Logical Analysis)
+Proposed Level:    Pengenalan Objek Langsung (Direct Object)
+Database Match:    [Analisis Kalimat / Sentence Analysis] K2-K3: Struktur Kalimat S-P-O / Sentence Analysis (The Direct Object)
+Status:            Matched / Reorganized
+------------------------------------------------------------
+Proposed Sub-area: Analisis Kalimat (Sentence Analysis / Logical Analysis)
+Proposed Level:    Pengenalan Objek Tidak Langsung (Indirect Object)
+Database Match:    [-] -
+Status:            New Level
+------------------------------------------------------------
+Proposed Sub-area: Analisis Kalimat (Sentence Analysis / Logical Analysis)
+Proposed Level:    Pengenalan Keterangan / Adverbial (Adverbial Modifiers)
+Database Match:    [Analisis Kalimat / Sentence Analysis] K3: Perluasan Keterangan / Sentence Analysis (Extensions)
+Status:            Matched / Reorganized
+------------------------------------------------------------
+Proposed Sub-area: Analisis Kalimat (Sentence Analysis / Logical Analysis)
+Proposed Level:    Analisis Kalimat Aktif dan Pasif (Active and Passive Voice)
+Database Match:    [Analisis Kalimat / Sentence Analysis] K3: Kalimat Aktif & Pasif / Active & Passive Voice
+Status:            Matched / Reorganized
+------------------------------------------------------------
+Proposed Sub-area: Analisis Kalimat (Sentence Analysis / Logical Analysis)
+Proposed Level:    Analisis Kalimat Majemuk (Compound Sentences)
+Database Match:    [Analisis Kalimat / Sentence Analysis] K5-K6: Diagramming & Struktur Sintaksis Kompleks / Sentence Diagramming
+Status:            Matched / Reorganized
+------------------------------------------------------------
+Proposed Sub-area: Analisis Kalimat (Sentence Analysis / Logical Analysis)
+Proposed Level:    Analisis Klausa Utama dan Klausa Bawahan (Main and Subordinate Clauses)
+Database Match:    [Analisis Kalimat / Sentence Analysis] K4-K5: Analisis Logis Anak Kalimat / Logical Analysis of Clauses
+Status:            Matched / Reorganized
+------------------------------------------------------------
+Proposed Sub-area: Keterampilan Membaca dan Sastra (Reading & Literature)
+Proposed Level:    Aturan Penggunaan Tanda Baca (Punctuation)
+Database Match:    [-] -
+Status:            New Level
+------------------------------------------------------------
+Proposed Sub-area: Keterampilan Membaca dan Sastra (Reading & Literature)
+Proposed Level:    Aturan Penggunaan Huruf Kapital (Capitalization)
+Database Match:    [-] -
+Status:            New Level
+------------------------------------------------------------
+Proposed Sub-area: Keterampilan Membaca dan Sastra (Reading & Literature)
+Proposed Level:    Permainan Perintah Membaca (Reading Command Cards)
+Database Match:    [-] -
+Status:            New Level
+------------------------------------------------------------
+Proposed Sub-area: Keterampilan Membaca dan Sastra (Reading & Literature)
+Proposed Level:    Analisis Unsur Intrinsik Cerita (Tokoh, Latar, Alur, Tema)
+Database Match:    [Sastra & Pemahaman (BI) / ID Literature] K3: Analisis Karakter & Plot Cerita / Character & Plot Analysis
+Status:            Matched / Reorganized
+------------------------------------------------------------
+Proposed Sub-area: Keterampilan Membaca dan Sastra (Reading & Literature)
+Proposed Level:    Pengenalan Puisi dan Rima (Poetry)
+Database Match:    [Bahasa Lisan / Spoken Language] K2-K3: Resitasi Puisi & Syiar / Poetry & Nashid
+Status:            Matched / Reorganized
+------------------------------------------------------------
+Proposed Sub-area: Keterampilan Membaca dan Sastra (Reading & Literature)
+Proposed Level:    Pengenalan Majas Dasar / Gaya Bahasa (Figures of Speech)
+Database Match:    [Ekspresi & Menulis (BI) / ID Writing] K3: Gaya Bahasa / Style of Language (Fables, Myths & Legends)
+Status:            Matched / Reorganized
+------------------------------------------------------------
+Proposed Sub-area: Komposisi dan Ekspresi Tulisan (Composition & Written Expression)
+Proposed Level:    Menulis Kalimat dan Paragraf Sederhana (Writing a Paragraph)
+Database Match:    [-] -
+Status:            New Level
+------------------------------------------------------------
+Proposed Sub-area: Komposisi dan Ekspresi Tulisan (Composition & Written Expression)
+Proposed Level:    Menulis Jurnal Harian (Journaling)
+Database Match:    [Ekspresi & Menulis (BI) / ID Writing] K3: Jurnal Refleksi & Kebaikan (Reflective Journaling)
+Status:            Matched / Reorganized
+------------------------------------------------------------
+Proposed Sub-area: Komposisi dan Ekspresi Tulisan (Composition & Written Expression)
+Proposed Level:    Menulis Surat Formal dan Informal (Writing a Letter)
+Database Match:    [Ekspresi & Menulis (BI) / ID Writing] K2-K3: Menulis Surat / Letter Writing
+Status:            Matched / Reorganized
+------------------------------------------------------------
+Proposed Sub-area: Komposisi dan Ekspresi Tulisan (Composition & Written Expression)
+Proposed Level:    Menulis Laporan Proyek atau Penelitian (Writing a Research Report)
+Database Match:    [Ekspresi & Menulis (BI) / ID Writing] K3: Laporan Penelitian / Research Reports
+Status:            Matched / Reorganized
+------------------------------------------------------------
+Proposed Sub-area: Komposisi dan Ekspresi Tulisan (Composition & Written Expression)
+Proposed Level:    Penulisan Kreatif / Mengarang Cerita Fiksi (Creative Writing)
+Database Match:    [Ekspresi & Menulis (BI) / ID Writing] K2-K3: Menulis Kreatif / Creative Writing
+Status:            Matched / Reorganized
+------------------------------------------------------------
+
+
+=== UNMATCHED/LEFT OUT DATABASE BI LEVELS ===
+
+- Sub-area: Bahasa Lisan / Spoken Language (lang_spoken) | Level: K2-K3: Permainan Tanya Jawab & Logika / Question & Logic Games
+- Sub-area: Bahasa Lisan / Spoken Language (lang_spoken) | Level: K3: Presentasi Proyek Mandiri / Public Speaking
+- Sub-area: Bahasa Lisan / Spoken Language (lang_spoken) | Level: K4-K5: Debat & Diskusi Panel / Debate & Panel Discussions
+- Sub-area: Bahasa Lisan / Spoken Language (lang_spoken) | Level: K5-K6: Seni Deklamasi & Pidato / Public Speaking & Oratory
+- Sub-area: Mekanika & Studi Kata (BI) / ID Word Study (lang_word_study) | Level: K1: Studi Bunyi Gabungan (Phonograms) / Digraph Study
+- Sub-area: Mekanika & Studi Kata (BI) / ID Word Study (lang_word_study) | Level: K1-K2: Tunggal & Jamak / Singular & Plural
+- Sub-area: Mekanika & Studi Kata (BI) / ID Word Study (lang_word_study) | Level: K4-K5: Etimologi & Asal-usul Kata / Etymology & Word Origins
+- Sub-area: Mekanika & Studi Kata (BI) / ID Word Study (lang_word_study) | Level: K5-K6: Pembentukan Istilah & Neologisme / Terminology & Word Formation
+- Sub-area: Tata Bahasa Fungsional / Functional Grammar (lang_grammar) | Level: K1-K2: Grammar Box II (Article & Noun)
+- Sub-area: Tata Bahasa Fungsional / Functional Grammar (lang_grammar) | Level: K1-K2: Grammar Box III (Adjective)
+- Sub-area: Tata Bahasa Fungsional / Functional Grammar (lang_grammar) | Level: K1-K2: Grammar Box IV (Verb)
+- Sub-area: Tata Bahasa Fungsional / Functional Grammar (lang_grammar) | Level: K2-K3: Grammar Box V (Preposition)
+- Sub-area: Tata Bahasa Fungsional / Functional Grammar (lang_grammar) | Level: K2-K3: Grammar Box VI (Adverb)
+- Sub-area: Tata Bahasa Fungsional / Functional Grammar (lang_grammar) | Level: K2-K3: Grammar Box VII (Pronoun)
+- Sub-area: Tata Bahasa Fungsional / Functional Grammar (lang_grammar) | Level: K3: Grammar Box VIII (Conjunction)
+- Sub-area: Tata Bahasa Fungsional / Functional Grammar (lang_grammar) | Level: K3: Grammar Box IX (Interjection)
+- Sub-area: Tata Bahasa Fungsional / Functional Grammar (lang_grammar) | Level: K2-K3: Waktu Kata Kerja / Verb Tenses (Past, Present, Future)
+- Sub-area: Tata Bahasa Fungsional / Functional Grammar (lang_grammar) | Level: K4-K5: Studi Mendalam Kata Benda & Kata Ganti / Advanced Nouns & Pronouns
+- Sub-area: Tata Bahasa Fungsional / Functional Grammar (lang_grammar) | Level: K5-K6: Sintaksis & Jenis-jenis Kalimat / Advanced Sentence Structure & Moods
+- Sub-area: Analisis Kalimat / Sentence Analysis (lang_analysis) | Level: K3: Kalimat Transitif & Intransitif / Transitive & Intransitive Verbs
+- Sub-area: Analisis Kalimat / Sentence Analysis (lang_analysis) | Level: K3: Analisis Terjemah Al-Quran / Quranic Grammatical Analysis
+- Sub-area: Ekspresi & Menulis (BI) / ID Writing (lang_write) | Level: K1: Persiapan Otot & Desain (Metal Insets) / The Metal Insets
+- Sub-area: Ekspresi & Menulis (BI) / ID Writing (lang_write) | Level: K2-K3: Deskripsi Objek / Scientific Description
+- Sub-area: Ekspresi & Menulis (BI) / ID Writing (lang_write) | Level: K1-K2: Dikte Fonetik Dasar / Phonetic Dictation
+- Sub-area: Ekspresi & Menulis (BI) / ID Writing (lang_write) | Level: K4-K5: Penulisan Esai Ekspositori & Argumentatif / Expository & Argumentative Essays
+- Sub-area: Ekspresi & Menulis (BI) / ID Writing (lang_write) | Level: K5-K6: Karya Ilmiah & Jurnalistik / Research Paper & Journalistic Writing
+- Sub-area: Sastra & Pemahaman (BI) / ID Literature (lang_literature) | Level: K2-K3: Apresiasi Sastra & Puisi (Literature Appreciation)
+- Sub-area: Sastra & Pemahaman (BI) / ID Literature (lang_literature) | Level: K2-K3: Membaca Interpretatif & Intonasi / Interpretive Reading & Intonation
+- Sub-area: Sastra & Pemahaman (BI) / ID Literature (lang_literature) | Level: K3: Log & Jurnal Membaca Mandiri / Independent Reading Log & Journal
+- Sub-area: Sastra & Pemahaman (BI) / ID Literature (lang_literature) | Level: K3: Membaca Hikmah (I'tibar) & Pesan Moral / Reading for Reflection (I'tibar) & Moral Values
+- Sub-area: Sastra & Pemahaman (BI) / ID Literature (lang_literature) | Level: K4-K5: Apresiasi Novel Anak & Cerita Rakyat / Novel & Folklore Appreciation
+- Sub-area: Sastra & Pemahaman (BI) / ID Literature (lang_literature) | Level: K5-K6: Kajian Kritis & Resensi Buku / Critical Book Review

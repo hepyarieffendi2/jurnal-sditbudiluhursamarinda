@@ -1,8 +1,13 @@
 import React, { useState, useEffect, useRef, useMemo } from 'react';
-import { BookOpen, Edit3, Save, Plus, Trash2, Search, Video, Hash, Leaf, Globe2, Moon, Wand2, Loader2, X, ChevronRight, Package, Book, Sparkles, Activity, MessageSquare, Tag, LayoutGrid, Globe, Heart, ArrowLeft, Palette, Languages, Lightbulb, Calculator, FlaskConical, Filter, Printer, Syringe } from 'lucide-react';
+import { BookOpen, Edit3, Save, Plus, Trash2, Search, Video, Hash, Leaf, Globe2, Moon, Wand2, Loader2, X, ChevronRight, Package, Book, Sparkles, Activity, MessageSquare, Tag, LayoutGrid, Globe, Heart, ArrowLeft, Palette, Languages, Lightbulb, Calculator, FlaskConical, Filter, Printer, CheckSquare } from 'lucide-react';
 import InventoryModal from './InventoryModal';
 import { AREA_SENTRA } from '../data/areaSentra';
 import { AREA_SENTRA_CYCLE2 } from '../data/areaSentraCycle2';
+import ceritaBesar5 from '../data/naskah/ceritaBesar5.json';
+import ceritaBesar4 from '../data/naskah/ceritaBesar4.json';
+import ceritaBesar3 from '../data/naskah/ceritaBesar3.json';
+import ceritaBesar2 from '../data/naskah/ceritaBesar2.json';
+import ceritaBesar1 from '../data/naskah/ceritaBesar1.json';
 import { db } from '../firebase-config';
 import { collection, getDocs, setDoc, doc, updateDoc, deleteDoc } from 'firebase/firestore';
 
@@ -20,13 +25,13 @@ const getIcon = (iconName) => {
 
 const renderParentheses = (text, isPrint = false) => {
     if (typeof text !== 'string') return text;
-    
+
     const parts = text.split(/\(([^)]+)\)/);
     return parts.map((part, index) => {
         if (index % 2 === 1) {
             return (
-                <span 
-                    key={index} 
+                <span
+                    key={index}
                     style={{
                         fontStyle: 'italic',
                         color: '#64748B', // Elegant muted slate gray
@@ -46,14 +51,14 @@ const renderParentheses = (text, isPrint = false) => {
 
 const renderTextWithTags = (text, isPrint = false) => {
     if (typeof text !== 'string') return text;
-    
+
     const parts = text.split(/\[([^\]]+)\]/);
     return parts.map((part, index) => {
         if (index % 2 === 1) {
             let bgColor = '#F1F5F9';
             let textColor = '#475569';
             let borderColor = '#E2E8F0';
-            
+
             const lowerPart = part.toLowerCase();
             if (lowerPart.includes('berkesadaran')) {
                 bgColor = '#EEF2FF'; // Indigo
@@ -68,14 +73,14 @@ const renderTextWithTags = (text, isPrint = false) => {
                 textColor = '#BE185D';
                 borderColor = '#FBCFE8';
             }
-            
-            const paddingStyles = isPrint 
+
+            const paddingStyles = isPrint
                 ? { padding: '1px 5px', fontSize: '0.58rem', borderRadius: '4px', border: `1px solid ${borderColor}` }
                 : { padding: '3px 8px', fontSize: '0.7rem', borderRadius: '8px', border: `1px solid ${borderColor}` };
-            
+
             return (
-                <span 
-                    key={index} 
+                <span
+                    key={index}
                     style={{
                         display: 'inline-flex',
                         alignItems: 'center',
@@ -109,7 +114,66 @@ export default function CurriculumManager() {
     const [activeGradeFilter, setActiveGradeFilter] = useState('Semua');
     const [editingItem, setEditingItem] = useState(null); // { label, originalLabel, data, grades, areaColor }
     const [detailDrawerItem, setDetailDrawerItem] = useState(null); // 🚀 New: Detail Drawer State
-    const [printItem, setPrintItem] = useState(null); // 🖨️ Print State
+    const [isPrintMode, setIsPrintMode] = useState(false);
+    const [selectedForPrint, setSelectedForPrint] = useState([]);
+    const [itemsToPrint, setItemsToPrint] = useState([]); // 🖨️ Print State
+    const [printNarrativeItem, setPrintNarrativeItem] = useState(null); // 📜 Narrative Print State
+
+    useEffect(() => {
+        const handleAfterPrint = () => {
+            setItemsToPrint([]);
+            setPrintNarrativeItem(null);
+        };
+        window.addEventListener('afterprint', handleAfterPrint);
+        return () => window.removeEventListener('afterprint', handleAfterPrint);
+    }, []);
+
+    const toggleSelectForPrint = (idStr) => {
+        if (selectedForPrint.includes(idStr)) {
+            setSelectedForPrint(selectedForPrint.filter(id => id !== idStr));
+        } else {
+            setSelectedForPrint([...selectedForPrint, idStr]);
+        }
+    };
+
+    const handleBatchPrint = () => {
+        if (selectedForPrint.length === 0) return;
+
+        const items = [];
+        curriculum.forEach(area => {
+            area.subAreas?.forEach(sa => {
+                sa.levels?.forEach(lvl => {
+                    const isObject = typeof lvl === 'object';
+                    const label = isObject ? lvl.label : lvl;
+                    const idStr = `${area.id}-${sa.id}-${label}`;
+
+                    if (selectedForPrint.includes(idStr)) {
+                        const rawLabel = label.includes(': ') ? label.split(': ').slice(1).join(': ') : label;
+                        const [indTitle, engTitle] = rawLabel.split(' / ');
+                        items.push({
+                            title: indTitle,
+                            engTitle: engTitle,
+                            areaColor: area.color,
+                            areaName: area.name,
+                            subAreaName: sa.name,
+                            grades: isObject && lvl.grades ? lvl.grades : [],
+                            hasTool: isObject && lvl.presentation && ((lvl.presentation.tool && lvl.presentation.tool.length > 5) || (lvl.presentation.toolDisplay && lvl.presentation.toolDisplay.length > 5) || (lvl.presentation.toolsList && lvl.presentation.toolsList.length > 0)),
+                            toolDisplay: isObject ? (lvl.presentation?.toolDisplay || lvl.presentation?.tool || lvl.presentation?.toolsList?.join(', ')) : '',
+                            prerequisites: isObject ? lvl.presentation?.prerequisites : '',
+                            directAim: isObject ? lvl.presentation?.directAim : '',
+                            indirectAim: isObject ? lvl.presentation?.indirectAim : '',
+                            steps: isObject ? (lvl.presentation?.steps || []) : [],
+                            error: isObject ? lvl.presentation?.error : '',
+                            hasPresentation: isObject && lvl.presentation && lvl.presentation.steps?.length > 1
+                        });
+                    }
+                });
+            });
+        });
+
+        setItemsToPrint(items);
+        setTimeout(() => window.print(), 300);
+    };
     const [showShoppingList, setShowShoppingList] = useState(false);
     const [expandedCard, setExpandedCard] = useState(null);
     const [showSuggestions, setShowSuggestions] = useState(false);
@@ -137,7 +201,7 @@ export default function CurriculumManager() {
     // --- INTEGRASI PEDAGOGI OTOMATIS (BULK) ---
     const getPedagogicalMetadata = (label) => {
         const pure = label.split(': ')[1]?.split(' / ')[0]?.toLowerCase() || label.toLowerCase();
-        
+
         const masterData = {
             "sandpaper": { p: "Kesiapan auditori bunyi huruf.", d: "Asosiasi simbol visual dengan bunyi.", i: "Persiapan otot tangan untuk menulis." },
             "stamp game": { p: "Golden Beads (Manik Emas).", d: "Operasi mtk (kabataku) secara abstrak.", i: "Pemahaman nilai tempat ribuan." },
@@ -167,122 +231,6 @@ export default function CurriculumManager() {
         };
     };
 
-    const seedCycle2 = async () => {
-        if (!window.confirm("Bunda, apakah yakin ingin menyelaraskan Kurikulum? Semua presentasi yang sudah Bunda edit secara manual dan Link Video di Database akan tetap aman terjaga. ✨")) return;
-        setLoading(true);
-        try {
-            const collRef = collection(db, 'kurikulum_pusat');
-            const snapshot = await getDocs(collRef);
-
-            const getPureLabel = (label) => {
-                if (!label) return "";
-                return label.includes(': ') ? label.split(': ').slice(1).join(': ').trim() : label.trim();
-            };
-
-            const getMatchKey = (label) => {
-                return getPureLabel(label).toLowerCase().replace(/\s+/g, ' ');
-            };
-
-            // 1. Ambil data presentasi & grades existing agar tidak hilang
-            const existingPresMap = {}; // Key: areaId|subAreaId|matchKey -> presentation object
-            const existingGradesMap = {}; // Key: areaId|subAreaId|matchKey -> grades array
-            const existingLabelMap = {}; // Key: areaId|subAreaId|matchKey -> full label string from DB
-            const exactPresMap = {}; // Key: areaId|subAreaId|label -> presentation object
-            const exactGradesMap = {}; // Key: areaId|subAreaId|label -> grades array
-
-            snapshot.docs.forEach(docSnap => {
-                const area = docSnap.data();
-                area.subAreas?.forEach(sa => {
-                    sa.levels?.forEach(lvl => {
-                        const label = typeof lvl === 'object' ? lvl.label : lvl;
-                        const matchKey = getMatchKey(label);
-                        const presentation = typeof lvl === 'object' ? lvl.presentation : null;
-                        const grades = typeof lvl === 'object' ? lvl.grades : null;
-
-                        const exactKey = `${docSnap.id}|${sa.id}|${label}`;
-                        const pureKey = `${docSnap.id}|${sa.id}|${matchKey}`;
-
-                        if (presentation) {
-                            exactPresMap[exactKey] = presentation;
-                            existingPresMap[pureKey] = presentation;
-                        }
-                        if (grades) {
-                            exactGradesMap[exactKey] = grades;
-                            existingGradesMap[pureKey] = grades;
-                        }
-                        existingLabelMap[pureKey] = label;
-                    });
-                });
-            });
-
-            console.log("Ditemukan " + snapshot.size + " area lama. Sedang menyelaraskan...");
-
-            // 2. Bersihkan data lama (Opsional, tapi jika ID berubah ini berguna)
-            for (const docSnap of snapshot.docs) {
-                await deleteDoc(doc(db, 'kurikulum_pusat', docSnap.id));
-            }
-
-            const finalData = AREA_SENTRA_CYCLE2.map(area => {
-                const newSubAreas = area.subAreas.map(sa => {
-                    const newLevels = sa.levels.map(lvl => {
-                        const label = typeof lvl === 'object' ? lvl.label : lvl;
-                        const matchKey = getMatchKey(label);
-                        const exactKey = `${area.id}|${sa.id}|${label}`;
-                        const pureKey = `${area.id}|${sa.id}|${matchKey}`;
-                        
-                        // Miliki metadata otomatis
-                        const meta = getPedagogicalMetadata(label);
-
-                        // Ambil data dari database (exact match first, then fallback to matchKey)
-                        const dbPres = exactPresMap[exactKey] || existingPresMap[pureKey];
-                        const dbGrades = exactGradesMap[exactKey] || existingGradesMap[pureKey];
-                        const dbLabel = exactPresMap[exactKey] ? label : (existingLabelMap[pureKey] || label);
-
-                        if (typeof lvl === 'object') {
-                            return {
-                                ...lvl,
-                                label: dbLabel,
-                                grades: dbGrades || lvl.grades || dbLabel.match(/^(K\d|3Y|K\d-K\d)/)?.[0]?.split('-') || ['K1'],
-                                presentation: {
-                                    ...meta, // Default meta
-                                    ...(dbPres || {}), // Prioritas data presentasi dari database (termasuk yang sudah diedit manual)
-                                    ...(lvl.presentation || {}), // Override dengan data di file jika ada (file adalah source of truth untuk curated content!)
-                                    videoUrl: dbPres?.videoUrl || lvl.presentation?.videoUrl || '' // Pastikan video aman
-                                }
-                            };
-                        } else {
-                            const grades = dbGrades || dbLabel.match(/^(K\d|3Y|K\d-K\d)/)?.[0]?.split('-') || ['K1'];
-                            return {
-                                label: dbLabel,
-                                grades,
-                                presentation: { 
-                                    ...meta,
-                                    ...(dbPres || {}),
-                                    videoUrl: dbPres?.videoUrl || '', 
-                                    steps: dbPres?.steps || [] 
-                                }
-                            };
-                        }
-                    });
-                    return { ...sa, levels: newLevels };
-                });
-                return { ...area, subAreas: newSubAreas };
-            });
-
-            // 4. Unggah data yang sudah di-merge
-            for (const area of finalData) {
-                await setDoc(doc(db, 'kurikulum_pusat', area.id), area);
-            }
-
-            alert("Sihir AI Berhasil! Kurikulum telah diperbarui, presentasi manual Bunda, dan Link Video Anda tetap aman terjaga. ✨");
-            window.location.reload();
-        } catch (e) {
-            console.error(e);
-            alert("Gagal menyuntikkan data: " + e.message);
-        } finally {
-            setLoading(false);
-        }
-    };
 
     // Fetch Curriculum from Firestore
     useEffect(() => {
@@ -326,10 +274,10 @@ export default function CurriculumManager() {
                         subAreas: area.subAreas?.map(sa => ({
                             ...sa,
                             levels: sa.levels?.map(lvl => {
-                                if (typeof lvl !== 'object') return { label: lvl, grades: lvl.match(/^(K\d|3Y|K\d-K\d)/)?.[0]?.split('-') || ['K1'] };
+                                if (typeof lvl !== 'object') return { label: lvl, grades: lvl.match(/^(K\d|3Y|K\d(?:-K\d)*)/)?.[0]?.split('-') || ['K1'] };
                                 if (lvl.grades) return lvl;
                                 const label = lvl.label || "";
-                                const gradesMatch = label.match(/^(K\d|3Y|K\d-K\d)/);
+                                const gradesMatch = label.match(/^(K\d|3Y|K\d(?:-K\d)*)/);
                                 const grades = gradesMatch ? gradesMatch[0].split('-') : ['K1'];
                                 return { ...lvl, grades };
                             })
@@ -362,7 +310,7 @@ export default function CurriculumManager() {
     // 🔍 SEARCH SUGGESTIONS LOGIC
     const suggestions = useMemo(() => {
         if (!searchTerm || searchTerm.length < 2) return [];
-        
+
         const matches = [];
         curriculum.forEach(area => {
             area.subAreas?.forEach(sa => {
@@ -392,7 +340,7 @@ export default function CurriculumManager() {
         const label = isObject ? lvl.label : lvl;
         const rawLabel = label.includes(': ') ? label.split(': ').slice(1).join(': ') : label;
         const [indTitle, engTitle] = rawLabel.split(' / ');
-        
+
         const hasPresentation = isObject && lvl.presentation && lvl.presentation.steps?.length > 1;
         const stepsCount = isObject ? (lvl.presentation?.steps?.filter(s => s.match(/^\d+\./))?.length || 0) : 0;
         const hasTool = isObject && lvl.presentation && (
@@ -405,13 +353,13 @@ export default function CurriculumManager() {
         // Auto-switch view to match the item
         setActiveAreaId(areaId);
         setActiveSubAreaId(subAreaId);
-        
+
         setDetailDrawerItem({
-            lvl, isObject, label, indTitle, engTitle, 
+            lvl, isObject, label, indTitle, engTitle,
             hasTool, hasPresentation, hasVideo, stepsCount,
             areaColor, bgColor, areaName
         });
-        
+
         setSearchTerm('');
         setShowSuggestions(false);
     };
@@ -571,33 +519,6 @@ export default function CurriculumManager() {
         }
     };
 
-    const handleSyncAI = async (e, lvl, isObject, rawLabel, label) => {
-        e.stopPropagation();
-        if (!window.confirm(`Suntikkan "${rawLabel}" ke hardcode permanen?`)) return;
-        
-        try {
-            const dataToSync = isObject && lvl.data ? lvl.data : {};
-            
-            const response = await fetch('/api/sync-ai', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({
-                    label: label,
-                    data: dataToSync
-                })
-            });
-            
-            const result = await response.json();
-            if (result.success) {
-                alert("Berhasil disuntikkan ke hardcode! 💉✨");
-            } else {
-                alert("Gagal: " + (result.message || result.error));
-            }
-        } catch (error) {
-            console.error(error);
-            alert("Error menyuntikkan ke hardcode: " + error.message);
-        }
-    };
 
     const handleSaveEdit = async () => {
         if (!editingItem || !activeArea) return;
@@ -750,15 +671,16 @@ export default function CurriculumManager() {
                     <div style={{ display: 'flex', alignItems: 'center', gap: '10px', color: 'var(--primary)', fontWeight: 900, fontSize: '0.8rem', textTransform: 'uppercase', marginBottom: '8px' }}>
                         <Sparkles size={16} /> Kurikulum SDIT Budi Luhur Samarinda
                     </div>
+                    <span style={{ fontSize: '0.9rem', fontWeight: 700, color: '#3B82F6', textTransform: 'uppercase', letterSpacing: '1px' }}>Jurnal Budi Luhur</span>
                     <h1 style={{ fontSize: '2.4rem', fontWeight: 950, color: '#0F172A', margin: 0, letterSpacing: '-1.5px' }}>Album Management</h1>
                 </div>
                 <div style={{ display: 'flex', gap: '12px', alignItems: 'center' }}>
-                    <div style={{ 
-                        display: 'flex', 
-                        alignItems: 'center', 
-                        background: 'rgba(241, 245, 249, 0.8)', 
-                        padding: '4px', 
-                        borderRadius: '16px', 
+                    <div style={{
+                        display: 'flex',
+                        alignItems: 'center',
+                        background: 'rgba(241, 245, 249, 0.8)',
+                        padding: '4px',
+                        borderRadius: '16px',
                         border: '1.5px solid #E2E8F0',
                         boxShadow: 'inset 0 2px 4px rgba(0,0,0,0.02)',
                         transition: 'all 0.3s ease'
@@ -766,9 +688,9 @@ export default function CurriculumManager() {
                         <div style={{ padding: '0 12px', color: '#94A3B8' }}>
                             <Search size={18} />
                         </div>
-                        <input 
-                            type="text" 
-                            placeholder="Cari kurikulum (misal: Golden)..." 
+                        <input
+                            type="text"
+                            placeholder="Cari kurikulum (misal: Golden)..."
                             value={searchTerm}
                             onChange={(e) => {
                                 setSearchTerm(e.target.value);
@@ -781,34 +703,34 @@ export default function CurriculumManager() {
                                     handleOpenDetailFromSearch(suggestions[0]);
                                 }
                             }}
-                            style={{ 
-                                border: 'none', 
-                                background: 'transparent', 
-                                padding: '10px 0', 
-                                outline: 'none', 
-                                fontWeight: 700, 
-                                fontSize: '0.9rem', 
+                            style={{
+                                border: 'none',
+                                background: 'transparent',
+                                padding: '10px 0',
+                                outline: 'none',
+                                fontWeight: 700,
+                                fontSize: '0.9rem',
                                 color: '#1E293B',
                                 width: searchTerm ? '200px' : '150px',
                                 transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)'
                             }}
                         />
-                        
+
                         {/* 💡 SUGGESTIONS DROPDOWN */}
                         {showSuggestions && suggestions.length > 0 && (
-                            <div style={{ 
+                            <div style={{
                                 position: 'absolute', top: 'calc(100% + 12px)', left: 0, right: 0, minWidth: '350px',
-                                background: 'white', borderRadius: '20px', 
+                                background: 'white', borderRadius: '20px',
                                 boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.15)',
                                 zIndex: 1000, border: '1px solid #E2E8F0', overflow: 'hidden',
                                 animation: 'fadeInUp 0.3s ease'
                             }}>
                                 <div style={{ padding: '12px 16px', fontSize: '0.7rem', fontWeight: 900, color: '#94A3B8', textTransform: 'uppercase', borderBottom: '1px solid #F1F5F9' }}>Hasil Pencarian Cepat</div>
                                 {suggestions.map((s, i) => (
-                                    <button 
+                                    <button
                                         key={i}
                                         onClick={() => handleOpenDetailFromSearch(s)}
-                                        style={{ 
+                                        style={{
                                             width: '100%', padding: '14px 16px', display: 'flex', alignItems: 'center', gap: '12px',
                                             border: 'none', background: 'transparent', cursor: 'pointer', borderBottom: i === suggestions.length - 1 ? 'none' : '1px solid #F1F5F9',
                                             textAlign: 'left', transition: 'all 0.2s'
@@ -826,20 +748,20 @@ export default function CurriculumManager() {
                                 ))}
                             </div>
                         )}
-                        
+
                         {searchTerm && (
-                            <button 
+                            <button
                                 onClick={() => setSearchTerm('')}
-                                style={{ 
-                                    background: '#E2E8F0', 
-                                    border: 'none', 
-                                    borderRadius: '50%', 
-                                    width: '24px', 
-                                    height: '24px', 
-                                    display: 'flex', 
-                                    alignItems: 'center', 
-                                    justifyContent: 'center', 
-                                    cursor: 'pointer', 
+                                style={{
+                                    background: '#E2E8F0',
+                                    border: 'none',
+                                    borderRadius: '50%',
+                                    width: '24px',
+                                    height: '24px',
+                                    display: 'flex',
+                                    alignItems: 'center',
+                                    justifyContent: 'center',
+                                    cursor: 'pointer',
                                     marginRight: '8px',
                                     color: '#64748B'
                                 }}
@@ -849,6 +771,44 @@ export default function CurriculumManager() {
                         )}
                     </div>
 
+                    {isPrintMode ? (
+                        <>
+                            <button
+                                onClick={() => {
+                                    setIsPrintMode(false);
+                                    setSelectedForPrint([]);
+                                }}
+                                className="btn-glass"
+                                style={{ padding: '12px 18px', borderRadius: '14px', border: '1.5px solid #E2E8F0', background: 'white', color: '#64748B', fontWeight: 800, cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '8px' }}
+                            >
+                                <X size={18} /> Batal
+                            </button>
+                            <button
+                                onClick={handleBatchPrint}
+                                disabled={selectedForPrint.length === 0}
+                                style={{
+                                    padding: '12px 18px', borderRadius: '14px', border: 'none',
+                                    background: selectedForPrint.length > 0 ? '#0F172A' : '#E2E8F0',
+                                    color: selectedForPrint.length > 0 ? 'white' : '#94A3B8',
+                                    fontWeight: 900, cursor: selectedForPrint.length > 0 ? 'pointer' : 'not-allowed',
+                                    display: 'flex', alignItems: 'center', gap: '8px',
+                                    boxShadow: selectedForPrint.length > 0 ? '0 8px 16px rgba(15, 23, 42, 0.2)' : 'none',
+                                    transition: 'all 0.2s'
+                                }}
+                            >
+                                <Printer size={18} /> Cetak {selectedForPrint.length > 0 ? `${selectedForPrint.length} Pilihan` : ''}
+                            </button>
+                        </>
+                    ) : (
+                        <button
+                            onClick={() => setIsPrintMode(true)}
+                            className="btn-glass"
+                            style={{ padding: '12px 18px', borderRadius: '14px', border: '1.5px solid #E2E8F0', background: 'white', color: '#64748B', fontWeight: 800, cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '8px' }}
+                        >
+                            <Printer size={18} /> <span className="tab-text-full">Mode Cetak</span>
+                        </button>
+                    )}
+
                     <button
                         onClick={() => setShowShoppingList(true)}
                         className="btn-glass"
@@ -857,15 +817,6 @@ export default function CurriculumManager() {
                         <Package size={18} /> <span className="tab-text-full">Inventaris</span>
                     </button>
 
-                    <button
-                        className="btn-primary"
-                        onClick={() => {
-                            if (window.confirm("Buka panel Sinkronisasi AI?")) seedCycle2();
-                        }}
-                        style={{ padding: '12px 18px', borderRadius: '14px', background: '#0F172A', color: 'white', border: 'none', fontWeight: 900, cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '8px', boxShadow: '0 10px 20px rgba(15,23,42,0.2)' }}
-                    >
-                        <Wand2 size={18} /> <span className="tab-text-full">Sync AI</span>
-                    </button>
                 </div>
             </div>
 
@@ -930,7 +881,7 @@ export default function CurriculumManager() {
             {/* GLOBAL GRADE FILTER BAR (Below Navbar) */}
             <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '24px', backgroundColor: '#F1F5F9', padding: '6px', borderRadius: '16px', width: 'fit-content' }}>
                 <div style={{ padding: '0 12px', fontSize: '0.65rem', fontWeight: 900, color: '#64748B', textTransform: 'uppercase', letterSpacing: '0.5px' }}>Filter Kelas:</div>
-                {['Semua', 'K1', 'K2', 'K3'].map(g => (
+                {['Semua', 'K1', 'K2', 'K3', 'K4', 'K5', 'K6'].map(g => (
                     <button
                         key={g}
                         onClick={() => setActiveGradeFilter(g)}
@@ -978,7 +929,7 @@ export default function CurriculumManager() {
                                         return { ...sa, filteredCount: filtered.length };
                                     }) || [];
 
-                                    return saWithMetrics.sort((a, b) => b.filteredCount - a.filteredCount).map(subArea => {
+                                    return saWithMetrics.map(subArea => {
                                         const isActive = activeSubAreaId === subArea.id;
                                         const isEmpty = subArea.filteredCount === 0 && activeGradeFilter !== 'Semua';
 
@@ -1079,17 +1030,17 @@ export default function CurriculumManager() {
                                 {/* Command Bar: Consolidated Search & Actions (Sticky) */}
                                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '12px 32px', backgroundColor: 'rgba(255,255,255,0.8)', backdropFilter: 'blur(12px)', borderTop: '1px solid #F1F5F9', borderBottom: '1px solid #F1F5F9', position: 'sticky', top: 0, zIndex: 10 }}>
                                     <div style={{ display: 'flex', alignItems: 'center', gap: '12px', flex: 1 }}>
-                                        <div style={{ 
-                                            position: 'relative', 
-                                            flex: 1, 
+                                        <div style={{
+                                            position: 'relative',
+                                            flex: 1,
                                             maxWidth: '500px',
                                             transition: 'all 0.3s ease'
                                         }}>
-                                            <Search size={16} style={{ 
-                                                position: 'absolute', 
-                                                left: '18px', 
-                                                top: '50%', 
-                                                transform: 'translateY(-50%)', 
+                                            <Search size={16} style={{
+                                                position: 'absolute',
+                                                left: '18px',
+                                                top: '50%',
+                                                transform: 'translateY(-50%)',
                                                 color: searchTerm ? activeArea.color : '#94A3B8',
                                                 transition: 'color 0.3s ease'
                                             }} />
@@ -1098,30 +1049,30 @@ export default function CurriculumManager() {
                                                 placeholder={`Cari materi di ${activeSubArea?.name}...`}
                                                 value={searchTerm}
                                                 onChange={e => setSearchTerm(e.target.value)}
-                                                style={{ 
-                                                    padding: '14px 20px 14px 50px', 
-                                                    borderRadius: '18px', 
-                                                    border: searchTerm ? `2px solid ${activeArea.color}40` : '1px solid #E2E8F0', 
-                                                    fontSize: '0.95rem', 
-                                                    outline: 'none', 
-                                                    width: '100%', 
-                                                    fontWeight: 700, 
+                                                style={{
+                                                    padding: '14px 20px 14px 50px',
+                                                    borderRadius: '18px',
+                                                    border: searchTerm ? `2px solid ${activeArea.color}40` : '1px solid #E2E8F0',
+                                                    fontSize: '0.95rem',
+                                                    outline: 'none',
+                                                    width: '100%',
+                                                    fontWeight: 700,
                                                     backgroundColor: searchTerm ? 'white' : '#F8FAFC',
                                                     boxShadow: searchTerm ? `0 10px 25px ${activeArea.color}10` : 'none',
                                                     transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)'
                                                 }}
                                             />
                                             {searchTerm && (
-                                                <button 
+                                                <button
                                                     onClick={() => setSearchTerm('')}
-                                                    style={{ 
-                                                        position: 'absolute', 
-                                                        right: '14px', 
-                                                        top: '50%', 
+                                                    style={{
+                                                        position: 'absolute',
+                                                        right: '14px',
+                                                        top: '50%',
                                                         transform: 'translateY(-50%)',
-                                                        background: '#F1F5F9', 
-                                                        border: 'none', 
-                                                        borderRadius: '10px', 
+                                                        background: '#F1F5F9',
+                                                        border: 'none',
+                                                        borderRadius: '10px',
                                                         padding: '6px 10px',
                                                         fontSize: '0.7rem',
                                                         fontWeight: 900,
@@ -1136,11 +1087,11 @@ export default function CurriculumManager() {
                                                 </button>
                                             )}
                                         </div>
-                                        <button style={{ 
-                                            padding: '14px', 
-                                            borderRadius: '18px', 
-                                            border: '1px solid #E2E8F0', 
-                                            background: 'white', 
+                                        <button style={{
+                                            padding: '14px',
+                                            borderRadius: '18px',
+                                            border: '1px solid #E2E8F0',
+                                            background: 'white',
                                             color: '#64748B',
                                             cursor: 'pointer',
                                             display: 'flex',
@@ -1193,42 +1144,58 @@ export default function CurriculumManager() {
                                                     );
                                                     const hasVideo = isObject && lvl.presentation?.videoUrl;
 
-                                                    const gradeColors = { 'K1': '#3B82F6', 'K2': '#8B5CF6', 'K3': '#F59E0B', '3Y': '#10B981' };
+                                                    const gradeColors = { 'K1': '#3B82F6', 'K2': '#8B5CF6', 'K3': '#F59E0B', 'K4': '#EF4444', 'K5': '#10B981', 'K6': '#EC4899', '3Y': '#06B6D4' };
 
                                                     return (
                                                         <div className="material-card" key={index} style={{ backgroundColor: 'white', borderRadius: '16px', border: '1px solid #F1F5F9', overflow: 'hidden', transition: 'all 0.25s ease', boxShadow: '0 1px 3px rgba(0,0,0,0.02)' }}>
 
                                                             {/* Card Header — Always visible */}
                                                             <div
-                                                                onClick={() => setDetailDrawerItem({
-                                                                    lvl,
-                                                                    isObject,
-                                                                    label,
-                                                                    indTitle,
-                                                                    engTitle,
-                                                                    hasTool,
-                                                                    hasPresentation,
-                                                                    hasVideo,
-                                                                    stepsCount,
-                                                                    areaColor: activeArea.color,
-                                                                    bgColor: activeArea.bgColor,
-                                                                    areaName: activeArea.name
-                                                                })}
-                                                                style={{ padding: '16px 20px', display: 'flex', alignItems: 'center', gap: '14px', cursor: 'pointer', transition: 'background 0.15s' }}
+                                                                onClick={() => {
+                                                                    if (isPrintMode) {
+                                                                        toggleSelectForPrint(`${activeArea.id}-${subArea.id}-${label}`);
+                                                                    } else {
+                                                                        setDetailDrawerItem({
+                                                                            lvl,
+                                                                            isObject,
+                                                                            label,
+                                                                            indTitle,
+                                                                            engTitle,
+                                                                            hasTool,
+                                                                            hasPresentation,
+                                                                            hasVideo,
+                                                                            stepsCount,
+                                                                            areaColor: activeArea.color,
+                                                                            bgColor: activeArea.bgColor,
+                                                                            areaName: activeArea.name
+                                                                        });
+                                                                    }
+                                                                }}
+                                                                style={{ padding: '16px 20px', display: 'flex', alignItems: 'center', gap: '14px', cursor: 'pointer', transition: 'background 0.15s', backgroundColor: (isPrintMode && selectedForPrint.includes(`${activeArea.id}-${subArea.id}-${label}`)) ? '#F8FAFC' : 'transparent' }}
                                                                 className="card-header-hover"
                                                             >
-                                                                {/* Absolute Sequence Order Badge */}
-                                                                <div style={{
-                                                                    width: '22px', height: '22px', borderRadius: '50%', fontSize: '0.72rem', fontWeight: 900,
-                                                                    backgroundColor: '#F8FAFC',
-                                                                    color: '#475569',
-                                                                    border: '1.5px solid #E2E8F0',
-                                                                    display: 'flex', alignItems: 'center', justifyContent: 'center',
-                                                                    flexShrink: 0,
-                                                                    boxShadow: '0 2px 4px rgba(0,0,0,0.02)'
-                                                                }} title={`Materi ke-${subArea.levels.indexOf(lvl) + 1} dalam album`}>
-                                                                    {subArea.levels.indexOf(lvl) + 1}
-                                                                </div>
+                                                                {isPrintMode ? (
+                                                                    <div style={{
+                                                                        width: '22px', height: '22px', borderRadius: '6px',
+                                                                        border: selectedForPrint.includes(`${activeArea.id}-${subArea.id}-${label}`) ? `2px solid #0F172A` : '2px solid #CBD5E1',
+                                                                        backgroundColor: selectedForPrint.includes(`${activeArea.id}-${subArea.id}-${label}`) ? '#0F172A' : 'white',
+                                                                        display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, transition: 'all 0.2s'
+                                                                    }}>
+                                                                        {selectedForPrint.includes(`${activeArea.id}-${subArea.id}-${label}`) && <CheckSquare size={14} color="white" />}
+                                                                    </div>
+                                                                ) : (
+                                                                    <div style={{
+                                                                        width: '22px', height: '22px', borderRadius: '50%', fontSize: '0.72rem', fontWeight: 900,
+                                                                        backgroundColor: '#F8FAFC',
+                                                                        color: '#475569',
+                                                                        border: '1.5px solid #E2E8F0',
+                                                                        display: 'flex', alignItems: 'center', justifyContent: 'center',
+                                                                        flexShrink: 0,
+                                                                        boxShadow: '0 2px 4px rgba(0,0,0,0.02)'
+                                                                    }} title={`Materi ke-${subArea.levels.indexOf(lvl) + 1} dalam album`}>
+                                                                        {subArea.levels.indexOf(lvl) + 1}
+                                                                    </div>
+                                                                )}
 
                                                                 {/* Title */}
                                                                 <div style={{ flex: 1, minWidth: 0, display: 'flex', flexDirection: 'column', gap: '2px' }}>
@@ -1252,7 +1219,7 @@ export default function CurriculumManager() {
                                                                             {engTitle}
                                                                         </div>
                                                                     )}
-                                                                    
+
                                                                     {/* Grade Badges dipindah ke sini */}
                                                                     <div style={{ display: 'flex', gap: '4px', marginTop: '4px' }}>
                                                                         {(isObject && lvl.grades?.length ? lvl.grades : (grade ? [grade] : ['?'])).map((g, i) => (
@@ -1281,9 +1248,6 @@ export default function CurriculumManager() {
 
                                                                 {/* Expand Arrow */}
                                                                 <div style={{ marginLeft: '8px', color: '#94A3B8', flexShrink: 0, display: 'flex', alignItems: 'center', gap: '8px' }}>
-                                                                    <div title="Suntik ke Hardcode (Sync AI)" onClick={(e) => handleSyncAI(e, lvl, isObject, indTitle, label)} style={{ padding: '6px', backgroundColor: '#FEE2E2', color: '#EF4444', borderRadius: '8px', cursor: 'pointer', transition: 'all 0.2s', display: 'flex', alignItems: 'center', justifyContent: 'center' }} className="hover-lift">
-                                                                        <Syringe size={16} />
-                                                                    </div>
                                                                     <ChevronRight size={18} />
                                                                 </div>
                                                             </div>
@@ -1310,7 +1274,7 @@ export default function CurriculumManager() {
                     >
                         <div style={{ padding: '32px 40px', borderBottom: '1px solid #F1F5F9', position: 'relative' }}>
                             <h3 style={{ fontSize: '1.4rem', fontWeight: 900, marginBottom: '8px' }}>Edit Buku Panduan (Album)</h3>
-                            <button 
+                            <button
                                 onClick={() => setEditingItem(null)}
                                 style={{ position: 'absolute', top: 32, right: 32, background: '#F1F5F9', border: 'none', width: 36, height: 36, borderRadius: '50%', color: '#64748B', display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer' }}
                             >
@@ -1333,7 +1297,7 @@ export default function CurriculumManager() {
                             <div>
                                 <label style={{ fontSize: '0.75rem', fontWeight: 800, color: '#94A3B8', display: 'block', marginBottom: '8px' }}>TARGET KELAS</label>
                                 <div style={{ display: 'flex', gap: '10px' }}>
-                                    {['K1', 'K2', 'K3'].map(g => (
+                                    {['K1', 'K2', 'K3', 'K4', 'K5', 'K6'].map(g => (
                                         <button
                                             key={g}
                                             onClick={() => {
@@ -1462,12 +1426,12 @@ export default function CurriculumManager() {
 
             {/* 📘 DETAIL DRAWER (SLIDE FROM RIGHT) */}
             {detailDrawerItem && (
-                <div 
-                    style={{ position: 'fixed', inset: 0, backgroundColor: 'rgba(15, 23, 42, 0.4)', backdropFilter: 'blur(8px)', zIndex: 10000, display: 'flex', justifyContent: 'flex-end' }} 
+                <div
+                    style={{ position: 'fixed', inset: 0, backgroundColor: 'rgba(15, 23, 42, 0.4)', backdropFilter: 'blur(8px)', zIndex: 10000, display: 'flex', justifyContent: 'flex-end' }}
                     onClick={() => setDetailDrawerItem(null)}
                 >
-                    <div 
-                        style={{ background: 'white', width: '100%', maxWidth: '500px', height: '100%', display: 'flex', flexDirection: 'column', animation: 'slideLeft 0.3s cubic-bezier(0.16, 1, 0.3, 1)', boxShadow: '-15px 0 50px rgba(0,0,0,0.1)' }} 
+                    <div
+                        style={{ background: 'white', width: '100%', maxWidth: '500px', height: '100%', display: 'flex', flexDirection: 'column', animation: 'slideLeft 0.3s cubic-bezier(0.16, 1, 0.3, 1)', boxShadow: '-15px 0 50px rgba(0,0,0,0.1)' }}
                         onClick={e => e.stopPropagation()}
                     >
                         {/* Header High Impact Style (from AreaTracker) */}
@@ -1477,10 +1441,10 @@ export default function CurriculumManager() {
                                     ALBUM PANDUAN
                                 </div>
                                 <button onClick={() => setDetailDrawerItem(null)} style={{ background: 'white', border: '1px solid #E2E8F0', width: 36, height: 36, borderRadius: '50%', color: '#64748B', display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer' }}>
-                                    <X size={20}/>
+                                    <X size={20} />
                                 </button>
                             </div>
-                            
+
                             <h2 style={{ fontSize: '1.4rem', fontWeight: 950, color: '#1E293B', lineHeight: 1.2, margin: 0 }}>
                                 {detailDrawerItem.indTitle}
                             </h2>
@@ -1491,7 +1455,7 @@ export default function CurriculumManager() {
                             )}
                             <div style={{ display: 'flex', gap: 8, marginTop: 16 }}>
                                 {(() => {
-                                    const gradeColors = { 'K1': '#3B82F6', 'K2': '#8B5CF6', 'K3': '#F59E0B', '3Y': '#10B981' };
+                                    const gradeColors = { 'K1': '#3B82F6', 'K2': '#8B5CF6', 'K3': '#F59E0B', 'K4': '#EF4444', 'K5': '#10B981', 'K6': '#EC4899', '3Y': '#06B6D4' };
                                     const rawGradeMatch = detailDrawerItem.label.match(/^(K\d|3Y)/);
                                     const grades = detailDrawerItem.isObject && detailDrawerItem.lvl.grades?.length ? detailDrawerItem.lvl.grades : (rawGradeMatch ? [rawGradeMatch[1]] : ['?']);
                                     return grades.map((g, i) => (
@@ -1620,10 +1584,10 @@ export default function CurriculumManager() {
                                     <div style={{ fontSize: '0.7rem', fontWeight: 950, color: '#EF4444', textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '12px', display: 'flex', alignItems: 'center', gap: '8px' }}>
                                         <Video size={14} /> Video Tutorial
                                     </div>
-                                    <div 
+                                    <div
                                         onClick={() => window.open(detailDrawerItem.lvl.presentation.videoUrl, '_blank')}
-                                        style={{ 
-                                            position: 'relative', width: '100%', borderRadius: '24px', 
+                                        style={{
+                                            position: 'relative', width: '100%', borderRadius: '24px',
                                             overflow: 'hidden', cursor: 'pointer', aspectRatio: '16/9',
                                             background: '#0F172A', border: '1px solid #E2E8F0',
                                             boxShadow: '0 12px 24px rgba(0,0,0,0.1)'
@@ -1649,37 +1613,49 @@ export default function CurriculumManager() {
                         {/* Footer Action */}
                         <div style={{ padding: '24px 40px', borderTop: '1px solid #F1F5F9', background: 'white' }}>
                             <div style={{ display: 'flex', gap: '12px' }}>
-                                <button 
-                                    onClick={() => {
-                                        setPrintItem({
-                                            title: detailDrawerItem.indTitle,
-                                            engTitle: detailDrawerItem.engTitle,
-                                            areaColor: detailDrawerItem.areaColor,
-                                            areaName: detailDrawerItem.areaName,
-                                            stepsCount: detailDrawerItem.stepsCount,
-                                            hasTool: detailDrawerItem.hasTool,
-                                            toolDisplay: detailDrawerItem.lvl.presentation?.toolDisplay || detailDrawerItem.lvl.presentation?.tool || detailDrawerItem.lvl.presentation?.toolsList?.join(', '),
-                                            prerequisites: detailDrawerItem.lvl.presentation?.prerequisites,
-                                            directAim: detailDrawerItem.lvl.presentation?.directAim,
-                                            indirectAim: detailDrawerItem.lvl.presentation?.indirectAim,
-                                            steps: detailDrawerItem.lvl.presentation?.steps || [],
-                                            error: detailDrawerItem.lvl.presentation?.error,
-                                            hasPresentation: detailDrawerItem.hasPresentation
-                                        });
-                                        setTimeout(() => window.print(), 300);
-                                    }}
-                                    style={{ padding: '16px', borderRadius: '16px', background: '#F1F5F9', color: '#475569', border: '1px solid #E2E8F0', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', transition: 'all 0.2s' }}
-                                    title="Cetak Panduan Guru (PDF)"
-                                    onMouseEnter={e => e.currentTarget.style.backgroundColor = '#E2E8F0'}
-                                    onMouseLeave={e => e.currentTarget.style.backgroundColor = '#F1F5F9'}
-                                >
-                                    <Printer size={20} />
-                                </button>
-                                <button 
+                                {(() => {
+                                    if (!detailDrawerItem.isObject) return null;
+                                    const titleStr = (detailDrawerItem.indTitle + ' ' + (detailDrawerItem.engTitle || '')).toLowerCase();
+                                    const isGL1 = titleStr.includes('cerita besar 1') || titleStr.includes('alam semesta') || titleStr.includes('first great lesson');
+                                    const isGL2 = titleStr.includes('cerita besar 2') || titleStr.includes('kehidupan') || titleStr.includes('second great lesson');
+                                    const isGL3 = titleStr.includes('cerita besar 3') || titleStr.includes('manusia') || titleStr.includes('third great lesson');
+                                    const isGL4 = titleStr.includes('cerita besar 4') || titleStr.includes('sejarah tulisan') || titleStr.includes('fourth great lesson');
+                                    const isGL5 = titleStr.includes('cerita besar 5') || titleStr.includes('sejarah angka') || titleStr.includes('fifth great lesson');
+                                    
+                                    if (!isGL1 && !isGL2 && !isGL3 && !isGL4 && !isGL5) return null;
+
+                                    let selectedScript = ceritaBesar5;
+                                    if (isGL1) selectedScript = ceritaBesar1;
+                                    else if (isGL2) selectedScript = ceritaBesar2;
+                                    else if (isGL3) selectedScript = ceritaBesar3;
+                                    else if (isGL4) selectedScript = ceritaBesar4;
+
+                                    return (
+                                        <button
+                                            onClick={() => {
+                                                setPrintNarrativeItem({
+                                                    title: detailDrawerItem.indTitle,
+                                                    engTitle: detailDrawerItem.engTitle,
+                                                    areaColor: detailDrawerItem.areaColor,
+                                                    areaName: detailDrawerItem.areaName,
+                                                    script: selectedScript
+                                                });
+                                                setTimeout(() => window.print(), 300);
+                                            }}
+                                            style={{ padding: '16px', borderRadius: '16px', background: '#F0FDF4', color: '#166534', border: '1px solid #BBF7D0', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', transition: 'all 0.2s', fontWeight: 800, fontSize: '0.85rem', gap: '8px' }}
+                                            title="Cetak Naskah Narasi"
+                                            onMouseEnter={e => e.currentTarget.style.backgroundColor = '#DCFCE7'}
+                                            onMouseLeave={e => e.currentTarget.style.backgroundColor = '#F0FDF4'}
+                                        >
+                                            <BookOpen size={20} /> CETAK NASKAH
+                                        </button>
+                                    );
+                                })()}
+                                <button
                                     onClick={() => {
                                         const { label, isObject, lvl, areaColor } = detailDrawerItem;
                                         const prefix = label.split(': ')[0] || '';
-                                        const grades = prefix.split('-').filter(g => ['K1', 'K2', 'K3'].includes(g));
+                                        const grades = prefix.split('-').filter(g => ['K1', 'K2', 'K3', 'K4', 'K5', 'K6'].includes(g));
                                         setEditingItem({
                                             label,
                                             originalLabel: label,
@@ -1693,7 +1669,7 @@ export default function CurriculumManager() {
                                 >
                                     <Edit3 size={18} /> EDIT MATERI
                                 </button>
-                                <button 
+                                <button
                                     onClick={() => {
                                         if (window.confirm(`Hapus materi "${detailDrawerItem.indTitle}"?`)) {
                                             handleDeleteMaterial(detailDrawerItem.label);
@@ -1802,7 +1778,7 @@ export default function CurriculumManager() {
                             <div>
                                 <label style={{ fontSize: '0.75rem', fontWeight: 800, color: '#94A3B8', display: 'block', marginBottom: '8px' }}>PILIH KELAS — BISA LEBIH DARI SATU</label>
                                 <div style={{ display: 'flex', gap: '10px' }}>
-                                    {['K1', 'K2', 'K3'].map(g => (
+                                    {['K1', 'K2', 'K3', 'K4', 'K5', 'K6'].map(g => (
                                         <button
                                             key={g}
                                             onClick={() => {
@@ -1849,7 +1825,7 @@ export default function CurriculumManager() {
             )}
 
             {/* 🖨️ PREMIUM PRINTABLE CANVAS */}
-            {printItem && (
+            {itemsToPrint.length > 0 && (
                 <div className="printable-canvas" style={{ backgroundColor: 'white', color: 'black', minHeight: '100vh', padding: '20px', fontFamily: "'Inter', sans-serif" }}>
                     <style>
                         {`
@@ -1878,11 +1854,11 @@ export default function CurriculumManager() {
                                 .print-page {
                                     box-shadow: none !important;
                                     margin: 0 !important;
-                                    padding: 0 !important;
+                                    padding: 0 0 30px 0 !important;
                                     width: 100% !important;
-                                    min-height: 277mm !important; /* Flexible A4 height */
+                                    min-height: auto !important;
                                     height: auto !important;
-                                    position: relative;
+                                    position: relative !important;
                                     box-sizing: border-box;
                                     page-break-after: auto;
                                     break-after: auto;
@@ -1890,11 +1866,11 @@ export default function CurriculumManager() {
                                     break-inside: auto;
                                 }
                                 .print-footer {
-                                    position: relative !important;
-                                    margin-top: 24px !important;
-                                    bottom: auto !important;
-                                    left: auto !important;
-                                    right: auto !important;
+                                    position: absolute !important;
+                                    bottom: 0 !important;
+                                    left: 0 !important;
+                                    right: 0 !important;
+                                    margin-top: 0 !important;
                                     display: flex;
                                     justify-content: space-between;
                                 }
@@ -1906,7 +1882,8 @@ export default function CurriculumManager() {
                                 position: relative;
                                 font-family: 'Inter', sans-serif;
                                 width: 210mm;
-                                height: 297mm; /* High-fidelity screen preview A4 height */
+                                min-height: 297mm;
+                                height: auto;
                                 margin: 0 auto;
                                 padding: 32px 32px 48px 32px;
                                 box-shadow: 0 10px 40px rgba(0,0,0,0.1);
@@ -2019,6 +1996,8 @@ export default function CurriculumManager() {
                                 background-color: #FFF1F2;
                                 border-radius: 8px;
                                 border: 1px solid #FFE4E6;
+                                break-inside: avoid;
+                                page-break-inside: avoid;
                             }
                             .print-footer {
                                 position: absolute;
@@ -2047,169 +2026,252 @@ export default function CurriculumManager() {
                             </div>
                             <div>
                                 <span style={{ fontWeight: 950, color: '#1E293B', fontSize: '0.95rem', display: 'block' }}>Pratinjau Album Pedagogi Guru</span>
-                                <span style={{ fontSize: '0.75rem', color: '#64748B', fontWeight: 700 }}>Materi: {printItem.title}</span>
+                                <span style={{ fontSize: '0.75rem', color: '#64748B', fontWeight: 700 }}>Mencetak {itemsToPrint.length} Materi</span>
                             </div>
                         </div>
                         <div style={{ display: 'flex', gap: '12px' }}>
                             <button
                                 onClick={() => window.print()}
-                                style={{ padding: '10px 24px', background: printItem.areaColor || '#1E3A8A', color: 'white', borderRadius: '12px', border: 'none', cursor: 'pointer', fontWeight: 950, fontSize: '0.9rem', boxShadow: `0 4px 12px ${printItem.areaColor || '#1E3A8A'}30` }}
+                                style={{ padding: '10px 24px', background: itemsToPrint[0]?.areaColor || '#1E3A8A', color: 'white', borderRadius: '12px', border: 'none', cursor: 'pointer', fontWeight: 950, fontSize: '0.9rem', boxShadow: `0 4px 12px ${itemsToPrint[0]?.areaColor || '#1E3A8A'}30` }}
                             >Cetak Sekarang</button>
                             <button
-                                onClick={() => setPrintItem(null)}
+                                onClick={() => setItemsToPrint([])}
                                 style={{ padding: '10px 20px', background: '#F1F5F9', color: '#475569', borderRadius: '12px', border: '1px solid #E2E8F0', cursor: 'pointer', fontWeight: 950, fontSize: '0.9rem' }}
                             >Batal</button>
                         </div>
                     </div>
 
                     <div className="print-preview-container" style={{ maxWidth: '800px', fontFamily: "'Inter', sans-serif" }}>
-                        <div className="print-page">
-                            {/* Header */}
-                            <div className="print-header">
-                                <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                                    <img 
-                                        src="/logo-budiluhur.png" 
-                                        alt="Logo" 
-                                        style={{ 
-                                            height: '42px', 
-                                            width: 'auto', 
-                                            display: 'block', 
-                                            objectFit: 'contain',
-                                            marginRight: '4px'
-                                        }} 
-                                    />
-                                    <div style={{ display: 'flex', flexDirection: 'column' }}>
-                                        <span style={{ fontSize: '9pt', fontWeight: 950, letterSpacing: '0.5px' }}>ALBUM PANDUAN PEDAGOGI</span>
-                                        <span style={{ fontSize: '7pt', color: '#64748B', fontWeight: 700 }}>SDIT BUDI LUHUR SAMARINDA</span>
+                        {itemsToPrint.map((printItem, printIndex) => (
+                            <div className="print-page" key={printIndex} style={{ pageBreakAfter: printIndex === itemsToPrint.length - 1 ? 'auto' : 'always', marginBottom: '24px' }}>
+                                {/* Header */}
+                                <div className="print-header">
+                                    <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                                        <img
+                                            src="/logo-budiluhur.png"
+                                            alt="Logo"
+                                            style={{
+                                                height: '42px',
+                                                width: 'auto',
+                                                display: 'block',
+                                                objectFit: 'contain',
+                                                marginRight: '4px'
+                                            }}
+                                        />
+                                        <div style={{ display: 'flex', flexDirection: 'column' }}>
+                                            <span style={{ fontSize: '9pt', fontWeight: 950, letterSpacing: '0.5px' }}>ALBUM PANDUAN PEDAGOGI</span>
+                                            <span style={{ fontSize: '7pt', color: '#64748B', fontWeight: 700 }}>SDIT BUDI LUHUR SAMARINDA</span>
+                                        </div>
                                     </div>
+                                    <span style={{ fontSize: '7.5pt', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.5px', textAlign: 'right', maxWidth: '280px', lineHeight: 1.3 }}>
+                                        {(() => {
+                                            const hasBawah = printItem.grades && printItem.grades.some(g => ['K1','K2','K3'].includes(g));
+                                            const hasAtas = printItem.grades && printItem.grades.some(g => ['K4','K5','K6'].includes(g));
+                                            let usiaStr = '';
+                                            if (hasBawah && hasAtas) usiaStr = 'KELAS BAWAH & ATAS (6-12 Thn)';
+                                            else if (hasBawah) usiaStr = 'KELAS BAWAH (6-9 Thn)';
+                                            else if (hasAtas) usiaStr = 'KELAS ATAS (9-12 Thn)';
+                                            else usiaStr = 'SEMUA UMUR';
+                                            const saName = printItem.subAreaName ? ` - ${printItem.subAreaName}` : '';
+                                            return `${printItem.areaName}${saName} | ${usiaStr}`;
+                                        })()}
+                                    </span>
                                 </div>
-                                <span style={{ fontSize: '8pt', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '1px' }}>
-                                    {printItem.areaName}
-                                </span>
-                            </div>
 
-                            {/* Title & Apparatus (APE) Side-by-Side Header Grid */}
-                            <div style={{ display: 'grid', gridTemplateColumns: printItem.hasTool ? '1.2fr 0.8fr' : '1fr', gap: '20px', marginBottom: '14px', alignItems: 'start' }}>
-                                {/* Left: Title */}
-                                <div className="print-section-title" style={{ margin: 0 }}>
-                                    <div className="print-area-badge" style={{ backgroundColor: printItem.areaColor, marginBottom: '6px' }}>
-                                        PANDUAN PEDAGOGI
+                                {/* Title & Apparatus (APE) Side-by-Side Header Grid */}
+                                <div style={{ display: 'grid', gridTemplateColumns: printItem.hasTool ? '1.2fr 0.8fr' : '1fr', gap: '20px', marginBottom: '14px', alignItems: 'start' }}>
+                                    {/* Left: Title */}
+                                    <div className="print-section-title" style={{ margin: 0 }}>
+                                        <div className="print-area-badge" style={{ backgroundColor: printItem.areaColor, marginBottom: '6px' }}>
+                                            PANDUAN PEDAGOGI
+                                        </div>
+                                        <h2 style={{ fontSize: '1.35rem', fontWeight: 950, color: '#1E293B', margin: 0, lineHeight: 1.15 }}>
+                                            {printItem.title}
+                                        </h2>
+                                        {printItem.engTitle && (
+                                            <span className="print-en-title" style={{ marginTop: '4px', marginBottom: 0 }}>
+                                                {printItem.engTitle}
+                                            </span>
+                                        )}
                                     </div>
-                                    <h2 style={{ fontSize: '1.35rem', fontWeight: 950, color: '#1E293B', margin: 0, lineHeight: 1.15 }}>
-                                        {printItem.title}
-                                    </h2>
-                                    {printItem.engTitle && (
-                                        <span className="print-en-title" style={{ marginTop: '4px', marginBottom: 0 }}>
-                                            {printItem.engTitle}
-                                        </span>
+
+                                    {/* Right: Apparatus (APE) */}
+                                    {printItem.hasTool && (
+                                        <div style={{ padding: '8px 10px', background: `${printItem.areaColor}06`, borderRadius: '8px', borderLeft: `3px solid ${printItem.areaColor}`, boxSizing: 'border-box' }}>
+                                            <div style={{ fontSize: '0.58rem', fontWeight: 950, color: printItem.areaColor, textTransform: 'uppercase', letterSpacing: '0.5px', marginBottom: '2px' }}>
+                                                Alat & Bahan (Apparatus)
+                                            </div>
+                                            <div style={{ fontSize: '0.72rem', fontWeight: 800, color: '#334155', lineHeight: 1.25 }}>
+                                                {printItem.toolDisplay}
+                                            </div>
+                                        </div>
                                     )}
                                 </div>
 
-                                {/* Right: Apparatus (APE) */}
-                                {printItem.hasTool && (
-                                    <div style={{ padding: '8px 10px', background: `${printItem.areaColor}06`, borderRadius: '8px', borderLeft: `3px solid ${printItem.areaColor}`, boxSizing: 'border-box' }}>
-                                        <div style={{ fontSize: '0.58rem', fontWeight: 950, color: printItem.areaColor, textTransform: 'uppercase', letterSpacing: '0.5px', marginBottom: '2px' }}>
-                                            Alat & Bahan (Apparatus)
+                                {/* Main Info Frame */}
+                                <div className="print-presentation-box">
+
+                                    {/* Prerequisites & Aims */}
+                                    {(printItem.prerequisites || printItem.directAim || printItem.indirectAim) && (
+                                        <div className="print-meta-cards">
+                                            {printItem.directAim && (
+                                                <div className="print-meta-card" style={{ background: '#F0F9FF', borderColor: '#BAE6FD' }}>
+                                                    <div className="print-meta-label" style={{ color: '#0369A1' }}>Tujuan Langsung</div>
+                                                    <p className="print-meta-value" style={{ color: '#075985' }}>{printItem.directAim}</p>
+                                                </div>
+                                            )}
+                                            {printItem.indirectAim && (
+                                                <div className="print-meta-card" style={{ background: '#F5F3FF', borderColor: '#DDD6FE' }}>
+                                                    <div className="print-meta-label" style={{ color: '#6D28D9' }}>Tujuan Tidak Langsung</div>
+                                                    <p className="print-meta-value" style={{ color: '#5B21B6' }}>{printItem.indirectAim}</p>
+                                                </div>
+                                            )}
+                                            {printItem.prerequisites && (
+                                                <div className="print-meta-card" style={{ gridColumn: (printItem.directAim || printItem.indirectAim) ? 'span 2' : 'span 1' }}>
+                                                    <div className="print-meta-label">Prasyarat Kelayakan</div>
+                                                    <p className="print-meta-value">{printItem.prerequisites}</p>
+                                                </div>
+                                            )}
                                         </div>
-                                        <div style={{ fontSize: '0.72rem', fontWeight: 800, color: '#334155', lineHeight: 1.25 }}>
-                                            {printItem.toolDisplay}
+                                    )}
+
+                                    {/* Presentation Steps (2 columns) */}
+                                    {printItem.hasPresentation ? (
+                                        <div>
+                                            <div style={{ fontSize: '0.65rem', fontWeight: 950, color: '#64748B', textTransform: 'uppercase', letterSpacing: '0.5px', marginBottom: '10px' }}>
+                                                Langkah-Langkah Presentasi AMI
+                                            </div>
+                                            <div className="print-steps-list">
+                                                {(() => {
+                                                    let stepCounter = 0;
+                                                    return printItem.steps.map((step, si) => {
+                                                        if (typeof step === 'string' && (step.trim() === '.' || step.trim() === '')) return null;
+
+                                                        const isHeader = typeof step === 'string' && (step.startsWith('I.') || step.startsWith('--') || step.startsWith('II.') || step.startsWith('III.') || step.startsWith('IV.') || step.startsWith('V.'));
+
+                                                        if (isHeader) {
+                                                            return (
+                                                                <div key={si} className="print-step-header">
+                                                                    {step.replace(/---/g, '').replace(/^[IVX]+\.\s*/, '').trim()}
+                                                                </div>
+                                                            );
+                                                        }
+
+                                                        stepCounter++;
+                                                        const stepMatch = typeof step === 'string' ? step.match(/^(\d+\.)\s(.*)/) : null;
+                                                        const stepNum = stepMatch ? stepMatch[1] : `${stepCounter}.`;
+                                                        const stepText = stepMatch ? stepMatch[2] : step;
+
+                                                        return (
+                                                            <div key={si} className="print-step-item">
+                                                                <span className="print-step-num">{stepNum}</span>
+                                                                <span style={{ fontWeight: 600, color: '#334155' }}>
+                                                                    {typeof stepText === 'string' ? stepText.split(/'([^']+)'/).map((part, index) =>
+                                                                        index % 2 === 1 ? (
+                                                                            <span key={index} className="print-dialogue">"{part}"</span>
+                                                                        ) : renderTextWithTags(part, true)
+                                                                    ) : stepText}
+                                                                </span>
+                                                            </div>
+                                                        );
+                                                    });
+                                                })()}
+                                            </div>
                                         </div>
+                                    ) : (
+                                        <div style={{ padding: '20px', border: '1px dashed #CBD5E1', borderRadius: '8px', textAlign: 'center', color: '#94A3B8', fontSize: '0.8rem', fontWeight: 700 }}>
+                                            Belum ada langkah presentasi terperinci.
+                                        </div>
+                                    )}
+
+                                    {/* Control of Error */}
+                                    {printItem.error && (
+                                        <div className="print-error-box">
+                                            <div style={{ fontSize: '0.65rem', fontWeight: 950, color: '#E11D48', textTransform: 'uppercase', letterSpacing: '0.5px', marginBottom: '4px' }}>
+                                                Kontrol Kesalahan (Control of Error)
+                                            </div>
+                                            <div style={{ fontSize: '0.8rem', fontWeight: 700, color: '#9F1239', lineHeight: 1.3 }}>
+                                                {printItem.error}
+                                            </div>
+                                        </div>
+                                    )}
+                                </div>
+
+                                {/* Footer */}
+                                <div className="print-footer">
+                                    <span>SDIT Budi Luhur Samarinda © 2026 | Dokumen Kurikulum</span>
+                                    <div style={{ display: 'flex', gap: '16px' }}>
+                                        <span>Hal {printIndex + 1}/{itemsToPrint.length}</span>
+                                        <span>Dicetak: {new Date().toLocaleDateString('id-ID')}</span>
                                     </div>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            )}
+
+            {/* 📜 NARRATIVE PRINT LAYOUT */}
+            {printNarrativeItem && (
+                <div className="print-only">
+                    <style>
+                        {`
+                            @media print {
+                                body * { visibility: hidden; }
+                                .print-only, .print-only * { visibility: visible; }
+                                .print-only { 
+                                    position: absolute; left: 0; top: 0; width: 100%; 
+                                    padding: 0 !important; margin: 0 !important;
+                                    background: white !important;
+                                }
+                                @page { 
+                                    size: A4 portrait; 
+                                    margin: 15mm 20mm 15mm 20mm; 
+                                }
+                                body { background: white !important; }
+                                .no-print { display: none !important; }
+                            }
+                        `}
+                    </style>
+                    <div className="print-preview-container narrative-print-container" style={{ maxWidth: '800px', fontFamily: "'Georgia', serif", lineHeight: 1.8 }}>
+                        <div className="print-page" style={{ marginBottom: '24px' }}>
+                            {/* Header */}
+                            <div className="print-header" style={{ borderBottom: `3px solid ${printNarrativeItem.areaColor}`, paddingBottom: '16px', marginBottom: '32px' }}>
+                                <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '12px' }}>
+                                    <img src="/logo-budiluhur.png" alt="Logo" style={{ height: '42px', width: 'auto', display: 'block', objectFit: 'contain', marginRight: '4px' }} />
+                                    <div style={{ display: 'flex', flexDirection: 'column' }}>
+                                        <span style={{ fontSize: '9pt', fontWeight: 950, letterSpacing: '0.5px', fontFamily: "'Inter', sans-serif" }}>NASKAH CERITA BESAR (GREAT LESSONS)</span>
+                                        <span style={{ fontSize: '7pt', color: '#64748B', fontWeight: 700, fontFamily: "'Inter', sans-serif" }}>SDIT BUDI LUHUR SAMARINDA</span>
+                                    </div>
+                                </div>
+                                <h1 style={{ fontSize: '2rem', fontWeight: 900, color: '#0F172A', margin: 0, lineHeight: 1.2, fontFamily: "'Inter', sans-serif" }}>{printNarrativeItem.title}</h1>
+                                {printNarrativeItem.engTitle && (
+                                    <div style={{ fontSize: '1.2rem', fontWeight: 400, color: '#64748B', fontStyle: 'italic', marginTop: '4px' }}>{printNarrativeItem.engTitle}</div>
                                 )}
                             </div>
 
-                            {/* Main Info Frame */}
-                            <div className="print-presentation-box">
-
-                                {/* Prerequisites & Aims */}
-                                {(printItem.prerequisites || printItem.directAim || printItem.indirectAim) && (
-                                    <div className="print-meta-cards">
-                                        {printItem.directAim && (
-                                            <div className="print-meta-card" style={{ background: '#F0F9FF', borderColor: '#BAE6FD' }}>
-                                                <div className="print-meta-label" style={{ color: '#0369A1' }}>Tujuan Langsung</div>
-                                                <p className="print-meta-value" style={{ color: '#075985' }}>{printItem.directAim}</p>
-                                            </div>
-                                        )}
-                                        {printItem.indirectAim && (
-                                            <div className="print-meta-card" style={{ background: '#F5F3FF', borderColor: '#DDD6FE' }}>
-                                                <div className="print-meta-label" style={{ color: '#6D28D9' }}>Tujuan Tidak Langsung</div>
-                                                <p className="print-meta-value" style={{ color: '#5B21B6' }}>{printItem.indirectAim}</p>
-                                            </div>
-                                        )}
-                                        {printItem.prerequisites && (
-                                            <div className="print-meta-card" style={{ gridColumn: (printItem.directAim || printItem.indirectAim) ? 'span 2' : 'span 1' }}>
-                                                <div className="print-meta-label">Prasyarat Kelayakan</div>
-                                                <p className="print-meta-value">{printItem.prerequisites}</p>
-                                            </div>
-                                        )}
-                                    </div>
-                                )}
-
-                                {/* Presentation Steps (2 columns) */}
-                                {printItem.hasPresentation ? (
-                                    <div>
-                                        <div style={{ fontSize: '0.65rem', fontWeight: 950, color: '#64748B', textTransform: 'uppercase', letterSpacing: '0.5px', marginBottom: '10px' }}>
-                                            Langkah-Langkah Presentasi AMI
-                                        </div>
-                                        <div className="print-steps-list">
-                                            {(() => {
-                                                let stepCounter = 0;
-                                                return printItem.steps.map((step, si) => {
-                                                    if (typeof step === 'string' && (step.trim() === '.' || step.trim() === '')) return null;
-
-                                                    const isHeader = typeof step === 'string' && (step.startsWith('I.') || step.startsWith('--') || step.startsWith('II.') || step.startsWith('III.') || step.startsWith('IV.') || step.startsWith('V.'));
-
-                                                    if (isHeader) {
-                                                        return (
-                                                            <div key={si} className="print-step-header">
-                                                                {step.replace(/---/g, '').replace(/^[IVX]+\.\s*/, '').trim()}
-                                                            </div>
-                                                        );
-                                                    }
-
-                                                    stepCounter++;
-                                                    const stepMatch = typeof step === 'string' ? step.match(/^(\d+\.)\s(.*)/) : null;
-                                                    const stepNum = stepMatch ? stepMatch[1] : `${stepCounter}.`;
-                                                    const stepText = stepMatch ? stepMatch[2] : step;
-
-                                                    return (
-                                                        <div key={si} className="print-step-item">
-                                                            <span className="print-step-num">{stepNum}</span>
-                                                            <span style={{ fontWeight: 600, color: '#334155' }}>
-                                                                {typeof stepText === 'string' ? stepText.split(/'([^']+)'/).map((part, index) =>
-                                                                    index % 2 === 1 ? (
-                                                                        <span key={index} className="print-dialogue">"{part}"</span>
-                                                                    ) : renderTextWithTags(part, true)
-                                                                ) : stepText}
-                                                            </span>
-                                                        </div>
-                                                    );
-                                                });
-                                            })()}
-                                        </div>
-                                    </div>
-                                ) : (
-                                    <div style={{ padding: '20px', border: '1px dashed #CBD5E1', borderRadius: '8px', textAlign: 'center', color: '#94A3B8', fontSize: '0.8rem', fontWeight: 700 }}>
-                                        Belum ada langkah presentasi terperinci.
-                                    </div>
-                                )}
-
-                                {/* Control of Error */}
-                                {printItem.error && (
-                                    <div className="print-error-box">
-                                        <div style={{ fontSize: '0.65rem', fontWeight: 950, color: '#E11D48', textTransform: 'uppercase', letterSpacing: '0.5px', marginBottom: '4px' }}>
-                                            Kontrol Kesalahan (Control of Error)
-                                        </div>
-                                        <div style={{ fontSize: '0.8rem', fontWeight: 700, color: '#9F1239', lineHeight: 1.3 }}>
-                                            {printItem.error}
-                                        </div>
-                                    </div>
-                                )}
+                            {/* Content */}
+                            <div className="narrative-content" style={{ fontSize: '1.1rem', color: '#1E293B', textAlign: 'justify' }}>
+                                {printNarrativeItem.script.map((paragraph, index) => {
+                                    if (paragraph.startsWith('###')) {
+                                        return <h3 key={index} style={{ fontSize: '1.3rem', fontWeight: 800, marginTop: '32px', marginBottom: '12px', color: printNarrativeItem.areaColor, fontFamily: "'Inter', sans-serif" }}>{paragraph.replace('###', '').trim()}</h3>;
+                                    }
+                                    if (paragraph.startsWith('*(') && paragraph.endsWith(')*')) {
+                                        return <div key={index} style={{ fontSize: '0.9rem', fontStyle: 'italic', color: '#64748B', margin: '16px 0', padding: '12px', background: '#F8FAFC', borderLeft: '4px solid #CBD5E1', fontFamily: "'Inter', sans-serif" }}>{paragraph.replace('*(', '').replace(')*', '')}</div>;
+                                    }
+                                    if (paragraph.startsWith('-')) {
+                                        return <div key={index} style={{ marginLeft: '24px', marginBottom: '8px' }}>• {paragraph.substring(1).trim()}</div>;
+                                    }
+                                    if (paragraph.trim() === '') {
+                                        return <br key={index} />;
+                                    }
+                                    return <p key={index} style={{ marginBottom: '16px', textIndent: '32px' }}>{paragraph}</p>;
+                                })}
                             </div>
 
                             {/* Footer */}
-                            <div className="print-footer">
-                                <span>SDIT Budi Luhur Samarinda © 2026 | Sentra Budi Luhur</span>
+                            <div className="print-footer" style={{ marginTop: '40px', borderTop: '1px solid #E2E8F0', paddingTop: '16px', fontFamily: "'Inter', sans-serif", fontSize: '9pt' }}>
+                                <span>SDIT Budi Luhur Samarinda © 2026 | Dokumen Narasi Kurikulum</span>
                                 <span>Dicetak: {new Date().toLocaleDateString('id-ID')}</span>
                             </div>
                         </div>
